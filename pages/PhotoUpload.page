@@ -1,0 +1,70 @@
+<apex:page standardController="Engineer_Checklist__c" extensions="PhotoUpload" showHeader="false" sidebar="false">
+<html>
+    <head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="https://rawgithub.com/jaysalvat/jquery.facedetection/master/js/jquery.facedetection.js"></script>
+        <script type="text/javascript" src="https://rawgithub.com/jaysalvat/jquery.facedetection/master/js/facedetection/ccv.js"></script>
+        <script type="text/javascript" src="https://rawgithub.com/jaysalvat/jquery.facedetection/master/js/facedetection/face.js"></script>      
+        <script type="text/javascript" src="{!URLFOR($Resource.PhotoBooth, 'photobooth-js-gh-pages/website/js/jquery.js')}"></script>
+ 
+        <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'/>
+       
+
+        <script type="text/javascript" src="{!URLFOR($Resource.PhotoBooth, 'photobooth-js-gh-pages/photobooth_min.js')}"></script>
+        <script type="text/javascript" src="{!URLFOR($Resource.PhotoBooth, 'photobooth-js-gh-pages/website/js/script.js')}"></script>
+        <script type="text/javascript" src="{!URLFOR($Resource.PhotoBooth, 'photobooth-js-gh-pages/website/js/hijs.js')}"></script>      
+        <link type="text/css" rel="stylesheet" media="screen" href="{!URLFOR($Resource.PhotoBooth, 'photobooth-js-gh-pages/website/css/page.css')}" /> 
+
+    </head>
+
+          <div> <br/><br/>
+            <p style="font-size: 25px; font-weight: normal;  margin-left: 40%;">System Photos Capture Page</p>
+            </div>   
+        <div id="wrapper" style="margin:0px">
+           
+            
+            <br/><br/><br/><br/>
+            <div id="example" ></div>
+            <div id="gallery" style="float:right;width:1%;margin-left: 250px;margin-right: -50px;margin-top: -300px;"></div>
+                        <input type="button" value="Upload" id="submit" class="btn" style="margin-left: 40%;"/> 
+        </div>
+            <style type="text/css">
+                   .photobooth ul{
+                        width: 50px ;
+                    }    
+             </style>
+
+   <script>
+           
+            $(document).ready(function() {
+                var elem = document.getElementsByClassName("photobooth")[0];
+                    elem.parentNode.removeChild(elem);
+             
+                var imageBase64 = null;               
+                 
+                  $('#example').photobooth().on("image", function (event, dataUrl) {
+                     imageBase64 = dataUrl;
+                  });
+    
+                 $('#submit').click(function(){
+               
+                     saveImage(imageBase64); 
+                 
+                 });
+            
+            });
+        </script>
+ 
+     <apex:form > 
+       
+     <apex:actionRegion >
+    <apex:actionFunction action="{!saveImage}" name="saveImage" rerender="dummy">
+        <apex:param name="imageBase" assignTo="{!imageBase}" value="" />
+    </apex:actionFunction>
+    <apex:outputPanel id="dummy"/>
+</apex:actionRegion>
+
+  </apex:form>  
+
+</html>
+</apex:page>

@@ -1,0 +1,62 @@
+/*!
+ *Merfantz Styler
+ */
+      .fc-body .fc-resource-area .fc-cell-content img {
+                display: block;
+                margin: 0 auto;
+                }
+                .fc-body .fc-resource-area .fc-cell-content {
+                text-align: center;
+                width: auto;
+                }
+                .fc-resource-area {
+                width: 15% !important;
+                }
+                .fc-event { height: 50px; }
+
+
+        .modal-content {
+            height: 300px;
+            width: 500px;
+            background-color: white;
+        }
+        .modal-header {
+            padding: 10px;
+            border-bottom: 1px solid #e5e5e5;
+            background-color: #586a6e;
+               
+        }
+        .modal-title {
+            margin: 0;
+            line-height: 1.42857143;
+            margin-left: 80px;
+            color: white;
+        }
+        .modal-body>img{
+            border-radius: 50%;
+            position: absolute;
+            top: -35px;
+            border: 2px solid yellow;
+        }
+        .modal-body>p{
+            margin: 0px 50px;
+        }
+        
+        .modal-body>table{
+        width: 400px; margin-left: 20px; margin-top: 20px;
+        }
+        .modal-footer {
+            padding: 5px;
+        }
+        .modal-footer>button{
+            padding:0px;
+            
+        }
+
+       .box {
+         display: inline-block;
+         height: 20px;
+         width: 20px;
+         border: 2px solid;
+       } 
+

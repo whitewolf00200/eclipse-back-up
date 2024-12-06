@@ -1,0 +1,53 @@
+<apex:page applyHtmlTag="false" showheader="false" sidebar="false" controller="BarcodeController">
+    <head>
+        <title>BarcodeReader</title>
+        <apex:stylesheet value="{!URLFOR($Resource.alertify, 'alertify.js-0.3.11/themes/alertify.core.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.alertify, 'alertify.js-0.3.11/themes/alertify.default.css')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.alertify, 'alertify.js-0.3.11/lib/alertify.min.js')}"/>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="https://rawgithub.com/jaysalvat/jquery.facedetection/master/js/jquery.facedetection.js"></script>
+        <script type="text/javascript" src="https://rawgithub.com/jaysalvat/jquery.facedetection/master/js/facedetection/ccv.js"></script>
+        <script type="text/javascript" src="https://rawgithub.com/jaysalvat/jquery.facedetection/master/js/facedetection/face.js"></script>      
+        <script type="text/javascript" src="{!URLFOR($Resource.capture, 'photobooth-js-gh-pages/website/js/jquery.js')}"></script>
+ 
+        <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'/>
+       
+
+        <script type="text/javascript" src="{!URLFOR($Resource.capture, 'photobooth-js-gh-pages/photobooth_min.js')}"></script>
+        <script type="text/javascript" src="{!URLFOR($Resource.capture, 'photobooth-js-gh-pages/website/js/script.js')}"></script>
+        <script type="text/javascript" src="{!URLFOR($Resource.capture, 'photobooth-js-gh-pages/website/js/hijs.js')}"></script>      
+        <link type="text/css" rel="stylesheet" media="screen" href="{!URLFOR($Resource.capture, 'photobooth-js-gh-pages/website/css/page.css')}" />
+    </head>
+    <body>
+        style="float:right;width:1%;margin-left: 250px;margin-right: -50px;margin-top: -300px;"
+        <div>
+        <img width="320" height="240" src="" id="picture" style="border:10px groove silver" />        
+        </div>
+        <div id="wrapper" style="margin:0px">
+        <img  src="https://c.ap2.content.force.com/servlet/servlet.FileDownload?file=00P28000000S9Hz" id="picturePreview" style="border:1px solid black" /> <br />
+        <div id="gallery" style="float:right;width:1%;margin-left: 250px;margin-right: -50px;margin-top: -300px;"></div>
+        <div id="example" ></div><button id="submit" onclick="DecodeBar();">Decode</button><button style="width:100%" onclick="window.location.reload();">Restart</button></div>
+        
+        <p id="textbit"></p>
+        <button id="navigate" style="visibility:hidden;" onclick="navigate();">Go to record</button><br/>
+        
+        <style type="text/css">
+              .photobooth ul{
+                    width: 50px ;
+              } 
+              .picturePreview{
+                   float:right;width:1%;margin-left: 250px;margin-right: -50px;margin-top: -300px;
+               }
+         </style>
+        
+    </body>
+    <apex:form >
+        <apex:actionRegion >
+            <apex:actionFunction action="{!saveImage}" name="saveImage" rerender="dummy">
+                <apex:param name="imageBase" assignTo="{!imageBase}" value="" />
+            </apex:actionFunction>      
+            <apex:outputPanel id="dummy"/>
+        </apex:actionRegion>
+    </apex:form>
+</apex:page>

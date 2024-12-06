@@ -1,0 +1,27 @@
+<aura:component controller="FileUploadController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+   <!--Record Id of current object where this component will be added. -->
+    <aura:attribute name="recordId" type="Id" />
+    <!--Showing spinner while uploading -->
+    <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+    <aura:attribute name="fileName" type="String" default="No File Selected.." />
+    <!--List of file which are uploaded -->
+    <aura:attribute name="FilesUploaded" type="List" />
+    <div class="row">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning:input aura:id="fileId" onchange="{!c.handleFilesChange}" type="file" name="file" label="" multiple="true"/>
+                <div class="slds-text-body_medium slds-text-color_error">{!v.fileName} </div>
+                <!--use aura:if for show-hide the loading spinner image--> 
+                <aura:if isTrue="{!v.showLoadingSpinner}">
+                    <div class="slds-text-body_small slds-text-color_error">Uploading... 
+                        <img src="/auraFW/resources/aura/images/spinner.gif" class="spinner-img" alt="Loading"/>'
+                    </div>
+                </aura:if>
+            </div>
+            <div class="slds-col">
+                <br/>
+                <button class="slds-button slds-button_brand" onclick="{!c.uploadFiles}">Upload Files</button>
+            </div>
+        </div>
+    </div>
+</aura:component>

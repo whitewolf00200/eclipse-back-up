@@ -1,0 +1,9 @@
+<apex:page standardController="SalesOrderLineItems__c" extensions="LineItemController">
+<apex:form >
+<apex:commandButton value="open"/>
+  <apex:pageBlock >
+      <apex:inputtext value="{!selectedSO}"/>
+      
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

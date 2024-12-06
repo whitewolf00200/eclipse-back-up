@@ -1,0 +1,199 @@
+<!-- =============================================
+*Page Name      : Transfer Parts Advanced
+*Description    : Developed for scan the product and transfer parts from one warehouse to another.
+*Company        : Merfantz Technologies Pvt Ltd
+*Date           : 29th Jun, 2020
+*Version        : 1.0
+*Ticket No      : 40744
+============================================= -->
+<apex:page standardController="Service_Sheet_STD__c"  extensions="InsertPartController" docType="html-5.0" cache="false" lightningStylesheets="true">
+<script src="{!$Resource.Html5QRCode}"></script>
+<script src="/soap/ajax/30.0/connection.js" type="text/javascript"></script>
+<script src="/soap/ajax/24.0/apex.js" type="text/javascript"></script>
+
+<style>
+  .result{
+    background-color: green;
+    color:#fff;
+    padding:20px;
+  }
+  .row{
+    display:flex;
+  }
+</style>
+<apex:slds />
+<div class="row" >
+    	
+    <div class="col" Style="margin:0 auto;">
+    <div style="width:400px;" id="reader"></div>
+    
+</div>
+</div>
+<apex:form id="frm">
+    <apex:pagemessages />
+
+
+<apex:actionFunction action="{!onsave}" name="SetHiddenValue" reRender="addpartbtn">
+        <apex:param name="myParam" value=""/>
+    </apex:actionFunction>
+        
+     
+
+
+   <center>  
+
+                  <table border="0" id="tblstartscan" class="tsel" style="width:75%" Style="margin:0 auto;">
+                    <tbody>
+                    <tr>
+                        <td >
+                            <div class="slds-form-element">
+                             <label class="slds-form-element__label" for="form-element-01">Product Code</label>
+                                 
+                               <div class="slds-form-element__control">
+                                 <br/>
+                                 <input value="{!prdcode}" id='result'  class="slds-input slds-size_2-of-2"  />
+                               </div>
+                              </div>
+                         
+                        </td>
+                        </tr>
+                                 <br/>       
+                        <tr>
+                        <td>
+                        <apex:inputHidden id="hdnField" value="{!code}" />
+                        </td>
+                        </tr>
+                              
+                        
+                              <br/> 
+                        <tr>
+                        <td >
+                            <div class="slds-form-element">
+                                 <br/>
+                                <label class="slds-form-element__label">  Warehouse  </label>
+                                <div class="slds-form-element__control">
+                                    <div>
+                                 <br/>
+                                 <apex:selectlist value="{!selectedWH}" size="1" id="tgw"  styleClass="slds-select">
+                                    <apex:actionSupport event="onchange" reRender="addpartbtn" status="status"/>
+                                 <apex:selectOptions value="{!options}">
+
+                                    </apex:selectOptions>
+
+                                   </apex:selectlist> 
+
+                              </div>
+                          </div>
+                          </div>
+                        </td>
+                        </tr>
+                                <br/> 
+                        <tr>
+                        <td >
+                           <div class="slds-form-element">
+                                 <br/>
+                            <label class="slds-form-element__label" for="form-element-01">Quantity</label> 
+                               <div class="slds-form-element__control">
+                                 <br/>
+                                      <apex:input value="{!numb}" styleclass="slds-input slds-m-around-small" html-min="1" type="number" />
+                               <br/>
+                          </div>
+                              </div>
+                        </td>	
+                        </tr>                      
+                                <br/> 
+
+                        <tr>
+                        <td align="center">
+                            <br/>
+                            <div class="slds-form-element">    
+                           <apex:outputPanel id="transBtn">
+
+                                 <apex:commandButton style="width:50%;border:1px solid;opacity:900"  styleclass="slds-button slds-button_text-destructive" disabled="{!if(selectedWH==null,true,false)}" id="addpartbtn" value="Add Part"  onclick="SetJSValue()" action="{!onSave}" /> 
+                                     <br/>
+                                     <br/>
+                                     <apex:commandButton action="{!onCancel}" value="Cancel" immediate="true" style="width:50%;border:1px solid;opacity:900" styleclass="slds-button slds-button_text-destructive" />
+                            <apex:actionStatus id="status" starttext="" stoptext=""></apex:actionStatus>
+                            </apex:outputpanel>
+                            </div> 
+                        </td>
+                        </tr>                    
+
+                    </tbody>
+                    </table>                   
+
+                </center><br/>
+<script type="text/javascript">
+var sheetId="{!$CurrentPage.parameters.id}";                              
+ 
+      function SetJSValue() {       
+      var prodCode = document.getElementById('result').value;  
+      SetHiddenValue(prodCode);
+      setproductcde(prodCode);
+      var data = getMessagebox();
+
+                        Visualforce.remoting.Manager.invokeAction(
+                                       '{!$RemoteAction.InsertPartController.checkAvailibility}',prodCode,
+                                        function (result, event) {  
+                                         
+                                            /* if (event.status) {
+                                                 if(supCode!=null && supCode!=''){
+                                                    document.getElementById('availQty').value=result;                                               
+                                                  } 
+                                              } */
+                                                if(result==null || result==''){
+                                                    //alert('Stock Not Available');
+                                                    data = data.replace('{title}','Stock Not Available');
+                                                    var leadtext = "Product Code Not Matched";
+                                                    data = data.replace('{text}',leadtext);
+                                                    var btncancel = '<button class="slds-button slds-button_neutral btncancel" btncancel">Close</button>';
+                                                    data = data.replace('{ok}','');
+                                                    data = data.replace('{close}',btncancel);
+                                                    $('.slds').find('#divmodelpopup').remove();
+                                                    $('.slds').append(data);                                                   
+
+                                                }                                          
+
+
+                                         });
+
+    }    
+     function getMessagebox(){
+        return '<div id="divmodelpopup"> \
+          <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open"> \
+            <div class="slds-modal__container"> \
+              <div class="slds-modal__header"> \
+                <h2  class="slds-text-heading--medium class="slds-modal__title slds-hyphenate"">{title}</h2> \
+                <button  class="slds-button slds-button--icon-inverse slds-modal__close btncancel">X</button> \
+              </div> \
+              <div class="slds-modal__content"> \
+                <div> \
+                  <p>{text}</p> \
+                </div> \
+              </div> \
+              <div class="slds-modal__footer"> \
+                <div class=""> \
+                  {close} \
+                  {ok} \
+                </div> \
+              </div> \
+            </div> \
+          </div> \
+          <div class="slds-backdrop slds-backdrop--open"></div> \
+        </div>';
+    }  
+
+function onScanSuccess(qrCodeMessage) {
+    document.getElementById('result').setAttribute('value',qrCodeMessage)
+    
+    window.scrollTo(0, document.body.scrollHeight);
+}
+function onScanError(errorMessage) {
+  //handle scan error
+}
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 25, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
+</script>
+</apex:form>
+</apex:page>

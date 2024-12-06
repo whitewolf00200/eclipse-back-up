@@ -1,0 +1,99 @@
+<apex:component access="global">
+<apex:attribute description="sp" name="sp" type="Engineer_Checklist__c"/>
+ <apex:attribute name="Serviceid" type="Id" description="Attribute on the component."/>
+ <div class="footer" >
+                               
+                                
+             
+     <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>    
+              </div>
+<div class="footer" >
+              
+    <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>    
+              </div>
+              
+    <table  class="tableim" style="width:100%;border-collapse:0px">
+<tr>
+ 
+         <td class="a"><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td class="a" width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td>                 
+     </tr>   
+                  <div Style="font-size:13.3px;margin-top:-40px;">&nbsp; Customer Address:
+                      <tr>
+                         <td   style="border: 100px white;padding-left:8px;"><apex:outputtext value="{!sp.Service_At__c}" escape="false"/></td>                      </tr>
+                      </div>
+                        
+                      <p style="text-align:center;font-size:20px;margin-top:-6px;"> <u>Intra-oral X-ray Installation Certificate </u></p>
+                      
+                  
+                      <table style="align:center;font-size:13.3px;page-break-inside:auto;">
+                      <tr>
+                      <td class="b"> Equipment Make:</td><td>{!sp.Make__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td > Equipment Model:</td><td>{!sp.Model__c}</td>
+                      </tr>
+                      
+                       <tr>
+                      <td> Serial no:</td><td>{!sp.Serial_No__c}</td>
+                      </tr>
+                     
+                      
+                      <tr>
+                      <td> Date of installation:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_of_installation__c}" />
+</apex:outputText></td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Date service due:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_service_due__c}" /></apex:outputText></td>
+                      </tr>
+                       <tr>
+                      <td> Surgery name:</td><td>{!sp.surgery_name__c}</td>
+                      </tr>
+
+                        <tr><td>Test image completed : </td>
+                     <td>{!sp.Test_image_completed__c}</td></tr>
+                   
+                      
+                       <tr><td>Arms balanced/not drifting:</td>
+                     <td>{!sp.Arms_balanced__c}</td></tr>
+                     
+                      <tr><td>Rectangular collimator fitted: </td>
+                     <td>{!sp.Rectangular_collimator_fitted__c}</td></tr>
+                     
+                     
+                     <tr><td>Test pack carried out:</td>
+                     <td>{!sp.Test_pack__c}</td></tr>
+                     
+                     <tr><td>Equipment labelled: </td>
+                     <td>{!sp.Equipment_labelled__c}</td></tr>
+                     
+                     <tr><td>Imaging system set up for:  </td>
+                     <td>{!sp.Imaging_system_setup__c}</td></tr>
+                     
+                     <tr><td>Arm reach sufficient: </td>
+                     <td>{!sp.Arm_reach_sufficient__c}</td></tr>
+                     
+                     <tr><td>Equipment Isolator nearby:</td>
+                     <td>{!sp.Equipment_Isolator_nearby__c}</td></tr>
+                                          
+                     <tr><td>Earth Continuity: </td>
+                     <td>{!sp.Earth_Continuity__c}</td></tr>
+                                           
+                     <tr style="page-break-inside:auto;"><td class="b">Notes: </td>
+                     <td>{!sp.Note__c}</td></tr>
+                   
+                    <tr><td>Installed by: </td>
+                     <td>{!sp.Engineer__r.name}</td></tr>
+                       
+                           
+     </table>
+                   
+                 </table> 
+                          
+                         </apex:component>

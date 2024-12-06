@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order__c</fullName>
+    <description>Purchase Order Type</description>
+    <label>Purchase Order</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ansul</fullName>
+                <default>false</default>
+                <label>Ansul</label>
+            </value>
+            <value>
+                <fullName>CCTV</fullName>
+                <default>false</default>
+                <label>CCTV</label>
+            </value>
+            <value>
+                <fullName>Detector Cleaning</fullName>
+                <default>false</default>
+                <label>Detector Cleaning</label>
+            </value>
+            <value>
+                <fullName>Disabled/Nursecall Alarm</fullName>
+                <default>false</default>
+                <label>Disabled/Nursecall Alarm</label>
+            </value>
+            <value>
+                <fullName>Door Access Testing</fullName>
+                <default>false</default>
+                <label>Door Access Testing</label>
+            </value>
+            <value>
+                <fullName>Dry Riser</fullName>
+                <default>false</default>
+                <label>Dry Riser</label>
+            </value>
+            <value>
+                <fullName>Emergency Lighting</fullName>
+                <default>false</default>
+                <label>Emergency Lighting</label>
+            </value>
+            <value>
+                <fullName>Fire Alarm</fullName>
+                <default>false</default>
+                <label>Fire Alarm</label>
+            </value>
+            <value>
+                <fullName>Fire Alarm + Emergency Lighting</fullName>
+                <default>false</default>
+                <label>Fire Alarm + Emergency Lighting</label>
+            </value>
+            <value>
+                <fullName>Fire Curtain Servicing</fullName>
+                <default>false</default>
+                <label>Fire Curtain Servicing</label>
+            </value>
+            <value>
+                <fullName>Fire Damper</fullName>
+                <default>false</default>
+                <label>Fire Damper</label>
+            </value>
+            <value>
+                <fullName>Fire Extinguisher</fullName>
+                <default>false</default>
+                <label>Fire Extinguisher</label>
+            </value>
+            <value>
+                <fullName>Fire Hose Reel</fullName>
+                <default>false</default>
+                <label>Fire Hose Reel</label>
+            </value>
+            <value>
+                <fullName>Fire Risk Assessment</fullName>
+                <default>false</default>
+                <label>Fire Risk Assessment</label>
+            </value>
+            <value>
+                <fullName>Fire Suppression System</fullName>
+                <default>false</default>
+                <label>Fire Suppression System</label>
+            </value>
+            <value>
+                <fullName>Fire Training</fullName>
+                <default>false</default>
+                <label>Fire Training</label>
+            </value>
+            <value>
+                <fullName>Gaseous Suppression</fullName>
+                <default>false</default>
+                <label>Gaseous Suppression</label>
+            </value>
+            <value>
+                <fullName>Hydrant</fullName>
+                <default>false</default>
+                <label>Hydrant</label>
+            </value>
+            <value>
+                <fullName>Integrity Test</fullName>
+                <default>false</default>
+                <label>Integrity Test</label>
+            </value>
+            <value>
+                <fullName>Intruder Alarm</fullName>
+                <default>false</default>
+                <label>Intruder Alarm</label>
+            </value>
+            <value>
+                <fullName>Lone Worker Alarm System</fullName>
+                <default>false</default>
+                <label>Lone Worker Alarm System</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Portable Appliance Testing</fullName>
+                <default>false</default>
+                <label>Portable Appliance Testing</label>
+            </value>
+            <value>
+                <fullName>Smoke Vent Servicing</fullName>
+                <default>false</default>
+                <label>Smoke Vent Servicing</label>
+            </value>
+            <value>
+                <fullName>Sprinkler</fullName>
+                <default>false</default>
+                <label>Sprinkler</label>
+            </value>
+            <value>
+                <fullName>Tagging Security Machines</fullName>
+                <default>false</default>
+                <label>Tagging Security Machines</label>
+            </value>
+            <value>
+                <fullName>Vesda Alarm Servicing</fullName>
+                <default>false</default>
+                <label>Vesda Alarm Servicing</label>
+            </value>
+            <value>
+                <fullName>Voice Evacuation</fullName>
+                <default>false</default>
+                <label>Voice Evacuation</label>
+            </value>
+            <value>
+                <fullName>Water Leak Detection</fullName>
+                <default>false</default>
+                <label>Water Leak Detection</label>
+            </value>
+            <value>
+                <fullName>Weekly Callpoint Test</fullName>
+                <default>false</default>
+                <label>Weekly Callpoint Test</label>
+            </value>
+            <value>
+                <fullName>Wet Riser</fullName>
+                <default>false</default>
+                <label>Wet Riser</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

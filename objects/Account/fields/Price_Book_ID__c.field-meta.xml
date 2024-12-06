@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price_Book_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Price_Book_Indicator__c,&quot;Standard Price Book&quot;,&quot;01s58000001myJJ&quot;,&quot;Standard Price Book2&quot;,&quot;01s4E0000004WiQ&quot;,&quot;test&quot;,&quot;01s4E0000004WiV&quot;,&quot;&quot;,Parent_Price_Book_ID__c  ,Price_Book_Indicator__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Price Book ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

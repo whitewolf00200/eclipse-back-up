@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Specific_Day__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If this must be on a specific day or at a specific time, please enter this data here and it will appear on a visit in the booking status as a prompt for the scheduler. If this field is NOT BLANK, it will appear ( so don&apos;t write &quot;No&quot; :-) )</inlineHelpText>
+    <label>Specific Day/Time</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

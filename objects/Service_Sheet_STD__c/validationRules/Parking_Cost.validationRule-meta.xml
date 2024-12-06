@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parking_Cost</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(AND(ISBLANK(Parking_Costs__c ) ,ISPICKVAL( Close_Visit__c , &apos;No&apos;)),AND(ISBLANK(Parking_Costs__c ) ,ISPICKVAL( Close_Visit__c , &apos;Yes&apos;)))</errorConditionFormula>
+    <errorDisplayField>Parking_Costs__c</errorDisplayField>
+    <errorMessage>Parking costs is required</errorMessage>
+</ValidationRule>

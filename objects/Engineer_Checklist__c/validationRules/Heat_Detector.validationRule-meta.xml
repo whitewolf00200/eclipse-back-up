@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Heat_Detector</fullName>
+    <active>false</active>
+    <description>If Heat Detector Qty filled in, the corresponding drop down must have a relevant value.</description>
+    <errorConditionFormula>AND ( TEXT ( FA_Spare_Parts_Heat_Detector_QTY__c )&lt;&gt;&quot;&quot;,
+
+ TEXT ( FA_Heat_Detector__c )= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have filled in a Quantity for Heat Detector Spare Parts, please fill in the corresponding drop-down field.</errorMessage>
+</ValidationRule>

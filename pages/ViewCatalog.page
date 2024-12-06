@@ -1,0 +1,42 @@
+<apex:page controller="ViewCatalogController" sidebar="false" showHeader="false">
+ <apex:form >
+  <apex:pageBlock title="View Catalog" rendered="{!NOT(OR(ISNULL(catalogList),catalogList.size=0))}">     
+    <apex:pageBlockTable value="{!catalogList}" var="pc" styleClass="tableStyles">
+        <apex:column headerValue="Product" value="{!pc.ProductListName.Product2Id}"/>
+        <apex:column headerValue="SalesPrice" value="{!pc.ProductListName.UnitPrice}"/>
+        <apex:column headerValue="Minimum Cost" value="{!pc.minPrice}"/>
+        <apex:column headerValue="Maximum Cost" value="{!pc.maxPrice}"/>
+      
+    </apex:pageBlockTable>
+    <apex:pageBlockSection title="The following Products are unavailable with Suppliers" columns="1" rendered="{!NOT(OR(ISNULL(catLists),catLists.size=0))}">
+      <apex:pageBlockTable value="{!catLists}" var="cats">
+          <apex:column headerValue="Product" value="{!cats.prdNames1.Product2Id}"/>
+          <apex:column headerValue="SalesPrice" value="{!cats.prdNames1.UnitPrice}"/>
+      </apex:pageBlockTable>
+  </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+  <apex:pageBlock rendered="{!OR(ISNULL(catLists),suppsize,oppsize)}">
+    <apex:pageBlockSection >
+    <apex:outputText rendered="{!AND(OR(ISNULL(catalogList),catalogList.size=0),oppsize)}">No Products Available in Opportunity</apex:outputText>
+    <apex:outputText rendered="{!AND(NOT(oppsize),suppsize)}">No Products Available in Suppliers</apex:outputText>
+  </apex:pageBlockSection>
+  </apex:pageBlock>
+ 
+  
+  
+  
+  <style>
+      .tableStyles{
+      background-color:white;
+            border-width: 1px;
+            border-style: solid;            
+            left: 2%;
+            align:center;
+            padding:5px;
+            top:100px;
+      }
+     
+  </style>
+ </apex:form>
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TAPS_Room1__c</fullName>
+    <inlineHelpText>Long Lever Mixer-Long Swivel Spout Nurse’s or LDU, Short Fixed Spout Dr’s. Off-set to wastes. 
+Any sensor taps? Miscea?</inlineHelpText>
+    <label>Room1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

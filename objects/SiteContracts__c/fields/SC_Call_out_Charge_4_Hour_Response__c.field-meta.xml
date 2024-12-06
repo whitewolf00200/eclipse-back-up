@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SC_Call_out_Charge_4_Hour_Response__c</fullName>
+    <description>Service Charge Call out Charge - 4 Hour Response</description>
+    <formula>IF (X4_Hour_Reactive_Call_Out_Charge__c &lt;&gt; NULL, X4_Hour_Reactive_Call_Out_Charge__c,Sales_Contract__r.Call_Out_Charge_4_Hour_Response__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SC Call out Charge - 4 Hour Response</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

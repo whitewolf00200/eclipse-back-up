@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MSS_Spare_Parts_Other__c</fullName>
+    <description>Mechanical service sheet spare parts Other Product Code</description>
+    <externalId>false</externalId>
+    <label>MSS Spare Parts Other</label>
+    <length>15</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

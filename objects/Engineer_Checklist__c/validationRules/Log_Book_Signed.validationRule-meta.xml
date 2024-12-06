@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Log_Book_Signed</fullName>
+    <active>false</active>
+    <description>If Log Book signed must fill in Log Book Qty</description>
+    <errorConditionFormula>AND(TEXT(Log_Book_Signed__c) = &quot;No&quot;
+,
+ Log_Book_Supplied_Qty__c = NULL)</errorConditionFormula>
+    <errorMessage>The Log Book has not been signed. If you have supplied a new Log Book, you must fill in the quantity in the Log Book - Qty field</errorMessage>
+</ValidationRule>

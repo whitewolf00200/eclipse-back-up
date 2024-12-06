@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Site_Contract</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Site Contract</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
+
+var url = &apos;/a0K/e?&apos; 
+
+var myquery = &quot;Select Id, Name, Account.Id, Account.Name, Opportunity.Id, Opportunity.Name, Service_Type__c from Quote WHERE Id = &apos;{!Quote.Id}&apos; limit 1&quot;; 
+
+result = sforce.connection.query(myquery); 
+records = result.getArray(&quot;records&quot;); 
+
+if(records[0]){ 
+var quoteOpportunity = records[0]; 
+url += &apos;CF00N580000064y4z=&apos; + quoteOpportunity.Account.Name; 
+url += &apos;&amp;CF00N580000064y4z_lkid=&apos; + quoteOpportunity.Account.Id; 
+url += &apos;&amp;00N580000064y0F=&apos; + quoteOpportunity.Service_Type__c; 
+url +=&apos;&amp;CF00N4E000000h1ne=&apos; + quoteOpportunity.Name;
+url +=&apos;&amp;CF00N4E000000h1ne_lkid=&apos; + quoteOpportunity.Id;
+} 
+url += &apos;&amp;retURL={!Quote.Id}&apos;; 
+window.parent.open(url, &quot;_self&quot;);</url>
+</WebLink>

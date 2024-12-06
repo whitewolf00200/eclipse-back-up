@@ -1,0 +1,64 @@
+<!-- =============================================
+*Page Name      : UploadPhotocapture
+*Description    : Developed Upload the Image and file in M&R Sheet.
+*Company        : Merfantz Technologies Pvt Ltd
+*Date           : 28th Jan, 2023
+*Version        : 1.0
+*Ticket No      : 101312
+============================================= -->
+<apex:page >
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .output-panel {
+            margin-right: 50px;
+            font-weight: bold;
+            font-size: 18pt;
+            margin-top: 5px;
+            padding-bottom: 50px;
+        }
+
+        .file {
+            align-self: center;
+            margin-right: 50px;
+        }
+
+        .upload-button {
+            padding-bottom: 50px;
+            margin-bottom: 150px;
+        }
+    </style>
+
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:form style="margin-left:70px;">
+                <div style="margin-right: 50px; ">
+                    <div class="output-panel"> M&amp;R Sheet Photo Upload</div>
+                    <!-- Input for selecting files -->
+                    <input type="file" id="fileInput" name="files[]" multiple="multiple" onchange="uploadFiles(this);" />
+                </div>
+                <div style="margin-bottom: 50px;">
+                    <tr>
+                        <!-- Upload button -->
+                        <td style="text-align:right; padding-left: 50px;"><apex:commandButton value="Upload" action="{!uploadFiles}" /></td>
+                        <!-- Cancel button -->
+                        <td style="text-align:left; padding-left: 10px;"><apex:commandButton value="Cancel" action="{!cancel}" immediate="true" /></td>
+                    </tr>
+                </div>
+            </apex:form>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+    <script type="text/javascript">
+        function uploadFiles(input) {
+            for (var i = 0; i < input.files.length; i++) {
+                var filesizeInBytes = input.files[i].size;
+                var filename = input.files[i].name;
+                console.log("File name is : " + input.files[i].name + " and size: " + input.files[i].size + " Bytes");
+            }
+        }
+    </script>
+</apex:page>

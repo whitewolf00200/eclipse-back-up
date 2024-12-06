@@ -1,0 +1,258 @@
+<apex:component controller="LongProjectOrderController" access="global" rendered="true">
+  <apex:attribute description="lpo" name="lpo"  type="SalesOrder__c"/>
+  <apex:attribute description="Soid" name="Soid" type="Id" AssignTo="{!MasterRecordId}"/>
+
+<body class="start" >
+ <table >
+   <tr><td  ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40" title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>   
+               <br /> <br /> <br /> <br /> <br /> 
+                <div class="footer"> 
+                <!-- <p style="border-top: 1px solid #038B99;" ><span style="color:#038B99;text-align:left"><b >Guaranteed solutions....</b> </span><br/> 
+                 {!$Label.Company_Name} | Westview Court |10-14 Kent Road | Dartford | Kent | DA1 2AJ |
+                 Tel: 01322 293333 | Email: info@eclipse-dental.com<br/>
+                 Vat No: GB 714315367 | Company Registration No.12402632 Registered at above address
+                 </p>    -->
+<table  width="100%" height="100%" >
+    <tr> <td><img src="{!$Resource.footernew}" width="800px" /></td></tr>
+</table>     
+               </div> 
+ 
+                <table width="100%" style="margin-top:-100px;" >
+               <tr><td colspan="3" style="font-size:12pt;"><b>Project Contract</b></td></tr>
+               <tr><td>&nbsp;</td></tr>
+               <tr>
+                   <td width="2%">&nbsp;</td>
+                   <td width="55%">For the attention of :&nbsp;{!lpo.Contact__r.Name}</td>
+                   <td width="40%">&nbsp;</td>
+                   <table align="Right" border="">
+                           <tr>
+                               <td>Order No:</td>
+                               <td style="font-size:16px;">{!lpo.Name}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Raised By:</td>
+                               <td>{!lpo.Raised_By__c}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Date:</td>
+                               <td>
+                               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!lpo.Date__c}"/></apex:outputtext>
+                               </td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Your Ref:</td>
+                               <td>{!lpo.Customer_Order_Number__c}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Phone:</td>
+                               <td><apex:outputField value="{!lpo.Contact__r.Phone}"/> </td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Email:</td>
+                               <td>{!lpo.Contact__r.Email}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                            
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Account Ref:</td>
+                               <td>{!lpo.Account__r.Name}</td>
+                           </tr>
+                       </table>
+               </tr>
+               
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="40%" style="vertical-align:top;"><apex:outputtext value="{!IF(lpo.Delivery_Address_new__c!='',lpo.Delivery_Address_new__c,lpo.Invoice_Address__c)}" escape="false"/>
+                      <br /><br />
+                <br/><br/>Delivery Address:<br/><apex:outputtext value="{!lpo.Delivery_Address__c}" escape="false"/>
+                   </td>
+                   <td width="40%"></td>
+                              
+                   
+               </tr>
+               </table>               
+                <br /><br />
+              <p style="text-align:center;font-size:12pt"><b>Re: {!lpo.opportunity__r.Name}</b></p>
+                <br/>
+                Dear {!lpo.Contact__r.Salutation}&nbsp;{!lpo.Contact__r.Name},<br /><br />
+               We acknowledge your valued order for the above project and are proceeding on the following basis.<br /><br />
+               
+                
+                
+               <tr>
+               <td><b>Payment Terms:</b></td>
+               <td>{!lpo.Opportunity__r.Payment_Terms__c}</td>
+               </tr>
+                <br /><br />
+              
+                      
+                   <tr>
+                   
+                       <td colspan="3">Please make payments to: {!$Label.Company_Name} | Sort Code 30-91-91 | Account No. 45605968 | Lloyds Bank Plc stating your Account No. as a
+reference. Please note we do not accept cheques.</td>
+                   </tr>
+                   <tr ><td>&nbsp;</td></tr>
+                   
+              
+                                         <br></br>
+
+                   <tr>
+                   <td><b>Schedule of Work:</b></td>
+                   <td>{!lpo.Opportunity__r.Schedule_of_Work__c}</td>
+                   </tr>
+                   
+                   <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                                              <br></br>
+
+                   
+                   <tr>
+                   <td><b>Colours/Special Requests:</b></td>
+                 
+                   <td>{!lpo.Opportunity__r.Colour_Special_Requests__c}</td>
+                   </tr>
+                   
+                   <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                                                      <br></br>
+
+                      
+                      <tr>
+                           <td><b>Drawing Number Related to this Contract:</b></td>
+                           <td>{!lpo.Opportunity__r.Drawing_Number_Related_to_this_contact__c}</td>
+                           </tr>     
+                           
+                           <br />
+              
+                <table  border="" cellspacing="0" cellpadding="0" width="100%" style="page-break-before:always;" >
+                    <tr style="background-color:#48164d;color:white;font-size:17px;">     
+                     <td align="left" width="6"> <b>Item</b></td>
+                        <td align="left" width ="48%"><b>Product</b></td>
+                     <td align="center" width ="8%"><b>Qty</b></td>
+                     <td align="center" width ="8%"><b>Unit</b></td>
+                     <td align="right" width ="15%"><b>Price</b></td>
+                     <td align="right" width ="15%"><b>Total Price</b></td>  
+                    </tr>
+                </table>  
+                <apex:variable var="count" value="{!1}" />   
+                <table border="" width="100%" style="page-break-inside:avoid;">
+                     <apex:repeat value="{!salesoli}" var="lpoline">
+                              <tr>
+                              <td align="center" width="6" valign="top">{!count} </td>
+                                  <td align="left" width="48%" valign="top"> <apex:outputText value="{!If(lpoline.Sales_Description__c!=null,lpoline.Sales_Description__c,lpoline.Product__r.Name)}"/><br/>
+                              
+                                      <apex:outputText rendered="{!AND(lpoline.Show_Description__c,lpoline.Extended_Sales_Description__c!=null)}" VAlue="{!lpoline.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false"/></td>
+                              
+                              <td align="center" width="8%" valign="top"><apex:outputText value="{!FLOOR(lpoline.Quantity__c)}" /></td>
+                              <td align="center" width="8%" valign="top"><apex:outputText value="{!lpoline.Product__r.Stock_Unit__c}" /></td>
+                              <td align="right" width="15%" valign="top"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!lpoline.Price__c}"/></apex:outputText></td>
+                              <td align="right" width="15%" valign="top"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!lpoline.Total_Price__c}"/></apex:outputText></td>
+                              
+                              <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td></tr>
+                         <apex:variable var="count" value="{!count+1}"/></tr></apex:repeat>
+                    
+                    
+                    <tr><td colspan="6">
+                   <table border="" width="100%">
+                    <tr> 
+                    
+                    <td align="right" width="90%">Total Price :</td>
+                    <td align="right"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!MasterRecord.Total_Price__c}"/></apex:outputText></td>
+                    </tr>
+                    
+                    <tr> 
+                    
+                    <td align="right">VAT Total :</td>
+                    <td align="right">&nbsp;&nbsp;<apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!MasterRecord.Vat_Total__c}"/></apex:outputText></td>
+                    </tr>
+                    
+                    <tr> 
+                    
+                    <td align="right">Order Total :</td>
+                    <td align="right"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!MasterRecord.Order_Total__c}"/></apex:outputText></td>
+                    </tr>
+                    </table></td></tr>
+                     
+                   
+                    <br />
+              Please note additional terms and conditions below which apply to this order. Our standard terms and conditions of sale and installation also apply. These are available to view on this link:&nbsp;<a href="https://eclipse-dental.com/legal/terms-of-sale/">Terms of Sale.</a>&nbsp;&nbsp;E. &amp; O. E.<br /><br />
+              <apex:outputText value="{!lpo.Terms__c}" escape="false" style="white-space:pre-line;"/><br/><br/>
+              Please check we have interpreted your requirements correctly and advise by return any amendments that may be required. Any changes to the above information could affect both the cost and delivery date.<br /><br />
+           <!--   <apex:outputPanel rendered="{!Opportunity.size>0}">
+              <apex:repeat value="{!Opportunity}" var="man">
+                
+              </apex:repeat>
+              </apex:outputPanel> -->
+              <br/><br/><br /><br />
+              <!-- <table Width="50%" style="page-break-inside:avoid;" border="">
+              <tr><td style="text-decoration: underline;font-size:12pt;"><b></b></td></tr> 
+     
+            </table> -->
+            <br/> 
+           
+            <table Width="50%" style="page-break-inside:avoid;">
+            
+              <tr><td style="text-decoration: underline;font-size:12pt;"><b>Customer Agreement:</b></td></tr>
+              <tr>
+                  <td >Signed:</td>
+                </tr>
+                   
+                <tr>
+                  <td height="50" width="200" style = "border: 1px solid black;"><apex:outputText value="{!substitute(lpo.Customer_s_Signature__c,"alt=","width=\"200px\" Alt=")}" escape="false"/></td>
+              </tr>
+              <tr>
+                  <td >Print:</td>
+              </tr>
+              <tr>
+                  <td height="50" style = "border: 1px solid black;"><apex:outputText value="{!lpo.Customer_s_Print__c}" escape="false"/></td>
+              </tr>
+              <tr>
+                  <td> Position:</td>
+               </tr>
+               <tr>
+               <td height="20" style = "border: 1px solid black;"> <apex:outputText value="{!lpo.Position__c}" escape="false"/> </td>
+               </tr>
+               <tr>
+                  <td>Date:</td>
+              </tr> 
+              <tr>
+              <td height="20" style = "border: 1px solid black;"><apex:outputField value="{!lpo.Customer_Signed_Date__c}"/></td>
+              </tr>
+               </table> 
+               </table> 
+                      
+</body>
+</apex:component>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PIRsp_Qty__c</fullName>
+    <label>PIR Qty</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Range Up To 100m</fullName>
+                <default>false</default>
+                <label>Range Up To 100m</label>
+            </value>
+            <value>
+                <fullName>Range above 100m</fullName>
+                <default>false</default>
+                <label>Range above 100m</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

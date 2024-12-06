@@ -1,0 +1,140 @@
+<apex:component access="global">
+<apex:attribute description="sp" name="sp" type="Engineer_Checklist__c"/>
+ <apex:attribute name="Serviceid" type="Id" description="Attribute on the component."/>
+ <body  class="start">
+                    <div class="footer" >
+                               
+                                <!-- <br/>
+                 <p style="border-top: 1px solid #038B99;" ><span style="color:#038B99;text-align:left; font-size:20px"><b >Guaranteed solutions....</b> </span></p>
+               
+                 <div class="vl"> <p style=" color:#038B99;position:relative;top:30px;"> Vat No: GB714 3153 67&nbsp; &nbsp;<br/> CM,DW,PJ,RW,TWJ Boyt&nbsp; &nbsp;<br/> T/A Eclipse Dental Engineering  &nbsp; &nbsp;<br/> 
+                       </p></div> 
+                 <div style="text-align:right; color:#038B99;position:relative;top:-25px;font-size:12px;"> 
+                <br/>
+                 Westview Court 10-14 Kent Road<br/>
+                 Dartford  Kent  DA1 2AJ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                 Tel: 01322 293333 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                 Fax 01322 421158&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                 info@eclipse-dental.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                 www.eclipse-dental.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+               -->
+                        <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>    
+              </div>
+<div class="footer" >
+                               
+                   <!--              <br/>
+                 <p style="border-top: 1px solid #038B99;" ><span style="color:#038B99;text-align:left; font-size:20px"><b >Guaranteed solutions....</b> </span></p>
+                <table  class="tableim" style="width:100%;border-collapse:0px">
+   <tr>
+    <td colspan="2" width="85%;" class="a"> <img src="{!$Resource.FitOutEquipment}" width="75" height="70"  title="logo" align="right"/></td>
+    <td class="a" ><img src="{!$Resource.EclipseDentalLogo}" width="92" height="90"  title="logo" align="right"/></td>
+                          
+    </tr>
+    </table>--><table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>    
+              </div>
+                  
+                  
+                  <table  class="tableim" style="width:100%;border-collapse:0px">
+    <tr>
+  
+   <td class="a"><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td class="a" width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td>
+                          
+     </tr>
+                      
+                  <div Style="font-size:16px;"> &nbsp; Customer Address:
+                      <tr>
+                     
+                               <td  style="border: 100px white;padding-left:8px;"><apex:outputtext value="{!sp.Service_At__c}" escape="false"/></td>
+
+                                          </tr>
+                       </div>
+                            
+                       <br/>
+    
+                      <p style="text-align:center; font-size:22px"> <u>Air Compressor Installation Certificate </u></p>
+                                            
+                      <table class="text" style="align:center;font-size:16px">                          
+                      <tr>
+                      <td class="b"> Equipment Make:</td><td>{!sp.Make__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Equipment Model:</td><td>{!sp.Model__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Serial number:</td><td>{!sp.Serial_No__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Date of installation:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+    <apex:param value="{!sp.Date_of_installation__c}" />
+</apex:outputText></td>
+                      </tr>
+                      <tr>
+                      <td> Date service due:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_service_due__c}" /></apex:outputText></td>
+                      </tr>
+                       <tr>
+                      <td> Date pressure vessel test due:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_pressure_vessel_test_due_F__c}" /></apex:outputText></td>
+                      </tr>
+                      <td colspan="2">Set pressures </td>
+                      <tr>
+                      <td >On(Bar)</td>
+                      <td>{!sp.On_bar__c}</td>
+                      </tr>
+                      <tr>
+                      <td >Off(Bar)</td>
+                      <td>{!sp.Off_bar__c}</td>
+                      </tr>
+            
+                        <tr><td>Regulator set at: </td>
+                     <td>{!sp.Regulator_set_at__c}</td></tr>
+                   
+                      
+                     <tr><td>Connected to correct power supply:</td>
+                     <td>{!sp.Suitable_power_supply_available__c}</td></tr>
+                      
+                      <tr><td>Airline leak test completed? </td>
+                     <td>{!sp.Airline_leak_test_completed__c}</td></tr>
+                        <br/>
+                          
+                    <tr><td>Condition of pipework connected to:</td>
+                     <td>{!sp.Pipework_Condition__c}</td></tr>
+                     
+                      <tr><td>Equipment labelled: </td>
+                     <td>{!sp.Equipment_labelled__c}</td></tr>
+                     
+                       <tr><td>Clean and tidy cupboard?</td>
+                     <td>{!sp.Clean_and_tidy_cupboard__c}</td></tr>
+                       
+                      <tr><td class="b">Earth Continuity: </td>
+                     <td>{!sp.Earth_Continuity__c}</td></tr>
+                     
+                     <tr><td >Equipment Isolator nearby:</td>
+                     <td>{!sp.Equipment_Isolator_nearby__c}</td></tr>
+                     
+                     
+                     <tr><td class="b" >Recommendations for further ventilation? </td>
+                     <td>{!sp.Recommendations_for_further_ventilation__c}</td></tr>
+                     
+                     <tr><td >Inline filters removed?</td>
+                     <td>{!sp.Inline_filters_removed__c}</td></tr>
+  
+                     <tr><td >Notes: </td>
+                     <td>{!sp.Note__c}</td></tr>
+                   
+                    <tr><td >Installed by: </td>
+                     <td>{!sp.Engineer__r.name}</td></tr>
+          
+                    
+                      </table>
+                 </table> 
+                         </body>    
+     
+ </apex:component>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Group__c</fullName>
+    <description>To identify the account group for sharing rules</description>
+    <inlineHelpText>Select the Account Group this is part of, if you want the Site Contract to be visible to the Customer login. Ex:- Bourne Leisure or C. Brewer &amp; Sons, etc</inlineHelpText>
+    <label>Account Group</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bourne Leisure</fullName>
+                <default>false</default>
+                <label>Bourne Leisure</label>
+            </value>
+            <value>
+                <fullName>C. Brewer &amp; Sons</fullName>
+                <default>false</default>
+                <label>C. Brewer &amp; Sons</label>
+            </value>
+            <value>
+                <fullName>Aster Property</fullName>
+                <default>false</default>
+                <label>Aster Property</label>
+            </value>
+            <value>
+                <fullName>Wilko Retail Ltd</fullName>
+                <default>false</default>
+                <label>Wilko Retail Ltd</label>
+            </value>
+            <value>
+                <fullName>The Police and Crime Commissioner for West Mercia</fullName>
+                <default>false</default>
+                <label>The Police and Crime Commissioner for West Mercia</label>
+            </value>
+            <value>
+                <fullName>West Midlands Ambulance Service NHS FoundationTrust</fullName>
+                <default>false</default>
+                <label>West Midlands Ambulance Service NHS FoundationTrust</label>
+            </value>
+            <value>
+                <fullName>test</fullName>
+                <default>false</default>
+                <label>test</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X4_Hour_Reactive_Call_Out_Charge__c</fullName>
+    <inlineHelpText>4 hour response call out charge for just turning up on site.</inlineHelpText>
+    <label>Call Out Charge - 4 Hour Response</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

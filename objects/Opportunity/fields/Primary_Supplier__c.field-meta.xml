@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Supplier__c</fullName>
+    <label>Primary Supplier</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Belmont</fullName>
+                <default>false</default>
+                <label>Belmont</label>
+            </value>
+            <value>
+                <fullName>Ancar</fullName>
+                <default>false</default>
+                <label>Ancar</label>
+            </value>
+            <value>
+                <fullName>Planmecca</fullName>
+                <default>false</default>
+                <label>Planmecca</label>
+            </value>
+            <value>
+                <fullName>Heka</fullName>
+                <default>false</default>
+                <label>Heka</label>
+            </value>
+            <value>
+                <fullName>Acteon</fullName>
+                <default>false</default>
+                <label>Acteon</label>
+            </value>
+            <value>
+                <fullName>Vatech</fullName>
+                <default>false</default>
+                <label>Vatech</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

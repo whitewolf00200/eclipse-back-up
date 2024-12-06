@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PO_Number_on_Certificate__c</fullName>
+    <externalId>false</externalId>
+    <formula>Purchase_Order_Number__c 
+&amp;
+IF ( AND ( 
+          Uplift_Remedial_Work_PO_Number__c &lt;&gt; &quot;&quot;, 
+          Uplift_Remedial_Work_PO_Number__c &lt;&gt; Purchase_Order_Number__c,
+          Uplift_Remedial_Work_PO_Number__c &lt;&gt; Current_Purchase_Order_No__c ,
+          Uplift_Remedial_Work_PO_Number__c &lt;&gt; Order_Number2__c )
+    , &quot; &quot;&amp;Uplift_Remedial_Work_PO_Number__c, &quot;&quot;)
+&amp;
+IF ( AND ( 
+          Current_Purchase_Order_No__c &lt;&gt; &quot;&quot;, 
+          Current_Purchase_Order_No__c &lt;&gt; Purchase_Order_Number__c,
+          Current_Purchase_Order_No__c &lt;&gt; Order_Number2__c )
+    , &quot; &quot;&amp;Current_Purchase_Order_No__c, &quot;&quot;)
+&amp;
+IF ( AND ( 
+          Order_Number2__c  &lt;&gt; &quot;&quot;, 
+          Order_Number2__c  &lt;&gt; Purchase_Order_Number__c,
+          Order_Number2__c  &lt;&gt; Current_Purchase_Order_No__c ,
+          Order_Number2__c  &lt;&gt; Order_Number2__c )
+    , &quot; &quot;&amp;Order_Number2__c , &quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>As there are so many different potential PO numbers, the actual PO number that will display on the certificate is here. It checks all POs against the main one, from Site Contract, Visit and Site and Parent. Where different, it combines them.</inlineHelpText>
+    <label>PO Number on Certificate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

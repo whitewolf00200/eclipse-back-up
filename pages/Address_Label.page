@@ -1,0 +1,33 @@
+<apex:page standardController="Account" contentType="application/msword#AddressLabel.doc" extensions="Redirect">
+
+
+<head>
+<script type="text/javascript">
+(function(){
+   setTimeout(function(){
+     window.location="http://brightwaay.com/";
+   },3000); /* 1000 = 1 second*/
+})();
+</script>
+
+<style type="text/css" media="print">
+    @page{
+        size:A4 portrait;
+        margin-left: 2cm;
+        margin-right: 2.5cm;
+        margin-top: 3cm;
+        margin-bottom: 3cm;
+    }
+</style>
+</head>
+<body style="font-family:Arial Unicode MS;font-size:15px;">
+<table>
+<tr><td><b>{!Account.Site_Contact__r.name}</b></td></tr>
+<tr><td>{!Account.name}</td></tr>
+<tr><td>{!Account.BillingStreet}</td></tr>
+<tr><td>{!Account.BillingCity}</td></tr>
+<tr><td>{!Account.BillingCountry}</td></tr>
+<tr><td>{!Account.BillingPostalCode}</td></tr>
+</table>
+</body>
+</apex:page>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Callout__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(OR(TEXT( Visit_Type__c) = &quot;Project&quot;,TEXT( Visit_Type__c) = &quot;Warranty&quot;,TEXT( Visit_Type__c) = &quot;Callout&quot;,TEXT( Visit_Type__c) = &quot;Workshop Repair&quot;,AND(TEXT(Visit_Type__c) = &quot;Service&quot;,TEXT(Service_Type__c) = &quot;Other&quot;)), 
+HYPERLINK (&quot;/a0J/e?CF00N580000064xzs=&quot;&amp; Name&amp;&quot;&amp;CF00N580000064xzs_lkid=&quot;&amp;Id&amp;&quot;&amp;retURL=%2F&quot;&amp;Id&amp;&quot;&amp;RecordType=01258000000LuVn&amp;ent=01I58000000NqwT&amp;CF00N580000064xzc=&quot;&amp; Site__r.Name &amp;&quot;&amp;CF00N580000064xzc_lkid=&quot;&amp;Site__r.Id&amp;&quot;&amp;CF00N580000064xzk=&quot;&amp;Engineer2__r.Name&amp;&quot;&amp;CF00N580000064xzk_lkid=&quot;&amp;Engineer2__r.Id&amp;&quot;&amp;00N580000064xx4=&quot;&amp; Site__r.Visit_Confirmation_Email_to__c&amp;&quot;&amp;00N580000064xx5=&quot;&amp; Site__r.Test_Certificate_to_HQ_email__c&amp;&quot;&amp;CF00N580000064xzZ=&quot;&amp;Site_Contract__r.Name&amp;&quot;&amp;CF00N580000064xzZ_lkid=&quot;&amp; Site_Contract__r.Id&amp;&quot;&amp;00N580000064xyY=&quot;&amp;Current_Purchase_Order_No__c&amp;&quot;&amp;00N4E000000qXv5=&quot;&amp;Make__c&amp;&quot;&amp;00N4E000000qXuv=&quot;&amp; Model__c&amp;&quot;&amp;00N4E000000qXvT=&quot;&amp; Serial_Number__c ,
+IF((TEXT( Visit_Type__c) = &quot;Workshop Repair&quot;),IMAGE(&quot;/servlet/servlet.FileDownload?file=0154E000000JN8t&quot;,&quot;Workshop&quot;),IF(AND(TEXT(Visit_Type__c) = &quot;Service&quot;,TEXT(Service_Type__c) = &quot;Other&quot;),IMAGE(&quot;/servlet/servlet.FileDownload?file=0157Z000000wb74&quot;, &quot;Service&quot;),IMAGE(&quot;/servlet/servlet.FileDownload?file=0154E000000Dm3y&quot;, &quot;ServiceCallout&quot;)))),&quot;&quot;)</formula>
+    <inlineHelpText>Callout</inlineHelpText>
+    <label>--</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

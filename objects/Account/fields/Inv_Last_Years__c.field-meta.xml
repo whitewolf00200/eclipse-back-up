@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inv_Last_Years__c</fullName>
+    <label>Inv Last Year</label>
+    <summarizedField>Opportunity.Total_Sales_Price__c</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>Closed Won, Sent</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Invoice_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>12/1/2020</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Invoice_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>11/30/2021</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

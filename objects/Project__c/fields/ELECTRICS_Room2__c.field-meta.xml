@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ELECTRICS_Room2__c</fullName>
+    <inlineHelpText>-Socket positions, circuits, isolation 
+-Check for telephone, intercom  or data cables &amp; agree routes – normally surface 
+-Any redundant cabling that can be removed? 
+-Any chasing</inlineHelpText>
+    <label>Room2</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

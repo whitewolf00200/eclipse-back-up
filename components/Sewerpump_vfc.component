@@ -1,0 +1,303 @@
+<apex:component access="global" rendered="true" controller="ServiceController">
+    <apex:attribute name="Serviceid" type="Id"  assignTo="{!sheetid}" description="Attribute on the component."/>
+    <apex:attribute description="sp" name="sp" type="Engineer_Checklist__c"/>
+    <body class="start">
+        <div class="footer" >
+            <table>
+                <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+            </table></div>
+        <div style="width: 100% ;">
+            <table style="width:100%;border-collapse:0px">
+                <tr>
+                    <!-- <td colspan="2" width="100%;" class="a"> <img src="{!$Resource.FitOutEquipment1}" width="120" height="100"  title="logo" align="right"/></td>
+<td class="a" ><img src="{!$Resource.EclipseDentalLogo1}" width="130" height="120"  title="logo" align="right"/></td>
+-->
+                    <td class="a"><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+                    <td class="a" width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td>
+                </tr>
+            </table>
+            <p style="font-size:30px;position:absolute;left:190px;text-align:center;margin-top:-60px;"><b>Sewer Pump Certificate</b></p>
+            <br/><br/>
+            <table width="40%" style="background-color:white;position:absolute;left:20px;">
+                <tr>
+                    <td  width="50%" HEIGHT="80" style="border: 1px solid;vertical-align:top;"><apex:outputtext value="{!sp.Service_At__c}" escape="false"/></td>
+                </tr>
+            </table >
+            <table width="40%" style="border: 1px solid;vertical-align:top;background-color:white;position:absolute;right:20px;" >
+                <tr width="50%">
+                    <td width="25%" style="vertical-align:text-top;">Date:</td>
+                    <td width="25%" style="vertical-align:text-top;"><!-- {!DAY(sp.Date__c)}/{!MONTH(sp.Date__c)}/{!YEAR(sp.Date__c)} -->
+                        <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!sp.Date__c}"/></apex:outputtext>
+                    </td>
+                </tr>
+                <tr width="50%">
+                    <td width="25%" style="vertical-align:sup;">Account Ref :</td>
+                    <td width="25%" style="vertical-align:sup;">{!if(sp.Site__r.AccountNumber!=null,sp.Site__r.AccountNumber,sp.Site__r.Parent.AccountNumber)}</td>
+                </tr>
+                <tr  width="50%">
+                    <td width="25%" style="vertical-align:sup;">Certificate No.</td>
+                    <td width="25%" style="vertical-align:sup;">{!sp.Name}</td>
+                </tr>
+                <tr>
+                    <td width="25%" style="vertical-align:top;">Service Type:</td>
+                    <td width="25%" height="30" style="vertical-align:top;">{!sp.Service_Sheet_Type__c}</td>
+                </tr>
+            </table>
+            <div style="width: 100%;"><br/><br/><br/><br/><br/><br/><br/></div>
+            <div style="background-color:#6a2774;width: 100% ;"><br/></div>
+        </div>
+        <div >
+            <br/>
+            <table width="100%" style="text-align:left;border:1px solid;">
+                <tr >
+                    <td width="30%" style="text-align:right;">Date Of Manufacture/installation:</td>
+                    <td width="30%" style="border-bottom: solid 1pt;text-align:center;"><!-- {!DAY(sp.Date_Of_Manufacture__c)}/{!MONTH(sp.Date_Of_Manufacture__c)}/{!YEAR(sp.Date_Of_Manufacture__c)} -->
+                        <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!sp.Date_Of_Manufacture__c}"/></apex:outputtext>
+                    </td>
+                    <td width="40%" > </td>
+                </tr>
+                <tr>
+                    <td width="30%" style="text-align:right;" >Sewer Pump Make :</td>
+                    <td width="30%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Make__c}</td>
+                    <td width="40%">&nbsp;</td>
+                </tr>
+                <tr >
+                    <td width="30%"  style="text-align:right;">Model :</td>
+                    <td width="30%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Model__c}</td>
+                    <td width="40%">&nbsp;</td>
+                </tr>
+                <tr >
+                    <td width="30%"  style="text-align:right;">Serial Number :</td>
+                    <td width="30%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Serial_No__c}</td>
+                    <td width="40%">&nbsp;</td>
+                </tr>
+                <tr >
+                    <td width="30%" style="text-align:right;">Type :</td>
+                    <td width="30%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Type__c}</td>
+                    <td width="40%">&nbsp;</td>
+                </tr>
+                <tr >
+                    <td width="30%" style="text-align:right;">Surgery Name:</td>
+                    <td width="30%" style="border-bottom: solid 1pt;text-align:center;">{!sp.surgery_name__c}</td>
+                    <td width="40%">&nbsp;</td>
+                </tr>
+                
+                	 </table>
+            <table width="100%" style="text-align:left;">
+                <tr>
+                    <td width="50%" colspan="2">Site :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Site__r.Name}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Site Contract :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Site_Contract__r.Name}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Visit :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Visit__r.Name}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Technician :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Engineer__r.Name}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Type :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Type__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Service Sheet Type :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Service_Sheet_Type__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Location :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Location__c}</td>
+                </tr>
+                <tr>
+                    <td width="50" colspan="2">Sales Order Number :</td>
+                    <td width="50" style="border-bottom: solid 1pt;text-align:center;">{!sp.Sales_Order_Number__c}</td>
+                </tr>
+                <tr>
+                    <td width="50" colspan="2">Account No :</td>
+                    <td width="50" style="border-bottom: solid 1pt;text-align:center;">{!sp.Account_No__c}</td>
+                </tr>
+                <tr>
+                    <td width="50" colspan="2">Make :</td>
+                    <td width="50" style="border-bottom: solid 1pt;text-align:center;">{!sp.Make__c}</td>
+                </tr>
+                <tr>
+                    <td width="50" colspan="2">Model :</td>
+                    <td width="50" style="border-bottom: solid 1pt;text-align:center;">{!sp.Model__c}</td>
+                </tr>
+                <tr>
+                    <td width="50" colspan="2">Date :</td>
+                    <td width="50" style="border-bottom: solid 1pt;text-align:center;">{!sp.Date__c}</td>
+                </tr>
+                <tr>
+                    <td width="50" colspan="2">Start Date and Time :</td>
+                    <td width="50" style="border-bottom: solid 1pt;text-align:center;">{!sp.Start_Date_and_Time__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">End Date and Time :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.End_Date_and_Time__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Job Time (Hours) :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Job_Time_Hours__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Start Travel Time :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Start_Travel_Time__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">End Travel Time :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.End_Travel_Time__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Time on Site :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Travel_Time_Hours__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Submit This Service :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Fire_Extinguisher_Service_complete__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Close Visit :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Close_Visit__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Comments To Compliance Team :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Service_Recommendations__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Linked SS Count :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Linked_SS_Count__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Record Type :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.RecordType}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Dental Chair Manufacture :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Dental_Chair_Manufacture__c	}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Dental Chair Model:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Dental_Chair_Model__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Dental Chair Serial No:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Dental_Chair_Serial_No__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Date Of Manufacture:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Date_Of_Manufacture__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Movement Functions :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Movement_Functions__c }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Squeaks rubs :</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Squeaks_rubs__c }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">General Condition:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.General_Condition__c }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Spittoon:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Spittoon__c }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Cup Filler:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Cup_Filler__c	 }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Rinse:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Rinse__c }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Spittoon Valve Filter:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Spittoon_Valve_Filter__c	 }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Spittoon Valve Float:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Spittoon_Valve_Float__c }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Water Leaks:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Water_Leaks__c }</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Electrical Condition:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Electrical_Condition__c}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Suction hoses Tips:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Suction_hoses_Tips__c	}</td>
+                </tr>
+                <tr>
+                    <td width="50%" colspan="2">Notes for next service:</td>
+                    <td width="50%" style="border-bottom: solid 1pt;text-align:center;">{!sp.Notes_for_next_service__c}</td>
+                </tr>
+                
+                
+                <table Width="100%"  border="">
+                    <tr>
+                        <td width="5%"> </td>
+                        <td width="35%" >Technician Signature:</td>
+                        <td width="10%"></td>
+                        <td width="45%" >Notes / Recommendations:</td>
+                        <td width="5%"> </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td  height="50" style = "border: 1px solid black;background-color:white;">
+                            <!-- <b><apex:outputText value="{!substitute(sp.Engineer_s_Signature__c,"alt=","height=\"50px\" Alt=")}" escape="false"/></b> -->
+                            <apex:outputPanel rendered="{!Sign}">
+                                <img alt="no img" src="{!TechSign}" style="height:70px;max-width:100%;"/>
+                            </apex:outputPanel>
+                        </td>
+                        <td></td>
+                        <td rowspan="3" style="border: 1px solid black;vertical-align:text-top;background-color:white;">{!sp.Note__c}</td>                
+                        <td></td> 
+                    </tr> 
+                    <tr>
+                        <td></td>
+                        <td width="30%" >Print:</td>
+                        <td></td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td  height="40" style = "border: 1px solid black;background-color:white;">
+                            <apex:outputText value="{!sp.Engineer__r.Name}" escape="false"/>
+                        </td>
+                        <td></td>
+                        <td></td>                 
+                    </tr> 
+                    <tr>
+                        <td></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                    <!-- <tr>
+<td></td>
+<td  style="font-size:17px;color:#038B99;vertical-align:text-bottom;">Guaranteed solutions....</td>
+<td></td>
+<td style="color:#038B99;text-align:right;">Westview Court 10-14 Kent Road<br/>
+Dartford Kent DA1 2AJ<br/>
+Tel: 01322 293333<br />
+service@eclipse-dental.com<br />  
+www.eclipse-dental.com 
+</td>
+<td></td>
+</tr> -->
+                </table> 
+                
+            </table>
+            
+            
+        </div>
+    </body>
+</apex:component>

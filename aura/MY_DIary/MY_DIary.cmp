@@ -1,0 +1,40 @@
+<aura:component controller="DispatchBoardCls" implements="force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <ltng:require
+    styles="{!join(',',
+                          $Resource.Jquerymoment + '/fullcalendar.min.css',
+                          $Resource.Jquerymoment + '/bootstrapv4.css' 
+                          )}"
+    scripts="{!join(',',                                       			  
+             			  $Resource.Jquerymoment  + '/jquery.js',
+                          $Resource.Jquerymoment  + '/moment.js',
+                          $Resource.Jquerymoment  + '/bootstrap.min.js',             
+                          $Resource.Jquerymoment  + '/fullcalendar.js'              			 
+                          )}"
+    afterScriptsLoaded="{!c.afterScriptsLoaded}"/>  
+    
+    <!-- attributes -->    
+      <!-- attributes -->      
+    <aura:attribute name="selectedEngAssignments" type="map[]" />   
+    <aura:attribute name="DIARY_SETTINGS" type="map" default="{}"/>
+    
+    <!-- Technician Profile Page  starts here -->
+       
+                                    	
+              <!-- Engineer Profile View -->               
+              <!-- Calendar View -->
+    <lightning:layout>
+        <lightning:layoutItem size="12" alignmentBump="left">   
+            <lightning:tabset>
+            	<lightning:tab label="MY DIARY" id="my_diary">
+                	<div><div id="eng_calendar" style="display:block;" class="fax"> </div> </div>  
+                </lightning:tab>
+            </lightning:tabset>          
+        </lightning:layoutItem>
+    </lightning:layout>
+               
+              <!--Engineer's related list -->                                        
+              
+          
+	
+</aura:component>

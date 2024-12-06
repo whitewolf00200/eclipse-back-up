@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Return_Visit_Reason</fullName>
+    <active>true</active>
+    <description>REquired if you tick this is a return visit</description>
+    <errorConditionFormula>AND ( 
+IF ( Fire_Extinguisher_Service_complete__c , 1, 0 )= 1,
+IF (  Return_visit_required__c ,1,0) = 1,
+Return_Visit_Reason__c = &quot;&quot; 
+)</errorConditionFormula>
+    <errorDisplayField>Return_Visit_Reason__c</errorDisplayField>
+    <errorMessage>If you have ticked &quot;Return Visit Required&quot; then you must fill in a reason.</errorMessage>
+</ValidationRule>

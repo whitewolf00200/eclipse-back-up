@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fire_Extinguisher_Stands_and_QTY</fullName>
+    <active>false</active>
+    <description>Must enter a Qty if Fire Extinguisher Stands is selected.</description>
+    <errorConditionFormula>AND ( TEXT (  Fire_Extinguisher_Stands__c  )&lt;&gt;&quot;&quot;,
+
+ TEXT (   Fire_Extinguisher_Stand_QTY__c   )= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have selected a drop down field, you must also enter a quantity.</errorMessage>
+</ValidationRule>

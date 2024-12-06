@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Change_After_Delivered</fullName>
+    <active>true</active>
+    <description>Status Change After Delivered</description>
+    <errorConditionFormula>IF(AND(PRIORVALUE(Status) =&apos;Delivered&apos;,NOT(TEXT(Status)=&apos;Delivered&apos;)),true,false)</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>Cannot change the Status After Delivered the products!</errorMessage>
+</ValidationRule>

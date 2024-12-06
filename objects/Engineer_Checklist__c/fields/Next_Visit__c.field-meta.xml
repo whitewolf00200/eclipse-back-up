@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Visit__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>This is populated automatically when the service sheet is created. It is created based on the service contract regularity. For example if the service was done in Nov, even if it was due in Sep, the next visit is based on regularity on Contract and Nov!</inlineHelpText>
+    <label>Next Visit</label>
+    <referenceTo>Visits__c</referenceTo>
+    <relationshipLabel>Service Sheets on which this is the Next Visit</relationshipLabel>
+    <relationshipName>Service_Sheets1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FA_Sounder_Test_Date__c</fullName>
+    <description>Last Sounder Test Date</description>
+    <inlineHelpText>This field is either filled in with the date the Customer gives you, if the customer completed the test, or the date on which you completed the test.</inlineHelpText>
+    <label>Sounder Test Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

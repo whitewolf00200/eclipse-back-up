@@ -1,0 +1,23 @@
+<apex:page standardController="Technician_Compliance__c" extensions="CustomerdeliveryNoteController"  sidebar="false" showHeader="false" renderAs="PDF">
+     <center><h4>Customer Gift </h4></center>
+     <br /><br />
+      <div >
+      <table style="position:absolute;left:10%;">
+      <tr><td><b><apex:outputText value="FAO :"/></b></td><td ><apex:outputText value="{!Name}" /></td></tr>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
+      <tr><td><b><apex:outputText >Address : </apex:outputText></b></td></tr>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
+      <tr><td><apex:outputText value="Customer/Site :"/></td><td><apex:outputText value="{!Customer}"/></td></tr>
+      <tr><td><apex:outputText value="Shipping Street :"/></td><td><apex:outputText value="{!ShipStreet}"/></td></tr>
+      <tr><td><apex:outputText value="Shipping City :"/></td><td><apex:outputText value="{!ShipCity}"/></td></tr>
+      <tr><td><apex:outputText value="Shipping State :"/></td><td><apex:outputText value="{!ShipState}"/></td></tr>
+      <tr><td><apex:outputText value="Shipping Province/Zip :"/></td><td><apex:outputText value="{!ShipZip}"/></td></tr>
+      <tr><td><apex:outputText value="Shipping Country :"/></td><td><apex:outputText value="{!ShipCountry}"/></td></tr>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
+      <tr><td><b><apex:outputText value="Gift :"/></b></td><td><apex:outputText value="{!Gift}" /></td></tr>
+      </table>
+      </div>
+</apex:page>

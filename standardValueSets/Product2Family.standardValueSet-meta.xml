@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>BNW</fullName>
+        <default>false</default>
+        <label>BNW</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cabinetry</fullName>
+        <default>false</default>
+        <label>Cabinetry</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Carriage</fullName>
+        <default>false</default>
+        <label>Carriage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Chair Package</fullName>
+        <default>false</default>
+        <label>Chair Package</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Design, drawings or policy</fullName>
+        <default>false</default>
+        <label>Design, drawings or policy</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ENT Equipment</fullName>
+        <default>false</default>
+        <label>ENT Equipment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fit Out (Flooring, Contractors)</fullName>
+        <default>false</default>
+        <label>Fit Out (Flooring, Contractors)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Flooring</fullName>
+        <default>false</default>
+        <label>Flooring</label>
+    </standardValue>
+    <standardValue>
+        <fullName>General Equipment</fullName>
+        <default>false</default>
+        <label>General Equipment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>General Overheads</fullName>
+        <default>false</default>
+        <label>General Overheads</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Handpieces</fullName>
+        <default>false</default>
+        <label>Handpieces</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Imaging</fullName>
+        <default>false</default>
+        <label>Imaging</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LDU fit-out</fullName>
+        <default>false</default>
+        <label>LDU fit-out</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lighting</fullName>
+        <default>false</default>
+        <label>Lighting</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketing</fullName>
+        <default>false</default>
+        <label>Marketing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Medium Equipment</fullName>
+        <default>false</default>
+        <label>Medium Equipment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Minor Works (part refurb - small)</fullName>
+        <default>false</default>
+        <label>Minor Works (part refurb - small)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Misc. Income</fullName>
+        <default>false</default>
+        <label>Misc. Income</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Practice Fit-Out</fullName>
+        <default>false</default>
+        <label>New Practice Fit-Out</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Plant</fullName>
+        <default>false</default>
+        <label>Plant</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Reception Area Works</fullName>
+        <default>false</default>
+        <label>Reception Area Works</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relocate Equipment</fullName>
+        <default>false</default>
+        <label>Relocate Equipment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service</fullName>
+        <default>false</default>
+        <label>Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Small Equipment</fullName>
+        <default>false</default>
+        <label>Small Equipment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Spares</fullName>
+        <default>false</default>
+        <label>Spares</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sterilisation Equipment</fullName>
+        <default>false</default>
+        <label>Sterilisation Equipment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Supplies (Consumables, Dispensers)</fullName>
+        <default>false</default>
+        <label>Supplies (Consumables, Dispensers)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Surgery fit-out</fullName>
+        <default>false</default>
+        <label>Surgery fit-out</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recent_Sold__c</fullName>
+    <label>Recent Sold</label>
+    <summarizedField>Inventory_Transaction__c.TransferDate__c</summarizedField>
+    <summaryFilterItems>
+        <field>Inventory_Transaction__c.Transaction_Type__c</field>
+        <operation>equals</operation>
+        <value>Sold</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Inventory_Transaction__c.Inventory__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Today_s_visits</fullName>
+    <columns>NAME</columns>
+    <columns>Site__c</columns>
+    <columns>Customer_Contact__c</columns>
+    <columns>Visit_Type__c</columns>
+    <columns>Requested_Attendance_Time__c</columns>
+    <columns>Message_to_Technician__c</columns>
+    <columns>Booking_Notes__c</columns>
+    <columns>Surgery_avaliability__c</columns>
+    <columns>Asset_Name__c</columns>
+    <columns>Location__c</columns>
+    <columns>Parking_Info__c</columns>
+    <columns>Service_Sheet_Number__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Original_Actual_Service_Date__c</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Today&apos;s visits</label>
+</ListView>

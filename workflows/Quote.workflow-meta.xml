@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Send_Basic_Proposal_Certificate_To_Customer</fullName>
+        <description>Send Basic Proposal Certificate To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Quote_Templates/Email_For_Basic_Proposal</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Long_Project_Proposal_Certificate_To_Customer</fullName>
+        <description>Send Long Project Proposal Certificate To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Quote_Templates/Email_For_Long_Project_Proposal</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Service_Proposal_Certificate_To_Customer</fullName>
+        <description>Send Service Proposal Certificate To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Quote_Templates/Email_For_Service_Proposal</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Short_Project_Proposal_Certificate_To_Customer</fullName>
+        <description>Send Short Project Proposal Certificate To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Quote_Templates/Email_For_Short_Project_Proposal</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Quote_VAT_Update</fullName>
+        <field>VAT_Rate__c</field>
+        <formula>Opportunity.VAT_Rate__c</formula>
+        <name>Quote VAT Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Basic Propsal Email To Customer</fullName>
+        <actions>
+            <name>Send_Basic_Proposal_Certificate_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Status,&apos;Approved&apos;),
+RecordTypeId = &apos;0124E0000000D0Q&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Quote VAT Rate Update</fullName>
+        <actions>
+            <name>Quote_VAT_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.VAT_Rate__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Long Project Proposal Email</fullName>
+        <actions>
+            <name>Send_Long_Project_Proposal_Certificate_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Status,&apos;Approved&apos;), 
+RecordTypeId = &apos;0124E0000000D0V&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Service Proposal Email</fullName>
+        <actions>
+            <name>Send_Service_Proposal_Certificate_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Status,&apos;Approved&apos;),
+RecordTypeId = &apos;0124E0000000D0a&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Short Project Proposal Email</fullName>
+        <actions>
+            <name>Send_Short_Project_Proposal_Certificate_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Status,&apos;Approved&apos;), 
+RecordTypeId = &apos;0124E0000000D0f&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

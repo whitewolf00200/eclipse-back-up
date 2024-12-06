@@ -1,0 +1,7 @@
+<apex:page standardController="Opportunity" extensions="InvoiceAlertController">
+     
+         <apex:outputPanel layout="block" style="overflow:auto;height:100px" >
+        <apex:pageMessages />
+        </apex:outputPanel>
+     
+    </apex:page>

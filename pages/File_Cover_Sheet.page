@@ -1,0 +1,124 @@
+<apex:page standardController="Account" contentType="application/msword#File Cover.doc" cache="true">
+<head>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>    
+<style>
+@page{
+margin-top: 2.0cm;
+margin-left: 3.0cm;
+margin-right: 2.0cm;
+margin-bottom: 0.0cm;
+}
+boxed {
+  border: 1px solid;
+  height: 40px;
+  width:200px; 
+  font-size: 50px;
+  font-family: Arial Unicode MS;
+  margin-top: 5px; 
+
+}
+.vertical-text {
+display: block;
+position:absolute;
+width: 0px;
+height: 0px;
+top: 0px;
+left: 0px;
+transform: rotate(90deg);
+}
+ #map {
+          font-family: Arial;
+          font-size:12px;
+          line-height:normal !important;
+          height:250px;
+          background:transparent;
+        }
+</style>
+<script type="text/javascript">
+            $(document).ready(function() {
+                var map;
+                var marker;             
+                var myOptions = {
+                    zoom: 15,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    mapTypeControl: false
+                }                
+                var geocoder = new google.maps.Geocoder();
+                var address = "{!JSENCODE(Account.BillingStreet)}, " + "{!JSENCODE(Account.BillingCity)}, " + "{!JSENCODE(Account.BillingPostalCode)}, " + "{!JSENCODE(Account.BillingCountry)}";
+                address = address.replace(/(\r\n|\n|\r)/gm,"");
+                geocoder.geocode( { 'address': address}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK && results.length) {
+                        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                            //create map
+                            map = new google.maps.Map(document.getElementById("map"), myOptions);
+                            //center map
+                            map.setCenter(results[0].geometry.location);
+                            //create marker
+                            marker = new google.maps.Marker({
+                                position: results[0].geometry.location,
+                                map: map,
+                                title: "{!Account.Name}"
+                            });
+                            //add listeners
+                            google.maps.event.addListener(map, 'click', function(event) {
+                              geocoder.geocode({'latLng': event.latLng},function(results, status){
+                                  if (status == google.maps.GeocoderStatus.OK && results.length) {
+                                      result=results[0].address_components;
+                                      var info=[];
+                                      for(var i=0;i<result.length;++i){
+                                        if(result[i].types[0]=="street_number"){
+                                            info.push(result[i].long_name);
+                                        }
+                                        if(result[i].types[0]=="route"){
+                                            info.push(result[i].long_name);
+                                            document.getElementById('{!$Component.accountform.accountblock.addressblocksection.BillingStreet}').value = info.join(' ');
+                                        }
+                                        if(result[i].types[0]=="locality"){
+                                            document.getElementById('{!$Component.accountform.accountblock.addressblocksection.BillingCity}').value = result[i].long_name;
+                                        }
+                                        if(result[i].types[0]=="administrative_area_level_1"){
+                                            document.getElementById('{!$Component.accountform.accountblock.addressblocksection.BillingState}').value = result[i].long_name;
+                                        }
+                                        if(result[i].types[0]=="country"){
+                                            document.getElementById('{!$Component.accountform.accountblock.addressblocksection.BillingCountry}').value = result[i].long_name;
+                                        }
+                                        if(result[i].types[0]=="postal_code"){
+                                            document.getElementById('{!$Component.accountform.accountblock.addressblocksection.BillingPostalCode}').value = result[i].long_name;
+                                        }                                       
+                                      }
+                                  }
+                              });
+                            });                         
+                        }
+                    }else{
+                        $('#map').css({'height' : '15px'});
+                        $('#map').html("Oops! {!Account.Name}'s billing address could not be found, please make sure the address is correct.");
+                    }
+                });
+            });
+        </script>
+</head>
+<body>
+ <table style="font-family: Arial Unicode MS; font-size: 14px">
+ <tr><td style="border: solid 1pt;height: 50px;width: 250px;font-family: Arial Unicode MS; font-size: 27px;vertical-align:middle;text-align:center;">PROJECT FILE </td></tr><br/>
+ <tr><td><b>{!Account.Site_Contact__r.Salutation}&nbsp;{!Account.Site_Contact__r.Name}</b></td></tr>    
+ <tr><td>{!Account.Name}</td></tr>
+ <tr><td>{!Account.BillingStreet}</td></tr>
+ <tr><td>{!Account.BillingCity}</td></tr>
+ <tr><td>{!Account.BillingState}</td></tr>
+ <tr><td>{!Account.BillingCountry}</td></tr>
+ <tr><td>{!Account.BillingPostalCode}</td></tr><br/>
+ <tr><td><b>Customer No.</b>&nbsp;{!Account.UPRN__c}</td></tr><br/>
+ <tr><td><b>Project No.</b>&nbsp;</td></tr><br/>
+ <tr><td><b>Tel:</b>&nbsp;{!Account.Site_Contact__r.Phone}</td></tr>
+ <tr><td><b>Mobile:</b>&nbsp;{!Account.Site_Contact__r.MobilePhone}</td></tr>
+ <tr><td><b>Email:</b>&nbsp;{!Account.Site_Contact__r.Email}</td></tr>
+ <tr><td><b>PM:</b>&nbsp;</td></tr>
+ <tr><td><b>No. of Surgeries:</b>&nbsp;</td></tr>
+<!-- <tr><td><apex:image url="https://maps.googleapis.com/maps/api/staticmap?center={!Account.BillingStreet},{!Account.BillingCity},{!Account.BillingState}&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&sensor=false" style="border: solid 3pt"/></td></tr><br/> -->
+<tr><td> <apex:outputField value="{!Account.map_image__c}"/></td></tr>
+ <tr><td style="border: solid 1pt;height: 50px;width: 250px;font-size: 20px;vertical-align:middle;"><b>{!Account.Name}&nbsp;|&nbsp;{!Account.UPRN__c}</b></td></tr>
+ </table>
+</body>                           
+</apex:page>

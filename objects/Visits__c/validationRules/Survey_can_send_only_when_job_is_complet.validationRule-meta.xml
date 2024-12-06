@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey_can_send_only_when_job_is_complet</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED( Survey_Sent__c ) &amp;&amp;  ! Visit_Complete__c</errorConditionFormula>
+    <errorMessage>Survey can send only when Visit is completed</errorMessage>
+</ValidationRule>

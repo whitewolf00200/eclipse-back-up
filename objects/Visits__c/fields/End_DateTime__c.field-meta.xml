@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>End_DateTime__c</fullName>
+    <formula>if(ISBLANK(End_Date__c ),DATETIMEVALUE(Text( Year(Actual_Service_Date__c))+&apos;-&apos;+Text( month(Actual_Service_Date__c))+&apos;-&apos;+Text( day(Actual_Service_Date__c))+&apos; &apos;+&apos;10:00:00&apos;),
+DATETIMEVALUE(Text( Year(End_Date__c))+&apos;-&apos;+Text( month(End_Date__c))+&apos;-&apos;+Text( day(End_Date__c))+&apos; &apos;+&apos;10:00:00&apos;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>End DateTime</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

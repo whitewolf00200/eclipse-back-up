@@ -1,0 +1,33 @@
+<apex:page tabStyle="Task" sidebar="false" showHeader="false" id="page1" Controller="OppListInvoiceHandler">
+
+<script>
+function func(){
+    alert("hi");
+}
+</script>
+<apex:form >
+           <apex:pageblock tabstyle="opportunity">
+            <apex:pageBlockSection title="Update Opportunity"   collapsible="false" columns="1">
+           <Apex:pageBlock >
+                 <apex:pageBlockButtons >
+                 <apex:commandButton action="{!updateFun}" value="UPDATE"/>
+                 </apex:pageBlockButtons>
+                
+                   <apex:pageBlockTable value="{!OpportunityList}" var="cc">
+                   <apex:column headerValue="Selected" >                   
+                     <apex:inputCheckbox selected="{!cc.selected}"/> 
+                    </apex:column>
+                    <apex:column value="{!cc.oppSingleList.Name}" headerValue="Name" >     
+                      </apex:column>
+                    
+                    <apex:column >
+                    <apex:facet name="header">stageName</apex:facet>
+                    <apex:inputField value="{!cc.oppSingleList.stageName}"></apex:inputField>
+                    </apex:column>
+                    </apex:pageBlockTable> 
+       
+    </apex:pageblock>
+    </apex:pageBlockSection>
+    </apex:pageblock>
+  </apex:form>
+</apex:page>

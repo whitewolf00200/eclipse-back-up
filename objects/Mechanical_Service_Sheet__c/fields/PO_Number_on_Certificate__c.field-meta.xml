@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PO_Number_on_Certificate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( Order_No__c &lt;&gt; &quot;&quot;, Order_No__c, Current_Service_PO_No__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>If there is a PO on the reactive in the field called &quot;Order Number&quot; the certificate will use this, otherwise the certificate will use the PO number from the visit, site contract or site.</inlineHelpText>
+    <label>PO Number on Certificate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

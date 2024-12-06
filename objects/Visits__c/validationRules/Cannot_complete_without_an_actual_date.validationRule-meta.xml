@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_complete_without_an_actual_date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( Visit_Complete__c = TRUE, 
+ TEXT(Actual_Service_Date__c) = &quot;&quot; )</errorConditionFormula>
+    <errorDisplayField>Actual_Service_Date__c</errorDisplayField>
+    <errorMessage>Please can you fill out the Actual Service Date on the Service that has been completed.</errorMessage>
+</ValidationRule>

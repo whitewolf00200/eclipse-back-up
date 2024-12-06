@@ -1,0 +1,26 @@
+<apex:page standardController="Product2" extensions="ProductQuoteController">
+<apex:pageBlock title="Product Quotes Details">
+<apex:form >
+<apex:pageBlockTable value="{!quoteLine}" var="q">
+<apex:column headerValue="Quote Number">
+<apex:outputLink value="#" onclick="window.open('/{!q.Quote.id}','_blank');">{!q.Quote.QuoteNumber}
+</apex:outputLink>
+</apex:column>
+<apex:column headerValue="Quote" value="{!q.Quote.name}"/>
+<apex:column headerValue="QuoteDate">
+<apex:outputText value="{0, date, dd'/'MM'/'yyyy}">
+ <apex:param value="{!q.Quote.CreatedDate}" />
+</apex:outputText>
+</apex:column>
+<!--<apex:column headerValue="QuoteDate" value="{!q.Quote.CreatedDate}"/>-->
+<apex:column headerValue="Opportunity Name" >
+<apex:outputLink value="#" onclick="window.open('/{!q.Quote.Opportunity.id}','_blank');">{!q.Quote.Opportunity.name}
+</apex:outputLink>
+</apex:column>
+<apex:column headervalue="Stage" value="{!q.Quote.Opportunity.StageName}"/>
+<apex:column headervalue="Account" value="{!q.Quote.Account.name}"/>
+<apex:column headervalue="Cost Price" value="{!q.Cost_Price__c}"/>
+</apex:pageBlockTable>
+</apex:form>
+</apex:pageBlock>
+</apex:page>

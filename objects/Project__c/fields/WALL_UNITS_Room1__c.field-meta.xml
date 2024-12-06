@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WALL_UNITS_Room1__c</fullName>
+    <defaultValue>&quot;Note hinge direction and heights shown on drawing&quot;</defaultValue>
+    <inlineHelpText>-Extended doors, without handles? 
+-If there is a lighting pelmet – ensure this is set back, or doors extend below 
+-Check hinge direction &amp; mark on plan 
+-Confirm height 
+-Tall units – confirm height-show elevation plan</inlineHelpText>
+    <label>Room1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

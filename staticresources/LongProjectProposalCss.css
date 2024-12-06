@@ -1,0 +1,28 @@
+@page{
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 2.5cm;
+    @top-center {
+        content: element(header);
+    }
+    @bottom-left {
+        content: element(footer);
+    }
+}
+
+
+
+div.footer {
+    padding: 15px;
+    position: running(footer);
+}
+
+.pagenumber:before {
+    content: counter(page);
+}
+
+.pagecount:after {
+    content: counter(pages);
+}

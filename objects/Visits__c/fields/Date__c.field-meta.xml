@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>Date MUST be in this format : DD/MM/YYYY. PLEASE do not create new planned service dates. If this is not working, contact cascloud for support or simply move straight to actual service date, and ignore the planned service date.</inlineHelpText>
+    <label>Planned Visit Date</label>
+    <referenceTo>Date__c</referenceTo>
+    <relationshipLabel>Visits</relationshipLabel>
+    <relationshipName>Visits</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

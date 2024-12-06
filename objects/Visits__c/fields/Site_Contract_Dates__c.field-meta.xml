@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Contract_Dates__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( TEXT(Site_Contract__r.Number_of_Services__c) &lt;&gt; &quot;&quot;,&quot; Number of Services : &quot;&amp;TEXT(Site_Contract__r.Number_of_Services__c)&amp;BR(),&quot;&quot;)
+&amp;&quot; Number of Open Visits : &quot;&amp; TEXT(Site_Contract__r.Number_of_Open_Visits__c) &amp;BR()
+&amp;&quot; Next Scheduled Open Visit : &quot;&amp; TEXT(Site_Contract__r.Next_Planned_Fire_Extinguisher_Visit__c)&amp;BR()
+&amp;&quot; Last Completed Visit : &quot;&amp; TEXT( Site_Contract__r.Last_Completed_Visit__c )&amp;BR()
+&amp;&quot; Number of Completed Visits : &quot;&amp; TEXT(Site_Contract__r.Number_of_Completed_Visits__c)
+&amp;&quot; Visit Rescheduling : &quot;&amp; Site_Contract__r.Visit_Rescheduling_Formula__c 
+&amp;&quot; Status : &quot;&amp; TEXT( Site_Contract__r.AM_Status__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Site Contract Dates</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

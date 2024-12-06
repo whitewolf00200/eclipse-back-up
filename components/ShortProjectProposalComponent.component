@@ -1,0 +1,239 @@
+<apex:component access="global" rendered="true" controller="QuoteController">
+  <apex:attribute description="Sppc" name="Sppc"  type="Quote"/>
+   <apex:attribute description="quote id" name="qoid" type="Id" assignTo="{!QliId}"/>
+<body class="start">
+ <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>  
+               <br /> <br /> <br /> <br /> <br /> 
+               <div class="footer"> 
+                 <!--<p style="border-top: 1px solid #038B99;" ><span style="color:#038B99;text-align:left"><b >Guaranteed solutions....</b> </span><br/> 
+                 {!$Label.Company_Name} | Westview Court |10-14 Kent Road | Dartford | Kent | DA1 2AJ |
+                 Tel: 01322 293333 | Email: info@eclipse-dental.com<br/>
+                 Vat No: GB 714315367 | Company Registration No.12402632 Registered at above address
+                 </p>   -->
+                   <table width="100%" height="100%" >
+    <tr> <td ><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>   
+               </div> 
+  <!-- <table style="margin-top:-120px;margin-bottom:10px;margin-left:230px;">
+        <tr> <td  colspan="3" style="font-size:14pt;"><b>{!Sppc.RecordType.name}</b></td></tr>
+</table> -->
+               <table width="100%" style="margin-top:-110px;" >
+               <tr><td colspan="3" style="font-size:12pt;"><b>Proposal</b></td></tr>
+               <tr><td>&nbsp;</td></tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%">For the attention of :<br/>{!Sppc.Opportunity.Shipping_Contact__r.Salutation}<apex:outputText rendered="{!Sppc.Opportunity.Shipping_Contact__r.Salutation!=''}"> &nbsp;</apex:outputText>{!Sppc.Opportunity.Shipping_Contact__r.Name}</td>
+                   <td width="30%">&nbsp;</td>
+               </tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%" style="vertical-align:top;"><apex:outputtext value="{!IF(Sppc.Bill_To__c!=NULL,Sppc.Bill_To__c,Sppc.Opportunity.Invoice_Address__c)}" escape="false"/>
+                       <br/><br/>Delivery Address<br/><apex:outputtext value="{!Sppc.Opportunity.Site_Address__c}" escape="false"/>
+                   </td>
+                   <td width="45%">
+                       <table  border="">
+                           <tr>
+                               <td style="white-space:nowrap;">Proposal No:</td>
+                               <td style="font-size:16px;">{!Sppc.QuoteNumber} - <apex:outputText value="{0,number,###,###,##0}">       
+<apex:param value="{!Sppc.Version_Number__c}"/> 
+</apex:outputText></td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                          
+                           <tr>
+                               <td>Date:</td>
+                               <td><!-- {!DAY(DATEVALUE(Sppc.CreatedDate))}/{!MONTH(DATEVALUE(Sppc.CreatedDate))}/{!YEAR(DATEVALUE(Sppc.CreatedDate))} -->
+                               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!Sppc.CreatedDate}"/></apex:outputtext>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                           <tr>
+                               <td>Your Ref:</td>
+                               <td>{!Sppc.Your_Ref__c}</td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                           <tr>
+                               <td>Phone:</td>
+                               <td>{!Sppc.Phone}</td>
+                           </tr>
+                          <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                           <tr>
+                               <td>Email:</td>
+                               <td>{!Sppc.Email}</td>
+                           </tr>
+                         <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                           <tr>
+                               <td>Account No:</td>
+                               <td>{!IF(Sppc.Account.AccountNumber!=null,Sppc.Account.AccountNumber,Sppc.Account.parent.AccountNumber)}</td>
+                           </tr>
+                       </table>       
+                   </td>
+               </tr>
+               </table>
+               <p style="text-align:center;font-size:12pt;"><b>{!Sppc.Opportunity.Name}</b></p>
+            <br />
+           <p > Dear {!Sppc.Opportunity.Shipping_Contact__r.Salutation}&nbsp;{!Sppc.Opportunity.Shipping_Contact__r.Name},<br /><br/>
+            Thank you for your recent enquiry and development discussions we have had in connection with the above proposed works.<br /><br />
+            We believe {!IF(Sppc.Account.Parent.Name!=null,Sppc.Account.Parent.Name,Sppc.Account.Name)} not only requires excellent prices but also the support of a dedicated dental company committed to an unparalleled level of service in your area.<br /><br />
+            Eclipse Dental are happy to confirm that this is exactly the type of scheme that we specialise in and would like to assure you of our most careful attention in this matter.</p>
+            <p style="font-size:16px"> Your Surgery...</p><p >It’s not just about creating the right look.<br/><br/>The design of your surgery is one of the most important business decisions you will ever make. Of course, it needs to look good. Whilst reflecting your own taste in design it must also exude professionalism and contain every element to put patientsat their ease. However, there is much more to it than that. Every dentist is unique in the way he or she works. The ergonomics of the surgery layout is critical to not only productivity, but, also your health and safety and that of your staff</p>
+            <p style="font-size:16px">....And Eclipse Dental</p > <p >We have worked with dental professionals in private practices and hospital departments for many years and have built a unique track record for interpreting the needs of the individual dentist, and designing surgeries and decontamination areas that are both fit for purpose and future proof.<br />
+            Eclipse Dental provides a dedicated and complete technical design service in London and the southern Home Counties from its operating base in Dartford. We work with you to achieve the right look, the right feel, and the right layout to suit you and your business.<br /> We understand the demands of HTM01-05 and CQC recommendations in the design and fit-out of decontamination areas derived from our established reputation working with PCT’s and infection control advisers.<br /><br />
+            We would like you to join our client base of satisfied customers.</p><br /><br />
+            
+            <div style="page-break-before: always;">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%"  >
+                    <tr style="background-color:#48164d;color:white;font-size:14px;">       
+                     <td align="center" width ="5%"><b>Item</b></td>
+                     <td align="left" width ="52%"><b>&nbsp;&nbsp;Product</b></td>
+                     <td align="center" width ="8%"><b>Qty</b></td>
+                     <td align="center" width ="7%"><b>Unit</b></td>
+                     <td align="right" width ="13%"><b>Price</b></td>
+                     <td align="right" width ="15%"><b>Line Price</b></td> 
+                    </tr>
+                </table>      
+                
+                <table border="0" width="100%" >
+                <apex:variable value="{!1}" var="rowNum"/>
+                    <apex:repeat value="{!Qli}" var="line">
+                              <tr>
+                          
+                               <td width="5%" valign="top">{!rowNum} </td>
+                              <td align="left" width="52%" style="vertical-align:top;"><apex:outputText value="{!If(line.Sales_Description__c!=null,line.Sales_Description__c,line.Product2.Name)}" style="white-space:pre-line;" escape="false"/><br/>
+                               <apex:outputText rendered="{!AND(line.Show_Description__c,line.Extended_Sales_Description__c!=null)}" VAlue="{!line.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false"/>
+                          <!--     <apex:outputText rendered="{!AND(line.Show_Description__c,line.Product2.Sales_Description__c!=null,line.Extended_Sales_Description__c==null)}" VAlue="{!line.Product2.Sales_Description__c}" style="white-space:pre-line;" escape="false"/>
+                              <apex:outputText rendered="{!AND(line.Show_Description__c,line.Product2.Description!=null,line.Extended_Sales_Description__c==null,line.Product2.Sales_Description__c==null)}" VAlue="{!line.Product2.Description}" style="white-space:pre-line;" escape="false"/> -->
+                           
+                               </td>
+                             
+                              <td align="center" width="8%" style="vertical-align:top;"><apex:outputText value="{!line.Quantity}" /></td>
+                              <td align="center" width="7%" style="vertical-align:top;"><apex:outputText value="{!line.Product2.Stock_Unit__c}" /></td>
+                              <td align="right" width="13%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.UnitPrice}"/></apex:outputText></td>
+                              <td align="right" width="15%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.TotalPrice}"/></apex:outputText></td>
+                              </tr>
+                    <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                    </apex:repeat> 
+                   <tr>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                      </tr>
+                                          
+                       <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td align="right" colspan="3"><b>Total Price :</b><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Sppc.TotalPrice}"/></apex:outputText></td>
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td align="right" colspan="3"><b>VAT Total :</b><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Sppc.Vat_Total__c}"/></apex:outputText></td>
+                           
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td align="right" colspan="3"><b>Quote Total :<apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Sppc.Quote_Total__c}"/></apex:outputText></b></td>
+                       </tr>           
+                   </table>
+                   </div>
+                   <br/><br/><br/><br/>
+
+    <!--This proposal includes delivery and installation of all items listed, including equipment connection to building services pre-installed to our specifications.<br /><br />-->
+    It is valid for 30 days and is subject to our standard terms and conditions of sale and installation. A copy is available on request, or for download from: <a href="https://eclipse-dental.com/legal/terms-of-sale/">https://eclipse-dental.com/legal/terms-of-sale/</a><br /><br />
+    Prices are subject to VAT that will be charged at the current rate. E. &amp; O. E.<br /><br />
+    <p style="page-break-inside: avoid;"><span style="font-size:16px;">5 Year Finance Option</span><br/><apex:outputText value="{!Sppc.Finance_Option__c}" escape="false" style="white-space:pre-line;"/></p> <br/>
+            <p ><span style="font-size:16px;">The Eclipse Service Promise</span><br/><br/>
+            We guarantee the following service commitments:<br/><br/>
+            1. Customer Care Focus: Dedication to the highest quality of Customer Service delivered with friendly and individual enthusiasm.<br/><br/>
+            2. Quality Guarantee: We are committed to excellence in design, integrity in execution and the highest quality of products.<br/><br/>
+            3. Full Project Management: Eclipse Dental will co-ordinate every element of the project and ensure that it is delivered to schedule, safely and with the minimum of disturbance to your practice.<br/><br/>
+            4. After Sales Service: Our technical expertise will ensure good service from your equipment for years after the project has been completed. Our service engineers are available on call for rapid response and to ensure the minimum of down-time and the low long-term cost of ownership.<br /><br /><br />
+            </p> <br/>
+            <p style="page-break-inside: avoid;"><span style="font-size:16px;"> Payment Terms:</span> <br/><br/>
+            <!--<font style="color:black;background:yellow">PLEASE NOTE OUR NEW BANK DETAILS: ECLIPSE DENTAL ENGINEERING LTD SORT CODE 30-91-91 ACCOUNT NUMBER 45605968 LLOYDS Bank of Scotland 12-20-26  01866640.</font><br/>-->
+            <apex:outputPanel >
+    <apex:outputText value="{!Sppc.Opportunity.Payment_Terms__c}"/><br/>
+</apex:outputPanel>
+             <!--<apex:outputText value="{!Sppc.terms__c}" >-->
+                 <apex:outputPanel rendered="{!Sppc.terms__c=='Other – see special terms'}"><br/>
+              <apex:outputText value="{!Sppc.Payment_Terms__c}" rendered="{!Sppc.terms__c=='Other – see special terms'}" style="white-space:pre-line" escape="false"/>
+               <br/> </apex:outputPanel>
+                  <br/>
+                      Please make payments to: {!$Label.Company_Name} | Sort Code 30-91-91 | Account No. 45605968 | Lloyds Bank Plc stating your Account No. as a reference. Please note we do not accept cheques. <br/>
+            </p>
+         <p>  We trust this proposal meets with your approval and look forward to working through this project to your complete satisfaction.<br /><br/>
+            Assuring you of our most careful attention in this matter.<br /><br/>Yours sincerely<br /><br/><i><b>{!Sppc.Created_By__c}</b></i><br /><br/><apex:outputpanel rendered="{!if(Sppc.Created_By__c!='Lyudmila Lopez',true,false)}" >Sales and Design Consultant</apex:outputpanel> 
+               <apex:outputpanel rendered="{!if(Sppc.Created_By__c=='Lyudmila Lopez',true,false)}" >Customer Account Manager</apex:outputpanel><br/>Tel: 01322 293333<br /><br/><br /><br/>
+        </p>
+        <div style="page-break-inside: avoid;">
+            <p style="font-size:16px;">Contact Details </p>
+             
+              <table  border="">
+             <!-- <tr><td colspan="2" style="font-size:16px;">Contact Details</td></tr> -->
+              <tr><td>Project Contact: </td><td>Chester Boyt</td></tr>
+              <tr><td>Direct Dial No</td><td>01322 421152</td></tr>
+              <tr><td>Fax Number:</td><td>01322 421158</td></tr>
+              <tr><td>Email:</td><td>chester@eclipse-dental.com</td></tr>
+              <tr><td>Office Based Contact:</td><td>Ralph Boyt</td></tr>
+              <tr><td>Office Phone No</td><td>01322 293333</td></tr>
+              <tr><td>Email</td><td>ralph@eclipse-dental.com</td></tr>
+              <tr><td>Technical Support: </td><td>Ray Watts</td></tr>
+              <tr><td>Service Phone No</td><td>01322 421150</td></tr>
+              <tr><td>Email </td><td>service@eclipse-dental.com</td></tr>
+              <tr><td>Accounts Contact:</td></tr>
+              <tr><td>Office Phone No</td><td>01322 293333</td></tr>
+              <tr><td>Email</td><td>acounts@eclipse-dental.com</td></tr>
+              </table>
+              </div>
+              <br /> <br/> <br/>
+              <p style="font-size:16px;">Order Confirmation -Proposal No. {!Sppc.QuoteNumber} - &nbsp;<apex:outputText value="{0,number,###,###,##0}">       
+<apex:param value="{!Sppc.Version_Number__c}"/> 
+</apex:outputText></p>
+             <p > To proceed with above quotation, please complete below and return a copy to:<br /><br />
+              {!$Label.Company_Name}<br />
+              Westview Court<br />10-14 Kent Road<br />
+              Dartford<br />Kent  DA1 2AJ<br /><br />
+              Tel 01322 293333 Email <a href="info@eclipse-dental.com">info@eclipse-dental.com</a><br /><br />
+              Sign  :&nbsp;&nbsp;&nbsp;{!Sppc.Sign__c}<br /><br />
+               Print  :&nbsp;&nbsp;&nbsp;{!Sppc.Print__c}<br /><br />
+               Date : &nbsp;&nbsp;&nbsp; <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!Sppc.Date__c}"/></apex:outputtext>
+               <!-- {!DAY(Sppc.Date__c)}<apex:outputText value="/" rendered="{!Sppc.Date__c!=null}" />{!MONTH(Sppc.Date__c)}<apex:outputText value="/" rendered="{!Sppc.Date__c!=null}" />{!YEAR(Sppc.Date__c)} --> <br /><br />
+               Thank you for working with Eclipse Dental!
+             </p>
+                
+           
+              
+              
+</body>
+</apex:component>

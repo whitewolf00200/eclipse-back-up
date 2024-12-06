@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancelled_visits_need_reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( 
+ ISCHANGED ( Cancelled__c ),
+ Cancelled__c = TRUE, 
+ Reason_Cancelled__c = &quot;&quot; )</errorConditionFormula>
+    <errorDisplayField>Reason_Cancelled__c</errorDisplayField>
+    <errorMessage>Please fill in a reason for the cancellation</errorMessage>
+</ValidationRule>

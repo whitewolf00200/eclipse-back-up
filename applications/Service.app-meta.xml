@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>M_R_Sheet_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Service_Sheet_STD__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>M_R_Sheet_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Service_Sheet_STD__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Technician used in mobile app</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Service</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Air_Compressor_Service_and_Test_Report</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Air_Compressor_Service_and_Test_Report</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Annual_Mechanical_Service_Certificate_to_Pan_Oral_X_ray</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Annual_Mechanical_Service_Certificate_to_Pan_Oral_X_ray</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Getinge_Autoclave</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Getinge_Autoclave</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Chair_installation_certificate</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Chair_installation_certificate</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Treatment_Centre_Installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Treatment_Centre_Installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Treatment_Centre_Certificate_Of_Service</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Treatment_Centre_Certificate_Of_Service</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Suction_Pump_Service</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Suction_Pump_Service</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Suction_Pump_installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Suction_Pump_installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Storm_Water_Pump</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Storm_Water_Pump</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Report_of_Examination</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Report_of_Examination</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Others</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Others</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.OPG_installation_certificate</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.OPG_installation_certificate</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.MedisafeWasherdisinfectorservice</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.MedisafeWasherdisinfectorservice</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Mechanical_X_Ray_Report</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Mechanical_X_Ray_Report</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Intra_oral_xray_Installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Intra_oral_xray_Installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Image_Plate_Scanner</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Image_Plate_Scanner</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Image_Plate_Scanner_Installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Image_Plate_Scanner_Installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Getinge_Washer_Disinfector</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Getinge_Washer_Disinfector</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Air_compressor_Installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Air_compressor_Installation</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Service_Sheet_Record_Page21</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Engineer_Checklist__c</pageOrSobjectType>
+        <recordType>Engineer_Checklist__c.Sewer_Pump_Certificate</recordType>
+        <type>Flexipage</type>
+        <profile>FieldAx Technician</profile>
+    </profileActionOverrides>
+    <tabs>Visits__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Technician_UtilityBar</utilityBar>
+</CustomApplication>

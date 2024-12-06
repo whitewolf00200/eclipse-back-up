@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_Number__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If you are given a specific Purchase Order when on Site please enter it here. If this is blank it will be populated automatically with the Visit Purchase Order Number or the Site Purchase Order Number.</inlineHelpText>
+    <label>Purchase Order Number</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

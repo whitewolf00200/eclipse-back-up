@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Room1_Scaler__c</fullName>
+    <label>Scaler</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Satelec  Non Optic Built In</fullName>
+                <default>false</default>
+                <label>Satelec  Non Optic Built In</label>
+            </value>
+            <value>
+                <fullName>Satelec Optic Built In</fullName>
+                <default>false</default>
+                <label>Satelec Optic Built In</label>
+            </value>
+            <value>
+                <fullName>NSK Optic Built In</fullName>
+                <default>false</default>
+                <label>NSK Optic Built In</label>
+            </value>
+            <value>
+                <fullName>NSK Non-Optic Built In</fullName>
+                <default>false</default>
+                <label>NSK Non-Optic Built In</label>
+            </value>
+            <value>
+                <fullName>Cavitron 25K Built In</fullName>
+                <default>false</default>
+                <label>Cavitron 25K Built In</label>
+            </value>
+            <value>
+                <fullName>Cavitron 30K Built In</fullName>
+                <default>false</default>
+                <label>Cavitron 30K Built In</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

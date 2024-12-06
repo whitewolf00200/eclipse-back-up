@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Post_Invoice_to_Xero</fullName>
+    <availability>online</availability>
+    <description>{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/apex.js&quot;)}
+
+
+if(&apos;{!Opportunity.XeroOppId__c}&apos;==null || &apos;{!Opportunity.XeroOppId__c}&apos;==&apos;&apos;){
+
+window.open(&quot;/apex/XeroInvoicePost?id={!Opportunity.Id}&amp;AccIds={!Opportunity.AccountId}&amp;00N4E000000rMm4={!IF(Opportunity.Purchase_Order_Number__c!=null,Opportunity.Purchase_Order_Number__c,IF(Opportunity.Service_Sheet__c!=null,Opportunity.Service_Sheet__c,IF(Opportunity.Reactive_Sheet__c!=null,Opportunity.Reactive_Sheet__c,Opportunity.Opportunity_Number_new__c)))}&amp;todate={!TODAY()}&amp;invdate={!Opportunity.Invoice_Date_new__c}&quot;,&quot;_top&quot;) 
+}else{
+alert(&apos;Opportunity already posted to Xero&apos;);
+}</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Post Invoice to Xero</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/apex.js&quot;)}
+
+if(&apos;{!Opportunity.XeroOppId__c}&apos;==null || &apos;{!Opportunity.XeroOppId__c}&apos;==&apos;&apos;){
+
+window.open(&quot;/apex/XeroInvoicePost?id={!Opportunity.Id}&amp;AccIds={!Opportunity.AccountId}&amp;00N4E000000rMm4={!IF(Opportunity.Purchase_order_number2__c!=null,Opportunity.Purchase_order_number2__c,IF(Opportunity.Service_Sheet__c!=null,Opportunity.Service_Sheet__c,IF(Opportunity.Reactive_Sheet__c!=null,Opportunity.Reactive_Sheet__c,Opportunity.Opportunity_Number_new__c)))}&amp;todate={!TODAY()}&amp;invdate={!Opportunity.Invoice_Date_new__c}&quot;,&quot;_top&quot;)
+}else{
+alert(&apos;Opportunity already posted to Xero&apos;);
+}</url>
+</WebLink>

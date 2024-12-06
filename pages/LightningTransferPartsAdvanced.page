@@ -1,0 +1,654 @@
+<apex:page standardController="Warehouse__c"  extensions="TransferPartsAdvancedController" docType="html-5.0" cache="false">
+  <style>
+.fyi{
+  color:red;
+  font-style:italic;
+}
+
+.pbSubheader{
+   background-color:#0033CC;
+}  
+ 
+::-webkit-file-upload-button {
+  background: rgb(236, 235, 234);;
+  color:black ;
+  padding: 2px;
+  }   
+  .FlowNumber{width:100%}        
+</style>
+
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>-->
+<apex:includeScript value="{!$Resource.QuaggaJs}"/>
+
+<apex:stylesheet value="{!URLFOR($Resource.QRLighting, '/assets/styles/salesforce-lightning-design-system-vf.min.css')}"/>
+<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/grid.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/version.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/detector.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/formatinf.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/errorlevel.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/bitmat.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/datablock.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/bmparser.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/datamask.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/rsdecoder.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/gf256poly.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/gf256.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/decoder.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/qrcode.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/findpat.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/alignpat.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.QRLighting, 'jsqrcode-master/src/databr.js')}"></script>
+
+<head>
+         <apex:includeLightning />
+
+</head>
+
+
+<canvas height="600" width="800" id="qr-canvas" style="width: 800px; height: 600px;display:none;"></canvas>
+<script>
+ $(document).on('click','#btnstart',function(){
+        $(this).hide();
+        $('#tblstartscan').show();
+       
+        
+    });
+     $(document).on('click','.slds-tabs--scoped__item',function(){
+     
+        $('.slds-tabs--scoped__item').removeClass('slds-active');
+        $('.slds-tabs--scoped__content').removeClass('slds-show').addClass('slds-hide');
+        $('.slds-tabs--scoped__item').find('a').attr('aria-selected','false');
+        $(this).addClass('slds-active');
+        $(this).find('a').attr('aria-selected','true');
+        var divconentid = $(this).find('a').attr('aria-controls');
+        $('div[id$='+divconentid+']').rem
+        
+        oveClass('slds-hide').addClass('slds-show');
+    });
+    
+    
+    var gCtx = null;
+    var gCanvas = null;
+    var c=0;
+    var stype=0;
+    var gUM=false;
+    var webkit=false;
+    var moz = false;
+    var v = null;
+    var scanLead = '';
+    var blnleadscan = false;
+    var Leadid = '';
+    var vidhtml = '<video id="v" autoplay></video>';
+    var imghtml = '<input Style="width:100%"   type="file" accept="image/*" onchange="previewFile();" capture="camera" id="file" />';   
+    var sheetId="{!$CurrentPage.parameters.id}";
+    var invid='';
+    
+    
+    function isCanvasSupported(){    
+      
+      var elem = document.createElement('canvas');
+      return !!(elem.getContext && elem.getContext('2d'));
+    }
+    function success(stream) {
+        
+        v.src = window.URL.createObjectURL(stream);
+        gUM=true;
+        setTimeout(captureToCanvas, 500);
+    }
+            
+    function error(error) {
+        
+        gUM=false;
+        return;
+    }
+    function read(a){
+    
+        var data = getMessagebox();
+        if(a != 'error decoding QR Code' && a.indexOf('encodeURIComponent(data)') < 0) {
+                scanLead = a;
+                blnleadscan = false;                     
+                  
+                   $('#leadname').val(scanLead);
+                   Visualforce.remoting.Manager.invokeAction(
+                                       '{!$RemoteAction.TransferPartsAdvancedController.getInventory}',scanLead,sheetId,
+                                        function (result, event) {  
+                                           //alert(result);
+                                           //alert(event.status);    
+                                           if (event.status) {
+                                                
+                                                
+                                                   invid=result;
+                                                   //alert(invid);
+                                              } 
+                                                else{
+                                                    data = data.replace('{title}','Stock Not Available');
+                                                    var leadtext = "This warehouse not contains any stock for this product";
+                                                    data = data.replace('{text}',leadtext);
+                                                    var btncancel = '<button class="slds-button slds-button_neutral btncancel" btncancel">Close</button>';
+                                                    data = data.replace('{ok}','');
+                                                    data = data.replace('{close}',btncancel);
+                                                    $('.slds').find('#divmodelpopup').remove();
+                                                    $('.slds').append(data);
+                                                    //$('#leadname').val("");
+                                                
+                                                }
+                                          });
+                                    
+          
+        } else {
+            
+            data = data.replace('{title}','Invalid QR Code');
+            var leadtext = "Couldn't find enough patterns. Please Capture/Upload Valid QR Code.";
+            data = data.replace('{text}',leadtext);
+            var btncancel = '<button class="slds-button slds-button_neutral btncancel" btncancel">Close</button>';
+            data = data.replace('{ok}','');
+            data = data.replace('{close}',btncancel);
+            $('.slds').find('#divmodelpopup').remove();
+            $('.slds').append(data);
+            $('#leadname').val("");
+            
+        }
+    }
+     
+    
+    function getMessagebox(){
+        return '<div id="divmodelpopup"> \
+          <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open"> \
+            <div class="slds-modal__container"> \
+              <div class="slds-modal__header"> \
+                <h2  class="slds-text-heading--medium class="slds-modal__title slds-hyphenate"">{title}</h2> \
+                <button  class="slds-button slds-button--icon-inverse slds-modal__close btncancel">X</button> \
+              </div> \
+              <div class="slds-modal__content"> \
+                <div> \
+                  <p>{text}</p> \
+                </div> \
+              </div> \
+              <div class="slds-modal__footer"> \
+                <div class=""> \
+                  {close} \
+                  {ok} \
+                </div> \
+              </div> \
+            </div> \
+          </div> \
+          <div class="slds-backdrop slds-backdrop--open"></div> \
+        </div>';
+    }  
+    
+    $(document).ready(function() {
+        $('#barcodeFileInput').hide();
+        setimg();
+        document.getElementById('preview').style.display ='';
+        if( (typeof sforce != 'undefined') && (sforce != null) ) {
+            
+            $('#webcamimg').hide();
+            $('#qrimg').hide();
+            $('#preview').show();
+            document.getElementById("outdiv").innerHTML = imghtml;
+            qrcode.callback = read;
+            stype=2;
+            
+        } else if(isCanvasSupported() && window.File && window.FileReader) {
+            
+            initCanvas(800, 600);
+            qrcode.callback = read;
+            //setwebcam();
+        } else {
+            
+        }
+    });
+    function initCanvas(w,h){
+        gCanvas = document.getElementById("qr-canvas");
+        gCanvas.style.width = w + "px";
+        gCanvas.style.height = h + "px";
+        gCanvas.width = w;
+        gCanvas.height = h;
+        gCtx = gCanvas.getContext("2d");
+        gCtx.clearRect(0, 0, w, h);
+    }
+
+    function captureToCanvas() {
+        if(stype!=1)
+            return;
+        if(gUM)
+        {
+            try{
+                gCtx.drawImage(v,0,0);
+                try{
+                    qrcode.decode();
+                }
+                catch(e){       
+                    //console.log(e);
+                    setTimeout(captureToCanvas, 500);
+                };
+            }
+            catch(e){       
+                    //console.log(e);
+                    setTimeout(captureToCanvas, 500);
+            };
+        }
+    }
+    function setimg() {
+        if(stype==2){           
+           return;
+        }
+        
+        document.getElementById("outdiv").innerHTML = imghtml;
+        stype=2;
+    }
+    
+    function setwebcam() {
+        
+        
+        if(stype==1)
+        {   
+            setTimeout(captureToCanvas, 500);    
+            return;
+        }
+        var n=navigator;
+        document.getElementById("outdiv").innerHTML = vidhtml;
+        document.getElementById("v").style.display = '';
+        v = document.getElementById("v");
+       
+        if(n.getUserMedia)
+            n.getUserMedia({video: true, audio: false}, success, error);
+        else
+        if(n.mediaDevices.getUserMedia)
+            n.mediaDevices.getUserMedia({video: { facingMode: "environment"} , audio: false})
+                .then(success)
+                .catch(error);
+        else
+        if(n.webkitGetUserMedia)
+        {
+            webkit=true;
+            n.webkitGetUserMedia({video:true, audio: false}, success, error);
+        }
+        else
+        if(n.mozGetUserMedia)
+        {
+            moz=true;
+            n.mozGetUserMedia({video: true, audio: false}, success, error);
+        }
+        stype=1;
+        setTimeout(captureToCanvas, 500);
+    }
+    
+    function previewFile() {
+        var preview = document.querySelector('#preview');
+        var file    = document.querySelector('#file').files[0];
+        //alert('file'+file);
+        var reader  = new FileReader();
+        reader.onloadend = function () {
+            preview.src = reader.result;
+            try {
+                qrcode.decode(preview.src);
+            } catch(e) {
+                alert('Error - ' + e);
+            }
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+    function decode() {
+        try {
+            var preview=document.querySelector('#preview');
+            qrcode.decode(preview.src);
+        } catch (e){
+            alert('Error - ' + e);
+        }
+    }
+    
+   
+
+    $(document).on('click','.btncancel',function(){    
+        $('.slds').find('#divmodelpopup').remove();
+    });
+    
+    
+    function changeScanner(){
+      
+      var t=document.getElementById('scanOption').value;
+      //alert(t);
+      if(t==='QR'){
+        //alert('coming'+t);
+        document.getElementById('barcodeFileInput').style.display = 'none';
+        document.getElementById('picturePreview').style.display = 'none';
+        document.getElementById('file').style.display ='';
+        document.getElementById('preview').style.display ='';
+        document.getElementById('barcodeFileInput').value='';
+        document.getElementById('picturePreview').src='';         
+        document.getElementById('leadname').value='';
+        
+      }
+      else{
+         
+         document.getElementById('barcodeFileInput').style.display='';
+         document.getElementById('picturePreview').style.display='';
+         document.getElementById('file').style.display='none';
+         document.getElementById('preview').style.display='none';
+         document.getElementById('file').value='';
+         document.getElementById('preview').src='';         
+         document.getElementById('leadname').value='';
+         
+         //alert('bcr came');
+      }
+      
+    }
+ 
+    //bar code
+     
+    
+    $(function() {
+       
+        var App = {
+                init: function() {
+                    App.attachListeners();
+                } ,
+                debugApp : function(msg){
+                    if(true)
+                    {
+                      //alert('true');
+                    }
+                },
+                attachListeners: function() {
+                        var self = this; 
+                        $("#barcodeFileInput").on("change",function(e){
+                            //$("#codeResult").text(" ");
+                            var files = e.target.files ;
+                                if (files && files.length > 0) {
+                                    file = files[0];
+                                    try {
+                                        var URL = window.URL || window.webkitURL;
+                                        var imgURL = URL.createObjectURL(file);
+                                        $("#picturePreview").attr("src",imgURL);
+                                        var input = $("#barcodeFileInput");
+                                        if (input[0].files && input[0].files.length) {
+                                           var tmpImgURL = URL.createObjectURL(input[0].files[0]) ;
+                                           //alert(tmpImgURL);
+                                           App.decode(tmpImgURL);
+                                        }
+                                    }
+                                    catch (e) {
+                                        try {
+                                            var fileReader = new FileReader();
+                                            fileReader.onload = function (event) {
+                                             $("#picturePreview").attr("src",event.target.result);
+                                            };
+                                            fileReader.readAsDataURL(file);
+                                        }
+                                        catch (e) {
+                                            //alert('coming to else2');
+                                            data = data.replace('{title}','Invalid Bar Code');
+                                            var leadtext = "Couldn't find enough patterns. Please Capture/Upload Valid Bar Code.";
+                                            data = data.replace('{text}',leadtext);
+                                            var btncancel = '<button class="slds-button slds-button_neutral btncancel" btncancel">Close</button>';
+                                            data = data.replace('{ok}','');
+                                            data = data.replace('{close}',btncancel);
+                                            $('.slds').find('#divmodelpopup').remove();
+                                            $('.slds').append(data);
+                                            $('#leadname').val("");
+                                           
+                                            
+                                        }
+                                    }
+                                }
+                        });
+    
+                },
+            
+
+                decode: function(src) {
+                        //alert('src'+src);
+                        Quagga.decodeSingle(
+                        {
+                              inputStream: {
+                                size: 640,
+                                singleChannel: false
+                              },
+                              locator: {
+                                patchSize: "large",
+                                halfSample: false
+                              },
+                              decoder: {
+                                readers: ["upc_reader", "code_128_reader", "code_39_reader", "code_39_vin_reader", "ean_8_reader", "ean_reader", "upc_e_reader", "codabar_reader"]
+                              },
+                              locate: true,
+                              src: src
+                          },
+                         
+                          function(result){
+                              var barResult=result;
+                              var data = getMessagebox();
+                              if(barResult && barResult.codeResult && barResult.codeResult.code) {           
+                                    //alert(barResult.codeResult.code);
+                                    scanLead=barResult.codeResult.code;
+                                    $('#leadname').val(scanLead);
+                                    Visualforce.remoting.Manager.invokeAction(
+                                       '{!$RemoteAction.TransferPartsAdvancedController.getInventory}',scanLead,sheetId,
+                                        function (result, event) {  
+                                           //alert(result);
+                                           //alert(event.status);    
+                                           if (event.status) {
+                                                
+                                                
+                                                   invid=result;
+                                                   //alert(invid);
+                                              } 
+                                                else{
+                                                    data = data.replace('{title}','Stock Not Available');
+                                                    var leadtext = "This warehouse not contains any stock for this product";
+                                                    data = data.replace('{text}',leadtext);
+                                                    var btncancel = '<button class="slds-button slds-button_neutral btncancel" btncancel">Close</button>';
+                                                    data = data.replace('{ok}','');
+                                                    data = data.replace('{close}',btncancel);
+                                                    $('.slds').find('#divmodelpopup').remove();
+                                                    $('.slds').append(data);
+                                                    //$('#leadname').val("");
+                                                
+                                                }
+                                            
+                               
+                                            
+                                         });
+                              
+                               }
+                               else{
+                                                                                                        
+                                                    data = data.replace('{title}','Invalid Bar Code');
+                                                    var leadtext = "Couldn't find enough patterns. Please Capture/Upload Valid Bar Code.";
+                                                    data = data.replace('{text}',leadtext);
+                                                    var btncancel = '<button class="slds-button slds-button_neutral btncancel" btncancel">Close</button>';
+                                                    data = data.replace('{ok}','');
+                                                    data = data.replace('{close}',btncancel);
+                                                    $('.slds').find('#divmodelpopup').remove();
+                                                    $('.slds').append(data);
+                                                    $('#leadname').val("");
+                                                    
+                             }
+                           });
+                  }
+                  };
+        
+        App.init();
+    });
+    
+   
+    //flow
+    
+    //$(document).on('click','.lunchFlow',function(){
+      function   lunchFlow(){
+        //alert('flow');
+        $('#tblstartscan').hide();
+        $('#art').hide();
+        console.log('coming'+$('#leadname').val());
+        var prodSupCode=$('#leadname').val();
+        console.log(prodSupCode);
+        $('.slds').find('#divmodelpopup').remove();
+        var whid=sheetId;
+       
+        
+        $Lightning.use("c:TransferParts", function() {
+           
+               // Create the flow component and set the onstatuschange attribute
+               $Lightning.createComponent("lightning:flow", {"onstatuschange":statusChange},
+                  
+                  "flowContainer",
+                  function (component) {
+                     // Set the input variables
+                     var inputVariables = [
+                        {
+                           name : 'ProdSupCode',
+                           type : 'String',
+                           value : prodSupCode
+                        },
+                        {
+                           name : 'SrcInvId',
+                           type : 'String',
+                           value : invid
+                        },
+                        {
+                           name : 'SrcWHId',
+                           type : 'String',
+                           value : whid
+                        },
+                     ];
+                     
+                     // Start an interview in the flowContainer div, and 
+                     // initializes the input variables.
+                     component.startFlow("Transefer_Parts", inputVariables);
+                     
+                  }
+               );
+            });  
+            
+            
+                
+    }//);
+    
+     
+     
+     var statusChange = function (event) {
+               //Control what happens when the interview finishes
+               if(event.getParam("status") === "FINISHED" || event.getParam("status") === "NEXT") {                 
+                      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                           sforce.one.navigateToSObject(sheetId,"detail");
+                       }
+                       else{
+                          window.open('https://cs83.salesforce.com/'+sheetId,"_self");
+                       }
+                   
+                  
+               }
+     };
+            
+      $Lightning.use("c:lcvfTest", function() {
+          $Lightning.createComponent("lightning:button",
+              { label : "Press Me!" },
+              "lightning",
+              function(cmp) {
+                console.log("button was created");
+                // do some stuff
+              }
+          );
+        });   
+     
+</script>
+<apex:slds />
+
+
+
+       <body class="slds-scope">      
+       <div id="flowContainer"  class="FlowNumber"/>
+        <div class="slds" id="art">
+          <div class="slds-tabs--scoped slds-border_bottom slds-border_top slds-border_left slds-border_right">
+          <article class="slds-card" style="text-align:center" >
+  <div class="slds-card__header slds-grid">
+    <header class="slds-media slds-media_center slds-has-flexi-truncate"  >
+      
+      <div class="slds-media__body">
+        <h2 class="slds-card__header-title">          
+            <span><font style="font-size:20px;text-align:center;color:black"><b>Scanner Your Parts</b></font></span>          
+        </h2>
+      </div>
+    </header>
+  </div>
+</article>
+            
+            <div id="tab-scoped-1" class="slds-tabs--scoped__content slds-show" role="tabpanel" aria-labelledby="tab-scoped-1__item">
+                <center> 
+                  <table border="0" id="tblstartscan" class="tsel" style="width:75%">
+                    <tbody>
+                    <tr>
+                        <td >
+                        
+                            <div class="slds-form-element">
+                                    <label class="slds-form-element__label">Select Scanner</label>
+                                <div class="slds-form-element__control">
+                                <Select class="slds-select slds-size_2-of-2" id="scanOption" name="scanner" onchange="changeScanner()">
+                                <option value="QR">QR Code</option>
+                                <option value="BCR">Bar Code</option>
+                                </select>
+                                </div>
+                            </div><br/> 
+                        </td>
+                        </tr>
+                    <tr>
+                       <td><input id="barcodeFileInput" type="file"   accept="image/*;capture=camera" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2" >
+                        
+                            <div id="outdiv">
+                                <video id="v" autoplay=""></video>
+                            </div>
+                            <div>
+                                <img  src="" id="preview" style="display:none;"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2" >
+                           <img  src="" id="picturePreview"   /> <br />                            
+                            <div id="codeResult"> </div>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <div class="slds-form-element">
+                             <label class="slds-form-element__label" for="form-element-01">Suplier Code</label>
+                               <div class="slds-form-element__control">
+                                 <input type="text"  id="leadname" disabled="disabled" class="slds-input slds-size_2-of-2" />
+                               </div>
+                              </div>
+                            
+                        </td>
+                        </tr>
+                        
+                    <tr>
+                        <td align="center">
+                        <br/>
+                            <div class="slds-form-element">
+                                <button  class="slds-button slds-button_text-destructive" onclick="lunchFlow()" >Next</button>
+                            </div> 
+                        </td>
+                        </tr>
+                    
+                         
+                    </tbody>
+                    </table>                   
+                    
+                </center><br/>
+  </div> 
+  </div> 
+  </div>                                   
+</body>
+
+</apex:page>

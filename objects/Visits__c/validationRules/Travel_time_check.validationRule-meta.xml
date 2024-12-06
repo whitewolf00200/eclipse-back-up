@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travel_time_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>End_Travel_Time__c  &lt;  Start_Travel_Time__c</errorConditionFormula>
+    <errorMessage>End travel time should be higher than Start travel time</errorMessage>
+</ValidationRule>

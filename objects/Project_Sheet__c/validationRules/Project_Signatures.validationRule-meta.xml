@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Signatures</fullName>
+    <active>true</active>
+    <description>we cannot validate a signature</description>
+    <errorConditionFormula>AND (IF( Fire_Extinguisher_Service_complete__c,1,0) = 1, Customer_s_Name__c =&quot; &quot;)</errorConditionFormula>
+    <errorMessage>In order to Submit this project Sheet, you must have both Customer&apos;s Print and Signature. Please check both.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>visit_not_complete_if_future</fullName>
+    <active>true</active>
+    <description>a visit cannot be complete if in the future</description>
+    <errorConditionFormula>and( datevalue(CreatedDate) &gt;=date(2013,10,15), Actual_Service_Date__c &gt; TODAY() , Visit_Complete__c =true)</errorConditionFormula>
+    <errorMessage>Visit cannot be completed if Actual Service Date is in the Future</errorMessage>
+</ValidationRule>

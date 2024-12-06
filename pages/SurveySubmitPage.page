@@ -1,0 +1,300 @@
+<apex:page standardController="Visits__c" lightningStylesheets="true" showHeader="false" sidebar="false" extensions="SurveySubmitController">
+    <apex:slds />
+    
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js">
+    
+    </script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'/>
+    <!-- CSS starts from here  --->
+    
+    <style>
+        
+         body {
+  background:#ddd;
+  font-family:"Raleway";
+}
+.center {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+.popup {
+  width:350px;
+  height:280px;
+  padding:30px 20px;
+  background:#f5f5f5;
+  border-radius:10px;
+  box-sizing:border-box;
+  z-index:2;
+  text-align:center;
+  opacity:0;
+  top:-200%;
+  transform:translate(-50%,-50%) scale(0.5);
+  transition: opacity 300ms ease-in-out,
+              top 1000ms ease-in-out,
+              transform 1000ms ease-in-out;
+}
+.popup.active {
+  opacity:1;
+  top:50%;
+  transform:translate(-50%,-50%) scale(1);
+  transition: transform 300ms cubic-bezier(0.18,0.89,0.43,1.19);
+}
+.icon {
+  margin:0px 0px;
+  width:70px;
+  height:70px;
+  
+  text-align:center;
+  display:inline-block;
+  border-radius:50%;
+  line-height:80px;
+}
+.popup .icon i.fa {
+  font-size:30px;
+  
+} 
+.popup .title {
+  margin:5px 0px;
+  font-size:30px;
+  font-weight:600;
+}
+.popup .description {
+  color:#222;
+  font-size:15px;
+  padding:5px;
+}
+.popup .dismiss-btn {
+  margin-top:15px;
+}
+.popup .dismiss-btn button {
+  padding:10px 20px;
+  background:#111;
+  color:#f5f5f5;
+  border:2px solid #111;
+  font-size:16px;
+  font-weight:600;
+  outline:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition: all 300ms ease-in-out;
+}
+.popup .dismiss-btn button:hover {
+  color:#111;
+  background:#f5f5f5;
+}
+.popup > div {
+  position:relative;
+  top:10px;
+  opacity:0;
+}
+.popup.active > div {
+  top:0px;
+  opacity:1;
+}
+.popup.active .icon {
+  transition: all 300ms ease-in-out 250ms;
+}
+.popup.active .title {
+  transition: all 300ms ease-in-out 300ms;
+}
+.popup.active .description {
+  transition: all 300ms ease-in-out 350ms;
+}
+.popup.active .dismiss-btn {
+  transition: all 300ms ease-in-out 400ms;
+}
+        
+        
+        
+        .divvy1{
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+        //	margin: 10px 5px 10px 5px;
+        background: white;
+        }
+        .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        //padding:10px 0px 10px 0px;
+        }
+        
+        html, body {
+        height: 100%;
+        }
+        
+        .full-height {
+        height: 100%;
+        }
+        td {
+        text-align: center;
+        }
+        
+        
+        
+       
+
+        
+        
+    </style>
+    <!-- CSS End from here  --->
+    
+    
+    <!-- Script -->
+    
+    
+    
+    <!-- Script -->
+    
+    <apex:form id="a" >
+    
+    
+
+            
+            
+               
+    
+    </apex:form>
+    
+    
+    <div class="full-height" style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;background: white;" >
+        <apex:form id="tableform"  >
+            
+            <apex:pageMessages id="pbm"/>
+            <apex:actionFunction name="mee" action="{!doRedirect}"  />
+            
+            <apex:variable value="" var="foo" rendered="{!if(!Error&&((!ISBLANK(THisVisit.Mail_Count__c) && THisVisit.Mail_Count__c>0 && ThisVisitSurvey=0)||ThisVisitSurvey!=0||Popup),true,false)}" >
+            <section id="Sellector" role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                
+                <div id="popcenter" style="align-items:center" class="popup center active">
+                    <div style="border:2px solid {!if(Popup,'#34f234;','#eb4034;')};margin-bottom:10px;color:{!if(Popup,'#34f234;','#eb4034')}" class="icon">
+                        <i style="font-size:65px;margin-top:0px;display:{!if(Popup,'block','none')}" class="bx bx-check bx-tada"></i>
+                        <i style="{!if($User.UITheme == 'Theme4t','margin:-2px;','')};font-size:65px;display:{!if(Popup,'none','block')}" class='bx bx-error-circle bx-tada'></i>
+                    </div>	
+                    <div style="" class="title">
+                        
+                        
+                        {!if(Popup,'Success!!','')}
+                        <div><span style="font-size:18px"><div align="center" style="{!if(!ISBLANK(THisVisit.Mail_count__c) && THisVisit.Mail_count__c>0 && ThisVisitSurvey=0 && !Popup,'','display:none')};" >Already survey mail send to this Visit</div>
+            				<div align="center" style="{!if(ThisVisitSurvey!=0 && !Popup,'','display:none')};" >{!ThisVisitSurvey} Survey records found for this Visit</div></span></div>
+                        
+                    </div>
+                    <div style="" class="description">
+                       
+                        {!if(Popup,'Survey mail send successfully!','Do you want to continue ?')}
+                        
+                    </div>
+                    <div class="dismiss-btn" style="display:{!if(Popup,'none','block')}">
+                        <button type="button" id="dismiss-popup-btn">
+                            Yes
+                        </button>
+                        
+                        <button onclick="mee()" type="button" id="dismiss-popup-btn">
+                            No
+                            
+                        </button> 
+                        
+                    </div>
+                    
+                    <div class="dismiss-btn" style="display:{!if(Popup,'block','none')}" >
+                        
+                        <button onclick="mee();document.getElementsByClassName('popup')[0].classList.remove('active');document.getElementById('backfill').style.display='none';document.getElementById('Sellector').style.display='none';document.getElementById('popcenter').style.display='none';" type="button" id="dismiss-popup-btn">
+                            Close
+                        </button>
+                        
+                    </div>
+                </div>
+                
+            </section>
+            <div id="backfill" style="z-index:1" class="slds-backdrop slds-backdrop_open"></div>
+            </apex:variable>
+
+
+            
+            
+            <div align="center" style="margin-top:0px;padding:10px 15px 10px 15px;background:#f0f0f0" >
+                <div ><p lass="slds-button slds-button_outline-brand" style="{!if($User.UITheme == 'Theme4t','font-size: 15px;margin-top: 15px;','font-size: 18px;')}" ><b>Last 3 month Surveys - {!acc.name}</b></p></div>
+                <div  style="margin:20px 0px 10px 0px" >
+                    <apex:commandButton action="{!doRedirect}" style="{!if($User.UITheme == 'Theme4t','margin-bottom: 3px;','')}" Styleclass="slds-button slds-button_outline-brand" value="Back to visit" />
+                    <apex:commandButton action="{!sendSurvey}"  reRender="tableform" id="hello" Styleclass="slds-button slds-button_brand" value="Send survey" /></div>
+            </div>
+            
+            <!--<div align="center" style="{!if(THisVisit.Mail_count__c=0||ISBLANK(THisVisit.Mail_count__c),'','display:none')};font-size:20px;margin-top:20px;" >No Survey mail send to this Visit</div>-->
+            
+                        
+            <div  >
+                <div  style="margin: 0px 0px 0px 0px" >
+                    <div  style="padding: 10px 0px 10px 0px" >
+                        
+                    </div>             
+                    
+                    <div  Style="margin-bottom:  0px;" ><table >
+                        <tr>
+                            
+                            <th  Style="width: 120px;border-top: 1px solid #ddd;border-bottom: 0px solid #ddd;background-color:#f5f5f5;padding: 10px;"><div ><b>S no</b></div></th>
+                            <th  Style="width: 300px;border-top: 1px solid #ddd;border-bottom: 0px solid #ddd;background-color:#f5f5f5;padding: 10px;"><div ><b>Survey Taken</b></div></th>
+                            <th  Style="width: 300px;border-top: 1px solid #ddd;border-bottom: 0px solid #ddd;background-color:#f5f5f5;padding: 10px;"><div ><b>Visit</b></div></th>
+                            <th  Style="width: 500px;border-top: 1px solid #ddd;border-bottom: 0px solid #ddd;background-color:#f5f5f5;padding: 10px;"><div ><b>Survey</b></div></th>
+                            <th  Style="width: 300px;border-top: 1px solid #ddd;border-bottom: 0px solid #ddd;background-color:#f5f5f5;padding: 10px;"><div ><b>Engineer</b></div></th>
+                        </tr>
+                        </table></div>
+                    
+                    <table Style="height:350px;margin-top:  0px; display: inline-block; overflow:scroll;"  width="100%" border="0" align="center" cellpadding="0" cellspacing="0" >
+                                                
+                        <apex:variable value="{!0}" var="count" />
+                        <apex:repeat value="{!Surveys}" var="SL" >	
+                            <apex:variable value="{!count+1}" var="count" />
+                            <tr style="{!if(Visits__c.name=SL.Visit__r.name, 'background-color: #f4ff57','none')}" >
+                                <td Style="width: 120px;border-top: 2px solid #ddd;border-bottom: 2px solid #ddd;padding: 10px">{!count}</td>
+                                <td Style="width: 300px;border-top: 2px solid #ddd;border-bottom: 2px solid #ddd;padding: 10px"><a target="_blank" href="/{!SL.id}"> {!SL.name}</a></td>
+                                <td Style="width: 300px;border-top: 2px solid #ddd;border-bottom: 2px solid #ddd;padding: 10px"><a target="_blank" href="/{!SL.visit__c}"> {!SL.Visit__r.name}</a> </td>
+                                <td Style="width: 500px;border-top: 2px solid #ddd;border-bottom: 2px solid #ddd;padding: 10px"><a target="_blank" href="/{!SL.Survey__c}"> {!SL.Survey__r.name}</a></td>
+                                <td Style="width: 300px;border-top: 2px solid #ddd;border-bottom: 2px solid #ddd;padding: 10px">{!SL.Engineer__c }</td>
+                                
+                            </tr>
+                            
+                            
+                        </apex:repeat>
+                        
+                       
+                        
+                    </table>
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div style="margin-top:20px;padding:5px 15px 5px 15px;background:#f0f0f0" class="grid-container">
+                <div class="item2"><p  style="font-size: 15px;padding:10px 3px 10px 0px;" ><b>Record count : {!count}</b></p></div>
+                <div align="right" class="item2"><p  style="font-size: 15px;padding:10px 3px 10px 0px;" ><b> <span style="background:#f4ff57;padding:0px 7px 0px 7px" >&nbsp;</span> - This Visit's survey</b></p></div>
+            </div>
+            
+            
+        </apex:form>
+        
+        
+    </div>
+    
+    
+    <Script>
+        
+        setTimeout(function(){ document.getElementById('open').style.display='none'; }, 3000);
+        
+        
+        
+        
+        document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
+        document.getElementsByClassName("popup")[0].classList.remove("active");
+        document.getElementById("backfill").style.display="none";
+        document.getElementById("Sellector").style.display="none";
+        });
+        
+        document.getElementById("open-popup-btn").addEventListener("click",function(){
+        document.getElementsByClassName("popup")[0].classList.add("active");
+        });
+        
+    </Script>
+</apex:page>

@@ -1,0 +1,26 @@
+<apex:page standardController="Account" extensions="InvoiceDue">
+     <style>
+   .dataRow {
+       background-color:#F45D6D;
+    }
+    .dataRow:hover {
+       background-color:#F45D6D;
+    };
+     </style>
+     
+      
+   
+  <apex:outputPanel rendered="{!duecheck}">
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!DueOpp}" var="opp">
+            <apex:column headerValue="Invoice No." styleClass="dataRow" value="{!opp.invno}"/>
+            <apex:column headerValue="Invoice Name" styleClass="dataRow" value="{!opp.name}"/>
+            <apex:column headerValue="Due Amount" styleClass="dataRow" value="{!opp.amount}"/>
+            <apex:column headerValue="Outstanding Days" styleClass="dataRow" value="{!opp.days}"/>
+        </apex:pageBlockTable>
+     
+    </apex:pageBlock>
+  </apex:outputPanel>  
+  
+                    
+</apex:page>

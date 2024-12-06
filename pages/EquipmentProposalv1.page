@@ -1,0 +1,93 @@
+<apex:page standardController="Quote" renderAs="pdf" applyHtmlTag="false" showHeader="false">
+<head>
+    
+<style type="text/css" media="print">
+ 
+body {
+    counter-reset: section;
+}
+    @page{
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 6.8cm;
+    
+    @top-left {
+        content: "{!Quote.Account.name} - continued - page " counter(page)" of " counter(pages)" &nbsp;&nbsp;&nbsp;Proposal No. {!Quote.QuoteNumber} - &nbsp; <apex:outputText value="{0,number,###,###,##0}">       
+<apex:param value="{!Quote.Version_Number__c}"/> 
+</apex:outputText>" ;
+         font-size:8pt;
+font-family:sans-serif ;
+font-weight:bold;
+    }
+     @top-right {
+    content: "test";
+    }
+    @top-center {
+        content: element(header);
+    }
+    @bottom-left {
+        content: element(footer);
+    }
+}
+   
+div.footer
+    {
+    position: running(footer);
+    font-size:7pt;
+    font-family:sans-serif ;
+    margin-left:-40px;
+}
+.start
+{
+font-size:8pt;
+font-family:sans-serif ;
+}
+    
+div.lastPage 
+            {
+            page: lastPage; 
+            }   
+            @page lastPage 
+            {
+            size: A4 portrait;
+            margin-left: -0.2cm;
+            margin-right: 0cm;
+            margin-top: 0cm;
+            margin-bottom: -30cm;
+            @top-left
+            {
+            content: ''; 
+            }
+            @bottom-left 
+            {
+            content:'';
+            }
+            }
+    
+    @page:first{
+    size: A4 portrait;
+            margin-left: -0.2cm;
+            margin-right: 0cm;
+            margin-top: -1cm;
+            margin-bottom: -30cm;
+            @top-left
+            {
+            content: ''; 
+            }
+            @bottom-left 
+            {
+            content:'';
+            }
+    
+    }
+
+    .content{
+    width:90%;
+    }
+
+</style>
+</head> 
+    <c:EquipmentProposalComponentv1 Bpc="{!Quote}" qoid="{!Quote.Id}"/>
+</apex:page>

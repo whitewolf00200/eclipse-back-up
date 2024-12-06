@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Smoke_Detector_selected_but_no_quantity</fullName>
+    <active>false</active>
+    <description>If Smoke Detector dropdown is selected, you must have a qty.</description>
+    <errorConditionFormula>AND ( TEXT (  FA_Smoke_Detector__c )&lt;&gt; &quot;&quot;,
+
+ TEXT (   FA_Spare_Parts_Smoke_Detector_QTY__c   )= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have selected a dropdown field, please enter a quantity.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Emergency_Light_Qty</fullName>
+    <active>false</active>
+    <description>If Emergency Light Qty filled in, then Light testing and Duration become mandatory fields.</description>
+    <errorConditionFormula>AND ( TEXT( FA_Emergency_Light_Qty__c ) &lt;&gt; &quot;&quot; ,  OR(TEXT(FA_Duration__c)  = &quot;&quot; ,
+IF (  FA_Emergency_Lighting_Testing_B5266__c ,1,0)= 0 
+))</errorConditionFormula>
+    <errorMessage>You have filled in a Quantity for Emergency Light, so you must also fill in the Emergency Light Testing BS5266 and Duration fields.</errorMessage>
+</ValidationRule>

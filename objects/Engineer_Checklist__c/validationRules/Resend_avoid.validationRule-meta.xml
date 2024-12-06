@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resend_avoid</fullName>
+    <active>true</active>
+    <description>Resend only for purpose of send duplicate email</description>
+    <errorConditionFormula>AND(Resend__c,NOT(Fire_Extinguisher_Service_complete__c ))</errorConditionFormula>
+    <errorDisplayField>Resend__c</errorDisplayField>
+    <errorMessage>This field only the purpose of send second email</errorMessage>
+</ValidationRule>

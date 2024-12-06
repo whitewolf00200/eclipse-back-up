@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test_variance__c</fullName>
+    <formula>(Total_Number_of_Extinguishers__c-Total_No_of_exting_on_asset_reg__c)/Total_Number_of_Extinguishers__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is the difference between the no. of extinguishers serviced and those on the Site Asset register. A minus sign shows there there have been less serviced than on the register. A positive integer means more have been serviced than on the register.</inlineHelpText>
+    <label>Percentage Variance</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

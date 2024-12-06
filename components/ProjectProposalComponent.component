@@ -1,0 +1,306 @@
+<apex:component access="global" rendered="true" controller="QuoteController">
+  <apex:attribute description="Lppc" name="Lppc"  type="Quote"/>
+  <apex:attribute description="quote id" name="qoid" type="Id" assignTo="{!QliId}"/>
+
+<body class="start">
+       <div class="firstpage">
+        <img src="{!$Resource.ProjectProposalfront}" style="width: 800px; height:1150px;" />
+        </div>
+         <div class="mainContent" style="page-break-after:always;"></div>
+
+               <div class="footer">  
+                    <table width="100%" height="100%" >
+             <tr> <td ><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+                  </table>   
+               </div> 
+    <div class="content">
+        
+  
+ <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>   
+    <div style="margin:auto;margin-left:250px;margin-bottom:30px;font-size:20px;margin-top:-70px">
+        <b>Project Proposal</b>
+    </div>
+               <br /> <br /> <br /> <br /> <br /> 
+    
+               <table width="100%" style="margin-top:-60px;" border="">
+               <tr><td colspan="3" style="font-size:12pt;"><b>Proposal</b></td></tr>
+               <tr><td>&nbsp;</td></tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%" style="white-space:pre-line">For the attention of :<br/>{!Lppc.Opportunity.Shipping_Contact__r.Salutation}<apex:outputText rendered="{!Lppc.Opportunity.Shipping_Contact__r.Salutation!=''}"> &nbsp;</apex:outputText>{!Lppc.Opportunity.Shipping_Contact__r.Name}</td>
+                   <td width="30%">&nbsp;</td>
+               </tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%" style="vertical-align:top;"><apex:outputtext value="{!IF(Lppc.Bill_To__c!=NULL,Lppc.Bill_To__c,Lppc.Opportunity.Invoice_Address__c)}" escape="false"/>
+                       <br/><br/>Delivery Address:<br/><apex:outputtext value="{!Lppc.Opportunity.Site_Address__c}" escape="false"/>
+                   </td>
+                   <td width="45%">
+                       <table border="">
+                           <tr>
+                               <td style="white-space:nowrap;">Proposal No:</td>
+                               <td style="font-size:12px;">{!Lppc.QuoteNumber} -&nbsp; <apex:outputText value="{0,number,###,###,##0}" style="font-size:12px;">       
+                               <apex:param value="{!Lppc.Version_Number__c}"/> 
+                               </apex:outputText></td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                          
+                           <tr>
+                               <td>Date:</td>
+                               <td><!-- {!DAY(DATEVALUE(Lppc.CreatedDate))}/{!MONTH(DATEVALUE(Lppc.CreatedDate))}/{!YEAR(DATEVALUE(Lppc.CreatedDate))} -->
+                               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!Lppc.CreatedDate}"/></apex:outputtext>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                           <tr>
+                               <td>Your Ref:</td>
+                               <td>{!Lppc.Your_Ref__c}</td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                           <tr>
+                               <td>Phone:</td>
+                               <td>{!Lppc.Phone}</td>
+                           </tr>
+                          <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                           <tr>
+                               <td>Email:</td>
+                               <td>{!Lppc.Email}</td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                           <tr>
+                               <td>Account No:</td>
+                               <td>{!IF(Lppc.Account.AccountNumber!=null,Lppc.Account.AccountNumber,Lppc.Account.parent.AccountNumber)}</td>
+                           </tr>
+                       </table>       
+                   </td>
+               </tr>
+               </table>
+               <br /><br />
+              <p style="font-size:12pt;text-align: center;"><b>{!Lppc.Opportunity.Name}</b></p><br />
+              <p >Dear {!Lppc.Opportunity.Shipping_Contact__r.Salutation}&nbsp;{!Lppc.Opportunity.Shipping_Contact__r.Name},</p> 
+    <p >Thank you for the opportunity to help you make your dental practice even more successful.<br/><br/>
+        Throughout our development discussions, we have enjoyed learning about your unique dental practice requirements and vision for future success.<br/><br/>
+        We have selected the right combination of design, build, equipment and maintenance elements that will enable your dental practice to deliver optimal service levels and performance now and well into the future.<br/><br/>
+        
+    </p>
+              
+              <p style="font-size:16px;">Design</p> 
+                <p >Working in partnership with you, our dedicated technical design team will achieve the right look, feel and layout for your business to be successful.</p>
+                <p >All aspects of this proposal come together to make your dental practice more operationally and ergonomically efficient and effective</p>
+                <p>The spaces we create will enable you and your team to operate efficiently and deliver highly-rated staff and customer experiences - every time!</p>
+              <p style="page-break-inside: avoid;">
+                  <span style="font-size:16px;">Build<br/></span></p>
+    
+    <p>Throughout the project, our Dental Practice Operations Success Plan will ensure minimum disruption and maximum up-time. </p>
+              <p >We will assign your Eclipse Dental Project Manager, and a team of fully qualified and reliable tradespeople, to ensure your dental practice transformation is completed efficiently.</p>
+              
+              <p style="page-break-inside: avoid;"><span style="font-size:16px;">Equip</span><br/><br/>We partner with industry-leading designers and manufacturers to deliver the right tools, equipment and technology for ongoing dental practice productivity and success.</p>
+                  <p>We will recommend the right products to boost the success of your dental practice through the added safety, efficiency and productivity they deliver.</p>
+            
+            <p style="page-break-inside: avoid;">  
+                <span style="font-size:16px;">Maintain</span></p> 
+                <p >Once your new spaces are complete, we’ll fully train your staff and review how everything is working for you on an on-going basis.</p>
+                <p >We’ll regularly consult with you and keep you up-to-date with the latest ways to keep your spaces operating as efficiently and effectively as possible.</p>
+                <p>You’ll be reassured that your spaces are operating at the highest performance levels.</p>
+                <p>We'll arrange service schedules that ensure your practice remains as successful as it can be. You'll have the peace of mind that our engineers are on call for same day response if required.</p>
+            <p style="page-break-inside: avoid;">  
+                <span style="font-size:16px;">Emergency Response</span></p> 
+                <p >We’ll always attend to repair calls as soon as possible. If you need an engineer urgently, or the same day, our emergency call-out service will respond.</p>
+                <p >We will prioritise your emergency and ensure it results in minimal down-time for your practice.</p>
+            <p style="page-break-inside: avoid;">  
+                <span style="font-size:16px;">Remote Support</span></p> 
+    <p >We will quickly fix issues over the phone or via WhatsApp video call to minimise your practice downtime.</p><br/>
+                
+            <div >
+                <p >Here's our proposal to make your dental practice more successful.</p>
+                <table border="0" cellspacing="0" cellpadding="0" width="100%"  >
+                    <tr style="background-color:#48164d;color:white;font-size:14px;">       
+                     <td align="center" width ="5%"><b> Item
+                         </b></td>
+                     <td align="left" width ="52%"><b>&nbsp;&nbsp;Product</b></td>
+                     <td align="center" width ="8%"><b>Qty</b></td>
+                     <td align="center" width ="7%"><b>Unit</b></td>
+                     <td align="right" width ="13%"><b>Price</b></td>
+                     <td align="right" width ="15%"><b>Line Price</b></td>  
+                    </tr>
+                </table>      
+                
+                <table border="0" width="100%" >
+                <apex:variable value="{!1}" var="rowNum"/>
+                    <apex:repeat value="{!Qli}" var="line">
+                             <tr>
+                               <td width="5%" valign="top">{!rowNum} </td>
+                                 <td align="left" width="52%" style="vertical-align:top;" ><apex:outputText value="{!If(line.Sales_Description__c!=null,line.Sales_Description__c,line.Product2.Name)}" style="white-space:pre-line;" escape="false" /><br/>
+                                 <apex:outputText rendered="{!AND(line.Show_Description__c,line.Extended_Sales_Description__c!=null)}" Value="{!line.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false" />
+                                 <apex:outputlink rendered="{!line.Product2.Product_URL__c!=null}" value="{!line.Product2.Product_URL__c}" > Website Link </apex:outputlink><br/><br/></td>
+                             <!-- 97108 --- Website URL For Quote Line Item Products --- Value Get From Product URL in Quote Line Item Object --->
+                                  
+                             <!--     <apex:outputText rendered="{!AND(line.Show_Description__c,line.Product2.Sales_Description__c!=null,line.Extended_Sales_Description__c==null)}" VAlue="{!line.Product2.Sales_Description__c}" escape="false" style="white-space:pre-line;"/>
+                              <apex:outputText rendered="{!AND(line.Show_Description__c,line.Product2.Description!=null,line.Extended_Sales_Description__c==null,line.Product2.Sales_Description__c==null)}" VAlue="{!line.Product2.Description}" escape="false"  style="white-space:pre-line;"/> -->
+                              
+                              <td align="center" width="8%" style="vertical-align:top;"><apex:outputText value="{!line.Quantity}" /></td>
+                              <td align="center" width="7%" style="vertical-align:top;"><apex:outputText value="{!line.Product2.Stock_Unit__c}" /></td>
+                              <td align="right" width="13%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.UnitPrice}"/></apex:outputText></td>
+                              <td align="right" width="15%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.TotalPrice}"/></apex:outputText></td>
+                          
+                              </tr>
+                    <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                    </apex:repeat> 
+                     
+                     <tr>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                      </tr>
+                                          
+                       <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td align="right" colspan="3"><b>Total Price :</b><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Lppc.TotalPrice}"/></apex:outputText></td>
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td align="right" colspan="3"><b>VAT Total :</b><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Lppc.Vat_Total__c}"/></apex:outputText></td>
+                           
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td align="right" colspan="3"><b>Quote Total :<apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Lppc.Quote_Total__c}"/></apex:outputText></b></td>
+                       </tr>    
+                     
+                   </table>
+                   </div>
+                   <br/><br/><br/><br/>
+               
+               
+               
+               <p  style="page-break-inside: avoid;">
+                   We have discussed and agreed what success looks like for your practice. This has been carefully considered to inform the specifics of what we're proposing. You can be confident that implementing this work will make your practice more successful in the ways that matter most to you. <br/><br/>
+                   All supported by our <b>Set up for Success Guarantee</b>- <br />
+                   <ul style="margin-left:10px;">
+                   <li style="margin-top:6px"> Operational efficiencies and customer experience designed to make your practice successful</li>
+                   <li style="margin-top:6px"> Cost effectiveness built-in</li>
+                   <li style="margin-top:6px"> Compliance assured</li>
+                   </ul>
+   
+                    -and <b>YOUR Dental Practice Success Delivery &amp; Check-In</b>
+                    <ul>
+                       <li>Ongoing, we review how your operational spaces and equipment are working for you and keep you up-to-date with the latest ways to keep every space operating as efficiently and effectively as possible</li>
+                       </ul>
+                    </p>
+              <br/>
+    <p>We are ISO9001:2015 and Safe Contractor registered, and we have Public Indemnity Insurance.</p><br/>
+    
+    <!--This proposal includes delivery and installation of all items listed, including equipment connection to building services pre-installed to our specifications.<br /><br /> -->
+    It is valid for 30 days and is subject to our standard terms and conditions of sale and installation. A copy is available on request, or for download from: <a href="https://eclipse-dental.com/legal/terms-of-sale/">https://eclipse-dental.com/legal/terms-of-sale/</a><br/><br />
+    Prices are subject to VAT that will be charged at the current rate. E. &amp; O. E.<br /><br />
+              <p style="page-break-inside: avoid;">             
+               <span style="font-size:16px;"> 5 Year Finance Option </span></p>
+                <p >A detailed finance proposal can be made on request.</p>
+    <p style="page-break-inside: avoid;"><span style="font-size:16px;">Payment Terms:</span> </p>
+              <!--<font style="color:black;background:yellow">PLEASE NOTE OUR NEW BANK DETAILS: ECLIPSE DENTAL ENGINEERING LTD SORT CODE 30-91-91 ACCOUNT NUMBER 45605968 LLOYDS Bank of Scotland 12-20-26  01866640.</font><br/>-->
+                   <apex:outputPanel >
+                       <apex:outputText value="{!Lppc.Opportunity.Payment_Terms__c}"/><br/>
+                   </apex:outputPanel>
+    <!--  <apex:outputPanel rendered="{!Lppc.terms__c =='PAYMENT DUE ON PRESENTATION OF INVOICE'}">
+                          <apex:outputText value="{!Lppc.terms__c}" rendered="{!Lppc.terms__c!='Other – see special terms'}"/><br/><br/>
+                   </apex:outputPanel>--->
+                   <apex:outputPanel rendered="{!Lppc.terms__c=='Other – see special terms'}"><br/>          
+    <apex:outputText value="{!Lppc.Payment_Terms__c}" rendered="{!Lppc.terms__c=='Other – see special terms'}" style="white-space:pre-line" escape="false"/>
+    </apex:outputPanel><br/>
+              
+Please make payments to: {!$Label.Company_Name} | Sort Code 30-91-91 | Account No. 45605968 | Lloyds Bank Plc stating your Account No. as a
+reference.<br/>
+              
+               
+    
+
+               <p style="font-size:16px;">Next Steps:</p>
+            <p >Please sign and return the order confirmation below. Thank you.<br /><br />
+                If you have any questions or ideas to discuss, please contact us.<br/><br/>
+                We are looking forward to working with you to make your practice even more successful.<br/><br/>
+               Yours sincerely<br/><br />
+             <i><b>{!Lppc.Created_By__c}</b></i><br /><br />
+               <apex:outputpanel rendered="{!if(Lppc.Created_By__c!='Lyudmila Lopez',true,false)}" >Sales and Design Consultant</apex:outputpanel> 
+               <apex:outputpanel rendered="{!if(Lppc.Created_By__c=='Lyudmila Lopez',true,false)}" >Customer Account Manager</apex:outputpanel> <br />
+               Tel: 01322 293333</p>
+               <br/><br/><br/>
+               <p style="page-break-inside: avoid;"><span style="font-size:16px;">Your Dedicated Projects Team </span>
+               <br/><br/>
+               <table ><tr><td>Design &amp; Specification: </td><td>Chester Boyt</td></tr>
+               <tr><td>Direct Dial No</td><td>01322 421152</td></tr>
+               <tr><td>Email:</td><td>chester@eclipse-dental.com</td></tr> <tr><td></td> </tr> <tr><td></td> </tr> <tr><td></td> </tr>
+               
+               <tr><td>Project Management:</td><td>Ralph Boyt</td></tr>
+               <tr><td>Office Phone No</td><td>01322 421153</td></tr>
+               <tr><td>Email</td><td>ralph@eclipse-dental.com</td></tr> <tr><td></td> </tr> <tr><td></td> </tr> <tr><td></td> </tr>
+               
+               
+               <tr><td>Technical Support: </td><td>John Boyt</td></tr>
+               <tr><td>Service Phone No</td><td>01322 421150</td></tr>
+               <tr><td>Email </td><td>john@eclipse-dental.com</td></tr> <tr><td></td> </tr> <tr><td></td> </tr> <tr><td></td> </tr>
+               
+               
+               <tr><td>Accounts &amp; Admin:</td><td><b> </b></td></tr>
+               <tr><td>Email</td><td>accounts@eclipse-dental.com</td></tr>
+               </table></p>
+              <br/><br/><br/>
+              
+              
+               <p style="font-size:16px;">Order Confirmation Proposal No.{!Lppc.QuoteNumber} - &nbsp;
+               <apex:outputText value="{0,number,###,###,##0}">       
+                                    <apex:param value="{!Lppc.Version_Number__c}"/> </apex:outputText>
+               </p>
+             <p >  To proceed with above quotation, please complete below and return a copy to:<br /><br />
+               {!$Label.Company_Name}<br />
+               Westview Court<br />10-14 Kent Road<br />
+               Dartford<br />Kent  DA1 2AJ<br /><br />
+               Tel 01322 292222 Email <a href="info@eclipse-dental.com">info@eclipse-dental.com</a><br /><br />
+               Sign  :&nbsp;&nbsp;&nbsp;{!Lppc.Sign__c}<br /><br />
+               Print  :&nbsp;&nbsp;&nbsp;{!Lppc.Print__c}<br /><br />
+               Date : &nbsp;<!-- {!DAY(Lppc.Date__c)}<apex:outputText value="/" rendered="{!Lppc.Date__c!=null}" />{!MONTH(Lppc.Date__c)}<apex:outputText value="/" rendered="{!Lppc.Date__c!=null}" />{!YEAR(Lppc.Date__c)} -->
+               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!Lppc.Date__c}"/></apex:outputtext> <br /><br />
+              
+               Thank you for working with Eclipse Dental!
+               </p>
+  </div>
+
+        <div class="mainContent" style="page-break-after:always;"></div>
+        <div class="lastPage">
+        <img src="{!$Resource.ProjectProposalback}" style="width: 800px; height:1130px;" />
+        </div>
+
+</body>
+</apex:component>

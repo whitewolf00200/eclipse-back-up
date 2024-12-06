@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Service_PO_No__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( Visit__r.Purchase_Order__c &lt;&gt; &quot;&quot;, Visit__r.Purchase_Order__c , IF ( Site__r.Current_Purchase_Order_No__c =&quot;&quot;, Site__r.Parent_Purchase_Order_No__c ,Site__r.Current_Purchase_Order_No__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is the PO on the Site or Customer/Parent or Visit, if there is one. If you don&apos;t add anything to the Order number on the reactive sheet, this will be populated automatically with this one ( from 21/10/2013)</inlineHelpText>
+    <label>PO No. from Visit or Site or Parent</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

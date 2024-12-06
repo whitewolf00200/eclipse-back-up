@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Standard_Service_Sheet</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Reactive Call Out Sheet</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/a0J/e?CF00N580000064xzs={!Visits__c.Name}&amp;CF00N580000064xzs_lkid={!Visits__c.Id}&amp;retURL=%2F{!Visits__c.Id}
+&amp;CF00N580000064xzc={!Visits__c.Site__c}&amp;CF00N580000064xzc_lkid={!Visits__c.SiteId__c}&amp;CF00N580000064xzk={!Visits__c.Engineer2__c}&amp;CF00N580000064xzk_lkid={!Visits__c.Engineer2Id__c}
+&amp;CF00N580000064xzZ= {!Visits__c.Site_Contract__c}&amp;CF00N580000064xzZ_lkid={!Visits__c.Site_ContractId__c}
+&amp;00N580000064xyY={!Visits__c.Current_Purchase_Order_No__c}&amp;00N580000064xx5={!SiteContracts__c.HQ_Visit_Confirmation_Email__c}&amp;00N580000064xx4={!SiteContracts__c.Visit_Confirmation_Email_to__c}&amp;00N4E000000qXvY={!Visits__c.Primary_Reported_Fault_Type__c}&amp;00N4E0000012W5f={!Visits__c.Primary_Actual_Fault_Type__c}</url>
+</WebLink>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>COMPUTER_Room1__c</fullName>
+    <inlineHelpText>-CPU position shown on drawing -Monitors locations shown on drawing -2nd Monitor connections – photo of backof computer, confirm how  -Splitter required? -Cables required? -ExtensionUSB/keyboard/mouse/monitor cables required? -Cable management port po</inlineHelpText>
+    <label>Room1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

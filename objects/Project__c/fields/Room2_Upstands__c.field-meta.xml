@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Room2_Upstands__c</fullName>
+    <label>Upstands</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Stuck-on as marked on drawing</fullName>
+                <default>true</default>
+                <label>Stuck-on as marked on drawing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

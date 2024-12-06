@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Overdue_Visit_Check_Date__c</fullName>
+    <description>This captures the value of the actual service date when it is first set.The field to behave exactly like the Original Actual Visit Date field, the field has to be editable.</description>
+    <label>Overdue Visit Check Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

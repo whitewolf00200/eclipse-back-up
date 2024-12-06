@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Age_Status__c</fullName>
+    <description>The Age_Status field depends upon the &quot;Original Actual Service Date&quot; field. The field&apos;s value will auto update different colors depending upon the set conditions on the help text.</description>
+    <externalId>false</externalId>
+    <formula>IF(TODAY() - Original_Actual_Service_Date__c &gt; 60, IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 200),
+IF(AND(TODAY() - Original_Actual_Service_Date__c &gt; 30) , IMAGE( &quot;/img/samples/color_yellow.gif&quot;, &quot;yellow&quot;, 15, 200),
+IF(TODAY() - Original_Actual_Service_Date__c &lt; 30, IMAGE( &quot;/img/samples/color_green.gif&quot;, &quot;green&quot;, 15, 200),&apos;&apos;
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Displays Red- If the difference between the value in the &quot;Original Actual Service Date&quot; field and current date is greater than 60 days,
+Displays Yellow- If the difference is greater than 30 days
+Displays Green- If the difference is less than 30 Days</inlineHelpText>
+    <label>Age Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Sheet_Picklist_Option__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If this product corresponds to a picklist on a service sheet, enter the option ( eg on Fire Alarms it may be ADT ) that corresponds to this product.</inlineHelpText>
+    <label>Service Sheet Picklist Option</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

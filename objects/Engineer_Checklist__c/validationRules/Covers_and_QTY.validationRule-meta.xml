@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Covers_and_QTY</fullName>
+    <active>false</active>
+    <description>Must enter a Qty if Cover is selected.</description>
+    <errorConditionFormula>AND ( TEXT (  Cover__c  )&lt;&gt;&quot;&quot;,
+
+ TEXT (    Cover_QTY__c   )= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have selected a drop down field, you must also enter a quantity.</errorMessage>
+</ValidationRule>

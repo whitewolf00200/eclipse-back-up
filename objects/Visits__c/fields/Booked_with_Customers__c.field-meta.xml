@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booked_with_Customers__c</fullName>
+    <inlineHelpText>1. Yes first time, sends Booking confirmation email
+2. Yes to any other, sends Rescheduling notification email
+3. Yes again, sends Rescheduled confirmation email.</inlineHelpText>
+    <label>Booked with Customer</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>Waiting P/O</fullName>
+                <default>false</default>
+                <label>Waiting P/O</label>
+            </value>
+            <value>
+                <fullName>Waiting Permit</fullName>
+                <default>false</default>
+                <label>Waiting Permit</label>
+            </value>
+            <value>
+                <fullName>Waiting Confirmation</fullName>
+                <default>false</default>
+                <label>Waiting Confirmation</label>
+            </value>
+            <value>
+                <fullName>Booked Via Schedule</fullName>
+                <default>false</default>
+                <label>Booked Via Schedule</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

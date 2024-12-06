@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_Inventory</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Update Inventory</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)} 
+var ui = new sforce.SObject(&quot;Supplier_Purchase_Order__c&quot;); 
+ui.id = &apos;{!PurchaseOrder__c.Id}&apos;; /* Need Id field to update Case */ 
+ui.Stage__c = &apos;{!PurchaseOrder__c.Stage__c}&apos;; 
+
+if(ui.Stage__c == &quot;Parts Received&quot;){ 
+alert(&apos;You Can not update Inventory, You can able to adjust the Inventory&apos;); 
+} 
+else{ 
+window.open(&quot;/apex/UpdateInventorypage?Id=&quot;+ui.id+&quot;&quot;,&quot;_self&quot;); 
+}</url>
+</WebLink>

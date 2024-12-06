@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_Project_Sheet</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Submit Project Sheet</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/{!Project_Sheet__c.Id}/e?={!Project_Sheet__c.Id}&amp;retURL={!Project_Sheet__c.Id}&amp;00N28000001aGSH=1</url>
+</WebLink>

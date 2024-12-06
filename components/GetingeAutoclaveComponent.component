@@ -1,0 +1,192 @@
+<apex:component access="global" rendered="true" controller="ServiceController" >
+<apex:attribute name="Serviceid" type="Id"  assignTo="{!sheetid}" description="Attribute on the component."/>
+  <apex:attribute description="gac" name="gac" type="Engineer_Checklist__c"/>
+
+<body class="start">
+    <div class="footer" >
+        <table>
+  <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+        </table>
+    </div>
+<div style="width: 100% ;">
+    <!--<table width="22%" style="position:absolute;right:15px;">
+    <tr><td rowsapn="2"></td></tr>
+  <tr>
+ <td style="vertical-align:bottom;background-color:#CCC;"><img src="{!$Resource.FESS}" width="70" height="65"  title="logo" align="right"/></td>
+    <td><img src="{!$Resource.EclipseDentalLogo}" width="82" height="86"  title="logo" align="right"/></td>
+
+        </tr>
+        
+        
+    </table> -->
+    <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right" /></td></tr>
+</table>  
+    <p style="font-size:30px;position:absolute;left:220px;text-align:center;margin-top:-8px;"><b> Autoclave<br/>Certificate Of Service</b></p>
+    <br/><br/><br/><br/><br/>
+    <table width="40%" style="background-color:white;position:absolute;left:20px;">
+      <tr>
+      <td  width="50%" HEIGHT="80" style="vertical-align:top;"><apex:outputtext value="{!gac.Service_At__c}" escape="false"/></td>
+      </tr>
+    </table>
+     <table width="40%" style="vertical-align:top;background-color:white;position:absolute;right:20px;">
+      <tr width="50%">
+      <td width="25%" style="vertical-align:text-top;">Date:</td>
+      <td width="25%" style="vertical-align:text-top;"><!-- {!DAY(gac.Date__c)}/{!MONTH(gac.Date__c)}/{!YEAR(gac.Date__c)} -->
+      <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!gac.Date__c}"/></apex:outputtext>
+      </td>
+      </tr>
+      <tr width="50%">
+      <td width="25%" style="vertical-align:sup;">Account Ref :</td>
+      <td width="25%" style="vertical-align:sup;">{!if(gac.Site__r.AccountNumber!=null,gac.Site__r.AccountNumber,gac.Site__r.Parent.AccountNumber)}</td>
+      </tr>
+      <tr  width="50%">
+      <td width="25%" style="vertical-align:sup;">Certificate No.</td>
+      <td width="25%" style="vertical-align:sup;">{!gac.Name}</td>
+      </tr>
+      <tr>
+      <td width="25%" style="vertical-align:top;">Service Type:</td>
+      <td width="25%" height="30" style="vertical-align:top;">{!gac.Service_Sheet_Type__c}</td>
+      </tr>
+     </table>
+     <div style="width: 100%;"><br/><br/><br/><br/><br/><br/><br/></div>
+     <div style="background-color:#6a2774;width: 100% ;"><br/></div>
+  </div>
+  <div >
+  <br/>
+               <table width="50%" style=";text-align:right;" border="">
+               <tr>
+              <td width="25%" style="text-align:right;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make:</td>
+               <td width="25%" style="border-bottom: solid 1pt;text-align:center;">{!gac.Make__c}</td> 
+               </tr>
+               <tr>
+               <td width="25" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Model:</td> 
+               <td width="25" style="border-bottom: solid 1pt;text-align:center;">{!gac.Model__c}</td> 
+               </tr>
+               <tr>
+               <td width="25" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial No:</td>
+               <td width="25" style="border-bottom: solid 1pt;text-align:center;">{!gac.Serial_No__c}</td>
+               </tr>
+               <tr>
+               <td width="25" >Date Of Manufacturer:</td>
+               <td width="25" style="border-bottom: solid 1pt;text-align:center;"><!-- {!DAY(gac.Date_Of_Manufacture__c)}/{!MONTH(gac.Date_Of_Manufacture__c)}/{!YEAR(gac.Date_Of_Manufacture__c)} -->
+               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!gac.Date_Of_Manufacture__c}"/></apex:outputtext>
+               </td>
+               </tr>
+              </table>
+              <br/>
+              <table width="100%" style="border-collapse:collapse;">
+               <tr>
+               <td width="35%" colspan="2">General Condition &amp; Operation:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.General_Condition_Operation__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Door Seal:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.Door_Seal__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Air filter:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.Air_Filter__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Solonoid Valve disc MV1:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.Solonoid_Valve_disc_MV1__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Solonoid Valve disc MV2:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.Solonoid_Valve_disc_MV2__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Installation check:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.Installation_Check__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Lubricate the door:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.Lubricate_The_Door__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Checked Water quality Leakage test:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.Checked_Water_Quality__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Cleaned chamber,Screen and tank:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gac.Cleaned_Chamber_Screen_and_tank__c}</td>
+               </tr>
+               </table>
+               <br/>
+                <div >
+                <table width="100%" border="">
+                    <tr>
+                        <td>  <b>Notes for next service:</b> </td> 
+                    </tr>
+                    <tr>
+                         <td style="white-space:pre-line;" valign="top" height="200"> {!gac.Notes_for_next_service__c} </td>
+                    </tr>
+            </table>
+       </div>
+      <br/>
+          <div class="text" style="width: 700px ;">
+          <br/>
+          
+         
+         
+          <table Width="100%"  border="">
+              <tr>
+                  <td width="5%"> </td>
+                  <td width="35%" >Technician Signature:</td>
+                  <td width="10%"></td>
+                  <td width="45%" >Notes / Recommendations:</td>
+                  <td width="5%"> </td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td  height="50" style = "border: 1px solid black;background-color:white;">
+                  <!--  <b><apex:outputText value="{!substitute(gac.Engineer_s_Signature__c,"alt=","height=\"50px\" Alt=")}" escape="false"/></b> -->
+                  <apex:outputPanel rendered="{!Sign}">
+                         <img alt="no img" src="{!TechSign}" style="height:70px;max-width:100%;"/>
+                          </apex:outputPanel> 
+                  </td>
+                   <td></td>
+                     <td rowspan="3" style="border: 1px solid black;vertical-align:text-top;background-color:white;">{!gac.Note__c}</td>                
+                    <td></td> 
+              </tr> 
+              <tr>
+              <td></td>
+                  <td width="30%" >Print:</td>
+                  <td></td>
+                 <td></td>
+                                     
+              </tr>
+              <tr>
+              <td></td>
+                  <td  height="40" style = "border: 1px solid black;background-color:white;">
+                  <apex:outputText value="{!gac.Engineer__r.Name}" escape="false"/>
+                  </td>
+                  <td></td>
+                   <td></td>                 
+              </tr> 
+              <tr>
+              <td></td>
+              <td></td><td></td><td></td><td></td>
+              </tr> <br/> <br/>
+              <!-- <tr>
+               <td></td>
+                  <td  style="font-size:17px;color:#038B99;vertical-align:text-bottom;">Guaranteed solutions....</td>
+                  <td></td>
+                   <td style="color:#038B99;text-align:right;">Westview Court 10-14 Kent Road<br/>
+                         Dartford Kent DA1 2AJ<br/>
+                         Tel: 01322 293333<br />
+                         service@eclipse-dental.com<br />  
+                         www.eclipse-dental.com 
+                   </td>
+                   <td></td>
+                 </tr> -->
+    
+            </table> 
+          
+       </div>
+  
+      </div> 
+      </body>
+</apex:component>

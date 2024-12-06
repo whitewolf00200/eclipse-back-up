@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Room2_LED_Lighting__c</fullName>
+    <label>LED Lighting</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Under wall units</fullName>
+                <default>false</default>
+                <label>Under wall units</label>
+            </value>
+            <value>
+                <fullName>On plinths</fullName>
+                <default>false</default>
+                <label>On plinths</label>
+            </value>
+            <value>
+                <fullName>Under wall units and on plinths</fullName>
+                <default>false</default>
+                <label>Under wall units and on plinths</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

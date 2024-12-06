@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Sales_Order</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Generate Sales Order</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&apos;/soap/ajax/26.0/connection.js&apos;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/apex.js&quot;)}
+
+var records= sforce.connection.query(&quot;SELECT id,Name from Quote where OpportunityId=&apos;{!Opportunity.Id}&apos; order by createddate desc limit 1&quot;);
+var records1 = records.getArray(&apos;records&apos;);
+
+var QuoteId=&apos;&apos;,QuoteName=&apos;&apos;,ServiceType=&apos;&apos;;
+
+if(&apos;{!Opportunity.Service_Type__c}&apos;!=null)
+ServiceType=&apos;{!Opportunity.Service_Type__c}&apos;;
+else if(&apos;{!Opportunity.Service_Types__c}&apos;!=null)
+ServiceType=&apos;{!Opportunity.Service_Types__c}&apos;;
+else
+ServiceType=&apos;&apos;;
+
+
+for(var i=0;i&lt;records1.length;i++){
+QuoteId=records1[i].Id;
+QuoteName=records1[i].Name;
+}
+
+window.open(&quot;/setup/ui/recordtypeselect.jsp?ent=01I4E0000000Gqi&amp;retURL=%2F{!Opportunity.Id}&amp;save_new_url=%2Fa0Z%2Fe&amp;CF00N4E000000Hc1H={!Account.Name}&amp;CF00N4E000000Hc1H_lkid={!Account.Id}&amp;00N4E000000dhzK={!Opportunity.VAT_Rate__c}&amp;CF00N4E000000Hc1J={!Opportunity.Name}&amp;CF00N4E000000Hc1J_lkid={!Opportunity.Id}&amp;00N4E000000Hc1K={!Today()}&amp;00N4E000000ddNM={!TODAY()}&amp;CF00N4E000000Hc1M=&quot;+QuoteName+&quot;&amp;CF00N4E000000Hc1M_lkid=&quot;+QuoteId+&quot;&amp;00N4E000000h1jw=&quot;+ServiceType+&quot;&amp;00N4E000000ddNW={!Account.Phone}&amp;00N4E000000ddNb={!Opportunity.Account_Fax__c}&amp;00N4E000000ddNg={!Account.Company_mail__c}&amp;00N4E000001WV3O={!Opportunity.Job_Scale__c	}&quot;,&quot;_top&quot;)</url>
+</WebLink>

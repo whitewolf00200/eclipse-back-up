@@ -1,0 +1,224 @@
+<apex:page standardController="PurchaseOrder__c" extensions="Purchase_Order_Preview_Controller" showHeader="false" sidebar="false"  renderAs="PDF" applyHtmlTag="false"> 
+
+<head>
+    <style>
+        body {
+                background-color:{!configvalue.Background_Colour__c};
+                color:#333;
+                font-family:Verdana, Arial, Helvetica, sans-serif;
+                font-size:13px;
+                line-height:15px;
+             }
+        
+        h1,
+        h2,
+        hr {
+            background-color:{!configvalue.Header__c};
+            color:#FFF;
+            font-family:Verdana,Arial, Helvetica, sans-serif;
+            font-size:20px;
+        }
+        h1 {
+            font-size:20px;
+            line-height:20px;
+            min-height:20px;
+            padding:10px;
+            text-align:center;
+        }
+        h2 {
+            width:650px;
+            padding:5px;
+            font-size:14px;
+            line-height:14px;
+        }
+        p {
+            font-size:13px;
+            line-height:15px;
+            margin:0 0 7px;
+        }
+        p strong {
+            font-weight:bold;
+        }
+        hr {
+            height:25px;
+            margin:0 0 5px;
+            padding:0;
+        }
+            #logo {
+            width:280px;
+            height:100px;
+            margin:10px auto;
+        }
+        p.pos_fixed {
+            position: fixed;
+            top: 30px;
+            right: 5px;
+            color: red;
+        }
+        
+        
+        table {
+            width:660px;
+            font-size:13px;
+            border:0;
+            font-family:Verdana, Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        td {
+            padding:2px;
+            text-align:left;
+            border:1px solid #FFF;
+            vertical-align:top;
+            font-family:Verdana, Arial, Helvetica, sans-serif;
+            font-size:13px;
+            line-height:15px;
+              
+        }
+        th{
+            background-color:#00B050 !important;
+            color:#FFF;
+            font-family:Verdana,Arial, Helvetica, sans-serif;
+            font-size:13px;
+            line-height:15px;
+        }
+        th.tth{
+                background-color:#00B050 !important;
+                color:#FFF;
+                font-family:Verdana, Arial, Helvetica, sans-serif;
+                font-size:13px;
+                line-height:18px;
+                font-weight:bold;
+        }
+        tr{
+            page-break-inside:avoid;
+        }
+        td.tt{
+                background-color:#00B050;
+                color:#FFF;
+                font-family:Verdana, Arial, Helvetica, sans-serif;
+        }
+        img{
+            width:200px;
+        }
+        .prod1
+        {
+        background-color:{!configvalue.Product_Table_Colour__c};
+        }
+        </style>
+</head>
+    <div id="container">
+         <div style="text-align: center;width:300;height:300;" id="logo">  
+            <apex:image width="300px" url="{!$Resource.invlogo}" /> 
+        </div>      
+        <h1 style="text-align:center;background-color:00B050;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:21px;"><br/>{!configvalue.Header_Title__c }<br/><br/></h1>     
+        <div style="text-align:left;background-color:{!configvalue.Invoice_Background__c};color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:20px;">
+            <table  border="0" style="font-family:Verdana, Arial, Helvetica, sans-serif;" >
+                
+                <tr>
+                    <td>
+                        ORDER TO : <br/>{!PurchaseOrder__c.Supplier__r.name}<br/> 
+                        {!PurchaseOrder__c.Supplier__r.billingStreet}<br/>
+                        {!PurchaseOrder__c.Supplier__r.billingcity}<br/>
+                        {!PurchaseOrder__c.Supplier__r.billingstate}<br/>
+                        {!PurchaseOrder__c.Supplier__r.billingcountry}<br/>
+                    </td>
+                    <td >
+                       <p align="right"  style="font:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:16px;line-height:14px;">
+                 ORDER NO : {!PurchaseOrder__c.Name}</p>
+                 <p align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:12px;">
+                THIS NUMBER MUST BE QUOTED ON ALL CORRESPONDENCE 
+                </p>
+                <p align="right" >DELIVER TO : <br/>{!PurchaseOrder__c.Contact_Name__c}<br/>
+                    {!PurchaseOrder__c.Shipping_Name__c}<br/>
+                    {!PurchaseOrder__c.Address__c}<br/> 
+                    {!PurchaseOrder__c.City__c}<br/>
+                    {!PurchaseOrder__c.State__c}<br/>
+                    {!PurchaseOrder__c.Pincode__c}<br/>
+                    {!PurchaseOrder__c.Country__c}<br/>
+                  <!--  <apex:outputPanel rendered="{!IF(Supplier_Purchase_Order__c.Deliver_to_Site_Address__c,true,false)}">
+                        {!Supplier_Purchase_Order__c.Shipping_Country__c}
+                    </apex:outputPanel>  <br/>           
+                    -->         
+                    {!PurchaseOrder__c.Contact_Number__c}
+                    </p></td>
+             </tr>
+            <tr>
+                <td style="text-align:Left"> Tel : {!PurchaseOrder__c.Supplier__r.Phone}</td> 
+            </tr>  
+            <tr>  
+                <td style="text-align:Left">  Fax : {!PurchaseOrder__c.Supplier__r.Fax}</td> 
+            </tr>  
+           
+          </table>
+        </div>
+ 
+         
+   <div style="position:absolute; width:95%;">
+   Product Details
+<table border="1" style="font-family:Verdana, Arial, Helvetica, sans-serif;width:99%" >
+    <tbody>
+      <tr>
+            <td  class="tt" width="30%"><b>Product</b></td>
+            <td  class="tt" width="10%"><b>Quantity</b></td>
+            <td  class="tt" width="10%"><b>Unit Price</b></td>
+            <td  class="tt" width="10%"><b>Net Amount</b></td>
+       </tr>
+       
+       <apex:repeat value="{!PurchaseOrder__c.Product_Order_Lists__r}" var="line">   
+       <tr >
+           <td class="prod1"> {!line.Product__r.Name}  </td>
+           <td class="prod1"><apex:outputText value="{0,number, ##,###,###0}"><apex:param value="{!line.Quantity__c}"/></apex:outputText> </td>
+           <td class="prod1"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.Price__c}"/></apex:outputText> </td>
+           <td class="prod1"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.Total_Price__c}"/></apex:outputText> </td>
+           
+       </tr>
+     </apex:repeat>
+     
+     </tbody>
+   </table>
+   <br/>
+   <table   style="font-family:Verdana, Arial, Helvetica, sans-serif;width:50%" align="right" >
+   
+         
+         <td style="width:50%" ><b> Total Amount: </b></td>
+         <td style="width:50%"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!PurchaseOrder__c.Total_Amount__c}"/></apex:outputText> </td>
+         
+     
+   </table>
+</div><br/>
+   
+   
+    <div style="position:absolute; right:18px; top:785px;  width:95%;">
+        <table border="0" style="font-family:Verdana, Arial, Helvetica, sans-serif;width:99%" >
+            <tbody>
+               <tr>
+                 <td width="30%">DELIVERY DATE :
+                                                    <apex:param value="{!PurchaseOrder__c.Requested_By__c}" /> 
+                                                </td>
+                 <td width="30%">SUPPLIER CONTACT NAME:</td>
+                 <td width="30%"></td>
+                </tr>
+                <tr>
+                  <td><br /><br />SIGN:</td>
+                  
+                </tr>
+                <tr >
+                   <td>PRINT:
+                    {!PurchaseOrder__c.Created_By__c}</td> 
+                    
+                </tr>
+               
+             </tbody>
+           </table> 
+     </div>
+   <div style="position:absolute; right:40px; top:900px;">
+ <p style="text-align:center;color:black;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:15px;line-height:14px;">
+     {!configvalue.Footer_Line_1__c}<br/>
+                    </p>
+     <P style="text-align:center;color:black;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:15px;line-height:8px;">
+    {!configvalue.Footer_Line_2__c}</p>
+</div>       
+         
+    </div>  
+</apex:page>

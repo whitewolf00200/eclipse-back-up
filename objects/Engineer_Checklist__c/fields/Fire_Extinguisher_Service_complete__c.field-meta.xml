@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fire_Extinguisher_Service_complete__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Completed sheet creates invoice and sends confirmation to customer. If you select a Next Service Date (NSD) it will alert the Service Team to schedule the next service.</inlineHelpText>
+    <label>Submit This Service</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

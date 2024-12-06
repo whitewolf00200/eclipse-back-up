@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Sheet_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE ( RecordTypeId ,
+&quot;0124E0000000AsF&quot; , &quot;Air Compressor Service and Test Report&quot; ,
+&quot;0124E0000002wIG&quot; , &quot;Pan Oral X-ray&quot; ,
+&quot;0124E0000000BFd&quot; , &quot;Autoclave Service&quot;, 
+&quot;0124E0000000BK9&quot;, &quot;Getinge Washer Disinfector&quot;,
+&quot;0124E0000000BKn&quot; , &quot;Mechanical X-Ray Report&quot; , 
+&quot;0124E0000000Ast&quot; , &quot;Medisafe Washer disinfector service&quot;,
+&quot;0124E0000000BLv&quot; , &quot;Report of Examination&quot;,
+&quot;0124E0000000AsZ&quot; , &quot;Suction Pump Service&quot;,
+&quot;0124E0000000BLH&quot; , &quot;Treatment Centre Certificate Of Service&quot;,
+&quot;0127Z000001EiZ4&quot; , &quot;Suction Pump installation certificate&quot;,
+&quot;0127Z000001EiZ9&quot; , &quot;Compressor installation certificate&quot;,
+&quot;0127Z000001EiZJ&quot; , &quot;OPG installation certificate&quot;,
+&quot;0127Z000001EiZE&quot; , &quot;Intra-oral x-ray installation certificate Belmont&quot;,
+&quot;0127Z000001EiZO&quot; , &quot;Chair installation certificate&quot;,
+&quot;0127Z000001EqYT&quot;,&quot;Treatment centre Install&quot;,
+&quot;0127Z000001GQbu&quot; , &quot;Image Plate Scanner Service&quot;,
+&quot;0127Z000001GWCI&quot; , &quot;Image Plate Scanner Installation&quot;,
+&quot;012Ad0000017Czx&quot; , &quot;Sewer Pump Certificate&quot;,
+&quot;&quot;
+ )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Service Sheet Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

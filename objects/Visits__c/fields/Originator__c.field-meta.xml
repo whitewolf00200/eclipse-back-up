@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Originator__c</fullName>
+    <label>Originator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Chester Boyt</fullName>
+                <default>false</default>
+                <label>Chester Boyt</label>
+            </value>
+            <value>
+                <fullName>Ralph Boyt</fullName>
+                <default>false</default>
+                <label>Ralph Boyt</label>
+            </value>
+            <value>
+                <fullName>John Boyt</fullName>
+                <default>false</default>
+                <label>John Boyt</label>
+            </value>
+            <value>
+                <fullName>Tim Boyt</fullName>
+                <default>false</default>
+                <label>Tim Boyt</label>
+            </value>
+            <value>
+                <fullName>Chaz Sidhu</fullName>
+                <default>false</default>
+                <label>Chaz Sidhu</label>
+            </value>
+            <value>
+                <fullName>Ray Watts</fullName>
+                <default>false</default>
+                <label>Ray Watts</label>
+            </value>
+            <value>
+                <fullName>Michael</fullName>
+                <default>false</default>
+                <label>Michael</label>
+            </value>
+            <value>
+                <fullName>Nigel Dowding</fullName>
+                <default>false</default>
+                <label>Nigel Dowding</label>
+            </value>
+            <value>
+                <fullName>Lorna Welch</fullName>
+                <default>false</default>
+                <label>Lorna Welch</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

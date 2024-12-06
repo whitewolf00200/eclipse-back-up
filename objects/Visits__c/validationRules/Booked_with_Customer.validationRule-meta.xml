@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booked_with_Customer</fullName>
+    <active>true</active>
+    <description>If you are an Engineer and the Booked with Customer is ticked you cannot change the Actual Service Date.</description>
+    <errorConditionFormula>AND ( $Profile.Name  = &quot;Technician&quot;,
+IF(ISPICKVAL( Booked_with_Customers__c ,&apos;Yes&apos;),1,0) = 1,
+ISCHANGED( Actual_Service_Date__c) 
+)</errorConditionFormula>
+    <errorMessage>If you are an Engineer and the Booked with Customer is tick you cannot change the Actual Service Date.</errorMessage>
+</ValidationRule>

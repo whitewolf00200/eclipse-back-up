@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Breakglass_Call_selected_but_no_quantity</fullName>
+    <active>false</active>
+    <description>If Breakglass Callpoint dropdown is selected, you must have a qty.</description>
+    <errorConditionFormula>AND ( TEXT (    FA_Breakglass_Callpoint__c   )&lt;&gt; &quot;&quot;,
+
+ TEXT (     Outlet_has_sufficient_air_water_pressure__c   )= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have selected a dropdown field, please enter a quantity.</errorMessage>
+</ValidationRule>

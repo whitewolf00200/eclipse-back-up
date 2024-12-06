@@ -1,0 +1,110 @@
+<apex:page standardController="Contact">
+<head>
+<style>
+@page{
+ margin-top: 2.0cm;
+margin-left: 2.0cm;
+margin-right: 2.0cm;
+margin-bottom: 2.0cm;
+}
+
+
+boxed {
+  border: 1px solid;
+      height: 40px;
+      width:200px;
+      padding-top: 15px;
+
+    
+
+      font-size: 50px;
+    font-family: 'Verdana';
+    margin-top: 5px; 
+ 
+
+    
+
+}
+.vertical-text {
+display: block;
+position:absolute;
+width: 0px;
+height: 0px;
+top: 0px;
+left: 0px;
+transform: rotate(90deg);
+}
+</style>
+</head>
+
+
+  <!-- Begin Default Content REMOVE THIS -->
+ 
+ 
+ <p style="border: solid 1pt;height: 50px;width: 250px;padding-top: 15px;font-family: 'Verdana'; font-size: 27px;" align="center"> PROJECT FILE </p>
+ <table>
+ <tr>
+ <td><b style="font-family: 'Verdana'; font-size: 13px">{!Contact.Account.Name}</b></td></tr>
+ <tr>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.Account.BillingStreet}</td> </tr>
+ <tr>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.Account.BillingCity}</td></tr>
+ <tr>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.Account.BillingState}</td></tr>
+ <tr>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.Account.BillingPostalCode}</td></tr>
+ <tr>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.Account.BillingCountry}</td></tr></table>
+<br/><br/>
+<!-- <b style="font-family: 'Verdana'; font-size: 13px">Customer No.</b>&nbsp;&nbsp;&nbsp;{!Contact.Account.UPRN__c}<br/><br/>-->
+ <table>
+ <tr>
+ <th style="font-family: 'Verdana'; font-size: 13px">Customer No.</th>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.Account.UPRN__c}</td></tr><br/><br/>
+<tr>
+ <th style="font-family: 'Verdana'; font-size: 13px">Tel:</th><p style="position:absolute;left:480px;">
+                     <img src="{!$Resource.DentalPractice}" width="200" height="100"  title="logo" align="right"/>                                                     
+</p>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.Phone}</td>
+ </tr>
+ <tr>
+ <th style="font-family: 'Verdana'; font-size: 13px">Mobile:</th>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.MobilePhone}</td>
+ </tr>
+ <tr>
+ <th style="font-family: 'Verdana'; font-size: 13px">Email:</th>
+ <td style="font-family: 'Verdana'; font-size: 13px">{!Contact.Email}</td>
+ </tr>
+ <tr>
+ <th style="font-family: 'Verdana'; font-size: 13px">PM:</th>
+ <td style="font-family: 'Verdana'; font-size: 13px"></td>
+ </tr>
+ <tr>
+ <th style="font-family: 'Verdana'; font-size: 13px">No. of Surgeries:</th>
+ <td style="font-family: 'Verdana'; font-size: 13px"></td>
+ </tr>
+ </table>
+ <br/>
+<br/>
+
+
+
+ <!-- <apex:map width="600px" height="400px" mapType="roadmap" zoomLevel="16" center="One Market Street, San Francisco, CA">
+ <apex:repeat value="{! Account.Contacts }" var="contact">
+                    <apex:mapMarker title="{! contact.Name }" position="{!contact.MailingStreet},{!contact.MailingCity},{!contact.MailingState}"/>
+               </apex:repeat>               
+            
+
+    </apex:map>-->
+ <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center={!Contact.Account.BillingStreet},{!Contact.Account.BillingCity},{!Contact.Account.BillingState}&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&sensor=false" style="border: 3px solid;" />-->
+     <apex:image url="https://maps.googleapis.com/maps/api/staticmap?center={!Contact.Account.BillingStreet},{!Contact.Account.BillingCity},{!Contact.Account.BillingState}&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&sensor=false" style="border: solid 3pt"/>            
+        
+       <!-- <p style="position:absolute;top:750px;transform: rotate(270deg);display: inline-block;transform-origin: left top 0;border: solid 1pt;height: 30px;width: 250px;padding-top: 10px;font-family: 'Verdana'; font-size: 12px"><b>Dr B. Khan|DA320</b></p>-->
+ 
+<!--<p style="-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform: rotate(90deg);-ms-transform:rotate(90deg);transform: rotate(90deg);white-space:nowrap;display:block;display: inline-block"></p>-->
+            <br/><br/><br/>
+            <p style="border: solid 1pt;height: 40px;width: 350px;padding-top: 15px;padding-left: 5px;font-family: 'Verdana'; font-size: 17px;"> {!Contact.Account.Name}&nbsp;|&nbsp;{!Contact.Account.UPRN__c} </p>
+                           
+
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

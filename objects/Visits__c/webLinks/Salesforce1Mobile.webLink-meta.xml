@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesforce1Mobile</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Salesforce1Mobile</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/a0A/e?CF00N580000064xWH={!Visits__c.Site__c}</url>
+</WebLink>

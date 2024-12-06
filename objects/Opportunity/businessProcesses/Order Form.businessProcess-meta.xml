@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Order Form</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Cancelled</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Complete %28Job Done%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Dead %28not going ahead%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Delivery</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Duplicate</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Enquiry</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Invoice</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Merged</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Moved to Invoice</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Needs Analysis</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Negotiation</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Order %28Order Book%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Order Ready</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Proforma</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Proposal</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Qualification</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Quote  %28Stage 1%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Quote  %28Stage 2%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Sent</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Transferred to another sale</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Unknown</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Warranty</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

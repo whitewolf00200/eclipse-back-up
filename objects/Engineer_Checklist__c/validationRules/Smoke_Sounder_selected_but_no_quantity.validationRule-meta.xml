@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Smoke_Sounder_selected_but_no_quantity</fullName>
+    <active>false</active>
+    <description>If Smoke Sounder dropdown is selected, you must have a qty.</description>
+    <errorConditionFormula>AND ( TEXT (    FA_Smoke_Sounder__c   )&lt;&gt; &quot;&quot;,
+
+ TEXT (     Levels_correct__c   )= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have selected a dropdown field, please enter a quantity.</errorMessage>
+</ValidationRule>

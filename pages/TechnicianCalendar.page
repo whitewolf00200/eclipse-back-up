@@ -1,0 +1,415 @@
+<!-- =============================================
+*Page Name      : TechnicianCalendarHandler
+*Description    : Visit details showed in this Calendar on the technician page.
+*Company        : Merfantz Technologies Pvt Ltd.
+*Version        : 1.0
+============================================= -->
+
+<apex:page extensions="TechnicianCalendarHandler"  standardController="Engineer__c"  action="{!pageLoad}" docType="html-5.0" sidebar="false" standardStylesheets="false" showHeader="false"> 
+    <!--jquery-->
+    
+    
+    
+    <apex:includeScript value="{!URLFOR($Resource.CalendarView, 'jquery.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CalendarView, 'jquery-ui.min.js')}"/>
+    <!--fullcalendar-->
+    <apex:includeScript value="{!URLFOR($Resource.CalendarView, 'fullcalendar.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.CalendarView, 'fullcalendar.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CalendarView, 'jsrender.js')}"/>  
+    <!--qtip2-->  
+    <apex:includeScript value="{!URLFOR($Resource.CalendarView, 'jquery.qtip.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.CalendarView, 'jquery.qtip.css')}"/>
+    <!--select 2 -->
+    <apex:includeScript value="{!URLFOR($Resource.CalendarView, 'select2.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.CalendarView, 'select2.css')}"/>
+    
+    
+    <script>
+    function addtarget(){
+        $(document).contents().find('a').attr('target', '_blank');
+    } 
+    $(document).ready(function() { 
+        $('#external-events div.external-event').each(function() {
+            var eventObject = {
+                title: $.trim($(this).text()) // use the element's text as the event title
+            };
+            
+            // store the Event Object in the DOM element so we can get to it later
+            $(this).data('eventObject', eventObject);
+            
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 999,
+                revert: true,      // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+            
+        });
+        
+        //Call the fullCallendar method. You can replace the '#calendar' with the ID of the dom element where you want the calendar to go. 
+        
+        var totalscharge= "0";
+        var totalspend= "0";
+
+
+
+
+
+
+        $('#calendar').fullCalendar({
+            columnFormat: {
+                month: 'ddd',
+                week: 'ddd dd/M',
+                day: 'dddd dd/M'
+            }, selectable: true,
+            slotDuration: '00:30:01',
+     viewDisplay: function(view) {
+                if (view.name === 'agendaDay') {
+                   // document.getElementById("successAndErrorMessages").innerHTML="Sum of Spend Limit:£ 0.0&nbsp;&nbsp;Sum of S.C :£ 0.0"; 
+                    document.getElementById("spendlimittitle").innerHTML="Sum of Spend Limit:£"+totalspend; 
+                    document.getElementById("servicechargetitle").innerHTML="Sum of S.C :£"+totalscharge; 
+                    
+                    
+                }
+                if (view.name === 'agendaWeek') {
+                   // document.getElementById("successAndErrorMessages").innerHTML="Sum of Spend Limit:£ 0.0&nbsp;&nbsp;Sum of S.C :£ 0.0"; 
+                    document.getElementById("spendlimittitle").innerHTML="Sum of Spend Limit:£"+totalspend; 
+                    document.getElementById("servicechargetitle").innerHTML="Sum of S.C :£"+totalscharge; 
+                }
+                 
+                totalscharge= "0";
+                totalspend = "0";
+                
+                
+            },
+          eventClick: function(calEvent, jsEvent, view) {
+
+       
+        // change the border color just for fun
+        $(this).css('border-color', 'red');
+
+    },
+            height: "auto", contentHeight: "auto",
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            
+            nameID:1,
+            dragRevertDuration:50,
+            editable: true,
+            
+            selectHelper: true,
+            droppable: true, 
+            resizable :true,
+            
+            drop: function(date ,jsEvent, ui) { // this function is called when something is dropped
+                // retrieve the dropped element's stored Event Object
+                var originalEventObject = $(this).data('eventObject');
+                // we need to copy it, so that multiple events don't have a reference to the same object
+                var copiedEventObject = $.extend({}, originalEventObject);
+                var count = 0;
+                // assign it the date that was reported
+                if(copiedEventObject.start instanceof Date){
+                    copiedEventObject.start = new Date(
+                        date.getFullYear(), date.getMonth(), date.getDate(),
+                        copiedEventObject.start.getHours(), copiedEventObject.start.getMinutes(), copiedEventObject.start.getSeconds()
+                        
+                    );
+                    
+                    
+                }else if(copiedEventObject.start === null){
+                    
+                    copiedEventObject.start = null;
+                }else{
+                    
+                    copiedEventObject.start = date;
+                }
+                
+                if(copiedEventObject.end instanceof Date && copiedEventObject.start instanceof Date){
+                    var diff = (originalEventObject.end.getTime() - originalEventObject.start.getTime());
+                    copiedEventObject.end = new Date();
+                    copiedEventObject.end.setTime(copiedEventObject.start.getTime() + diff);
+                }else if(copiedEventObject.end === null){
+                    copiedEventObject.end = null;
+                }else{
+                    copiedEventObject.end = date;
+                }
+                
+                if(typeof copiedEventObject.allDay === "undefined"){
+                    copiedEventObject.allDay = allDay;
+                }
+                
+                console.log(nameid+'::::copiedEventObject::::' +copiedEventObject.nameid);
+                
+                if(nameid!=copiedEventObject.nameid) {
+                    copiedEventObject.nameID=nameid;
+                    $('#calendar'+nameid).fullCalendar('renderEvent', copiedEventObject, true,true);
+                    
+                    $('#calendar'+originalEventObject.nameid).fullCalendar('removeEvents', originalEventObject.id);
+                }else $('#calendar'+nameid).fullCalendar('renderEvent', copiedEventObject, false,false);
+                
+                // is the "remove after drop" checkbox checked?
+                if ($('#drop-remove').is(':checked')) {
+                    // if so, remove the element from the "Draggable Events" list
+                    $(this).remove();
+                }
+                
+                
+            },
+            
+            eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc,ev,ui,cell) {
+                if(event.end==null)
+                    event.end=event.start;
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.TechnicianCalendarHandler.UpdateVisit}',event.start,event.end,event.url,function(results, event) {
+                        console.log('teswtsetst'+event);
+                        if(event.type == 'exception'){
+                            alert(event.message);
+                            console.log(event.type);
+                            console.log(event);}}); 
+                console.log('eventDrop');
+                $(document).contents().find('a').attr('target', '_blank');
+                addtarget();
+                
+            },
+            eventDragStart: function( event, jsEvent, ui, view ) {
+                
+                dragged = [ ui.helper[0], event ];
+                console.log('eventDragStart');
+                console.log(dragged);
+                
+            },
+            eventDragStop: function( event, jsEvent, ui, view ) {
+                dragged = [ ui.helper[0], event ];
+                console.log('eventDragStop');
+                console.log(dragged);
+                
+                
+            },eventResizeStart: function (event, jsEvent, ui, view) {
+                console.log('RESIZE START ' + event.title);
+                
+            },
+            eventResizeStop: function (event, jsEvent, ui, view) {
+                console.log('RESIZE STOP ' + event.title);
+                
+            },
+            eventResize: function (event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view) {
+                
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.TechnicianCalendarHandler.UpdateVisit}',event.start,event.end,event.url,function(results, event) {
+                        if(event.type == 'exception'){
+                            console.log("exception");
+                            alert(event.message);
+                            
+                            addtarget();
+                            console.log(event);}}); 
+            } ,
+            
+            events:
+            [
+                //At run time, this APEX Repeat will reneder the array elements for the events array
+                <apex:repeat value="{!BookingLists}" var="e">
+                {
+                title: "{!e.title}",
+                
+                servicetype: "{!e.serviceType}" ,
+                visittype: "{!e.visitType}" ,
+                sitename: "{!e.siteName}" ,
+                
+                allDay:false,
+                
+                servicecharge: "{!e.servicecharge}" ,
+                fetotal: "{!e.feTotal}" ,    
+                attendancetime: "{!e.attendanceTime}" ,                       
+                postcode: "{!e.postCode}" ,
+                spendlimit: "{!e.spendLimit}" ,
+                spend: "{!e.spend}" ,
+                scharge: "{!e.scharge}" ,
+                scpaneldvr: "{!e.scpaneldvr}" ,
+                scjobtime :  "{!e.scjobtime}" ,
+                
+               
+                start: '{!e.startString}',
+               
+                end: '{!e.endString}',
+                
+                url: '{!e.url}',
+                className: '{!e.className}'
+                }, 
+                </apex:repeat>
+                
+            ],eventAfterAllRender: function(view) {
+                addtarget();
+            },
+            
+            eventRender: function(event, element,view) { 
+            
+           
+                element.find('.fc-event-title').append("<br/>"+event.visittype+"<br/>"+ event.servicetype+"<br/>"+ event.sitename+"<br/>"+ event.servicecharge+"<br/>"+ event.spendlimit+"<br/>"+ event.scpaneldvr+"<br/>"+ event.scjobtime+"<br/>"+ event.fetotal+"<br/>"+ event.attendancetime+"<br/>"+ event.postcode);  
+                if (view.name == "month") {   
+                
+              
+                    var spendval = event.spend;
+                    if(spendval == ""){spendval = "0"; }
+                   
+                    var schargeval = event.scharge;
+                    if(schargeval == ""){ schargeval = "0";     }
+                  
+                    totalspend =  parseInt(totalspend) + parseInt(spendval); 
+                    totalscharge = parseInt(totalscharge ) + parseInt(schargeval); 
+                    var Totalvalue =  parseInt(totalspend) +  parseInt(totalscharge);
+                    $('.dropdown').remove();
+                    //$('.fc-header-center').append("<div class='dropdown' id='successAndErrorMessages' style='display: inline;float: right;font-family: Arial,Helvetica,sans-serif;font-size: 13px;'> </div>");
+                    document.getElementById("spendlimittitle").innerHTML="Sum of Spend Limit &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:£"+totalspend; 
+                    document.getElementById("servicechargetitle").innerHTML="Sum of Service Charge &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:£"+totalscharge; 
+                    document.getElementById("totalvalue").innerHTML="Sum of Spend Limit & Service Charge :£"+Totalvalue; 
+                    
+                } 
+                if (view.name == "agendaWeek") { 
+                    
+
+               
+                                    
+                    var spendval = event.spend;
+                    if(spendval == ""){spendval = "0"; }
+                   
+                    var schargeval = event.scharge;
+                    if(schargeval == ""){ schargeval = "0";     }
+                    
+                    totalspend =  parseInt(totalspend) + parseInt(spendval) ; 
+                    totalscharge = parseInt(totalscharge ) + parseInt(schargeval) ; 
+                    var Totalvalue =  parseInt(totalspend) +  parseInt(totalscharge);
+                    
+                    $('.dropdown').remove();
+                    //$('.fc-header-center').append("<div class='dropdown' id='successAndErrorMessages' style='display: inline;float: right;font-family: Arial,Helvetica,sans-serif;font-size: 13px;'> </div>");
+                   document.getElementById("spendlimittitle").innerHTML="Sum of Spend Limit &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:£"+totalspend; 
+                    document.getElementById("servicechargetitle").innerHTML="Sum of Service Charge &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:£"+totalscharge; 
+                    document.getElementById("totalvalue").innerHTML="Sum of Spend Limit & Service Charge :£"+Totalvalue; 
+                    //alert(totalscharge  );
+                } 
+                
+                if (view.name == "agendaDay") {   
+             
+               
+                    var spendval = event.spend;
+                    if(spendval == ""){spendval = "0"; }
+                   
+                    var schargeval = event.scharge;
+                    if(schargeval == ""){ schargeval = "0";     }
+                    
+                    totalspend =  parseInt(totalspend) + parseInt(spendval) ; 
+                    totalscharge = parseInt(totalscharge ) + parseInt(schargeval) ; 
+                    var Totalvalue =  parseInt(totalspend) +  parseInt(totalscharge);
+                    
+                    $('.dropdown').remove();
+                    //$('.fc-header-center').append("<div class='dropdown' id='successAndErrorMessages' style='display: inline;float: right;font-family: Arial,Helvetica,sans-serif;font-size: 13px;'> </div>");
+                    document.getElementById("spendlimittitle").innerHTML="Sum of Spend Limit &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:£"+totalspend; 
+                    document.getElementById("servicechargetitle").innerHTML="Sum of Service Charge &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:£"+totalscharge; 
+                    document.getElementById("totalvalue").innerHTML="Sum of Spend Limit & Service Charge :£"+Totalvalue; 
+                } 
+            }
+        });  
+    });
+    
+    window.onload= addtarget;
+    </script>
+    
+    <!--some styling. Modify this to fit your needs-->
+    <style>
+        #cal-options {float:left;}
+        #cal-legend { float:right;}
+        #cal-legend ul {margin:0;padding:0;list-style:none;}
+        #cal-legend ul li {margin:0;padding:5px;float:left;}
+        #cal-legend ul li span {display:block; height:16px; width:16px; margin-right:4px; float:left; border-radius:4px;}
+        #calendar {margin-top:20px;}
+        #calendar a:hover {color:rgb(21, 21, 184) !important;}
+        
+        .fc-widget-header{font-weight: normal;font-family: Arial,Helvetica,sans-serif;font-size: 13px;}
+        // .fc-agenda-header{title:}
+        //.fc-col0{font-size: 9px;}
+        .fc-event-inner {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;height:100%;text-align:left;}
+        .scheduled-work {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#b1a0c7;border-color:#b1a0c7;color:black;}
+        .call-out-day {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#ff66cc;border-color:#ff66cc;color:black;}
+        //.projects {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#b7dee8;border-color:#b7dee8;color:black;}
+        .no-work {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#ffffff;border-color:black;color:black;}
+        .bookedwithcustomers{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#00FF00;border-color:#fcd5b4;color:black;}
+        .bookedwithcustomersothers{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#FFA500;border-color:#fcd5b4;color:black;}
+        .bookedtoday{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:red;border-color:#fcd5b4;color:black;}
+        //.small-works{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#808080;border-color:#fcd5b4;color:black;}
+        .complete{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#A52A2A;border-color:#fcd5b4;color:black;}
+        .holiday {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;background:#ffff00;border-color:black;color:black;}
+        
+        //.fc-sat, .fc-sun { clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;font-weight: bold; background-color: yellow !important;}
+        .fc-state-highlight {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px; background-color: white !important;}
+        .fc-header-title h2{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px; !important;}
+        .fc {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px; !important;}
+        .fc-grid th{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px; !important;}
+        .fc-header {clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px;font-weight: bold; !important;}
+        .fc-button{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px; !important;}
+        .fc-day-number{clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 13px; !important;}
+    </style>
+    
+    
+    <apex:outputPanel id="calPanel">
+        <apex:form >
+            
+            
+            <div id="cal-legend" style="clear:both;font-family: Arial,Helvetica,sans-serif;font-size: 12px;float:right;">
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#FFFFFF;stroke:Black" />
+                </svg>Visit not Available
+                
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#b1a0c7;stroke:Black" />
+                </svg>Booked with Customer - Schedule
+                
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#FFA500;stroke:Black" />
+                </svg>Booked with Customer - Others
+                
+                <br/> 
+                
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#00FF00;stroke:Black" />
+                </svg>Booked with Customer - Yes
+                
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#ff66cc;stroke:Black" />
+                </svg>Call Out Day
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#ffff00;stroke:Black" />
+                </svg>Holiday 
+                
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#A52A2A;stroke:Black" />
+                </svg>Visit Complete
+                <br/>
+                
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:red;stroke:Black" />
+                </svg>Booked with Customer - Visit Today
+                
+                <!--<svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#b7dee8;stroke:Black" />
+                </svg>Projects 
+                
+                <svg width="80" height="50">  
+                    <rect x="50" y="20" width="17" height="17"  style="fill:#808080;stroke:Black" />
+                </svg>Small Works -->
+                
+                <br/><br/> <br/><br/>
+                                         
+                <div  id='spendlimittitle' style='display: inline;font-family: Arial,Helvetica,sans-serif;font-size: 12px;padding-left: 50px;'>Sum of Spend Limit:</div>
+                 <br/>
+                <div  id='servicechargetitle' style='display: inline;font-family: Arial,Helvetica,sans-serif;font-size: 13px;padding-left: 50px;'> Sum of S.C </div>
+                 <br/>
+                <div  id='totalvalue' style='display: inline;font-family: Arial,Helvetica,sans-serif;font-size: 13px;padding-left: 50px;'>Total : </div>
+            </div>
+            <div style="clear:both;"><!--fix floats--></div>
+            <div id="calendar">
+            </div>
+        </apex:form>
+    </apex:outputPanel>
+</apex:page>

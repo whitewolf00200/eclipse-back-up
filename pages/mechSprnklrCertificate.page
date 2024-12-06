@@ -1,0 +1,213 @@
+<apex:page standardcontroller="Mechanical_Service_Sheet__c" showheader="false" sidebar="false" extensions="mechSFCertificateController"
+renderAs="pdf" applyHtmlTag="false">
+  <head>
+    <style>
+    body {
+    background-color:#CCC;
+    color:#333;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+    }
+
+    h1,
+    h2,
+    hr {
+    background-color:#00B050;
+    color:#FFF;
+    font-family:Verdana,Arial, Helvetica, sans-serif;
+    font-size:20px;
+    }
+    h1 {
+    font-size:20px;
+    line-height:20px;
+    min-height:20px;
+    padding:10px;
+    text-align:center;
+    }
+    h2 {
+    width:650px;
+    padding:5px;
+    font-size:14px;
+    line-height:14px;
+    }
+    p {
+    font-size:13px;
+    line-height:15px;
+    margin:0 0 7px;
+    }
+    p strong {
+    font-weight:bold;
+    }
+    hr {
+    height:25px;
+    margin:0 0 5px;
+    padding:0;
+    }
+    #logo {
+    width:280px;
+    height:100px;
+    margin:10px auto;
+    }
+
+
+    table {
+    width:660px;
+    font-size:13px;
+    border:0;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+    td {
+    padding:2px;
+    text-align:left;
+    border:1px solid #FFF;
+    vertical-align:top;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+
+    }
+    th{
+    background-color:#00B050 !important;
+    color:#FFF;
+    font-family:Verdana,Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+    }
+    th.tth{
+    background-color:#00B050 !important;
+    color:#FFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:18px;
+    font-weight:bold;
+    }
+    tr{
+    page-break-inside:avoid;
+    }
+    td.tt{
+    background-color:#00B050;
+    color:#FFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    }
+    img{
+    width:200px;
+    }
+
+    </style>
+</head>
+<div id="container">
+    <h1 style="text-align:center;background-color:00B050;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:21px;"><br/>Fire Sprinkler Certificate Of Inspection<br/><br/></h1>
+    <div style="text-align: center;width:300;height:300;" id="logo">       
+        <img style="width:300px;" src="https://eu1.salesforce.com/servlet/servlet.ImageServer?id=015D00000022byu&oid=00DD0000000ppJ7"/>
+    </div>
+    <p style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:21px;">Registered Address: Hentland LLP, Global House, Callywith
+    Gate, Bodmin PL31 2RQ<br/>
+    </p>
+    <div style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">Tel: 0845 37 111 37 | Fax: 0845 37 111 38 |
+    Email: <a href="mailto:sales@hentland.com">sales@hentland.com</a>
+    </div>
+    <p id="nav"></p>
+    <div style="text-align:center;background-color:#CCC;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+            <tbody>
+                <tr>
+                    <th width="11%"><label for="date">Date</label></th>
+                    <th width="11%"><label for="order">Order No.</label></th>
+                    <th width="11%"><label for="order">Technician</label></th>
+                    <th width="11%"><label for="number">Number</label></th>
+                </tr>
+                <tr>
+                    <td>{!DAY(Mechanical_Service_Sheet__c.Date__c)}/{!MONTH(Mechanical_Service_Sheet__c.Date__c)}/{!YEAR(Mechanical_Service_Sheet__c.Date__c)}</td>
+                    <td>{!Mechanical_Service_Sheet__c.PO_Number_on_Certificate__c}</td>
+                    <td>{!Mechanical_Service_Sheet__c.Engineer_Code__c}</td>
+                    <td>{!Mechanical_Service_Sheet__c.Name}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tbody>
+                <tr>
+                    <th width="22%">
+                        <label for="service_address">Service At:</label>
+                    </th>
+                    
+              </tr>
+              <tr>
+                    <td rowspan="3"><apex:outputtext value="{!Mechanical_Service_Sheet__c.Service_At__c}" escape="false"/></td>
+                    
+              </tr>
+            </tbody>
+        </table>
+        
+        <!--<table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><b>SYSTEM LOCATION</b></td><td><b>NO. OF CYCLES</b></td><td><b>CAPACITY</b></td><td><b>AGENT FILL</b></td><td><b>TEST DATE</b></td></tr>
+            <apex:repeat value="{!SystemLocation}" var="sl">
+                <tr><td>{!sl.systemLocation}</td><td>{!sl.noOfLocations}</td><td>{!sl.capacity}</td><td>{!sl.agentFill}</td><td>{!sl.testDate}</td></tr>
+            </apex:repeat>
+        </table>-->
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><b>SPARE PARTS</b></td><td><b>QTY</b></td></tr>
+            <tr><td>Brass LCI Padlock</td><td>{!floor(Mechanical_Service_Sheet__c.SPR_Brass_LCi_Padlock__c)}</td></tr>
+            <tr><td>Decon Outlet Head</td><td>{!floor(Mechanical_Service_Sheet__c.Decon_Outlet_Head__c)}</td></tr>
+            <tr><td>Drain Valve Sign</td><td>{!floor(Mechanical_Service_Sheet__c.Drain_Valve_Sign__c)}</td></tr>
+            <tr><td>Flow / Pressure Switch</td><td>{!floor(Mechanical_Service_Sheet__c.Flow_Pressure_Switch__c)}</td></tr>
+            <tr><td>Gauge Calibration</td><td>{!floor(Mechanical_Service_Sheet__c.Gauge_Calibration__c)}</td></tr>
+            <tr><td>LCI Leather strap</td><td>{!floor(Mechanical_Service_Sheet__c.SPNKL_LCI_Leather_Starp__c)}</td></tr>
+            <tr><td>Lubrication / Grease</td><td>{!floor(Mechanical_Service_Sheet__c.Lubrication_Grease__c)}</td></tr>
+            <tr><td>Pipe Sealant Clamp</td><td>{!floor(Mechanical_Service_Sheet__c.Pipe_Sealant_Clamp__c)}</td></tr>
+            <tr><td>Pump Room Signs</td><td>{!floor(Mechanical_Service_Sheet__c.Pump_Room_Signs__c)}</td></tr>
+            <tr><td>Replacement Gasket</td><td>{!floor(Mechanical_Service_Sheet__c.Replacement_Gasket__c)}</td></tr>
+            <tr><td>Replacement Gauge</td><td>{!floor(Mechanical_Service_Sheet__c.Replacement_Gauge__c)}</td></tr>
+            <tr><td>Suppression/Sprinkler Outlet Head</td><td>{!floor(Mechanical_Service_Sheet__c.Suppression_Sprinkler_Outlet_Head__c)}</td></tr>
+            <tr><td>Valve Sealing Units</td><td>{!floor(Mechanical_Service_Sheet__c.Valve_Sealing_Units__c)}</td></tr>
+            <!-- <tr><td>Other</td><td>{!floor(Mechanical_Service_Sheet__c.Other_Qty__c)}</td></tr> -->
+        </table>
+        
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><b>COMMENTS TO COMPLIANCE TEAM</b></td></tr>
+            <tr><td style="height:45px;">{!Mechanical_Service_Sheet__c.Sales_Recommendations__c}</td></tr>
+        </table>
+        
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><b>COMMENTS TO CUSTOMER</b></td></tr>
+            <tr><td style="height:60px;">{!Mechanical_Service_Sheet__c.Comments__c}</td></tr>
+        </table>
+        
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>
+                <td width="10%">
+                    <b>TECHNICIAN SIGNATURE</b>
+                </td>
+                <td width="5%">
+                    <apex:outputText value="{!Mechanical_Service_Sheet__c.Engineer_s_Signature__c}" escape="false"/>
+                </td>
+                <td width="10%">
+                    <b>CUSTOMER SIGNATURE</b>
+                </td>
+                <td width="18%">
+                    <div style="width:10px;height:40px">
+                        <apex:outputText value="{!Mechanical_Service_Sheet__c.Customer_s_Signature__c}" escape="false"/>
+                    </div>
+                </td>
+            </tr>
+            <tr><td width="10%"><b>PRINT:</b></td><td width="5%"><apex:outputText value="{!Mechanical_Service_Sheet__c.Engineer_s_Print__c}" escape="false"></apex:outputText></td><td width="10%"><b>PRINT:</b></td><td width="18%"><apex:outputText value="{!Mechanical_Service_Sheet__c.Customer_s_Print__c}" escape="false"></apex:outputText></td></tr>
+        </table>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><div align="center">This certificate of maintenance along with forms, HDQ94 - Fire Sprinkler Inspection &amp;<br/> Test Report Valves, and HDQ95 - Fire Sprinkler Inspection &amp; Test Report Pump, as<br/> applicable, certifies your system.</div></td></tr>
+        </table>
+        <apex:outputpanel rendered="{!Mechanical_Service_Sheet__c.Valve_Reason__c!=''}">
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><div align="center"> HDQ94 - Report Was Not Uploaded Due To {!Mechanical_Service_Sheet__c.Valve_Reason__c }</div></td></tr>
+        </table>
+        </apex:outputpanel>
+        <apex:outputpanel rendered="{!Mechanical_Service_Sheet__c.Pump_Reason__c !=''}">
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><div align="center"> HDQ95 - Report Was Not Uploaded Due To {!Mechanical_Service_Sheet__c.Pump_Reason__c }</div></td></tr>
+        </table>
+        </apex:outputpanel>
+    </div>
+</div>
+</apex:page>

@@ -1,0 +1,43 @@
+<apex:page tabStyle="Warehouse__c" controller="StockVerification">
+<apex:sectionHeader title="Stock Verification"/>
+  <apex:form >
+   <apex:pageblock >
+    <apex:pageblockSection columns="1" id="filter">
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel >Select Product</apex:outputLabel>
+            <apex:inputfield id="prds" value="{!invT.Product__c}">
+                <apex:actionSupport event="onchange" reRender="allSelPrd" action="{!changePrd}"/>
+            </apex:inputField>            
+        </apex:pageBlockSectionItem> 
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel >Select Warehouse</apex:outputLabel> 
+        <apex:inputfield value="{!loc.Warehouse__c}">
+            <apex:actionSupport event="onchange" reRender="filter" action="{!locLists}"/>
+        </apex:inputField> 
+        </apex:pageBlockSectionItem>  
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel >Select Location</apex:outputLabel>
+            <apex:selectList size="1" value="{!selectedLoc}">
+                <apex:selectOptions value="{!locList}"></apex:selectOptions>
+            </apex:selectList>
+        </apex:pageBlockSectionItem>   
+        <apex:pageBlockSectionItem >
+            <apex:commandButton value="Search" reRender="allSelPrd" action="{!invLists}"/>
+        </apex:pageBlockSectionItem> 
+    </apex:pageblockSection>
+    <!--<apex:outputPanel rendered="{!OR(ISNULL(invList),invList.size=0)}"></apex:outputPanel>-->
+        <apex:pageBlockTable id="allSelPrd" value="{!invList}" var="inv" >
+            <apex:column value="{!inv.Warehouse__c}"/>
+            <apex:column value="{!inv.Warehouse_Location__c}"/>
+            <apex:column value="{!inv.Product__r.name}"/>            
+            <apex:column value="{!inv.Maximum_Stock_Level__c}"/>
+            <apex:column value="{!inv.Minimum_Stock_Level__c }"/>
+            <apex:column value="{!inv.In_Hand_Quantity__c}"/>
+            <apex:column value="{!inv.Total_Received__c}"/>            
+            <apex:column value="{!inv.Total_Invoiced__c}"/>
+            <apex:column value="{!inv.Total_Delivered__c}"/>            
+            <apex:column value="{!inv.Out_Of_Stocks__c}"/>
+        </apex:pageBlockTable>            
+    </apex:pageblock>
+  </apex:form>
+</apex:page>

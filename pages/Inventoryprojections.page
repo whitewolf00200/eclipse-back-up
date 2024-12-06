@@ -1,0 +1,51 @@
+<apex:page standardController="Warehouse__c" extensions="Inventoryprojections" docType="html-5.0">
+  <apex:form >
+      <script>
+          function calindividual(){
+             // alert(dispday[strd]);
+          }
+      </script>
+      <apex:pageBlock id="projection"> 
+      <apex:actionFunction name="calInd" action="{!individual}" />  
+      <apex:pageblockSection columns="1">
+          <apex:facet name="header">
+             <apex:outputText value="Individual"/>
+          </apex:facet>
+          <apex:pageblockSectionItem >
+              <apex:outputText >Select Date</apex:outputText>
+              <apex:input value="{!SelectDated}" onchange="calindividual" type="date"/>
+          </apex:pageblockSectionItem>
+          <apex:commandButton value="View Record" action="{!individual}" reRender="projection"/>
+      </apex:pageblockSection>
+      <apex:pagemessages />
+      <apex:pageBlockTable value="{!oneDay}" var="one">
+          <apex:column headerValue="Product" value="{!one.Product}"/>
+          <apex:column headerValue="Project Quantity" value="{!one.Inhand}"/>       
+          <apex:column headerValue="Quantity" value="{!one.Qty}"/> 
+      </apex:pageBlockTable>      
+      <apex:pageblockSection columns="1">
+      <apex:facet name="header">
+             <apex:outputText value="One Week"/>
+          </apex:facet>
+      <apex:pageBlockTable value="{!invList}" var="inv">
+          <apex:column headerValue="Product" value="{!inv.Product__r.name}"/>                
+          <apex:repeat value="{!nextSevenDaysStr}" var="day">
+          
+              <apex:column >
+                  <apex:facet name="header">
+                     <apex:outputText rendered="{!dispdayInhand[day]}" value="Project Quantity"/> 
+                   </apex:facet>
+                  <apex:facet name="header">
+                     <apex:outputText value="{0, date,  EEE' 'MMM d','  yyyy}">
+                         <apex:param value="{!IF(dispdayInhand[day],"",dispday[day])}"/>   {!IF(dispdayInhand[day],"Project Quantity","")}                     
+                     </apex:outputText>  
+                   </apex:facet>                   
+                  <apex:variable value="{!day}{!inv.Product__c}" var="cell"/>
+                  <apex:outputText value="{!InvProject[cell]}"/>                  
+              </apex:column>
+          </apex:repeat> 
+        </apex:pageBlockTable>
+        </apex:pageblockSection>
+      </apex:pageBlock>
+  </apex:form> 
+</apex:page>

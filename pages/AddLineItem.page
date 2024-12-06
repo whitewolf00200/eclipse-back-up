@@ -1,0 +1,53 @@
+<apex:page standardController="SalesOrderLineItems__c" extensions="LineItemController">
+  <apex:form >
+  <script>
+      function func(){
+      alert("hi");
+          //document.getElementById('{!$Component.lst}').rendered=true;
+      }
+  </script>
+      <apex:pageBlock >
+          <apex:commandButton action="{!SearchFun}" value="Search"/><apex:inputtext value="{!searchTxt}" id="textInput"/>
+      </apex:pageBlock>
+      
+      
+      <apex:pageBlock id="lst" rendered="{!if(selectedSO == null,false,true)}">
+       <apex:outputpanel id="selected">
+          <apex:pageBlockTable value="{!selectedSO}" var="sel">
+              <apex:column value="{!sel.Product__c}"/>
+              <apex:column value="{!sel.Price__c}"/>
+              <apex:column headerValue="Quantity">
+              <apex:inputField value="{!sel.Quantity__c}"/>
+              </apex:column>
+          </apex:pageBlockTable>
+          <apex:commandButton action="{!}" value="Submit"/>
+          </apex:outputpanel>
+      </apex:pageBlock>
+     <apex:pageBlock >
+         <apex:pageBlockButtons >
+                <apex:commandButton onclick="func()" value="Select" action="{!processSelected}"/>
+            </apex:pageBlockButtons>
+         <apex:outputpanel id="selectSearch">
+            
+            <apex:pageBlockTable value="{!prodt}" var="c" id="table">
+            
+                
+                <apex:column value="{!c.con.Name}"/>
+                <apex:column value="{!c.con.ProductCode }" />
+                <apex:column value="{!c.priceEntry.UnitPrice}"/>
+                <apex:column >
+                <apex:commandButton value="Select" action="{!processSelected}" reRender="selected,selectsearch" immediate="true">                
+                    <apex:param assignTo="{!cids}" value="{!c.con.Id}" name="cids"/>
+                </apex:commandButton>
+                </apex:column>
+            </apex:pageBlockTable>
+            </apex:outputpanel>
+        </apex:pageBlock>
+        <apex:pageBlock >
+                  <apex:pageBlockTable value="{!selectedContacts}" var="sel">
+                <apex:column value="{!sel.Id}"/>
+                 </apex:pageBlockTable>
+        </apex:pageBlock>
+           <apex:inputtext value="{!idv}"/>
+   </apex:form>   
+</apex:page>

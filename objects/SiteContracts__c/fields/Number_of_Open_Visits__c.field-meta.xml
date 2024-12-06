@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Open_Visits__c</fullName>
+    <inlineHelpText>The total number of open Visits planned for this Site Contract. If the Visit is booked or has a P/O, it will show 0 - see this field&apos;s Filter Criteria.</inlineHelpText>
+    <label>Number of Open Visits</label>
+    <summaryFilterItems>
+        <field>Visits__c.Visit_Complete__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Visits__c.Cancelled__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Visits__c.Visit_Type__c</field>
+        <operation>equals</operation>
+        <value>Service</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Visits__c.Purchase_Order__c</field>
+        <operation>equals</operation>
+        <value></value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Visits__c.Booked_with_Customers__c</field>
+        <operation>notEqual</operation>
+        <value>Yes</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Visits__c.Site_Contract__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

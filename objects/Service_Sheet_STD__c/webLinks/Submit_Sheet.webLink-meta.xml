@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_Sheet</fullName>
+    <availability>online</availability>
+    <description>Checks the submit this service box</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Submit Sheet</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/{!Service_Sheet_STD__c.Id}/e?={!Service_Sheet_STD__c.Id}&amp;
+retURL={!Service_Sheet_STD__c.Id}&amp;00N580000064xxy=1</url>
+</WebLink>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Handover_points_to_demonstrate__c</fullName>
+    <label>Handover points to demonstrate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>How to drain and how often</fullName>
+                <default>false</default>
+                <label>How to drain and how often</label>
+            </value>
+            <value>
+                <fullName>Condensate bottle</fullName>
+                <default>false</default>
+                <label>Condensate bottle</label>
+            </value>
+            <value>
+                <fullName>Overload reset button</fullName>
+                <default>false</default>
+                <label>Overload reset button</label>
+            </value>
+            <value>
+                <fullName>Suction filter</fullName>
+                <default>false</default>
+                <label>Suction filter</label>
+            </value>
+            <value>
+                <fullName>Amalgam alarm</fullName>
+                <default>false</default>
+                <label>Amalgam alarm</label>
+            </value>
+            <value>
+                <fullName>Amalgam pot cleaning(only required if machine alarms)</fullName>
+                <default>false</default>
+                <label>Amalgam pot cleaning(only required if machine alarms)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

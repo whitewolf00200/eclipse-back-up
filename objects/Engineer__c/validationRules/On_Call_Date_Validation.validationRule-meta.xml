@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>On_Call_Date_Validation</fullName>
+    <active>false</active>
+    <description>End-Date shouldn&apos;t being the before of the Start Date</description>
+    <errorConditionFormula>AND(  Service_Start_Date__c &gt; Service_End_Date__c  )</errorConditionFormula>
+    <errorMessage>Call End Date should be greater then the Call Start Date</errorMessage>
+</ValidationRule>

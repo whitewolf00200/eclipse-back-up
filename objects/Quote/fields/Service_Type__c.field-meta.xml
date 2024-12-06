@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Type__c</fullName>
+    <label>Service Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Air Compressor</fullName>
+                <default>false</default>
+                <label>Air Compressor</label>
+            </value>
+            <value>
+                <fullName>Getinge Autoclave</fullName>
+                <default>false</default>
+                <label>Getinge Autoclave</label>
+            </value>
+            <value>
+                <fullName>Getinge Washer Disinfector</fullName>
+                <default>false</default>
+                <label>Getinge Washer Disinfector</label>
+            </value>
+            <value>
+                <fullName>Mechanical X-Ray</fullName>
+                <default>false</default>
+                <label>Mechanical X-Ray</label>
+            </value>
+            <value>
+                <fullName>Medisafe Washer disinfector</fullName>
+                <default>false</default>
+                <label>Medisafe Washer disinfector</label>
+            </value>
+            <value>
+                <fullName>Report of Examination</fullName>
+                <default>false</default>
+                <label>Report of Examination</label>
+            </value>
+            <value>
+                <fullName>Suction Pump</fullName>
+                <default>false</default>
+                <label>Suction Pump</label>
+            </value>
+            <value>
+                <fullName>Treatment Centre</fullName>
+                <default>false</default>
+                <label>Treatment Centre</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

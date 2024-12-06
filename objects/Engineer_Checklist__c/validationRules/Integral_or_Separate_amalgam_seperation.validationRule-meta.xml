@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integral_or_Separate_amalgam_seperation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(RecordType.Name =&apos;Suction Pump installation certificate&apos;,
+  ISPICKVAL(Integral_or_separate_amalgam_separationn__c ,&apos;Separate&apos;),ISBLANK(Separate_Details__c))</errorConditionFormula>
+    <errorDisplayField>Separate_Details__c</errorDisplayField>
+    <errorMessage>If Separate, detail the  type and size</errorMessage>
+</ValidationRule>

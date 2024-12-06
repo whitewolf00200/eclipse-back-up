@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Contact__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Customer Contact</label>
+    <lookupFilter>
+        <active>false</active>
+        <filterItems>
+            <field>$Source.Site__c</field>
+            <operation>equals</operation>
+            <valueField>Contact.Account.Id</valueField>
+        </filterItems>
+        <filterItems>
+            <field>Contact.Status__c</field>
+            <operation>notContain</operation>
+            <value>Left the company</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Visits (Customer Contact)</relationshipLabel>
+    <relationshipName>Visits1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

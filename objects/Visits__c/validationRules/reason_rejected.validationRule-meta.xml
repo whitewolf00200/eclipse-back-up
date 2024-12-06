@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>reason_rejected</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( 
+ISPICKVAL ( Accepted__c , &quot;No&quot;),
+ Reason_Rejected__c = &quot;&quot; )</errorConditionFormula>
+    <errorDisplayField>X2nd_Technician__c</errorDisplayField>
+    <errorMessage>Please enter the reason you are rejecting this visit.</errorMessage>
+</ValidationRule>

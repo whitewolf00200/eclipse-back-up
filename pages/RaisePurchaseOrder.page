@@ -1,0 +1,60 @@
+<apex:page standardController="Opportunity" extensions="RaisePOController" sidebar="false" showHeader="false" action="{!CreatePO}">
+ <script>
+   
+ </script>
+ <apex:form id="ErrorId">
+  
+  <apex:pageBlock id="oppPrd" title="Opportunity Product" >
+  <apex:pageblockSection >
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Choose Supplier</apex:outputLabel>
+          <apex:inputField value="{!addSPO.Supplier__c}" ><apex:actionSupport event="onchange" action="{!CreatePO}" reRender="oppPrd,ErrorId" />
+          </apex:inputField>
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Choose Warehouse
+          </apex:outputLabel>
+          <apex:inputField value="{!addSPO.Shipping_Warehouse__c}" id="wid"><apex:actionSupport event="onchange" action="{!CreatePO}" reRender="oppPrd,ErrorId"/></apex:inputField>
+      </apex:pageBlockSectionItem>
+  
+  
+  <apex:pageBlockSectionItem >
+          <apex:outputLabel >Created By</apex:outputLabel>
+          <apex:inputField value="{!addSPO.Created_By__c}" id="wid" required="true"><apex:actionSupport event="onchange" action="{!CreatePO}" reRender="oppPrd,ErrorId" /></apex:inputField>
+      </apex:pageBlockSectionItem>
+  </apex:pageblockSection>
+  
+  <apex:outputPanel rendered="{!NOT(OR(ISNULL(availPrd),availPrd.size=0))}">
+     <apex:pageBlockTable id="prdView" value="{!availPrd}" var="aPrd">
+         <apex:column headerValue="Products" value="{!aPrd.Pname}"/>
+         <apex:column headerValue="Quantity">
+             <apex:inputtext value="{!aPrd.addQty}"/>
+         </apex:column>
+         <apex:column headerValue="Cost">
+             <apex:inputtext value="{!aPrd.Cost}"/>
+         </apex:column>
+     </apex:pageBlockTable>
+     </apex:outputPanel>
+     
+     <apex:outputPanel rendered="{!NOT(OR(ISNULL(NotAvilPrd),NotAvilPrd=0))}">
+     <apex:pageBlockTable id="UnPrd" value="{!NotAvilPrd}" var="Prd" rendered="{!addSPO.Supplier__c!=null}">
+         <apex:column headerValue="Unavailable Products From Supplier" value="{!Prd.PrdName}"/>
+     </apex:pageBlockTable>
+    
+     </apex:outputPanel>
+     
+     <apex:pageBlockButtons >
+         <apex:commandButton action="{!AddPOLI}" value="Save"/>
+         <apex:commandButton value="Cancel" action="{!Cancel}"/>
+     </apex:pageBlockButtons>
+     
+  </apex:pageBlock>
+  
+  <apex:pageBlock title="Error Message" rendered="{!OR(Flag,Flag1)}">
+  <apex:pageBlockSection >
+          <apex:outputLabel rendered="{!Flag1}">Products are not available for current Supplier</apex:outputLabel>
+          <apex:outputLabel rendered="{!Flag}">Products Inventories not available for Warehouse</apex:outputLabel>
+  </apex:pageBlockSection>
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

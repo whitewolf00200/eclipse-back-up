@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beta_Site_Specific_PO__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>If mandatory, yet a P/O is not required, enter a dot (.).</inlineHelpText>
+    <label>Beta Site Specific PO</label>
+    <referenceTo>PO__c</referenceTo>
+    <relationshipLabel>Accounts (Beta Site Specific PO)</relationshipLabel>
+    <relationshipName>Accounts1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,29 @@
+@page{
+            margin-top: 1.0cm;
+            margin-left: 1.0cm;
+            margin-right: 1.0cm;
+            margin-bottom: 1.0cm;
+     
+         
+           @bottom-left {
+
+          content: element(footer);
+
+                       }
+            
+            margin-bottom: 2cm;
+          }
+          
+          div.footer {
+       
+        position: running(footer);
+         font-size:7pt;
+          font-family:sans-serif;
+    }
+    
+    .start{
+          font-size:9pt;
+          font-family:sans-serif;
+          }
+         
+    

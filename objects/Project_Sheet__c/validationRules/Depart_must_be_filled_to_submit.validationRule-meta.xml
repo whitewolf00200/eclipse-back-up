@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Depart_must_be_filled_to_submit</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( TEXT(Depart__c) = &quot;&quot;, Fire_Extinguisher_Service_complete__c )</errorConditionFormula>
+    <errorDisplayField>Depart__c</errorDisplayField>
+    <errorMessage>Please complete the departure before you submit.</errorMessage>
+</ValidationRule>

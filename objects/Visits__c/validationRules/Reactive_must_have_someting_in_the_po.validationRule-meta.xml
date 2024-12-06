@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reactive_must_have_someting_in_the_po</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ OR(ISPICKVAL( Call_Out_Types__c ,&apos;Call Out&apos;),ISPICKVAL( Call_Out_Types__c ,&apos;Revisit&apos;),ISPICKVAL( Call_Out_Types__c ,&apos;Other&apos;),ISPICKVAL( Call_Out_Types__c ,&apos;Install&apos;)), 
+ Purchase_Order__c = &quot;&quot; )</errorConditionFormula>
+    <errorDisplayField>Purchase_Order__c</errorDisplayField>
+    <errorMessage>Please complete Purchase Order Field</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_this_Service</fullName>
+    <active>true</active>
+    <description>You cannot untick this option - once a service sheet is completed, it is locked. To create another, clone it.</description>
+    <errorConditionFormula>AND (  $User.ProfileId &lt;&gt; &quot;00e28000000QuVb&quot;,
+ Submit_this_Small_Works_Sheet__c  = FALSE, 
+ISCHANGED ( Submit_this_Small_Works_Sheet__c  ) )</errorConditionFormula>
+    <errorDisplayField>Submit_this_Small_Works_Sheet__c</errorDisplayField>
+    <errorMessage>You cannot untick this option - once a service sheet is completed, it is locked.  To create another, clone it.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,76 @@
+<!-- =============================================
+*Page Name      : FormQRCodeController
+*Description    : Developed for Generate Label for Product.
+*Company        : Merfantz Technologies Pvt Ltd
+*Date           : 25th Jun, 2020
+*Version        : 1.0
+*Ticket No      : 40744
+============================================= -->
+<apex:page controller="FormQRCodeController" renderAs="pdf" standardStylesheets="false">
+<head>
+<style type="text/css" media="print">
+    @page{
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 3cm;
+    @top-center {
+        content: element(header);
+    }
+    @bottom-left {
+        content: element(footer);
+    }
+}
+
+
+
+div.footer {
+    padding: 15px;
+    position: running(footer);
+}
+
+.pagenumber:before {
+    content: counter(page);
+}
+
+.pagecount:after {
+    content: counter(pages);
+}
+</style>
+</head> 
+  
+
+<center>
+<h1><p style="font-size:30px">{!prod.name}</p></h1>
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:repeat value="{!prod}" var="pr">
+    
+          <apex:pageBlockSectionItem >
+ <apex:outputpanel >
+
+      <table align="center" Style="width: 76mm; table-layout:fixed;align:center; border-collapse: collapse" cellpadding="0" border="2px">
+
+  <tr style="height: 25mm; width: 76mm">
+    <td width="31%" style="padding-top:0px;" align="center"><apex:image width="90%" height="auto" url="{!URLString}"/></td>
+    <td width="38%" >
+    <table  Style="height:auto;  table-layout:fixed; border-collapse: collapse" cellpadding="0" width="100%" border="2px" >
+    <tr  style="line-height: 2mm; height:9mm; border-bottom: 2px "><td colspan="2" style="font-size: 10px; padding-top:5px; " align="center" width="100%" >{!prod.name}</td></tr>
+    <tr style="line-height: 2mm;height: 8mm; border-bottom: 2px   "><td colspan="2" style="font-size: 10px; padding-top:5px; " align="center" width="100%"> {!prod.Supplier_Product_Code__c }</td></tr>
+    <tr style="line-height: 2mm; height:8mm;"><td  style="font-size: 10px;  padding-top:5px;border-right:none;margin-left:5px"  width="100%">{!prod.ProductCode}</td>
+    <td  style="font-size: 10px;  padding-top:5px;border-left:none;margin-left:5px"  width="100%">{!prod.Min_Stock__c}/{!prod.Maximum_stock_level__c }</td>
+    </tr></table>    
+    </td>
+    <td width="31%" style="padding-top:5px;"  ><apex:image width="70%" height="auto" url="{!$Resource.EclipseDentalLogo}"/></td>
+  </tr>   
+
+ 
+</table>  <br/><br/>   </apex:outputpanel> </apex:pageBlockSectionItem>
+
+</apex:repeat>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</center>
+
+</apex:page>

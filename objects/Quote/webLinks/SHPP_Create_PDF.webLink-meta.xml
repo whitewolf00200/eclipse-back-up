@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SHPP_Create_PDF</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Create PDF</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&apos;/soap/ajax/26.0/connection.js&apos;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/apex.js&quot;)} 
+{!REQUIRESCRIPT(&apos;/js/functions.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/jQueryForPopup/jQueryForPopup/jquery-1.8.2.min.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/jQueryForPopup/jQueryForPopup/ui/jquery-ui-1.9.1.custom.min.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/jQueryForPopup/jQueryForPopup/postmessage/jquery.ba-postmessage.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/jQueryForPopup/jQueryForPopup/bbq/jquery.ba-bbq.min.js&apos;)} 
+requireCssFile(&apos;/resource/jQueryForPopup/jQueryForPopup/ui/css/ui-lightness/jquery-ui-1.9.1.custom.min.css&apos;); 
+function requireCssFile(filename) 
+{ 
+var fileref = document.createElement(&apos;link&apos;); 
+fileref.setAttribute(&apos;rel&apos;, &apos;stylesheet&apos;); 
+fileref.setAttribute(&apos;type&apos;, &apos;text/css&apos;); 
+fileref.setAttribute(&apos;href&apos;, filename); 
+document.getElementsByTagName(&apos;head&apos;)[0].appendChild(fileref); 
+} 
+var j$ = jQuery.noConflict(); 
+var iframe_url = &apos;{!URLFOR(&quot;/apex/ShortProjectProposal&quot;)}&apos;+&apos;?id=&apos;+&apos;{!Quote.Id}&apos; +&apos;&amp;sign=pdf&apos;; 
+
+var child_domain = iframe_url.substring(0, iframe_url.indexOf(&apos;/&apos;, 9)); 
+
+var parent_domain = window.location.protocol + &apos;//&apos; + window.location.host; 
+
+var QouteRec = new sforce.SObject(&quot;Quote&quot;); 
+
+var records= sforce.connection.query(&quot;SELECT id,Name,QuoteId from QuoteDocument where QuoteId=&apos;{!Quote.Id}&apos; order by createddate desc limit 1&quot;); 
+var records1 = records.getArray(&apos;records&apos;); 
+var res=1,str,indx; 
+for(var i=0;i&lt;records1.length;i++){ 
+str= records1[i].Name; 
+str=str.replace(&quot;.pdf&quot;,&quot;&quot;); 
+res= str.split(&quot;_&quot;); 
+indx=res.length; 
+res=res[indx-1]; 
+res = res.substring(1); 
+res = Number(res)+1; 
+} 
+QouteRec.Version_Number__c=res; 
+QouteRec.Id=&apos;{!Quote.Id}&apos;; 
+
+var result=sforce.connection.update([QouteRec]); 
+
+var j$modalDialog = j$(&apos;&lt;div id=&quot;opppopup&quot;&gt;&lt;/div&gt;&apos;) 
+.html(&apos;&lt;div align=&quot;center&quot; style=&quot;margin-bottom:5px;&quot;&gt;&lt;input type=&quot;button&quot; value=&quot;Save to Quote&quot; class=&quot;btn&quot; style=&quot;width:150px;&quot; onclick=&quot;var result=sforce.apex.execute(&amp;quot;SendEmailDoc&amp;quot;,&amp;quot;saveAndSend&amp;quot;,{Currentid:&amp;quot;{!Quote.Id}&amp;quot;,action:&amp;quot;save&amp;quot;});window.location=&amp;quot;/{!Quote.Id}&amp;quot;&quot;/&gt;&lt;input type=&quot;button&quot; value=&quot;Save and Email Quote&quot; class=&quot;btn&quot; style=&quot;width:150px;margin-left:10px;&quot; onclick=&quot;var result=sforce.apex.execute(&amp;quot;SendEmailDoc&amp;quot;,&amp;quot;saveAndSend&amp;quot;,{Currentid:&amp;quot;{!Quote.Id}&amp;quot;,action:&amp;quot;saveandsend&amp;quot;});window.location=&amp;quot;/_ui/core/email/author/EmailAuthor?&amp;doc_id=&amp;quot;+result+&amp;quot;&amp;p3_mlktp=0Q0&amp;p3_lkid={!Quote.Id}&amp;template_id={!&quot;00X4E000000QJQM&quot;}&amp;retURL=/{!Quote.Id}&amp;quot;&quot;&gt;&lt;/input&gt;&lt;input type=&quot;button&quot; value=&quot;Cancel&quot; class=&quot;btn&quot; style=&quot;width:60px;margin-left:10px;&quot; onclick=&quot;window.location=&amp;quot;/{!Quote.Id}&amp;quot;&quot;/&gt;&lt;/div&gt;&lt;iframe id=&quot;iframeContentId&quot; src=&quot;&apos; + iframe_url + &apos;&quot; frameborder=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; scrolling=&quot;no&quot; /&gt;&apos;) 
+.dialog({ 
+autoOpen: false, 
+title: &apos;PDF Preview&apos;, 
+resizable: true, 
+width: 1400, 
+height: 1000, 
+autoResize: true, 
+modal: true, 
+draggable: true 
+}); 
+
+j$modalDialog.dialog(&apos;open&apos;);</url>
+</WebLink>

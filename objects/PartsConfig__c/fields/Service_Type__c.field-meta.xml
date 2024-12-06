@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Type__c</fullName>
+    <label>Service Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Air Compressor Service and Test Report</fullName>
+                <default>false</default>
+                <label>Air Compressor Service and Test Report</label>
+            </value>
+            <value>
+                <fullName>All Service</fullName>
+                <default>false</default>
+                <label>All Service</label>
+            </value>
+            <value>
+                <fullName>Getinge Autoclave</fullName>
+                <default>false</default>
+                <label>Getinge Autoclave</label>
+            </value>
+            <value>
+                <fullName>Getinge Washer Disinfector</fullName>
+                <default>false</default>
+                <label>Getinge Washer Disinfector</label>
+            </value>
+            <value>
+                <fullName>Mechanical X-Ray Report</fullName>
+                <default>false</default>
+                <label>Mechanical X-Ray Report</label>
+            </value>
+            <value>
+                <fullName>Medisafe Washer disinfector service</fullName>
+                <default>false</default>
+                <label>Medisafe Washer disinfector service</label>
+            </value>
+            <value>
+                <fullName>Reactive Sheet</fullName>
+                <default>false</default>
+                <label>Reactive Sheet</label>
+            </value>
+            <value>
+                <fullName>Report of Examination</fullName>
+                <default>false</default>
+                <label>Report of Examination</label>
+            </value>
+            <value>
+                <fullName>Suction Pump Service</fullName>
+                <default>false</default>
+                <label>Suction Pump Service</label>
+            </value>
+            <value>
+                <fullName>Treatment Centre Certificate Of Service</fullName>
+                <default>false</default>
+                <label>Treatment Centre Certificate Of Service</label>
+            </value>
+            <value>
+                <fullName>Zone A Region</fullName>
+                <default>false</default>
+                <label>Zone A Region</label>
+            </value>
+            <value>
+                <fullName>Zone B Region</fullName>
+                <default>false</default>
+                <label>Zone B Region</label>
+            </value>
+            <value>
+                <fullName>Zone C Region</fullName>
+                <default>false</default>
+                <label>Zone C Region</label>
+            </value>
+            <value>
+                <fullName>Zone D Region</fullName>
+                <default>false</default>
+                <label>Zone D Region</label>
+            </value>
+            <value>
+                <fullName>Standard Price Book</fullName>
+                <default>false</default>
+                <label>Standard Price Book</label>
+            </value>
+            <value>
+                <fullName>Storm Water Pump</fullName>
+                <default>false</default>
+                <label>Storm Water Pump</label>
+            </value>
+            <value>
+                <fullName>Special Rate Agreed</fullName>
+                <default>false</default>
+                <label>Special Rate Agreed</label>
+            </value>
+            <value>
+                <fullName>Hospital rates</fullName>
+                <default>false</default>
+                <label>Hospital rates</label>
+            </value>
+            <value>
+                <fullName>Pan Oral X-ray</fullName>
+                <default>false</default>
+                <label>Pan Oral X-ray</label>
+            </value>
+            <value>
+                <fullName>Image Plate Scanner Service</fullName>
+                <default>false</default>
+                <label>Image Plate Scanner Service</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

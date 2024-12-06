@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_type__c</fullName>
+    <label>Customer type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Group</fullName>
+                <default>false</default>
+                <label>Group (over 5 practices)</label>
+            </value>
+            <value>
+                <fullName>Medical (inc. Hospital w/o dental)</fullName>
+                <default>false</default>
+                <label>Medical (inc. Hospital w/o dental)</label>
+            </value>
+            <value>
+                <fullName>MOD/Barracks</fullName>
+                <default>false</default>
+                <label>MOD/Barracks</label>
+            </value>
+            <value>
+                <fullName>NHS Trust Including Community Dental</fullName>
+                <default>false</default>
+                <label>NHS Trust Including Community Dental &amp; Hospitals</label>
+            </value>
+            <value>
+                <fullName>Podiatry</fullName>
+                <default>false</default>
+                <label>Podiatry</label>
+            </value>
+            <value>
+                <fullName>Prison</fullName>
+                <default>false</default>
+                <label>Prison</label>
+            </value>
+            <value>
+                <fullName>Private Healthcare Group</fullName>
+                <default>false</default>
+                <label>Private Healthcare</label>
+            </value>
+            <value>
+                <fullName>Non-Sale</fullName>
+                <default>false</default>
+                <label>Non-Sale</label>
+            </value>
+            <value>
+                <fullName>Veterinary Surgeon</fullName>
+                <default>false</default>
+                <label>Veterinary Surgeon</label>
+            </value>
+            <value>
+                <fullName>Supplier</fullName>
+                <default>false</default>
+                <label>Supplier</label>
+            </value>
+            <value>
+                <fullName>Dental School</fullName>
+                <default>false</default>
+                <label>Dental School</label>
+            </value>
+            <value>
+                <fullName>Dental Practice</fullName>
+                <default>false</default>
+                <label>Dental Practice</label>
+            </value>
+            <value>
+                <fullName>Dental Laboratory</fullName>
+                <default>false</default>
+                <label>Dental Laboratory</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Modx User</fullName>
+                <default>false</default>
+                <label>Modx User</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Planned_Fire_Extinguisher_Visit__c</fullName>
+    <inlineHelpText>Calculated from Visits, the next visit date of any type that is not yet completed. This includes Call-Outs.</inlineHelpText>
+    <label>Next Planned Visit Date</label>
+    <summarizedField>Visits__c.Actual_Service_Date__c</summarizedField>
+    <summaryFilterItems>
+        <field>Visits__c.Visit_Complete__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Visits__c.Site_Contract__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

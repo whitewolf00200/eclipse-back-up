@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Can_not_submit_without_Email_Confirm</fullName>
+    <active>true</active>
+    <description>Mechanical Service Sheet can not be submitted without Email Confirmation to field being filled in.</description>
+    <errorConditionFormula>AND( Email_Confirmation_to__c = &quot;&quot;, Fire_Extinguisher_Service_complete__c )</errorConditionFormula>
+    <errorDisplayField>Email_Confirmation_to__c</errorDisplayField>
+    <errorMessage>This Mech.Service Sheet can not be submitted without a Customer Email to send Confirmation to. If there is no one available to provide an email, enter the Service Person eg sharon.standen@hentland.com, who will print out confirmation and send in the post.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,50 @@
+<apex:page standardController="Account_Product_Price__c" extensions="SpecialAccountProductPricePageController"  >
+    <apex:form >
+        <apex:pageBlock title="Account to Product Price Details" id="pblock" >
+            
+            <apex:pageblockButtons location="bottom">
+                <apex:commandButton action="{!saveData}" value="Save and New" reRender="pblock" />
+                <apex:commandButton action="{!SaveAndExit}" value="Save and Exit" />
+                <apex:commandButton action="{!Cancel}" value="Cancel" />
+            </apex:pageblockButtons>
+            
+            <apex:pageMessages ></apex:pageMessages>
+            
+            <apex:pageBlockSection rendered="{!if(curRecId!=null, true, false)}">
+                <apex:inputField value="{!appRecord.Account__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Account Details" columns="2" rendered="{!if(curRecId==null, true, false)}" >
+                <apex:pageBlockTable value="{!appListAcc}" var="appAcc" id="pbtableAcc">
+                    <apex:column headerValue="Account">
+                        <apex:inputField value="{!appAcc.Account__c}" />
+                    </apex:column>   
+                </apex:pageBlockTable>
+                <br/>
+                <apex:commandLink action="{!addRowAcc}" value="Add More Accounts" rerender="pbtableAcc" status="acST" rendered="{!if(curRecId==null, true, false)}"/>
+                
+                <apex:actionStatus id="acST" stopText="">
+                    <apex:facet name="start">
+                        <apex:image url="{!URLFOR($Resource.Loading_Spinner)}" style="height:50px;width:40px"/>
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:actionRegion >
+                    <apex:pageblockTable value="{!appList}" var="app" id="pbtable">
+                        <apex:column headerValue="Product">
+                            <apex:inputField value="{!app.Product__c}"/>
+                        </apex:column>  
+                        <apex:column headerValue="Price">
+                            <apex:inputField value="{!app.Price__c}"/>
+                        </apex:column>
+                    </apex:pageblockTable>
+                    
+                    <br/>
+                    <apex:commandLink action="{!addRow}" value="Add More" rerender="pbtable" status="acST"/> 
+                </apex:actionRegion>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

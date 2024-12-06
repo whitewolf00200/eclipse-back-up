@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Passed_To__c</fullName>
+    <inlineHelpText>Enter the name of the person you passed this onto to complete.</inlineHelpText>
+    <label>Passed To</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adrian Warne</fullName>
+                <default>false</default>
+                <label>Adrian Warne</label>
+            </value>
+            <value>
+                <fullName>Alison Read</fullName>
+                <default>false</default>
+                <label>Alison Read</label>
+            </value>
+            <value>
+                <fullName>Anne Bassinder</fullName>
+                <default>false</default>
+                <label>Anne Bassinder</label>
+            </value>
+            <value>
+                <fullName>Beverley Harris</fullName>
+                <default>false</default>
+                <label>Beverley Harris</label>
+            </value>
+            <value>
+                <fullName>Chester Bidmead</fullName>
+                <default>false</default>
+                <label>Chester Bidmead</label>
+            </value>
+            <value>
+                <fullName>Darren Crompton</fullName>
+                <default>false</default>
+                <label>Darren Crompton</label>
+            </value>
+            <value>
+                <fullName>Diana Pascoe</fullName>
+                <default>false</default>
+                <label>Diana Pascoe</label>
+            </value>
+            <value>
+                <fullName>Gwen Bradby</fullName>
+                <default>false</default>
+                <label>Gwen Bradby</label>
+            </value>
+            <value>
+                <fullName>Harvey Melvin</fullName>
+                <default>false</default>
+                <label>Harvey Melvin</label>
+            </value>
+            <value>
+                <fullName>Joanna Fyffe</fullName>
+                <default>false</default>
+                <label>Joanna Fyffe</label>
+            </value>
+            <value>
+                <fullName>Joel Bidmead</fullName>
+                <default>false</default>
+                <label>Joel Bidmead</label>
+            </value>
+            <value>
+                <fullName>Laura Borthwick</fullName>
+                <default>false</default>
+                <label>Laura Borthwick</label>
+            </value>
+            <value>
+                <fullName>Michelle Bassinder</fullName>
+                <default>false</default>
+                <label>Michelle Bassinder</label>
+            </value>
+            <value>
+                <fullName>Natasha Blake</fullName>
+                <default>false</default>
+                <label>Natasha Blake</label>
+            </value>
+            <value>
+                <fullName>Nicki Pratten</fullName>
+                <default>false</default>
+                <label>Nicki Pratten</label>
+            </value>
+            <value>
+                <fullName>Nigel Welch</fullName>
+                <default>false</default>
+                <label>Nigel Welch</label>
+            </value>
+            <value>
+                <fullName>Paul Faraway</fullName>
+                <default>false</default>
+                <label>Paul Faraway</label>
+            </value>
+            <value>
+                <fullName>Phil Bassinder</fullName>
+                <default>false</default>
+                <label>Phil Bassinder</label>
+            </value>
+            <value>
+                <fullName>Rachel Dowrick</fullName>
+                <default>false</default>
+                <label>Rachel Dowrick</label>
+            </value>
+            <value>
+                <fullName>Rachel Yelland</fullName>
+                <default>false</default>
+                <label>Rachel Yelland</label>
+            </value>
+            <value>
+                <fullName>Samantha Cavinder</fullName>
+                <default>false</default>
+                <label>Samantha Cavinder</label>
+            </value>
+            <value>
+                <fullName>Samantha Spencer</fullName>
+                <default>false</default>
+                <label>Samantha Spencer</label>
+            </value>
+            <value>
+                <fullName>Sarah Bayley</fullName>
+                <default>false</default>
+                <label>Sarah Bayley</label>
+            </value>
+            <value>
+                <fullName>Sharon Standen</fullName>
+                <default>false</default>
+                <label>Sharon Standen</label>
+            </value>
+            <value>
+                <fullName>Tracey Coles</fullName>
+                <default>false</default>
+                <label>Tracey Coles</label>
+            </value>
+            <value>
+                <fullName>Viv Stuchberry</fullName>
+                <default>false</default>
+                <label>Viv Stuchberry</label>
+            </value>
+            <value>
+                <fullName>Warren Bidmead</fullName>
+                <default>false</default>
+                <label>Warren Bidmead</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

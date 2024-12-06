@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_List_Email_To__c</fullName>
+    <description>Location List Email To and when this is populated and the location list saved, get it to email the location list as a PDF.</description>
+    <externalId>false</externalId>
+    <label>Location List Email To</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Air_Compressor_Installation_Email_To_Customer</fullName>
+        <description>Air Compressor Installation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/Compressor_Installation_Certificate</template>
+    </alerts>
+    <alerts>
+        <fullName>Air_Compressor_Service_Conformation_Email_To_Customer</fullName>
+        <description>Air Compressor Service Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/Air_Compressor_Certificate_To_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>Annual_Mechanical_Service_Conformation_Email_To_Customer</fullName>
+        <description>Annual Mechanical Service Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Visit_Template/AMS_Certificate_to_Pan_Oral_X_ray</template>
+    </alerts>
+    <alerts>
+        <fullName>Chair_Installation_Certificate_To_Customer</fullName>
+        <ccEmails>salesforcetestwork@gmail.com</ccEmails>
+        <description>Chair Installation Certificate To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Service_Sheet_Templates/Treatment_Centre_Installation_Certify</template>
+    </alerts>
+    <alerts>
+        <fullName>GetingeWasher_Service_Conformation_Email_To_Customer</fullName>
+        <description>GetingeWasher Service Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/GetingeWasher_Certificate_To_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>Getinge_Autoclave_Service_Certificate_Email_To_Customer</fullName>
+        <description>Getinge Autoclave Service Certificate Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/GetingeAutoclave_Certificate_To_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>Intra_Oral_x_ray_Installation_Certificate_To_Customer</fullName>
+        <ccEmails>salesforcetestwork@gmail.com</ccEmails>
+        <description>Intra-Oral-x-ray Installation Certificate To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Service_Sheet_Templates/Intra_Oral_x_ray_Installation_Certify</template>
+    </alerts>
+    <alerts>
+        <fullName>MedisafeWasher_Service_Conformation_Email_To_Customer</fullName>
+        <description>MedisafeWasher Service Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/MedisafeWasher_Certificate_To_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>OPG_Installation_Certificate_To_Customer</fullName>
+        <ccEmails>vgowthaman@merfantz.in</ccEmails>
+        <description>OPG Installation Certificate To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/OPG_Installation_Certificate_To_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>ReportOfExamination_Service_Conformation_Email_To_Customer</fullName>
+        <description>ReportOfExamination Service Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Service_Sheet_Templates/ROExamination_Certificate_To_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>SuctionPump_Installation_Conformation_Email_To_Customer</fullName>
+        <ccEmails>salesforcetestwork@gmail.com</ccEmails>
+        <description>SuctionPump Installation Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/SuctionPump_Installation_Certificate</template>
+    </alerts>
+    <alerts>
+        <fullName>SuctionPump_Service_Conformation_Email_To_Customer</fullName>
+        <ccEmails>salesforcetestwork@gmail.com</ccEmails>
+        <description>SuctionPump Service Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/SuctionPump_Certificate_To_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>TreatmentCentre_Service_Conformation_Email_To_Customer</fullName>
+        <ccEmails>salesforcetestwork@gmail.com</ccEmails>
+        <description>TreatmentCentre Service Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/TreatmentCentre_Certificate_To_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>X_Ray_Service_Conformation_Email_To_Customer</fullName>
+        <description>X-Ray Service Conformation Email To Customer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Service_Sheet_Templates/X_Ray_Service_Certificate_To_Customer</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Date_after_system</fullName>
+        <field>Date_after_system_may_not_used__c</field>
+        <formula>IF(AND(Month( Date_of_Examination__c )=2,Day(Date_of_Examination__c )=29), DATE(YEAR(Date_of_Examination__c ) + 2, Month(Date_of_Examination__c ), Day(Date_of_Examination__c )-1), DATE(YEAR(Date_of_Examination__c ) + 2, Month(Date_of_Examination__c ),Day(Date_of_Examination__c )))</formula>
+        <name>Date after system</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Date_of_Updation</fullName>
+        <field>Date_Service_Due2__c</field>
+        <formula>TEXT(DAY(Visit__r.Annual_Service_Due_Date__c))+ &quot;/&quot; +TEXT(MONTH(Visit__r.Annual_Service_Due_Date__c))+ &quot;/&quot; +TEXT(YEAR(Visit__r.Annual_Service_Due_Date__c))</formula>
+        <name>Date of Updation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Date_on_Installation</fullName>
+        <field>Date_of_installation__c</field>
+        <formula>Visit__r.Actual_Service_Date__c</formula>
+        <name>Date on Installation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Location_update</fullName>
+        <field>Location__c</field>
+        <formula>Visit__r.Location__c</formula>
+        <name>Location update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Make_field</fullName>
+        <field>Make__c</field>
+        <formula>Visit__r.Make__c</formula>
+        <name>Make field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Model_update</fullName>
+        <field>Model__c</field>
+        <formula>Visit__r.Model__c</formula>
+        <name>Model update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Serial_number</fullName>
+        <field>Serial_No__c</field>
+        <formula>Visit__r.Serial_Number__c</formula>
+        <name>Serial number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Service_Due</fullName>
+        <field>Next_Service_Due_Date__c</field>
+        <formula>IF(AND(Month(Date__c)=2,Day(Date__c)=29), DATE(YEAR(Date__c) + 1, Month(Date__c), Day(Date__c)-1), DATE(YEAR(Date__c) + 1, Month(Date__c),Day(Date__c)))</formula>
+        <name>Service Due</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Surgery_No_Location_Update</fullName>
+        <field>Surgery_no_location__c</field>
+        <formula>Visit__r.Location__c</formula>
+        <name>Surgery No/Location Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Surgery_no_name</fullName>
+        <field>surgery_name__c</field>
+        <formula>Visit__r.Location__c</formula>
+        <name>Surgery no/name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Testing</fullName>
+        <field>Test__c</field>
+        <formula>&apos;workflow runs&apos;</formula>
+        <name>Testing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Surgery_Name</fullName>
+        <field>surgery_name__c</field>
+        <formula>Visit__r.Location__c</formula>
+        <name>Update Surgery Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Updation_record</fullName>
+        <field>Progress_report__c</field>
+        <formula>TEXT(DAY(Visit__r.Annual_Service_Due_Date__c ))+ &quot;/&quot; +TEXT(MONTH(Visit__r.Annual_Service_Due_Date__c ))+ &quot;/&quot; +TEXT(YEAR(Visit__r.Annual_Service_Due_Date__c ))</formula>
+        <name>Updation record</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>AccountStatusWorkflow</fullName>
+        <active>true</active>
+        <description>If the Invoiced field is true, The Customer/Site Status change to live.</description>
+        <formula>IF(  OR( AND(ISNEW(),Invoiced__c==true), AND(ISCHANGED( Invoiced__c ),Invoiced__c==true)),true,false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Air Compressor Installation Email To Customer</fullName>
+        <actions>
+            <name>Air_Compressor_Installation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Service_Sheet_Type__c =&apos;Compressor installation certificate&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Fire_Extinguisher_Service_complete__c,
+ischanged(Fire_Extinguisher_Service_complete__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Air Compressor Service Email To Customer</fullName>
+        <actions>
+            <name>Air_Compressor_Service_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+    Service_Sheet_Type__c = &apos;Air Compressor Service and Test Report&apos;,
+   OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c,
+ischanged(Send_Service_Sheet__c))
+)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Annual Mechanical Service Report Service Email To Customer</fullName>
+        <actions>
+            <name>Annual_Mechanical_Service_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Service_Sheet_Type__c =&apos;Pan Oral X-ray&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c,
+ischanged(Send_Service_Sheet__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Date of examination</fullName>
+        <actions>
+            <name>Date_after_system</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.Date_of_Examination__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Getinge Autoclave Service Email To Customer</fullName>
+        <actions>
+            <name>Getinge_Autoclave_Service_Certificate_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Service_Sheet_Type__c =&apos;Autoclave Service&apos;,
+
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c,
+ischanged(Send_Service_Sheet__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Getinge Washer Service Email To Customer</fullName>
+        <actions>
+            <name>GetingeWasher_Service_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Service_Sheet_Type__c =&apos;Getinge Washer Disinfector&apos;,
+
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c,
+ischanged(Send_Service_Sheet__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Intra-Oral-x-ray Installation Certificate To Customer</fullName>
+        <actions>
+            <name>Intra_Oral_x_ray_Installation_Certificate_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Service_Sheet_Type__c =&apos;Intra-oral x-ray installation certificate Belmont&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Fire_Extinguisher_Service_complete__c,
+ischanged(Fire_Extinguisher_Service_complete__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Make field update</fullName>
+        <actions>
+            <name>Make_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.Make__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Medisafe Washer Disinfector Service Conformation Email To Customer</fullName>
+        <actions>
+            <name>MedisafeWasher_Service_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Service_Sheet_Type__c =&apos;Medisafe Washer disinfector service&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c,
+ischanged(Send_Service_Sheet__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Model field update</fullName>
+        <actions>
+            <name>Model_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.Model__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Next Service date Update for one Year</fullName>
+        <actions>
+            <name>Service_Due</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>OPG Installation Certificate To Customer</fullName>
+        <actions>
+            <name>OPG_Installation_Certificate_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+    Service_Sheet_Type__c = &apos;OPG installation certificate&apos;,
+    OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Fire_Extinguisher_Service_complete__c,
+ischanged(Fire_Extinguisher_Service_complete__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Report of Examination Service Email To Customer</fullName>
+        <actions>
+            <name>ReportOfExamination_Service_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Service_Sheet_Type__c =&apos;Report of Examination&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c,
+ischanged(Send_Service_Sheet__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Serial number update</fullName>
+        <actions>
+            <name>Serial_number</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.Serial_No__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Service Sheet location updae</fullName>
+        <actions>
+            <name>Location_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.Location__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Suction Pump Installation Certificate Email To Customer</fullName>
+        <actions>
+            <name>SuctionPump_Installation_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+Service_Sheet_Type__c =&apos;Suction Pump installation certificate&apos;,
+OR(AND(Resend__c,ISCHANGED(Resend__c)),
+AND(ISCHANGED(Fire_Extinguisher_Service_complete__c),
+Fire_Extinguisher_Service_complete__c)
+)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Suction Pump Service Email To Customer</fullName>
+        <actions>
+            <name>SuctionPump_Service_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Service_Sheet_Type__c =&apos;Suction Pump Service&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c,
+ischanged(Send_Service_Sheet__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Surgery Name update</fullName>
+        <actions>
+            <name>Update_Surgery_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Suction Pump Service</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Treatment Centre Certificate Of Service</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.surgery_name__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Surgery No%2FLocation</fullName>
+        <actions>
+            <name>Surgery_No_Location_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.Surgery_no_location__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Suction Pump installation certificate</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Surgery no%2Fname</fullName>
+        <actions>
+            <name>Surgery_no_name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.surgery_name__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Treatment centre Install</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Engineer_Checklist__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Intra-oral x-ray installation certificate Belmont</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Treatment Centre Installation Certificate To Customer</fullName>
+        <actions>
+            <name>Chair_Installation_Certificate_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Service_Sheet_Type__c =&apos;Treatment centre Install&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Fire_Extinguisher_Service_complete__c,
+ischanged(Fire_Extinguisher_Service_complete__c
+))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Treatment Centre Service Email To Customer</fullName>
+        <actions>
+            <name>TreatmentCentre_Service_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Service_Sheet_Type__c =&apos;Treatment Centre Certificate Of Service&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c,
+ischanged(Send_Service_Sheet__c))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Updation Date service</fullName>
+        <actions>
+            <name>Date_of_Updation</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Visits__c.Visit_Type__c</field>
+            <operation>equals</operation>
+            <value>Installation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Visits__c.Service_Type__c</field>
+            <operation>equals</operation>
+            <value>Treatment Centre</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>X-Ray Report Service Email To Customer</fullName>
+        <actions>
+            <name>X_Ray_Service_Conformation_Email_To_Customer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Service_Sheet_Type__c =&apos;Mechanical X-Ray Report&apos;,
+OR ( AND(Resend__c, ischanged(Resend__c)),
+AND(Send_Service_Sheet__c
+,
+ischanged(Send_Service_Sheet__c
+))
+)
+
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

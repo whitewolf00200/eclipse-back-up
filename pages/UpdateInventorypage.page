@@ -1,0 +1,140 @@
+<apex:page standardController="PurchaseOrder__c" extensions="UpdateInventoryController" tabStyle="PurchaseOrder__c" showHeader="false">
+
+<script type='text/javascript'>
+    
+        // This script assists the search bar functionality
+        // It will execute a search only after the user has stopped typing for more than 1 second
+        // To raise the time between when the user stops typing and the search, edit the following variable:
+        
+        var waitTime = 1;
+        
+    
+        var countDown = waitTime+1;
+        var started = false;
+        
+        function resetTimer(){
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown();
+            }
+        }
+        
+        function resetTimer1(){
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown1();
+            }
+        }
+        
+        function runCountDown(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                AJAXRefresh();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,500);
+            }
+        }
+        
+        function runCountDown1(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                AJAXRefresh1();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,500);
+            }
+        }
+    
+    </script>
+    
+<apex:form id="frm">
+    <apex:pageBlock >
+    
+<apex:pageblockButtons >
+<apex:commandButton value="Save" action="{!SaveAction}"  rendered="{!AllowSave}"/>
+<apex:commandButton value="Cancel" action="{!Cancel}"/>
+</apex:pageblockButtons>
+<apex:pageMessages />
+
+            <apex:pageblockSection columns="5" title="Non Serialized Items" rendered="{!NonSerial.size>0}">
+                               
+                    <apex:repeat value="{!NonSerial}" var="NewStk">
+                        <apex:pageBlockSectionItem dataStyle="width:10%" labelStyle="width:10%">
+                        <apex:outputText value="{!NewStk.PrdName}"/>
+                        </apex:pageBlockSectionItem>
+                        <!--<apex:pageBlockSectionItem dataStyle="width:10%" labelStyle="width:10%">
+                        <apex:inputField value="{!NewStk.loc}"/>
+                        </apex:pageBlockSectionItem>-->
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Raised Quantity</apex:outputText><apex:outputText value="{!NewStk.RaiseQty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Received Quantity</apex:outputText><apex:outputText value="{!NewStk.TotRecvQty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Remaining Quantity</apex:outputText><apex:outputText value="{!NewStk.RemainQty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Received Quantity</apex:outputText><apex:InputText value="{!NewStk.RecvQty}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer1();}">
+                        <apex:actionSupport reRender="frm" event="onchange" action="{!CheckValidQty}">
+                        </apex:actionSupport>
+                        </apex:InputText>
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+          </apex:pageblockSection>
+          
+          <apex:pageBlockSection columns="1" title="Serialized Items" rendered="{!Serial.size>0}">
+        <apex:repeat value="{!Serial}" var="VarSerial">
+        <apex:pageblockSection columns="6" showHeader="false">        
+           
+            <apex:pageblockSectionItem dataStyle="width:20%" labelStyle="width:10%">             
+                <apex:outputText value="{!VarSerial.PrdName}"/>                                                      
+            </apex:pageblockSectionItem>
+            
+            <apex:pageblockSectionItem dataStyle="width:5%" labelStyle="width:10%">             
+                <apex:outputText id="changes">Raised Quantity</apex:outputText><apex:outputText value="{!VarSerial.RaiseQty}"/>                                                     
+            </apex:pageblockSectionItem>
+            
+            <apex:pageblockSectionItem dataStyle="width:5%" labelStyle="width:20%">             
+                <apex:outputText id="changes">Total Received Quantity</apex:outputText><apex:outputText value="{!VarSerial.TotRecvQty}"/>                                                      
+            </apex:pageblockSectionItem>
+            
+            <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                <apex:outputText id="changes">Remaining Quantity</apex:outputText><apex:outputText value="{!VarSerial.RemainQty}"/>
+            </apex:pageBlockSectionItem>
+                        
+            <apex:pageblockSectionItem dataStyle="width:2%" labelStyle="width:15%">             
+          <apex:outputText id="changes">Received Quantities</apex:outputText><apex:InputText value="{!VarSerial.RecvQty}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer();}">
+          <apex:actionSupport reRender="frm" event="onchange" action="{!SerialCount}">
+          </apex:actionSupport>
+          </apex:InputText>                                    
+            </apex:pageblockSectionItem>
+            
+            <apex:outputPanel id="SerialRender" >
+                   <apex:pageblockTable value="{!VarSerial.WrapInv}" var="PrdSer">
+                       <apex:column headerValue="Serial Number">
+                       <apex:inputText value="{!PrdSer.Name}"/>
+               </apex:column>
+                   </apex:pageblockTable>               
+                 </apex:outputPanel>
+                    
+        </apex:pageblockSection>
+         </apex:repeat>
+         </apex:pageBlockSection> 
+                    <apex:actionFunction name="AJAXRefresh" action="{!SerialCount}" rerender="frm" status="myStatus"/>
+                    <apex:actionFunction name="AJAXRefresh1" action="{!CheckValidQty}" rerender="frm" status="myStatus"/>
+                    <apex:actionStatus id="myStatus" startText="Please Wait..."/>
+  </apex:pageBlock>   
+</apex:form>     
+</apex:page>

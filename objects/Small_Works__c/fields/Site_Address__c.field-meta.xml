@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( FIND(&quot;)&quot;,Site_Name__c,1)&gt;0, MID(Site_Name__c,1,FIND(&quot;)&quot;,Site_Name__c,1))&amp;BR(),Site_Name__c &amp;BR())&amp; 
+IF( Site__r.ShippingStreet &lt;&gt; &quot;&quot;, Site__r.ShippingStreet&amp;BR() ,&quot;&quot;)&amp; 
+IF( Site__r.ShippingCity &lt;&gt; &quot;&quot;, Site__r.ShippingCity &amp;BR(),&quot;&quot;)&amp; 
+IF( Site__r.ShippingState &lt;&gt; &quot;&quot;, Site__r.ShippingState &amp;BR(),&quot;&quot;)&amp; 
+IF( Site__r.ShippingCountry&lt;&gt; &quot;&quot;, Site__r.ShippingCountry &amp;BR(),&quot;&quot;)&amp; 
+IF( Site__r.ShippingPostalCode&lt;&gt; &quot;&quot;, Site__r.ShippingPostalCode ,&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Site Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

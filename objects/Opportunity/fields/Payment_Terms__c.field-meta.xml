@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Terms__c</fullName>
+    <label>Payment Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PAYMENT DUE ON PRESENTATION OF INVOICE</fullName>
+                <default>true</default>
+                <label>PAYMENT DUE ON PRESENTATION OF INVOICE</label>
+            </value>
+            <value>
+                <fullName>30 days from End of Month</fullName>
+                <default>false</default>
+                <label>30 days from End of Month</label>
+            </value>
+            <value>
+                <fullName>30 days from Invoice Date</fullName>
+                <default>false</default>
+                <label>30 days from Invoice Date</label>
+            </value>
+            <value>
+                <fullName>Website Payment Received</fullName>
+                <default>false</default>
+                <label>Website Payment Received</label>
+            </value>
+            <value>
+                <fullName>30% deposit with order, balance due on day of installation</fullName>
+                <default>false</default>
+                <label>30% deposit with order, balance due on day of installation</label>
+            </value>
+            <value>
+                <fullName>30% deposit with order, balance due within 30 days of Invoice</fullName>
+                <default>false</default>
+                <label>30% deposit with order, balance due within 30 days of Invoice</label>
+            </value>
+            <value>
+                <fullName>30% with order, 60% 7 days before installation and 10% balance on completion of installation</fullName>
+                <default>false</default>
+                <label>30% with order, 60% 7 days before installation and 10% balance on completion of installation</label>
+            </value>
+            <value>
+                <fullName>30% with order, 60% on first day of installation and 10% balance on completion</fullName>
+                <default>false</default>
+                <label>30% with order, 60% on first day of installation and 10% balance on completion</label>
+            </value>
+            <value>
+                <fullName>30% with order, weekly progress payments for the duration of the project, 10% balance due at project hand over</fullName>
+                <default>false</default>
+                <label>30% with order, weekly progress payments for the duration of the project, 10% balance due at project hand over</label>
+            </value>
+            <value>
+                <fullName>50% with order, 50% on installation</fullName>
+                <default>false</default>
+                <label>50% with order, 50% on installation</label>
+            </value>
+            <value>
+                <fullName>60 days</fullName>
+                <default>false</default>
+                <label>60 days</label>
+            </value>
+            <value>
+                <fullName>On Account</fullName>
+                <default>false</default>
+                <label>On Account</label>
+            </value>
+            <value>
+                <fullName>Payment On Installation</fullName>
+                <default>false</default>
+                <label>Payment On Installation</label>
+            </value>
+            <value>
+                <fullName>PAYMENT RECEIVED</fullName>
+                <default>false</default>
+                <label>PAYMENT RECEIVED</label>
+            </value>
+            <value>
+                <fullName>Proforma</fullName>
+                <default>false</default>
+                <label>Proforma</label>
+            </value>
+            <value>
+                <fullName>Other – see special terms</fullName>
+                <default>false</default>
+                <label>Other – see special terms</label>
+            </value>
+            <value>
+                <fullName>30% deposit with order, balance due on last day of installation.</fullName>
+                <default>false</default>
+                <label>30% deposit with order, balance due on last day of installation.</label>
+            </value>
+            <value>
+                <fullName>Standing Order Monthly Payment</fullName>
+                <default>false</default>
+                <label>Standing Order Monthly Payment</label>
+            </value>
+            <value>
+                <fullName>Direct Debit</fullName>
+                <default>false</default>
+                <label>Direct Debit</label>
+            </value>
+            <value>
+                <fullName>20% Deposit with order, balance due on installation</fullName>
+                <default>false</default>
+                <label>20% Deposit with order, balance due on installation</label>
+            </value>
+            <value>
+                <fullName>50% with order, 50% on delivery</fullName>
+                <default>false</default>
+                <label>50% with order, 50% on delivery</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

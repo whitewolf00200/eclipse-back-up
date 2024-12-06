@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Electronic_Sounder_other_way_around</fullName>
+    <active>false</active>
+    <description>If Electronic Sounder dropdown is selected, you must have a qty.</description>
+    <errorConditionFormula>AND ( TEXT ( FA_Spare_Parts_Electronic_Sounder_QTY__c  )= &quot;&quot;,
+
+ TEXT (  FA_Electronic_Sounder__c  )&lt;&gt;&quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have selected a dropdown field, please enter a quantity.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department__c</fullName>
+    <inlineHelpText>Enter the department you are raising the P/O for.</inlineHelpText>
+    <label>Department</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+                <label>Fleet</label>
+            </value>
+            <value>
+                <fullName>IT &amp; Marketing</fullName>
+                <default>false</default>
+                <label>IT &amp; Marketing</label>
+            </value>
+            <value>
+                <fullName>Operations</fullName>
+                <default>false</default>
+                <label>Operations</label>
+            </value>
+            <value>
+                <fullName>Projects</fullName>
+                <default>false</default>
+                <label>Projects</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Service - North</fullName>
+                <default>false</default>
+                <label>Service - North</label>
+            </value>
+            <value>
+                <fullName>Service - North Reactive</fullName>
+                <default>false</default>
+                <label>Service - North Reactive</label>
+            </value>
+            <value>
+                <fullName>Service - North Small Works</fullName>
+                <default>false</default>
+                <label>Service - North Small Works</label>
+            </value>
+            <value>
+                <fullName>Service - South</fullName>
+                <default>false</default>
+                <label>Service - South</label>
+            </value>
+            <value>
+                <fullName>Service - South Reactive</fullName>
+                <default>false</default>
+                <label>Service - South Reactive</label>
+            </value>
+            <value>
+                <fullName>Service - South Small Works</fullName>
+                <default>false</default>
+                <label>Service - South Small Works</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

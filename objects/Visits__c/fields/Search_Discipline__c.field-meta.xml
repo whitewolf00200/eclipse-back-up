@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Search_Discipline__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE ( Service_Type__c , 
+&quot;Ansul&quot;,&quot;AN&quot;,
+&quot;CCTV&quot;,&quot;CC&quot;,
+&quot;Dectector Cleaning&quot;,&quot;&quot;,
+&quot;Disabled/Nursecall Alarm&quot;,&quot;&quot;,
+&quot;Door Access Testing&quot;,&quot;&quot;,
+&quot;Dry Riser&quot;,&quot;DR&quot;,
+&quot;Emergency Lighting&quot;,&quot;EL&quot;,
+&quot;Fire Alarm&quot;,&quot;FA&quot;,
+&quot;Fire Alarm + Emergency Lighting&quot;,&quot;FL&quot;,
+&quot;Fire Curtain Servicing&quot;,&quot;&quot;,
+&quot;Fire Damper&quot;,&quot;&quot;,
+&quot;Fire Extinguisher&quot;,&quot;FE&quot;,
+&quot;Fire Hose Reel&quot;,&quot;&quot;,
+&quot;Fire Risk Assessment&quot;,&quot;&quot;,
+&quot;Fire Suppression System&quot;,&quot;&quot;,
+&quot;Fire Training&quot;,&quot;&quot;,
+&quot;Gaseous Suppression&quot;,&quot;GS&quot;,
+&quot;Hydrant&quot;,&quot;HY&quot;,
+&quot;Integrity Test&quot;,&quot;IT&quot;,
+&quot;Intruder Alarm&quot;,&quot;IA&quot;,
+&quot;Lone Worker Alarm System&quot;,&quot;&quot;,
+&quot;Portable Appliance Testing&quot;,&quot;PT&quot;,
+&quot;Service Site Visit&quot;,&quot;&quot;,
+&quot;Smoke Vent Servicing&quot;,&quot;&quot;,
+&quot;Smoke Vent Testing&quot;,&quot;&quot;,
+&quot;Sprinkler&quot;,&quot;SP&quot;,
+&quot;Tagging Security Machines&quot;,&quot;&quot;,
+&quot;Vesda Alarm Servicing&quot;,&quot;&quot;,
+&quot;Voice Evacuation&quot;,&quot;&quot;,
+&quot;Water Leak Detection&quot;,&quot;&quot;,
+&quot;Weekly Callpoint Test&quot;,&quot;&quot;,
+&quot;Wet Riser&quot;,&quot;WR&quot;,&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>HR</inlineHelpText>
+    <label>Search Discipline</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

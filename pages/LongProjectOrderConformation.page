@@ -1,0 +1,54 @@
+<apex:page standardController="SalesOrder__c" renderas="pdf" applyHtmlTag="false" showHeader="false">
+<head>
+<style type="text/css" media="print">
+  @page{
+    size:A4 portrait;
+       margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 6.8cm;
+
+    
+    	
+    @top-left {
+        content: "{!SalesOrder__c.Account__r.name} - continued - " counter(page)" of " counter(pages);
+        font-family:Sans-Seriff;
+        font-size:8pt;
+        font-weight:bold;
+    }
+    @top-center {
+        content: element(header);
+    }
+    @bottom-center {
+        content: element(footer);
+    }
+    .table{
+        border : 1px solid black;
+    }
+}
+
+div.footer {
+   
+    position: running(footer);
+    font-size:7pt;
+    font-family:sans-serif ;
+    margin-left:-40px;
+}
+
+.pagenumber:before {
+    content: counter(page);
+}
+
+.pagecount:after {
+    content: counter(pages);
+}
+.start{
+font-size:8pt;
+font-family:sans-serif ;
+}
+    
+</style>
+</head> 
+<c:LongProjectOrderComponent lpo="{!SalesOrder__c}" Soid="{!SalesOrder__c.Id}"/>
+    
+</apex:page>

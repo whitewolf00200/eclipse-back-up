@@ -1,0 +1,12 @@
+<!-- ==========================================================================
+*Page Name      : VisitAlertPage
+*Description    : Show teh Warning alert
+*Company        : Puthuvannam Technology Solutions Pvt Ltd.
+*Date           : 28th May, 2014
+*Version        : 1.0
+========================================================================== -->
+<apex:page standardController="Visits__c"  extensions="VisitAlertPageController" >
+    <apex:outputPanel layout="block" style="overflow:auto;height:100px" >
+    <apex:pageMessages />
+    </apex:outputPanel>
+</apex:page>

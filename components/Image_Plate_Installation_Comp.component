@@ -1,0 +1,93 @@
+<!-- =============================================
+*Components Name      : Image_Plate_Scanner_Comp
+*Description          : Preview Page Fire On Certificate Preview Button In Image Plate Scanner Installation.
+*Company              : Merfantz Technologies Pvt Ltd
+*Date                 : 3th May, 2023
+*Version              : 1.0
+*Ticket No            : 109339
+============================================= -->
+
+
+
+<apex:component access="global">
+    <apex:attribute description="sp" name="sp" type="Engineer_Checklist__c"/>
+    <apex:attribute name="Serviceid" type="Id" description="Attribute on the component."/>
+    <body>
+        
+        
+        <div class="footer" >
+            
+            
+            <table width="100%" height="100%" >
+                <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+            </table>    
+        </div>
+        <div class="footer" >
+            
+            <table width="100%" height="100%" >
+                <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+            </table>    
+        </div>
+        <table  class="tableim" style="width:100%;border-collapse:0px">
+            <tr>
+                
+                <td class="a"><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+                <td class="a" width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td>                 
+            </tr>   
+            <div Style="font-size:14px;margin-top:-40px;">&nbsp; Customer Address:
+                <tr>
+                    <td   style="border: 100px white;padding-left:8px;"><apex:outputtext value="{!sp.Service_At__c}" escape="false"/></td>                      </tr>
+            </div>
+            
+            <p style="text-align:center;font-size:22px;margin-top:-6px;"> <u>Image Plate Scanner Installation Certificate</u></p>
+            
+            
+            <table style="align:center;font-size:14px;page-break-inside:auto;">
+                <tr>
+                    <td class="b"> Equipment Make:</td><td>{!sp.Make__c}</td>
+                </tr>
+                
+                <tr>
+                    <td > Equipment Model:</td><td>{!sp.Model__c}</td>
+                </tr>
+                
+                <tr>
+                    <td> Serial No:</td><td>{!sp.Serial_No__c}</td>
+                </tr>
+                
+                
+                
+                
+                <tr>
+                    <td> Date Of Manufacture:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_Of_Manufacture__c}" /></apex:outputText></td>
+                </tr>
+                <tr>
+                    <td> Installed Software On PC:</td><td>{!sp.Installed_software_on_PC__c}</td>
+                </tr>
+                
+                <tr><td>Network Configuration Parameters : </td>
+                    <td>{!sp.Network_configuration_parameters__c}</td></tr>
+                
+                
+                <tr><td>Machine Installed And Connected To Network:</td>
+                    <td>{!sp.Machine_installed_and_connected_to_netwo__c}</td></tr>
+                
+                <tr><td>Dental CRM Bridge With Imaging Software Setup: </td>
+                    <td>{!sp.Dental_CRM_bridge_with_imaging_software__c}</td></tr>
+                
+                
+                <tr><td>Imaging Software Used:</td>
+                    <td>{!sp.Imaging_software_used__c}</td></tr>
+                
+                <tr><td>Dental CRM Used: </td>
+                    <td>{!sp.Dental_CRM_used__c}</td></tr>
+                
+                
+                
+                
+                
+            </table>
+            
+        </table> 
+    </body>
+</apex:component>

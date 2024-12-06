@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finance_Option__c</fullName>
+    <defaultValue>&quot;on the Total including VAT of £42,292.80&quot; &amp; BR() &amp; &quot;60 payments of&quot;  &amp; BR() &amp; &quot;£867.00 per month&quot; &amp; BR() &amp; BR() &amp; &quot;These are indicative figures in conjunction with Breamar Finance. A detailed finance proposal can be made on request.&quot;</defaultValue>
+    <label>Finance Option</label>
+    <length>30000</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

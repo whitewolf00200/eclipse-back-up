@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technician_Recommendations_Required</fullName>
+    <active>true</active>
+    <description>If you select &apos;Sales Quote Required&apos; to Yes, Please fill in the &apos;Technician Recommendations&apos;</description>
+    <errorConditionFormula>AND(RecordType.Name =&apos;Maintenance Sheet&apos;, ISPICKVAL(Sales_Quote_Required__c,&quot;Yes&quot;), 
+Service_Recommendations__c=&quot;&quot;)</errorConditionFormula>
+    <errorDisplayField>Service_Recommendations__c</errorDisplayField>
+    <errorMessage>If you select &apos;Sales Quote Required&apos; to Yes, Please fill in the &apos;Technician Recommendations&apos;</errorMessage>
+</ValidationRule>

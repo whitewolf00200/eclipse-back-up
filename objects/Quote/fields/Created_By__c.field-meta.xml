@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Created_By__c</fullName>
+    <label>Created By</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Chester Boyt</fullName>
+                <default>false</default>
+                <label>Chester Boyt</label>
+            </value>
+            <value>
+                <fullName>Lyudmila Lopez</fullName>
+                <default>false</default>
+                <label>Lyudmila Lopez</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

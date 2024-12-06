@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Contact_Name</fullName>
+        <field>ContactName__c</field>
+        <formula>Site__r.Site_Contact__r.FirstName</formula>
+        <name>Contact Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Labour_Charge</fullName>
+        <field>Labour_Charge__c</field>
+        <formula>Site__r.Parent.Hourly_Rate__c</formula>
+        <name>Update Labour Charge</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update Bupa Labour Charge</fullName>
+        <actions>
+            <name>Update_Labour_Charge</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Site__r.ParentId= $Label.Bupa_Account_Id)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update SC Book</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>SiteContracts__c.Price_Book_Id__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update contact Name</fullName>
+        <actions>
+            <name>Contact_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

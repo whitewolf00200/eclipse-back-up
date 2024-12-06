@@ -1,0 +1,19 @@
+<apex:page controller="SlowMovingItems" tabStyle="Warehouse__c">
+  <apex:form >
+      
+    <apex:tabPanel switchType="client" selectedTab="name1" id="theTabPanel">
+        <apex:tab label="Active" name="Active" id="Active">
+        
+        </apex:tab>
+        <apex:tab label="Slow Moving" name="SlowMoving" id="SlowMoving">
+        
+        </apex:tab>
+        <apex:tab label="Inactive" name="Inactive" id="Inactive">
+        
+        </apex:tab>
+        <apex:tab label="Obsolete" name="Obsolete" id="Obsolete">
+        
+        </apex:tab>
+    </apex:tabPanel>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Invoice</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Generate Invoice</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/006/e?retURL=%2F006%2Fo&amp;RecordType=01258000000M0G4&amp;ent=Opportunity&amp;opp7={!SalesOrder__c.Order_Total__c}&amp;00N5800000CRqDm={!SalesOrder__c.Customer_Order_Number__c}
+&amp;CF00N5800000CRqE1={!SalesOrder__c.Name}&amp;CF00N5800000CRqE1_lkid={!SalesOrder__c.Id}&amp;opp4={!SalesOrder__c.Account__c}&amp;opp4_lkid={!SalesOrder__c.AccountId__c}&amp;00N5800000CRqCX={!SalesOrder__c.Shipping_Street__c}&amp;00N5800000CRqCT={!SalesOrder__c.Shipping_City__c}&amp;00N5800000CRqCW={!SalesOrder__c.Shipping_State__c}&amp;00N5800000CRqCV={!SalesOrder__c.Shipping_Postal__c}&amp;opp3=Invoice for - {!SalesOrder__c.Account__c}&amp;opp9={!TODAY()}&amp;opp11=&quot;Closed Won&quot;&amp;00N5800000CRqE2={!SalesOrder__c.Sales_type__c}&amp;00N5800000CRqDt={!SalesOrder__c.Requiremen__c}&amp;CF00N5800000CRqEC={!SalesOrder__c.Contact__c}&amp;CF00N5800000CRqEC_lkid={!SalesOrder__c.ContactId__c}&amp;00N5800000CRqDc={!SalesOrder__c.Payment_terms__c}&amp;opp17={!SalesOrder__c.Campaign__c}&amp;opp17_lkid={!SalesOrder__c.Campaign_Id__c}&amp;00N5800000CRqCU={!SalesOrder__c.Shipping_Country__c}&amp;00N5800000DGXu2={!SalesOrder__c.Billing_Street__c}&amp;00N5800000DGXu7={!SalesOrder__c.Billing_City__c}&amp;00N5800000DGXvF={!SalesOrder__c.Billing_State__c}&amp;00N5800000DGXvK={!SalesOrder__c.Billing_Country__c}&amp;00N5800000DGXw8={!SalesOrder__c.Billing_Postal_Code__c}&amp;00N5800000DGYSY={!SalesOrder__c.Alternative_Invoice_Company_Name__c}&amp;00N5800000DFnCd={!SalesOrder__c.Order_Date__c}</url>
+</WebLink>

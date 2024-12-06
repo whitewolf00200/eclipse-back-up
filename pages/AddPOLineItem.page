@@ -1,0 +1,201 @@
+<apex:page standardController="PurchaseOrder__c" extensions="POLineItemController"  docType="html-5.0">
+
+    <apex:sectionHeader Title="Manage {!$ObjectType.Product2.LabelPlural}" subtitle="{!PurchaseOrder__c.Name}"/>
+    <apex:messages style="color:red"/>
+
+    <style>
+        .search{
+            font-size:14pt;
+            margin-right: 20px;    
+        }
+        .fyi{
+            color:red;
+            font-style:italic;
+        }
+        .label{
+            margin-right:10px;
+            font-weight:bold;
+        }
+    </style>
+    
+    <script type='text/javascript'>
+    
+        // This script assists the search bar functionality
+        // It will execute a search only after the user has stopped typing for more than 1 second
+        // To raise the time between when the user stops typing and the search, edit the following variable:
+        
+        var waitTime = 1;
+        
+    
+        var countDown = waitTime+1;
+        var started = false;
+        
+        function resetTimer(){
+        
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown();
+            }
+        }
+        
+        function runCountDown(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                fetchResults();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,1000);
+            }
+        }
+          var wnd;
+        function OpenVFPage(pid) {
+           var po= '{!$CurrentPage.Parameters.POId}';
+                       
+              wnd = window.open('/apex/SupplierAndCost?sid='+pid+'&po='+po+' ','SupplierPopUp','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no'); 
+       }
+       
+       
+    </script>
+     <apex:form id="frm">
+     {!prodId}
+     
+      <!-- notice we use a lot of $ObjectType merge fields... I did that because if you have changed the labels of fields or objects it will reflect your own lingo -->
+ 
+          <apex:pageBlock title="Selected {!$ObjectType.Product2.LabelPlural}" id="selected">
+                   <apex:pageMessages id="showmsg"></apex:pageMessages>    
+                <apex:pageblockTable value="{!wrpShoppingCart}" var="s">
+                
+                    <apex:column >
+                        <apex:commandLink value="Remove" action="{!removeFromShoppingCart}" reRender="selected,searchResults,frm" immediate="true">
+                            <!-- this param is how we send an argument to the controller, so it knows which row we clicked 'remove' on -->
+                             <apex:param value="{!s.name}" assignTo="{!toUnselect}" name="toUnselect"/>
+                             
+                        </apex:commandLink>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Product">
+                    <apex:commandLink value="{!s.prodName}" action="{!redirectToProduct}" immediate="true" target="_blank">                            
+                             <apex:param value="{!s.name}" assignTo="{!prodId}" name="prodId"/>
+                            
+                        </apex:commandLink>
+                    </apex:column>
+                    
+                   
+                    <apex:column headerValue="Supplier Code" >
+                        <apex:outputText value="{!s.SupplierCode}" style="width:70px"/>             
+                    </apex:column>
+
+                    <apex:column headerValue="Quantity">
+                        <apex:inputText value="{!s.Qty}" style="width:70px"   required="true" />
+                            
+                   
+                    </apex:column>
+                    
+                    <apex:column headerValue="Price">
+                        <apex:inputText value="{!s.Price}" style="width:70px" required="true" />
+                        
+                    </apex:column>
+
+                     <apex:column headerValue="Product Code">
+                     <apex:outputText value="{!s.ProductCode}" style="width:70px"/>
+                     </apex:column>
+
+
+                    <apex:column headerValue="Customer">
+                        <apex:inputField value="{!s.pol.Customer__c}"  style="width:170px"/>
+                        
+                    </apex:column>
+                    
+                    <apex:column headerValue="Description">
+                        <apex:inputTextArea value="{!s.Descr}" required="false"/>
+                    </apex:column>
+                    
+ 
+                    
+                </apex:pageblockTable>
+            
+            
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!onSave}" value="Save"/>
+                    <apex:commandButton action="{!onCancel}" value="Cancel" immediate="true" html-formnovalidate="formnovalidate"/>
+                </apex:pageBlockButtons>
+            
+            </apex:pageBlock>
+     
+     
+      
+        <apex:pageBlock >
+            
+                <apex:outputPanel styleClass="search">
+                    Search for {!$ObjectType.Product2.LabelPlural}:
+                </apex:outputPanel>
+
+               <apex:actionRegion renderRegionOnly="false" immediate="true">
+                
+                  
+                    <apex:actionFunction name="fetchResults" action="{!updateAvailableList}" reRender="searchResults" status="searchStatus"/>
+                    
+                    <!-- here we invoke the scripting to get out fancy 'no button' search bar to work -->
+                   <apex:inputText value="{!searchString}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer();}" style="width:300px"/>
+                    &nbsp;&nbsp;
+                    <i>
+                        <!-- actionStatus component makes it easy to let the user know when a search is underway -->
+                        <apex:actionStatus id="searchStatus" startText="searching..." stopText=" "/>
+                    </i>
+                    
+                </apex:actionRegion>
+            
+                <br/>
+                <br/>
+            
+                <apex:outputPanel id="searchResults">
+                
+                    <apex:pageBlockTable value="{!AvailableProducts}" var="a">
+                    
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.Name.Label}" value="{!a.Name}" />
+                        
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.Family.Label}" value="{!a.Family}"/>
+                        
+                       <!-- <apex:column headerValue="{!$ObjectType.Product2.Fields.Supplier_Product_Code__c.Label}" value="{!a.Supplier_Product_Code__c}"/>-->
+
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.ProductCode.Label}" value="{!a.ProductCode}"/>
+                        
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.Description.Label}" value="{!a.Description}"/>
+                        
+                        <apex:column >
+                            <apex:commandButton value="Compare" onclick="OpenVFPage('{!a.id}')" reRender="none"/>
+                            
+                        </apex:column>
+                        
+                        <apex:column >
+                            <!-- command button in a column... neato --> 
+                           <apex:commandButton value="Select" action="{!addToShoppingCart}" reRender="selected,searchResults" >
+                              
+                                <apex:param value="{!a.Id}" assignTo="{!toSelect}" name="toSelect"/>
+                            </apex:commandButton>
+                        </apex:column> 
+                        
+                  
+                        
+                       
+                        
+                    </apex:pageBlockTable>
+                    
+                    <!-- We put up a warning if results exceed 100 rows -->
+                  <apex:outputPanel styleClass="fyi" rendered="{!overLimit}">
+                        <br/>
+                        Your search returned over 100 results, use a more specific search string if you do not see the desired {!$ObjectType.Product2.Label}.
+                        <br/>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+                
+                
+          </apex:pageBlock>
+         
+   </apex:form>
+  </apex:page>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Submit_Service_wout_Pricebook</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+Site__r.Price_Book_Indicator__c = &quot;&quot;,
+Site__r.Parent.Price_Book_Indicator__c = &quot;&quot;,
+IF ( Fire_Extinguisher_Service_complete__c , TRUE, FALSE)
+)</errorConditionFormula>
+    <errorDisplayField>Fire_Extinguisher_Service_complete__c</errorDisplayField>
+    <errorMessage>Neither the Site nor the Parent have a pricebook - Please ensure that the price book indicator is populated or we will not be able to create an opportunity ( as Salesforce does not know which prices to use )</errorMessage>
+</ValidationRule>

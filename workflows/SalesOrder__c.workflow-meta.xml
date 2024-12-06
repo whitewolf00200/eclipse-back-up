@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Send_Basic_Sales_Order_Certificate</fullName>
+        <description>Send Basic Sales Order Certificate</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Purchase_Order/SalesOrder</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Long_Project_Sales_Order_Email</fullName>
+        <description>Send Long Project Sales Order Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Purchase_Order/Long_Project_Order</template>
+    </alerts>
+    <rules>
+        <fullName>Send Basic Order Certificate</fullName>
+        <actions>
+            <name>Send_Basic_Sales_Order_Certificate</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED(Status__c),ISPICKVAL(Status__c ,&apos;Approved&apos;), 
+Sales_Order_Type__c = &apos;Basic Order Confirmation&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Long Project Sales Order Email</fullName>
+        <actions>
+            <name>Send_Long_Project_Sales_Order_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED(Status__c),ISPICKVAL(Status__c ,&apos;Approved&apos;), 
+Sales_Order_Type__c = &apos;Long Project Order Confirmation&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

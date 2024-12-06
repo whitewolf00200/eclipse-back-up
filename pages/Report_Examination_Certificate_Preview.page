@@ -1,0 +1,45 @@
+<apex:page standardcontroller="Engineer_Checklist__c" showheader="false" sidebar="false" renderAs="pdf" applyHtmlTag="false">
+<head>
+
+                <style type="text/css" media="print">
+                      body{
+            font-family:Arial Unicode MS;
+            font-size:14px;
+            }  
+                      
+                      @page {
+
+                                 @top-center {
+
+                                       content: element(header);
+
+                               }
+
+                               @bottom-left {
+
+                                     content: element(footer);
+
+                               }
+     size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 0.5cm;
+    margin-bottom: 6.8cm;
+                                font-family:Arial Unicode MS; 
+                            }
+
+                                     div.header {
+                                        font-family:Arial Unicode MS;
+                                      padding: 10px;
+                                      position: running(header);
+
+                           }
+                       div.footer {
+                                position: running(footer);
+                                font-family:Arial Unicode MS;
+                               margin-left:-46px;
+                      }
+            </style>
+</head>
+    <c:ReportOfExamination re="{!Engineer_Checklist__c}"/>
+</apex:page>

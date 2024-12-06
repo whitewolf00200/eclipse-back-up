@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_Group__c</fullName>
+    <externalId>false</externalId>
+    <formula>TRIM(Site__r.View_SuperGroup__c&amp; &quot; &quot; &amp;  Site__r.View_Group__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This comes from the Site/Customer and enables you to easily create a View. Remember that when creating a View you will need to sue a space between the Super Group name and the Group name, e.g JD Bank</inlineHelpText>
+    <label>View Super Group and Group</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

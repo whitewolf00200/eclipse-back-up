@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nicad_Hi_Temp_Cells_X__c</fullName>
+    <label>Nicad Hi-Temp Cells X</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 Cell</fullName>
+                <default>false</default>
+                <label>1 Cell</label>
+            </value>
+            <value>
+                <fullName>2 Cell</fullName>
+                <default>false</default>
+                <label>2 Cell</label>
+            </value>
+            <value>
+                <fullName>3 Cell</fullName>
+                <default>false</default>
+                <label>3 Cell</label>
+            </value>
+            <value>
+                <fullName>4 Cell</fullName>
+                <default>false</default>
+                <label>4 Cell</label>
+            </value>
+            <value>
+                <fullName>5 Cell</fullName>
+                <default>false</default>
+                <label>5 Cell</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

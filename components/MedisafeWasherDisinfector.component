@@ -1,0 +1,206 @@
+<apex:component access="global" rendered="true" controller="ServiceController">
+  <apex:attribute description="mwd" name="mwd" type="Engineer_Checklist__c"/>
+  <apex:attribute name="Serviceid" type="Id"  assignTo="{!sheetid}" description="Attribute on the component."/>
+  <body class="start">    
+ <div style="width: 100% ;">
+     <div class="footer" >
+        <table>
+  <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+         </table></div>
+     
+  <!--  <table width="22%" style="position:absolute;right:15px;">
+    <tr><td rowsapn="2"></td></tr>
+    <tr><td style="vertical-align:bottom;background-color:#;"><img src="{!$Resource.FESS}" width="70" height="65"  title="logo" align="right"/></td>
+    <td><img src="{!$Resource.EclipseDentalLogo}" width="82" height="86"  title="logo" align="right"/></td></tr>
+    </table> -->
+      <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right" /></td></tr>
+    </table> 
+     
+    <p style="font-size:30px;position:absolute;left:150px;text-align:center;margin-top:-4px;"><b>Medisafe Washer Disinfector<br/>Certificate Of Service</b></p>
+ <br/><br/><br/><br/><br/><br/>
+    <table width="40%" style="background-color:white;position:absolute;left:20px;">
+      <tr>
+      <td  width="50%" HEIGHT="80" style="border: 1px solid;vertical-align:top;"><apex:outputtext value="{!mwd.Service_At__c}" escape="false"/></td>
+      </tr>
+    </table>
+     <table width="40%" style="border: 1px solid;vertical-align:top;background-color:white;position:absolute;right:20px;">
+      <tr width="50%">
+      <td width="25%" style="vertical-align:text-top;">Date:</td>
+      <td width="25%" style="vertical-align:text-top;"><!-- {!DAY(mwd.Date__c)}/{!MONTH(mwd.Date__c)}/{!YEAR(mwd.Date__c)} -->
+      <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!mwd.Date__c}"/></apex:outputtext>
+      </td>
+      </tr>
+      <tr width="50%">
+      <td width="25%" style="vertical-align:sup;">Account Ref :</td>
+      <td width="25%" style="vertical-align:sup;">{!if(mwd.Site__r.AccountNumber!=null,mwd.Site__r.AccountNumber,mwd.Site__r.Parent.AccountNumber)}</td>
+      </tr>
+      <tr  width="50%">
+      <td width="25%" style="vertical-align:sup;">Certificate No.</td>
+      <td width="25%" style="vertical-align:sup;">{!mwd.Name}</td>
+      </tr>
+      <tr>
+      <td width="25%" style="vertical-align:top;">Service Type:</td>
+      <td width="25%" style="vertical-align:top;">{!mwd.Service_Sheet_Type__c}</td>
+      </tr>
+     
+     </table>
+     <div style="width: 100%;"><br/><br/><br/><br/><br/><br/><br/></div>
+     <div style="background-color:#6a2774;width: 100% ;"><br/></div>
+  </div>
+  <div >
+  <br/>
+               <table Width="48%" style="text-align:left;border:1px solid;" border="">
+               <tr>
+               <td width="20%" align="right"><b style="border-bottom: solid 1pt;font-weight:bold">Washer Disinfector</b> &nbsp;&nbsp;Make:</td>
+               <td width="28%" style="border-bottom: solid 1pt;padding:0px ">{!mwd.Make__c}</td> 
+            
+               </tr>
+               <tr>
+               <td width="45"  align="right" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Model:</td>
+               <td width="55" style="border-bottom: solid 1pt;padding:0px ">{!mwd.Model__c}</td> 
+              
+               </tr>
+               <tr>
+               <td width="45"  align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial No:</td>
+               <td width="55" style="border-bottom: solid 1pt;padding:0px ">{!mwd.Serial_No__c}</td> 
+              
+               </tr>
+               
+                <tr>
+               <td width="45"  align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Of Manufacture:</td>
+               <td width="55" style="border-bottom: solid 1pt;padding:0px "><apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!mwd.Date_Of_Manufacture__c}"/></apex:outputtext></td> 
+              
+               </tr>
+               </table>
+               <br/>
+               <table Width="100%" style="text-align:left;border-collapse:collapse;">
+
+                  <tr>
+                      <td width="30">Leaks :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!mwd.Leaks__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Door latch function :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px">{!mwd.Door_latch_function__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">House Connections :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!mwd.House_Connections__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Door seal condition :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px">{!mwd.Door_seal_condition__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Earth Continuity :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!mwd.Earth_Continuity__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Docking cup :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px">{!mwd.Docking_cup__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Insulation &nbsp;≥2MΩ :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!mwd.Insulation_2M__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Handpiece distal connectors :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px">{!mwd.Handpiece_distal_connectors__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Condition of plug &amp; Cable :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!mwd.Condition_of_plug_Cable__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Filters :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px">{!mwd.Filters__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Data Logger plug &amp; Cable :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!mwd.Data_Logger_plug_Cable__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Lower edge door seal :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px">{!mwd.Lower_edge_door_seal__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Spary Arms :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!mwd.Spary_Arms__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Red basket seal :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px">{!mwd.Red_basket_seal__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Load Carrier :</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!mwd.Load_Carrier__c}</td>
+                      <td width="10"></td>
+                      <td width="30"></td>
+                      <td width="15"></td>
+                  </tr>
+               </table>
+               <br/>
+               <div >
+                <table width="100%" border="">
+                    <tr>
+                        <td>  <b>Notes for next service:</b> </td> 
+                    </tr>
+                    <tr>
+                         <td style="white-space:pre-line;" valign="top"  height="200"> {!mwd.Notes_for_next_service__c} </td>
+                    </tr>
+            </table>
+       </div><br/><br/><br/><br/><br/>
+          <div style="position:absolute;top:880px;width: 100% ;">
+         <br/>
+           
+          <table Width="100%"  border="">
+              <tr>
+                  <td width="5%"> </td>
+                  <td width="35%" >Technician Signature:</td>
+                  <td width="10%"></td>
+                  <td width="45%" >Notes / Recommendations:</td>
+                  <td width="5%"> </td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td  height="50" style = "border: 1px solid black;background-color:white;">
+                       <!-- <b><apex:outputText value="{!substitute(mwd.Engineer_s_Signature__c,"alt=","height=\"50px\" Alt=")}" escape="false"/></b>-->
+                      <apex:outputPanel rendered="{!Sign}">
+                         <img alt="no img" src="{!TechSign}" style="height:70px;max-width:100%;"/>
+                          </apex:outputPanel> 
+                  </td>
+                   <td></td>
+                     <td rowspan="3" style="border: 1px solid black;vertical-align:text-top;background-color:white;">{!mwd.Note__c}</td>                
+                    <td></td> 
+              </tr> 
+              <tr>
+              <td></td>
+                  <td width="30%" >Print:</td>
+                  <td></td>
+                 <td></td>
+                                     
+              </tr>
+              <tr>
+              <td></td>
+                  <td  height="40" style = "border: 1px solid black;background-color:white;">
+                  <apex:outputText value="{!mwd.Engineer__r.Name}" escape="true"/>
+                  </td>
+                  <td></td>
+                   <td></td>                 
+              </tr> 
+              <tr>
+              <td></td>
+              <td></td><td></td><td></td><td></td>
+              </tr>
+              <!-- <tr>
+               <td></td>
+                  <td  style="font-size:17px;color:#038B99;vertical-align:text-bottom;">Guaranteed solutions....</td>
+                  <td></td>
+                   <td style="color:#038B99;text-align:right;">Westview Court 10-14 Kent Road<br/>
+                         Dartford Kent DA1 2AJ<br/>
+                         Tel: 01322 293333<br />
+                         service@eclipse-dental.com<br />  
+                         www.eclipse-dental.com 
+                   </td>
+                   <td></td>
+                 </tr> -->
+            </table> 
+    </div>
+     </div>
+     </body>
+</apex:component>

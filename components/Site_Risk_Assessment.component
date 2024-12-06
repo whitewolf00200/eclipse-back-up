@@ -1,0 +1,18 @@
+<apex:component access="global">
+ <!-- <apex:attribute description="Service Sheet object to populate the table" name="service_sheet" type="Engineer_Checklist__c"/>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr><th colspan="3" ><i>SITE RISK ASSESSMENT </i>(To be completed by Serviceman before job starts) </th></tr>
+      <tr><td colspan="2">HAZARDS (What can harm me?)</td><td>Level of Risk*</td><td colspan="2">Circle or Indicate Control Measures</td></tr>
+      <tr><td style="width:25%">Uneven Terrain?</td><td style="width:10%"><apex:outputtext value="{!service_sheet.Uneven_Terrain__c}" /></td><td style="width:15%"><apex:outputtext value="{!service_sheet.UT_Level_of_Risk__c}" /></td><td style="width:30%">Position on level ground:</td><td style="width:20%"><apex:outputtext value="{!service_sheet.Position_on_level_ground__c}" /></td></tr>
+      <tr><td>Faulty Equipment?</td><td><apex:outputtext value="{!service_sheet.Faulty_Equipment__c}" /></td><td><apex:outputtext value="{!service_sheet.FE_Level_of_Risk__c}" /></td><td>Checked safe to use:</td><td><apex:outputtext value="{!service_sheet.Checked_safe_to_use__c}" /></td></tr>
+      <tr><td>Water Present</td><td><apex:outputtext value="{!service_sheet.Water_Present__c}" /></td><td><apex:outputtext value="{!service_sheet.WP_Level_of_Risk__c}" /></td><td>Isolated from water:</td><td><apex:outputtext value="{!service_sheet.Isolated_from_water__c}" /></td></tr>
+      <tr><td>Access not Clear?</td><td><apex:outputtext value="{!service_sheet.Access_not_Clear__c}" /></td><td><apex:outputtext value="{!service_sheet.ANC_Level_of_Risk__c}" /></td><td>Clear access before start:</td><td><apex:outputtext value="{!service_sheet.Clear_access_before_start__c}" /></td></tr>
+      <tr><td>Lighting Inadequate?</td><td><apex:outputtext value="{!service_sheet.Lighting_Inadequate__c}" /></td><td><apex:outputtext value="{!service_sheet.LI_Level_of_Risk__c}" /></td><td>Natural Light/Extra Light:</td><td><apex:outputtext value="{!service_sheet.Natural_Light_Extra_Light__c}" /></td></tr>
+      <tr><td>Electricity Present?</td><td><apex:outputtext value="{!service_sheet.Electricity_Present__c}" /></td><td><apex:outputtext value="{!service_sheet.EP_Level_of_Risk__c}" /></td><td>Tools/leads tagged:</td><td><apex:outputtext value="{!service_sheet.Tools_leads_tagged__c}" /></td></tr>
+      <tr><td>Chemicals in Use</td><td><apex:outputtext value="{!service_sheet.Gases_Vapours_etc__c}" /></td><td><apex:outputtext value="{!service_sheet.GV_Level_of_Risk__c}" /></td><td>MSDS followed/PPE on:</td><td><apex:outputtext value="{!service_sheet.MSDS_followed_PPE_on__c}" /></td></tr>
+      <tr><td>Gases, Vapours, etc.?</td><td><apex:outputtext value="{!service_sheet.Chemicals_in_Use__c}" /></td><td><apex:outputtext value="{!service_sheet.CU_Level_of_Risk__c}" /></td><td>Complete Confined Spaces Permit:</td><td><apex:outputtext value="{!service_sheet.Complete_Confined_Spaces_Permit__c}" /></td></tr>
+      <tr><td>Other workers Present?</td><td><apex:outputtext value="{!service_sheet.Other_workers_Present__c}" /></td><td><apex:outputtext value="{!service_sheet.OWP_Level_of_Risk__c}" /></td><td>Consult with them:</td><td><apex:outputtext value="{!service_sheet.Consult_with_them__c}" /></td></tr>
+      <tr><td>Other?</td><td><apex:outputtext value="{!service_sheet.wwp_Other__c}" /></td><td><apex:outputtext value="{!service_sheet.O_Level_of_Risk__c}" /></td><td></td><td></td></tr>
+      <tr style="font-weight:bold;"><td colspan="5"><b>(*Level of Risk – High = Very Likely to Occur/Death Result. Med = Likely to Occur/Disability Result. Low = Unlikely/Band Aid)</b></td></tr>
+  </table> -->
+</apex:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beacon_Qty</fullName>
+    <active>false</active>
+    <description>If Beacon Qty filled in, the corresponding drop down must have a relevant value.</description>
+    <errorConditionFormula>AND ( TEXT (  Suction_operation__c   )&lt;&gt;&quot;&quot;,
+
+ TEXT (   FA_Spare_Parts_Beacon__c )= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have filled in a Quantity for Breakglass Callpoint Spare Parts, please fill in the corresponding drop-down field.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FA_Sounder_Test_Completed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Sounder Test Completed?</description>
+    <inlineHelpText>If YOU completed the Sounder Test, then tick this box and fill in the date.</inlineHelpText>
+    <label>Sounder Test Completed?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

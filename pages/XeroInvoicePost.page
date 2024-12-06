@@ -1,0 +1,395 @@
+<!-- =============================================
+*Page Name      : XeroInvoicePost
+*Description    : This page is responsible for posting opportunity(Invoice) to Xero.
+*Company        : Merfantz Technologies Pvt Ltd
+*Date           : 29th Apr, 2020 
+*Version        : 2.0 
+============================================= -->
+<apex:page controller="XeroController" docType="html-5.0" action="{!CheckConnection}">
+ <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css"/>
+
+<!-- Latest compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/i18n/defaults-*.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <script type="text/javascript">          
+              $(document).ready(function() {                
+              $(".inputClass1").select2();              
+            });         
+        </script>
+        
+    <style>
+        #assign-action-spinner-main
+        {
+            position:fixed;
+            left:0;
+            top:0;
+            background-color:#8d8d8d;
+            height:100%;
+            width:100%;
+            opacity:0.6;
+            filter:alpha(opacity=60);
+            z-index:999;
+            align:center;
+            vertical-align:middle;
+        }
+        #assign-action-spinner-content
+        {
+            position:absolute; 
+            top:35%;
+            left:50%;
+            opacity:1.0;
+            filter:alpha(opacity=100);
+            z-index:1000;
+            background-color:#F5FCFF;
+            width:204; 
+            height:94;
+            border-radius:1em;
+            border:1px solid #CEECFF;
+            padding:20px 40px 20px 40px;
+        }
+        #assign-action-spinner-content img
+        {
+            width:32; 
+            height:32; 
+            align:center; 
+            vertical-align: middle;
+        }
+        #assign-action-spinner-content p
+        {
+            display:inline;
+            font-size:135%;
+            font-weight:bold;
+        }
+        
+        .wrapper-dropdown {
+            background-color:#F5FCFF;
+            width:80px; 
+            height:10px;
+            border-radius:1em;
+            border:1px solid #CEECFF;
+            padding:5px;
+         }
+
+        .inputClass{padding:2% 2px 2% 2px;}
+        .xeroAccountdetails{ /*background-color: #ccebff; */font-size:14px; padding:10px; text-align:left; word-wrap:break-word;}
+        .tdCell{background:#fff; border:1px solid #ddd; box-shadow: 1px 1px 2px -2px #ccc; }     
+        .content{text-align:left; color:Grey; font-size:16px;  display:block; font-weight:400;}
+        
+        .block{
+            /*border:1px solid #bee1fa;*/
+            border-radius: 1px;font-size:18px;font-family:arial, helvetica, sans-serif; padding: 11px 11px 11px 11px; text-decoration:none; display:block;  color:#000;
+            /* background-color: #c4efff; background-image: -webkit-gradient(linear, left top, left bottom, from(#c4efff), to(#c3efff));*/
+        }
+        .block:hover{
+             /*border:1px solid #93cdf7;
+             background-color: #c3e3fa; background-image: -webkit-gradient(linear, left top, left bottom, from(#c3e3fa), to(#a5defb));*/
+        }
+        
+        .pageTitle{display:block; margin: 10px 20px 10px 0; text-align:left;  font-size:22px;}
+        .input[type=radio]{
+            font-size:30px;
+        }
+        .subtotal{display: block;font-size: 13px;padding: 5px; font-weight:bold;}
+        .text-right{text-align:right;}
+        
+        .btnBlue{ background: #84A3E0 !important; /* Old browsers */
+            background: -moz-linear-gradient(top, #84A3E0 0%, #3366CC 100%)!important; /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#84A3E0), color-stop(100%,#3366CC))!important; /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #84A3E0 0%,#3366CC 100%)!important; /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #84A3E0 0%,#3366CC 100%) !important; /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #84A3E0 0%,#3366CC 100%) !important; /* IE10+ */
+            background: linear-gradient(to bottom, #84A3E0 0%,#3366CC 100%) !important; /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#84A3E0', endColorstr='#3366CC',GradientType=0 )!important; /* IE6-9 */
+            color:#fff!important; text-shadow:-1px 0 1px #205FCC  !important;border: 1px solid #205FCC!important;font-size: 13px!important;padding: 5px 15px!important;
+          }
+          .dropdown-toggle:focus{outline:thin dotted #333!important;outline:5px auto -webkit-focus-ring-color!important;outline-offset:-2px}
+          .btnGray{background: #ffffff; /* Old browsers */
+                background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* IE10+ */
+                background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                color: #333!important;border: 1px solid #bbb!important;font-size: 13px!important;padding: 5px 15px!important;
+          }
+          
+          .radioLabel{font-size:16px; font-weight:bold; display:block;top: -1px;position: relative;}
+          .btnSect {padding:7px 0 0 17px; border-top:1px solid #ccc; }
+          .inputClass{padding: 2px;border: 1px solid #ccc;min-width: 175px;}
+          .accuontDetailsList {
+                margin: 0;
+                padding:0 0 10px;
+                overflow: hidden;
+            }
+            .accuontDetailsList li {
+                display: block;
+                float: left;
+                list-style: none;
+                padding: 10px 10px 10px 0;
+                font-size: 13px;
+                margin: 0 20px 0 0;
+            }
+            .message .messageText a{ margin : 0px;}
+            .accuontDetailsList li .listTitle{font-size:13px; font-weight:bold; padding-bottom:5px; margin:10px 0; border-bottom:1px solid #ddd;}
+            .bottomSpacing{padding-bottom:30px; padding-top:10px;}
+            td{font-family: Lucida Sans Unicode, arial, helvetica; font-size:13px;}
+            .editPage .bPageBlock {border-top-width: 3px!important;}
+            
+            .vfHelpOrb{
+                background-image:url(/img/help/helpOrbs.gif);
+                background-position:0 0;
+                width:20px;
+                height:15px;                
+            }            
+            .vfHelpButton:hover{position:relative; }
+            .vfHelpButton .vfHelpOrb{background-position:top left}
+            .vfHelpButton:hover .vfHelpOrb{background-position:top right}
+            .vfHelpButton span{display:none;}
+            .vfHelpButton:hover span{text-decoration:none;
+                cursor:default;
+                position:absolute;
+                display:inherit;
+                
+                top:12px;
+                width:15em;
+                z-index:12;
+                background-color:#fefdb9;
+                padding:2px 5px;
+                border:1px solid orange;
+                text-align:left;
+                white-space:normal;
+                font-weight:normal;
+                color:#000
+            }
+            
+            /* MEDIA QUERIES */
+            
+            @media only screen and (max-width: 1050px) {
+              form{padding:0 10px;}
+            }
+            @media only screen and (max-width: 500px) {
+                .inputClass{width:94%; -webkit-box-sizing:border-box; box-sizing:border-box; }
+                .inputClass1{width:40%; -webkit-box-sizing:border-box; box-sizing:border-box; }
+                .bPageBlock .pbTitle{width:100%;}
+                .pageTitle{font-size:20px;}
+                .accuontDetailsList li{float:none;}
+                .accountCreationTable td, .accountCreationTable th{display:block; width:100%!important; padding:0!important; text-align:left!important;}
+                .accountCreationTable td{margin-bottom:10px;}
+                .pbBottomButtons td{display:block;}
+                .btnBlue, .btnGray{padding:5px 10px!important;}
+                // .inputClass{width: 100%; -webkit-box-sizing: border-box;  -moz-box-sizing: border-box;  box-sizing: border-box;  }
+            }
+            
+    </style>
+    </head>
+    
+    <apex:form id="theForm">
+        <apex:actionStatus id="assign-action-status" layout="block">
+            <apex:facet name="start">
+                <div id="assign-action-spinner-main">
+                    <div id="assign-action-spinner-content">
+                        <img src="/img/analytics/reportbuilder/icons/spinner32.gif" alt="Processing..." title="Processing..." />
+                        &nbsp;&nbsp;
+                        <p>Processing...</p>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        
+        <apex:pageMessages ></apex:pageMessages>
+        
+            <apex:outputPanel id="CustomerDetails" >
+               
+                        <apex:pageBlock >
+                        
+                    <table width="60%" class="accuontDetailsList">
+                                    <tr>
+                                        <td style="padding:10px;" width="30%"> 
+                                            <div class="listTitle" style="font-weight:bold !important;">Company Info: 
+                                            <hr/>
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(Acc.Name))}">
+                                            {!Acc.Name}<br/>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(Acc.Shippingcity))}">
+                                            {!Acc.Shippingcity}<br/>
+                                            </apex:outputPanel>      
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(Acc.Shippingstate))}">
+                                            {!Acc.Shippingstate}<br/>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(Acc.Shippingcountry))}">
+                                            {!Acc.Shippingcountry}<br/>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(Acc.ShippingPostalcode))}">
+                                            {!Acc.ShippingPostalcode}<br/>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(Acc.Phone))}">
+                                            {!Acc.Phone}<br/>
+                                            </apex:outputPanel> 
+                                            </div>
+                                        </td>
+                                        </tr>
+                                        </table>
+                                       
+    
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="Post to Xero"  action="{!PostOpportunity}"  styleClass="btnBlue" / >
+                            <apex:commandButton value="Cancel"  action="{!cancel}" onclick="return window.confirm('Are you sure?');" styleClass="btnBlue"/>
+                        </apex:pageBlockButtons>
+                    </apex:pageBlock>
+                </apex:outputPanel>
+                
+                <apex:outputPanel id="newInvoicePanel" >
+                  <table width="100%" class="accuontDetailsList">
+                  <tr>
+                  <td>
+                  <div class="listTitle" style="font-weight:bold !important;">Invoice Details: </div>
+                  <hr/>
+                  </td></tr>
+                  </table>
+                  
+                  <table width="100%" class="accuontDetailsList">
+                  <tr>
+                  </tr>
+                  <tr>
+                  <td><b>Invoice Number : Auto Determined by Xero</b></td>
+                  </tr>
+                  <tr>
+                  <td><b>Invoice Date</b></td>
+                  <td><b>Due Date</b><span class="vfHelpButton">
+                                <img src="/s.gif" class="vfHelpOrb"/>
+                                <span style="font-size:12px; width:250px; top: -20px;">Set the Due Date for post invoice.
+                                </span>
+                            </span></td>
+                  <td><b>Reference</b><span class="vfHelpButton" >
+                                <img src="/s.gif" class="vfHelpOrb"/>
+                                <span style="width: 250px; top: -20px; font-size: 12px; right: 20px;">
+                                    Prepopulate the Opportunity Number
+                                </span>
+                            </span></td>
+                  <td><b>Branding Theme</b><span class="vfHelpButton" >
+                            <img src="/s.gif" class="vfHelpOrb"/>
+                            <span style="width: 350px; top: -20px; font-size: 12px; right: 10px;">
+                                Also known as Invoice Theme, this picklist is controlled in Xero, under General Settings > Invoice Settings.
+                            </span>
+                        </span></td>
+                  <td><b>Amounts Are</b><span class="vfHelpButton" >
+                                <img src="/s.gif" class="vfHelpOrb"/>
+                                <span style="width: 250px; top: -20px; font-size: 12px; right: 20px;">
+                                    Please select whether the amounts should be "Inclusive/Exclusive" of Tax.
+                                </span>
+                            </span>
+                  </td>
+                  </tr>
+                  <tr>
+                  <td><apex:inputField value="{!Oppty.Invoice_Date__c}" id="InvoiceId"/></td>
+                  <td><apex:inputField value="{!Oppty.Due_Date__c}" id="DueId"/></td>
+                  <td><apex:inputField value="{!Oppty.Reference__c}" id="RefId"/>
+                  <td><apex:selectList id="Positions" value="{!positions}" size="1" styleClass="inputClass select2 init" style="width:100%;" html-autocomplete="off" >
+                  <apex:selectOptions value="{!ThemesName}" />
+                  </apex:selectList>
+                  </td>
+                  <td><apex:selectList id="tax" value="{!AmountType}" size="1" styleClass="inputClass select2 init">
+                     <apex:selectOption itemValue="Tax Exclusive" itemLabel="Tax Exclusive"/>     
+                     <apex:selectOption itemValue="Tax Inclusive" itemLabel="Tax Inclusive"/>
+                     <apex:selectOption itemValue="No Tax" itemLabel="No Tax"/>
+                    </apex:selectList></td>
+                  <script>
+                   var RefId= "{!$Component.RefId}";
+                   var InvoiceId= "{!$Component.InvoiceId}";
+                   var DueId= "{!$Component.DueId}";
+                   </script>
+                  </td>
+                  </tr>
+                  </table>
+                </apex:outputPanel> 
+                
+                <apex:outputPanel >
+                
+                <table width="100%" border="">
+                <hr/>
+               
+              <!--  <th><b>Nominal Code</b><hr/></th> -->
+               <th><b>Item</b><hr/></th>
+                <th><b>Product Name</b><hr/></th>
+                 <th><b>Product Code</b><hr/></th>
+              <!--  <th><b>Description</b><hr/></th> -->
+                <th><b>Discount(%)</b><hr/></th>
+                <th><b>VAT</b><hr/></th> 
+                <th><b>Qty</b><hr/></th>
+                <th><b>Unitprice</b><hr/></th>
+                <th><b>TotalPrice</b><hr/></th>
+                <apex:variable var="count" value="{!1}"   />
+                <apex:repeat value="{!OLI}" var="Olidata">
+                  
+                <tr>
+               
+                 <td>{!count}</td>
+                <td><apex:outputText value="{!If(Olidata.SalesDescription__c!=null,Olidata.SalesDescription__c,Olidata.Product2.Name)}" style="white-space:pre-line;" escape="false"/ ><br/>
+                 <apex:outputText rendered="{!AND(Olidata.Show_Description__c,Olidata.Extended_Sales_Description__c!=null)}" VAlue="{!Olidata.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false" / >
+                
+                </td>
+              
+                 <td>{!Olidata.product2.productcode}</td>
+           
+                 <td><apex:inputField value="{!Olidata.Discount}" styleClass="wrapper-dropdown"/></td>
+                 <td>{!Olidata.VAT__c}</td>
+                <td>{!Olidata.Quantity}</td>
+                <td>{!Olidata.Unitprice}</td>
+                <td>{!Olidata.TotalPrice}</td>
+                <apex:variable var="count" value="{!count+1}"   /> 
+                </tr>
+                  
+                </apex:repeat>
+                
+                </table>
+                
+                </apex:outputPanel>
+            
+                <apex:outputPanel >
+               <div class="subTotalDiv">
+               <apex:outputPanel id="subtotalColumn"  styleClass="text-right subtotal">Sub Total:{!Oppty.Amount} </apex:outputPanel>
+               <apex:outputPanel id="taxtotalColumn">
+               <apex:outputPanel styleClass="text-right subtotal">VAT Total:{!Oppty.Total_VAT__c}</apex:outputPanel>
+               </apex:outputPanel>
+                 <hr width= "40%" align="right"/>
+                 <div class="subTotalDiv"><apex:outputPanel id="totalColumn1"  styleClass="text-right subtotal">Total:{!Oppty.Invoice_Total__c} </apex:outputPanel></div><hr style="border-top: 3px double #8c8b8b;width: 40%; " align="right"/>
+                 </div>
+                </apex:outputPanel>
+            
+            <script>
+            function areYouSure(){
+                return Confirm("Are you sure to Cancel?");
+            }
+            </script>
+            
+
+    </apex:form>
+    <script src="/soap/ajax/9.0/connection.js" type="text/javascript"></script>
+    <script>
+       
+       window.onload=function()
+        {
+        var url= window.location.href;
+            var RefNumber='{!$CurrentPage.parameters.00N4E000000rMm4}';
+            var todaydate='{!$CurrentPage.parameters.todate}';
+            var invdate='{!$CurrentPage.parameters.invdate}';
+            if(RefNumber!= ' '){
+                var RefNo=document.getElementById(RefId);
+                RefNo.value= RefNumber;
+            }
+            if(todaydate!=null){
+                var RefNo=document.getElementById(InvoiceId);
+                RefNo.value= invdate;
+                var RefNo=document.getElementById(DueId);
+                RefNo.value= todaydate;
+            }
+        }
+    </script>          
+</apex:page>

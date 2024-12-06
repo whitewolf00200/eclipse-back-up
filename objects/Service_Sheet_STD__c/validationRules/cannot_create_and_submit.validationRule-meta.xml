@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cannot_create_and_submit</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (  ISNEW() ,
+ Fire_Extinguisher_Service_complete__c )</errorConditionFormula>
+    <errorDisplayField>Fire_Extinguisher_Service_complete__c</errorDisplayField>
+    <errorMessage>You cannot create a Sheet and submit it at the same time. Please untick &quot;Submit Service Sheet&quot;, Save and then edit and save.</errorMessage>
+</ValidationRule>

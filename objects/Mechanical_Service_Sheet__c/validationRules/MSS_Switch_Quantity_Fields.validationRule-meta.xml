@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MSS_Switch_Quantity_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK( Switch_Qty__c )), 
+OR(ISBLANK( Switch_Pass__c )), ISBLANK( Switch_Fail__c ))</errorConditionFormula>
+    <errorMessage>Please enter Pass or Fail for Switch Quantity</errorMessage>
+</ValidationRule>

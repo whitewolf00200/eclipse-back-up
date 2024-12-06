@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_30_Days__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(
+&quot;https://ap2.salesforce.com/00O28000001PDNb?pv0=&quot;&amp;   Engineer2__r.Name &amp;&quot;&amp;pv1=&quot;&amp;Engineer2__r.Name, &quot;First Technician&quot; ,&quot;_blank&quot;)
+&amp;BR()&amp;
+
+HYPERLINK(
+&quot;https://ap2.salesforce.com/00O28000001PDNb?pv0=&quot;&amp;   X2nd_Technician__r.Name &amp;&quot;&amp;pv1=&quot;&amp;X2nd_Technician__r.Name, &quot;Second Technician&quot; ,&quot;_blank&quot;)
+&amp;BR()&amp;
+
+HYPERLINK(
+&quot;https://ap2.salesforce.com/00O28000001PDNo?pv0=&quot;&amp;   Engineer2__r.Name  &amp;&quot;&amp;pv1=&quot;&amp;X2nd_Technician__r.Name, &quot;Both&quot; ,&quot;_blank&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Shows the Technician for the week before and week after the Actual Service Date</inlineHelpText>
+    <label>Next 30 Days</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

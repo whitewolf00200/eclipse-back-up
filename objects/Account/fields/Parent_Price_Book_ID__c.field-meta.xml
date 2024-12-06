@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Price_Book_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>Parent.Price_Book_Indicator__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This indicates that there is a price book indicator at the master level for this customer, which indicates the default price book for this site. This can be over-ridden at the site level if the Price Book ID field is populated.</inlineHelpText>
+    <label>Customer Price Book ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

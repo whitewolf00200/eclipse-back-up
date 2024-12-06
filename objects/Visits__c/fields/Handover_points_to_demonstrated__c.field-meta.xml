@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Handover_points_to_demonstrated__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((ISPICKVAL(Visit_Type__c ,&apos;Installation&apos;) &amp;&amp; (ISPICKVAL(Service_Type__c,&apos;Treatment Centre&apos;))),
+&quot;- Solids filter&quot;&amp;BR()&amp;&quot;- Chair movements and memory positions&quot;&amp;BR()&amp;&quot;- Headrest movements&quot;&amp;BR()&amp;&quot;- Armrest movement&quot;&amp;BR()&amp;&quot;- Cleaning instructions&quot;&amp;BR()&amp;&quot;- Ambidextrous chair change round&quot;&amp;BR()&amp;&quot;- Lamp settings&quot;&amp;BR()&amp;&quot;- Handpieces water controls&quot;&amp;BR()&amp;&quot;- Electric motor control&quot;&amp;BR()&amp;&quot;- 3 in 1 tips compatible&quot;,
+IF((ISPICKVAL(Visit_Type__c ,&apos;Installation&apos;)&amp;&amp;(ISPICKVAL(Service_Type__c,&apos;Air Compressor&apos;))),&quot;- How to drain and how often&quot;&amp;BR()&amp;&quot;- Condensate bottle&quot;&amp;BR()&amp;&quot;- Overload reset button&quot;,
+IF((ISPICKVAL(Visit_Type__c ,&apos;Installation&apos;)&amp;&amp; (ISPICKVAL(Service_Type__c,&apos;Suction Pump&apos;))),&quot;- Suction filter&quot;&amp;BR()&amp;&quot;- Amalgam alarm&quot;&amp;BR()&amp;&quot;- Amalgam pot cleaning&quot;&amp;BR()&amp;&quot;(only required if machine alarms)&quot;,
+IF((ISPICKVAL(Visit_Type__c ,&apos;Installation&apos;)&amp;&amp;(ISPICKVAL(Service_Type__c,&apos;X-Ray&apos;))),&quot;Control panel settings&quot;,&apos;&apos;))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Handover points to demonstrate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

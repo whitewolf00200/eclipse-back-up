@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Rescheduling</fullName>
+    <active>false</active>
+    <description>If the visit rescheduling field is changed, this rule makes it mandatory to put a Visit Rescheduling Reason in.</description>
+    <errorConditionFormula>AND ( ISCHANGED (  Visit_Rescheduling__c ), (PRIORVALUE(Visit_Rescheduling__c )!=&quot;&quot; ),Visit_Reschedule_Reason__c = &quot;&quot; )</errorConditionFormula>
+    <errorDisplayField>Visit_Reschedule_Reason__c</errorDisplayField>
+    <errorMessage>Please enter a reason why you changed the Visit Rescheduling field, as this should be left blank in normal circumstances.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MSS_Fusible_Quantity_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK( Fusible_Links_Qty__c )), 
+OR(ISBLANK( Fusible_Links_Pass__c )), ISBLANK( Fusible_Links_Fail__c ))</errorConditionFormula>
+    <errorMessage>Please enter Pass or Fail for Fusible Links Quantity</errorMessage>
+</ValidationRule>

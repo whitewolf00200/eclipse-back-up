@@ -1,0 +1,42 @@
+.THIS .fax .glyphicon{
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    
+}
+.THIS .fax .glyphicon-chevron-left{    
+	transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);    
+}
+.THIS .fax .glyphicon-chevron-right{
+    transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg); 
+}
+.THIS .fc-event{
+ 	background-color: #0d70a5;  
+    height:50px;
+    
+}
+.THIS.fc-view::-webkit-scrollbar {
+        width: 2px;
+}
+.THIS.fc-view::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        }
+.THIS.fc-view::-webkit-scrollbar-thumb {
+        background: #888; 
+        }
+.THIS.fc-view::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+        }
+.THIS.hover-end{
+    padding:0;
+    margin:0;
+    font-size:75%;
+    text-align:center;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    opacity:.8
+}

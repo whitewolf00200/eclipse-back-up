@@ -1,0 +1,277 @@
+<apex:page standardcontroller="Mechanical_Service_Sheet__c" extensions="MechCertificatePreviewController" renderAs="pdf" showheader="false" sidebar="false"  applyHtmlTag="false">
+<head>
+    <style>
+    body {
+    background-color:#CCC;
+    color:#333;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+    }
+
+    h1,
+    h2,
+    hr {
+    background-color:#00B050;
+    color:#FFF;
+    font-family:Verdana,Arial, Helvetica, sans-serif;
+    font-size:20px;
+    }
+    h1 {
+    font-size:20px;
+    line-height:20px;
+    min-height:20px;
+    padding:10px;
+    text-align:center;
+    }
+    h2 {
+    width:650px;
+    padding:5px;
+    font-size:14px;
+    line-height:14px;
+    }
+    p {
+    font-size:13px;
+    line-height:15px;
+    margin:0 0 7px;
+    }
+    p strong {
+    font-weight:bold;
+    }
+    hr {
+    height:25px;
+    margin:0 0 5px;
+    padding:0;
+    }
+    #logo {
+    width:280px;
+    height:100px;
+    margin:10px auto;
+    }
+
+
+    table {
+    
+    font-size:13px;
+    border:0px;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+    }
+    td {
+   
+    text-align:left;
+    border:1px solid #FFF;
+    vertical-align:top;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+    width:30%;
+
+    }
+    th{
+    background-color:#00B050 !important;
+    color:#FFF;
+    font-family:Verdana,Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+    }
+    th.tth{
+    background-color:#00B050 !important;
+    color:#FFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:18px;
+    font-weight:bold;
+    }
+    
+    td.tt{
+    background-color:#00B050;
+    color:#FFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    }
+    img{
+    width:200px;
+    }
+
+  
+    </style>
+</head>
+<div id="container">
+    <h1 style="text-align:center;background-color:00B050;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:21px;"><br/>Riser Inspection Certificate Of Maintenance<br/><br/></h1>
+    <div style="text-align: center;width:300;height:300;" id="logo">       
+        <img style="width:300px;" src="https://c.eu6.content.force.com/servlet/servlet.FileDownload?file=01558000000MUFm"/>
+    </div>
+    <p style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:21px;">Registered Address: Eclipse Dental Care, 27 Branch Road, Batley, West Yorkshire WF17 5SB <br/>
+    </p>
+    <div style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">Tel: 01924 473396 / 01924 472183
+    Email: <a href="reception@eclipsedentalcare.co.uk">reception@eclipsedentalcare.co.uk</a>
+    </div>
+    <p id="nav"></p>
+    <div style="text-align:center;background-color:#CCC;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+            <tbody>
+                <tr>
+                    <th width="11%"><label for="date">Date</label></th>
+                    <th width="11%"><label for="order">Order No.</label></th>
+                    <th width="11%"><label for="order">Technician</label></th>
+                     <th width="11%"><label for="number">Number</label></th>
+                    
+                </tr>
+                <tr>
+                    <td>{!DAY(Mechanical_Service_Sheet__c.Date__c)}/{!MONTH(Mechanical_Service_Sheet__c.Date__c)}/{!YEAR(Mechanical_Service_Sheet__c.Date__c)}</td>
+                    <td>{!Mechanical_Service_Sheet__c.PO_Number_on_Certificate__c}</td>
+                    <td>{!Mechanical_Service_Sheet__c.Engineer_Code__c}</td>
+                    <td>{!Mechanical_Service_Sheet__c.Name}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+            <tbody>
+                <tr>
+                    <th width="22%">
+                        <label for="service_address">Service At:</label>
+                    </th>
+                    
+              </tr>
+              <tr>
+                    <td rowspan="3"><apex:outputtext value="{!Mechanical_Service_Sheet__c.Service_At__c}" escape="false"/></td>
+                    
+              </tr>
+            </tbody>
+        </table>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;" >
+            <tbody>
+                <tr>
+                    <th colspan="6">SERVICING OF RISER INCLUDING TESTS AND PARTS LISTED</th>
+                </tr>
+            </tbody>
+        </table>
+         
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%; border-bottom: transparent;border-right: transparent;transparent;border-left:transparent;  ">
+       
+        <tr><td style="font-family:Verdana, Arial, Helvetica, sans-serif;width:70%; border-right: transparent;border-bottom: transparent;">
+        <table> 
+         <tr><td style="font-size:60%;height:30px;border-right: transparent; border-bottom: transparent;"><b>System Type</b></td><td style="font-size:60%;height:20px"><b>Qty</b></td><td style="font-size:60%;height:20px"><b>Visit Type</b></td><td style="font-size:60%;height:20px"><b>Inlet Locations</b></td><td style="font-size:60%;height:20px"><b>Type</b></td><td style="font-size:60%;height:20px"><b>Cabinet</b></td><td style="font-size:60%;height:20px"><b>Static Pressure (Bar)</b></td><td style="font-size:60%;width:10px;height:20px"><b>Time (Mins)</b></td><td style="font-size:60%;height:20px"><b>Final Pressure (Bar)</b></td><td style="font-size:60%;width:10px;height:20px"><b>Pipework</b></td><td style="font-size:60%;height:20px"><b>Pass</b></td><td style="font-size:60%;height:10px"><b>Fail</b></td></tr>
+            <apex:repeat value="{!SystemDetails}" var="sd">
+                <tr style="page-break-inside: avoid !important;"><td style="font-size:60%; height:30px">{!sd.systemType}</td><td style="font-size:60%;  height:0px">{!sd.quantity}</td><td style="font-size:60%;height:30px">{!sd.visitType}</td><td style="font-size:60%;height:30px">{!sd.inletLocations}</td><td style="font-size:60%;height:30px">{!sd.type}</td><td style="font-size:60%;height:30px">{!sd.cabinet}</td><td style="font-size:60%;height:30px">{!sd.StaticPressure}</td><td style="font-size:60%;height:30px">{!sd.Times}</td><td style="font-size:60%;height:30px">{!sd.FinalPressure}</td><td style="font-size:60%;height:30px">{!sd.Pipework}</td><td style="font-size:60%;height:20px"><apex:image width="10px" height="10px" value="{!$Resource.checkbox}" rendered="{!sd.pass}"/></td><td style="font-size:60%;height:20px"><apex:image width="10px" height="10px" value="{!$Resource.checkbox}" rendered="{!sd.fail}"/></td></tr>
+            </apex:repeat>
+        
+        </table>
+        <table>
+                 <tr><td style="border-right: transparent; border-bottom: transparent;"><b>Outlet Locations</b></td><td style="font-size:60%;height:20px"><b>LCI</b></td><td style="font-size:60%;height:20px"><b>SEAL</b></td><td style="font-size:60%;height:20px"><b>WHEEL</b></td><td style="font-size:60%;height:20px"><b>SIGN</b></td><td style="font-size:60%;height:20px"><b>VALVE</b></td><td style="font-size:60%;height:20px"><b>PRESSURE(Bar)</b></td><td style="font-size:60%;height:20px"><b>P</b></td><td style="font-size:60%;height:20px"><b>F</b></td></tr>  <apex:repeat value="{!OutletLocations}" var="ol">
+                    <tr style="page-break-inside: avoid !important;"><td style="font-size:60%;height:20px">{!ol.outletLocation}</td><td style="font-size:60%;height:20px">{!ol.selectedlci}</td><td style="font-size:60%;height:20px">{!ol.selectedseal}</td><td style="font-size:60%;height:20px">{!ol.selectedwheel}</td><td style="font-size:60%;height:20px">{!ol.selectedsign}</td><td style="font-size:60%;height:20px">{!ol.selectedvalve}</td><td style="font-size:60%;height:20px">{!ol.Pressure}</td><td style="font-size:60%;height:20px"><apex:image width="10px" height="10px" value="{!$Resource.checkbox}" rendered="{!ol.pass}"/></td><td style="font-size:60%;height:20px"><apex:image width="10px" height="10px" value="{!$Resource.checkbox}" rendered="{!ol.fail}"/></td></tr>
+                </apex:repeat>
+            </table>
+        
+        </td>
+        
+        <td style="font-family:Verdana, Arial, Helvetica, sans-serif;border-right: transparent; border-left: transparent;  " >
+        <table>
+        <tr>
+                <td style="width=65%"><b>Spare Parts</b></td><td><b>Qty</b></td></tr>
+            <tr align="right">
+                <td style="font-size:60%;">Valve Sealing Units</td>
+                <td style="font-size:60%;">{!floor(Mechanical_Service_Sheet__c.Valve_Sealing_Units_64mm_Qty__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">LCI Leather Strap</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.RS_LCI_Leather_Strap__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Brass LCI Padlock</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.RS_Brass_LCI_Padlock__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Outlet Valve Blank Dust Cap</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Outlet_Valve_Blank_Dust_Cap_Qty__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Inlet Valve Blank Dust Cap</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Inlet_Valve_Blank_Dust_Cap_Qty__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Dust Cap Fixing Chain</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Dust_Cap_Fixing_Chain_Qty__c)}</td>
+            </tr>
+            <tr>
+                    <td style="font-size:60%;">Outlet Sign BS5499</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Outlet_Sign_BS5499_Qty__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Inlet Sign BS5499</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Inlet_Sign_BS5499_Qty__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Drain Valve Sign BS5499</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Drain_Valve_Sign_BS5499_Qty__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Air Release Valve Std.</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Air_Release_Valve_Std_Qty__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Georgian Wired Glass</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Georgian_Wired_Glass_Qty__c)}</td>
+            </tr>
+            <tr>
+                <td style="font-size:60%;">Glazing Seal &amp; Channel</td>
+                <td style="font-size:60%;height:20px">{!floor(Mechanical_Service_Sheet__c.Glazing_Seal_Channel_Qty__c)}</td>
+            </tr>
+           
+            
+       </table>
+        </td></tr>
+       
+        
+      
+         </table>
+           
+       
+            
+            <!--
+            <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:15%;float:left">
+                <tr><td style="font-size:60%;height:20px;width:100%" colspan="2"><div align="center"><b>Static Pressure</b></div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="right">{!Mechanical_Service_Sheet__c.Static_Pressure__c} Bar</div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="center"><b>TIME</b></div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="right">{!Mechanical_Service_Sheet__c.Time__c} Mins</div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="center"><b>Final Pressure</b></div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="right">{!Mechanical_Service_Sheet__c.Final_Pressure__c} Bar</div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="center"><b>Pipework</b></div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="right">{!Mechanical_Service_Sheet__c.Pipework__c}</div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="center"><b>Result</b></div></td></tr>
+                <tr><td style="font-size:60%;height:20px"><div align="center"><apex:image style="height:20px;width:30px" value="{!$Resource.Pass}" rendered="{!pass}" /><apex:outputText rendered="{!(!pass)}">PASS</apex:outputText></div></td><td style="font-size:60%;height:20px"><div align="center"><apex:image style="height:20px;width:40px" value="{!$Resource.Fail}" rendered="{!(!pass)}" /><apex:outputText rendered="{!pass}">FAIL</apex:outputText></div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="center"><b>Engineers</b></div></td></tr>
+                <tr><td style="font-size:60%;height:20px" colspan="2"><div align="center">{!Mechanical_Service_Sheet__c.Technician__r.Name}</div></td></tr>
+            </table>
+            -->
+            <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+                <tr><td style="width:100%;font-size:60%;"><b>COMMENTS</b></td></tr>
+                <tr><td style="font-size:60%;">Comments to Customer : {!Mechanical_Service_Sheet__c.Comments__c}</td></tr>
+                <tr><td style="font-size:60%;">Comments to Hentland Sales : {!Mechanical_Service_Sheet__c.Sales_Recommendations__c}</td></tr>
+            </table>    
+            <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:right">
+            <tr>
+                <td style="width:50%;font-size:60%;"><b>TECHNICIAN SIGNATURE</b></td>
+                <td style="width:50%;font-size:60%;"><b>CUSTOMER SIGNATURE</b></td>
+            </tr>
+            <tr>
+                <td style="width:50%;font-size:60%;height:30px">
+                    <apex:outputText value="{!Mechanical_Service_Sheet__c.Engineer_s_Signature__c}" escape="false"/>
+                </td>
+                <td style="width:50%;font-size:60%;height:40px">
+                    <div style="width:10px;height:40px">
+                        <apex:outputText value="{!Mechanical_Service_Sheet__c.Customer_s_Signature__c}" escape="false">
+                        </apex:outputText>
+                    </div>
+                </td>
+            </tr>
+            <tr><td style="width:50%;font-size:60%;height:20px"><b>PRINT:</b>{!Mechanical_Service_Sheet__c.Engineer_s_Print__c}</td><td style="width:50%;font-size:60%;height:20px"><b>PRINT:</b>{!Mechanical_Service_Sheet__c.Customer_s_Print__c}</td></tr>
+            
+            </table>
+        
+    </div>
+</div>
+</apex:page>

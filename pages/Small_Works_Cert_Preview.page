@@ -1,0 +1,223 @@
+<apex:page standardcontroller="Small_Works__c" showheader="false" sidebar="false" renderas="pdf" applyHtmlTag="false">
+<head>
+<style>
+body {
+background-color:#CCC;
+color:#333;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:21px;
+}
+
+h1,
+h2,
+hr {
+background-color:#00B050;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+}
+h1 {
+font-size:20px;
+line-height:20px;
+min-height:20px;
+padding:10px;
+text-align:center;
+}
+h2 {
+width:650px;
+padding:5px;
+font-size:14px;
+line-height:14px;
+}
+p {
+font-size:13px;
+line-height:21px;
+margin:0 0 7px;
+}
+p strong {
+font-weight:bold;
+}
+hr {
+height:25px;
+margin:0 0 5px;
+padding:0;
+}
+#logo {
+width:280px;
+height:100px;
+margin:10px auto;
+}
+
+
+table {
+width:660px;
+font-size:13px;
+border:0;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+border-spacing: 0;
+}
+td {
+padding:2px;
+text-align:left;
+border:1px solid #FFF;
+vertical-align:top;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+}
+th{
+background-color:#00B050 !important;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+line-height:21px;
+}
+th.tth{
+background-color:#00B050 !important;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:21px;
+font-weight:bold;
+}
+td.tt{
+background-color:#00B050;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+img{
+width:50px;
+}
+
+  </style>
+  </head>
+<p  style="text-align:center;background-color:#00B050;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:25px;line-height:26px;"><br/>Small Works Sheet<br/>
+</p>
+<div style="text-align: center;width:30;height:30;" id="logo">       
+<img style="width:90px;height:100px;" src="https://c.eu6.content.force.com/servlet/servlet.FileDownload?file=01558000000MUFm"/>
+ </div>
+<p style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:21px;">Registered Address: Eclipse Dental Care, 27 Branch Road, Batley, West Yorkshire WF17 5SB <br/>
+    </p>
+    <div style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">Tel: 01924 473396 / 01924 472183
+    Email: <a href="reception@eclipsedentalcare.co.uk">reception@eclipsedentalcare.co.uk</a>
+</div>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr>
+        <th class="tth" width="14%">Start Time</th>
+       <th  class="tth"   width="14%">End Time</th>
+        <th  class="tth"   width="14%">Travel Time</th>
+        <th  class="tth"   width="14%" >Out of Hours</th>
+        <th   class="tth"  width="14%" >Order Number</th>
+         <th  class="tth"   width="14%">Technician</th>
+         <th  class="tth"   width="14%">Number</th>
+      </tr>
+</table>
+  <table  style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr>
+       <td width="14%"><apex:outputfield value="{!Small_Works__c.Arrive__c}"/></td>
+       <td width="14%"><apex:outputfield value="{!Small_Works__c.Depart__c}"/></td>
+       <td width="14%"><apex:outputtext escape="false" value="{!Small_Works__c.Travel_Time__c}"/></td>
+   <td width="14%">{!Small_Works__c.Out_of_Hours__c}</td>
+        <td width="14%">{!Small_Works__c.Order_No__c}</td>
+        <td width="14%">{!Small_Works__c.Technician_Id__c}</td>
+        <td width="14%">{!Small_Works__c.Name}</td>
+      </tr>
+
+  </table> 
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th class="tth"  width="50%">Site</th>
+        <th class="tth"  width="50%"></th>
+       </tr>
+            <tr>
+        <td><apex:outputtext escape="false" value="{!Small_Works__c.Site_Address__c}"/></td>
+        <td>{!Small_Works__c.Invoice_To__c}</td>
+        </tr>
+
+    </tbody>
+  </table>
+  
+
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th  class="tth" width="100%">Visit Details / Comments</th>
+       </tr>
+            <tr>
+        <td>{!Small_Works__c.Site_Visit_Details_Comments__c}</td>
+         </tr>
+
+    </tbody>
+  </table>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th class="tth"  width="20%">System Type</th>
+        <th class="tth"  width="20%">Visit No.</th>
+        <th class="tth"  width="20%">Re-Visit Required?</th>
+        <th class="tth"  width="20%">Sales Quote Required?</th>
+        <th class="tth"  width="20%">Site Contract No.</th>
+       </tr>
+            <tr>
+       <td >{!Small_Works__c.System_Type__c}</td>
+        <td>{!Small_Works__c.Visit__r.Name}</td>
+        <td>{!Small_Works__c.Re_Visit_Required__c}</td>
+        <td>{!Small_Works__c.Sales_Quote_Required__c}</td>
+        <td>{!Small_Works__c.Site_Contract__r.Name}</td>
+        </tr>
+
+    </tbody>
+  </table>
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th  class="tth" width="100%">Parts Used and Quantities</th>
+       </tr>
+            <tr>
+        <td>{!Small_Works__c.Parts_Used_and_Quantity__c}</td>
+         </tr>
+
+    </tbody>
+  </table>
+     <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th class="tth"  width="100%">Comments to Sales</th>
+       </tr>
+            <tr>
+        <td>{!Small_Works__c.Comments_to_Sales__c}</td>
+         </tr>
+
+    </tbody>
+  </table>
+
+ <br/>
+ 
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:300px">
+    <tbody>
+     <tr>
+        <td width="150px">Technician's signature</td><td width="150px">Customer's signature</td>
+              </tr>
+     <tr>
+        <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Small_Works__c.Technician_s_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/>
+        </span>
+        </td>
+     <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Small_Works__c.Customer_s_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/>
+        </span>
+        </td>
+         </tr>
+     <tr>
+         <td width="150px">
+        <apex:outputText value="{!Small_Works__c.Technician_s_Print__c}" escape="false"/>
+        </td>
+   <td width="150px">
+        <apex:outputText value="{!Small_Works__c.Customer_s_Name__c}" escape="false"/>
+        </td>
+          </tr>
+      </tbody>
+</table>
+</apex:page>

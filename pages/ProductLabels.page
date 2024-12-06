@@ -1,0 +1,71 @@
+<apex:page controller="QRCodeProductController" showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false" docType="html-5.0" sidebar="false"  contentType="{! renderedContentType }" renderAs="{! renderingService }">
+    
+    <html>
+    <head>
+        <style type="text/css">
+          @page { margin: 0.25in; size: 12in 4in; }
+        
+}
+        </style>
+    </head>
+        <apex:form id="FormId">
+            <apex:outputPanel rendered="{!AND(ProdLIST.size>0,First)}"> 
+                <center>
+                    <h1><p style="font-size:30px">{!ProdName}</p></h1>
+                    <apex:pageBlock >
+                        <table>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Label Qty</th>
+                            </tr>
+                            <apex:repeat value="{!ProdLIST}" var="POLI">
+                                <tr>
+                                    <td><apex:outputText >{!POLI.PrdouctName}</apex:outputText> </td>
+                                    <td><apex:input value="{!PordLabelQty}" />
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                            
+                        </table>
+                        <apex:commandLink action="{! saveToPdf }" value="Generate to PDF">
+                            <apex:param assignTo="{! renderedFileName }" value="{!ProdName}.pdf"/>
+                        </apex:commandLink> &nbsp;&nbsp;&nbsp;
+                         <apex:commandLink action="{!Cancel}" value="Cancel">
+                        </apex:commandLink>
+                        </apex:pageBlock>
+                </center>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!Second}"> 
+            
+                <center>
+                    <h1><p style="font-size:30px">{!ProdName}</p></h1>
+                    <apex:pageBlock >
+                            <apex:repeat value="{!ProdWrapperList}" var="POLI">
+                           
+                                    <apex:outputpanel >
+                                        
+                                        <table class="tables" align="center" Style=" page-break-inside:always; align:center; font-size: 38px;border-collapse: collapse" width="100%" cellpadding="0" border="3px solid;">
+                                            
+                                            <tr style="page-break-inside:avoid; page-break-after:always;height:100%">
+                                                <td width="31%" style="padding-top:0px;" align="center"> <apex:image width="90%" height="auto" value="{!POLI.URL}" rendered="{!NOT(ISBLANK(POLI.ProductCode))}" /></td>
+                                                <td width="38%" >
+                                                       
+                                                    <table  class="tables" Style=" border-collapse: collapse" cellpadding="0" width="100%" border="2" >
+                                                        <tr   width="100%" ><td colspan="2" style="font-family: sans-serif;border-bottom: 2px;border-right:none;border-left:none; border-top: 0px;"  align="center" width="100%" >{!POLI.PrdouctName}</td></tr>
+                                                        <tr style="" width="100%" ><td colspan="2" style="font-family: sans-serif;border-bottom: 2px ;border-right:none; border-left:none;" align="center" width="100%"> {!POLI.SupplierCode}</td></tr>
+                                                        <tr style="" width="100%" ><td style="font-family: sans-serif;border-right:none; border-bottom: 0px ; border-left:none;"  width="100%"><font style="{!if(len(POLI.ProductCode)>30,'font-size:15px','font-size:50px')}">{!POLI.ProductCode}</font></td>
+                                                            <td style="font-family: sans-serif ;border-left:0px;border-bottom: 0px ;border-right:none;"  width="100%">{!POLI.minstock}/{!POLI.maxstock}</td>
+                                                        </tr></table>    
+                                                </td>
+                                                <td width="31%" style=""  align="center"><apex:image width="90%" height="auto" url="{!$Resource.Eclipse_Dental_Purple_Logo}"/></td>
+                                            </tr>                                               
+                                        </table>    </apex:outputpanel>
+
+                            </apex:repeat>
+                    </apex:pageBlock>
+                </center>
+            </apex:outputPanel>
+            
+        </apex:form>
+        </html>
+</apex:page>

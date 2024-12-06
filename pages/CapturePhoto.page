@@ -1,0 +1,105 @@
+<apex:page standardController="Engineer_Checklist__c" extensions="CameraAccess" standardStylesheets="false" showHeader="false" docType="html-5.0">
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQueryPackageReport, 'package/media/js/jquery-1.11.1.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.jQueryPackageReport, 'package/media/js/bootstrap-filestyle.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.jQueryPackageReport, 'package/media/js/jquery.blockUI.js')}"/>
+     <apex:includeScript value="{!URLFOR($Resource.jQueryPackageReport, 'package/media/js/bootstrap.min.js')}"/>
+     <apex:stylesheet value="{!URLFOR($Resource.jQueryPackageReport, 'package/media/css/bootstrap.min.css')}"/>
+     
+    <apex:form styleClass="form-horizontal">
+    <apex:pageMessages id="error"></apex:pageMessages>
+           <br/>
+            <div class="form-group col-sm-10">
+                <label for="name"> Enter Atttachment Name:  &nbsp;</label>
+                <apex:inputText value="{!AttachmentName}" id="name" styleClass="form-control" style="width: 250px;"/> <br/>  <br/> 
+                <apex:inputFile value="{!attachmentObj.Body}"  accept="image/*;capture=camera" id="take" />
+                <br/>
+                
+                <div id="preview">
+                    <h4><b>Preview:</b></h4>
+                    <p>
+                        <img src="about:blank" alt="" id="show-picture" width="350" height="450" />
+                    </p>
+                </div>
+                <input type="button" class="form-control btn btn-success btn-md" style="width: 100px;border-radius: 8px; height: 42px;" onclick="checkField(); blockme(); " value="Upload" id="upload" /><br/>
+            <apex:actionFunction name="validateInApex" action="{!saveFile}" status="uuidstatus" />
+            
+            
+        </div>
+        
+<script type="text/javascript">
+  //  var JQ = jQuery.noConflict();
+    
+        $(document).ready(function() {
+            $(":file").filestyle({input: false, icon: false, buttonText: "Capture", badge: false, size: "lg"});   
+               
+        } );
+
+         
+    function checkField() {
+        var val = document.getElementById('{!$Component.name}').value;
+        if (val != null && val != '') {
+            $.blockUI({message: '<img src="{!URLFOR($Resource.ajaxloader)}">'});  
+            validateInApex();
+        }
+        else alert('Please Enter Image Name');
+        return false;
+    }
+
+          document.getElementById("preview").style.visibility = "hidden";
+           document.getElementById("upload").style.visibility = "hidden";
+            (function () {
+    var takePicture = document.getElementById("{!$Component.take}"),
+        showPicture = document.getElementById("show-picture");
+
+    if (takePicture && showPicture) {
+        // Set events
+        takePicture.onchange = function (event) {
+             document.getElementById("preview").style.visibility = "visible";
+             document.getElementById("upload").style.visibility = "visible";
+            // Get a reference to the taken picture or chosen file
+            var files = event.target.files,
+                file;
+            if (files && files.length > 0) {
+                file = files[0];              
+               file2 = files[0];
+                try {
+                    
+                    // Get window.URL object
+                    var URL = window.URL || window.webkitURL;
+
+                    // Create ObjectURL
+                    imgURL = URL.createObjectURL(file);
+
+                    // Set img src to ObjectURL
+                    showPicture.src = imgURL;
+
+                    // Revoke ObjectURL after imagehas loaded
+                    showPicture.onload = function() {
+                        URL.revokeObjectURL(imgURL);  
+                    };
+                }
+                catch (e) {
+                    try {
+                        // Fallback if createObjectURL is not supported
+                        var fileReader = new FileReader();
+                        fileReader.onload = function (event) {
+                            showPicture.src = event.target.result;
+                        };
+                        fileReader.readAsDataURL(file);
+                    }
+                    catch (e) {
+                        // Display error message
+                        var error = document.querySelector("#error");
+                        if (error) {
+                            error.innerHTML = "Neither createObjectURL or FileReader are supported";
+                        }
+                    }
+                }
+            }
+        };
+    }
+})();
+        </script>
+    </apex:form>
+</apex:page>

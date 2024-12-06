@@ -1,0 +1,7 @@
+<apex:page standardController="Engineer_Checklist__c" extensions="Approval">
+    
+    <apex:outputPanel layout="block" style="overflow:auto;height:100px" >
+    <apex:pageMessages />
+    </apex:outputPanel>
+                    
+</apex:page>

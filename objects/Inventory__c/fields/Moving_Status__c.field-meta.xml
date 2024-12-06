@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Moving_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( NOT(ISNULL(Recent_Sold__c) ),
+IF((TODAY()-Recent_Sold__c)&lt;=30,&quot;Active&quot;,
+IF(AND((TODAY()-Recent_Sold__c)&gt;30, (TODAY()-Recent_Sold__c)&lt;=60),&quot;Slow moving&quot;,
+IF(AND((TODAY()-Recent_Sold__c)&gt;60, (TODAY()-Recent_Sold__c)&lt;=120),&quot;Inactive&quot;,&quot;Obsolete&quot;
+)
+)
+),&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Moving Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

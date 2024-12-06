@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delivery_Address__c</fullName>
+    <label>Delivery Address</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Home Address</fullName>
+                <default>false</default>
+                <label>Home Address</label>
+            </value>
+            <value>
+                <fullName>Lockup</fullName>
+                <default>false</default>
+                <label>Lockup</label>
+            </value>
+            <value>
+                <fullName>Office Collection</fullName>
+                <default>false</default>
+                <label>Office Collection</label>
+            </value>
+            <value>
+                <fullName>Site Specific Address</fullName>
+                <default>false</default>
+                <label>Site Specific Address</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

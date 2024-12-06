@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If there is a specific purchase order number for this visit,please put it here.If this is blank,as soon as the visit is edited, the PO(if there is one) from the Site or the Customer will be used.
+If mandatory, yet a P/O is not required, enter a dot (.).</inlineHelpText>
+    <label>Purchase Order</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

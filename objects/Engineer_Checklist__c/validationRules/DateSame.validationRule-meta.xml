@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateSame</fullName>
+    <active>false</active>
+    <errorConditionFormula>Start_Date_and_Time__c   &gt;=   End_Date_and_Time__c</errorConditionFormula>
+    <errorDisplayField>Dead_man_Operation_of_exposure_Switch__c</errorDisplayField>
+    <errorMessage>End Date Time should not be lesser than or equal to Start Date Time</errorMessage>
+</ValidationRule>

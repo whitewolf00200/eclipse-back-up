@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Duration_This_Week</fullName>
+    <availability>online</availability>
+    <description>This link will show visit duration for the Engineer you are looking at.</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Visit Duration This Week</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/00O28000001PDNc?pv0={!Engineer__c.Id}</url>
+</WebLink>

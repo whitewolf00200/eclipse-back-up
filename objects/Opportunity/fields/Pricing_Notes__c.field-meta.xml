@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pricing_Notes__c</fullName>
+    <inlineHelpText>These pricing notes are drawn from the Site Contract relating to the service sheet or Reactive Sheet. This is populated via a workflow.</inlineHelpText>
+    <label>Pricing Notes</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

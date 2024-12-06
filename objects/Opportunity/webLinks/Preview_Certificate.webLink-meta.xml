@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preview_Certificate</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Preview Certificate</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/{!if(not(isnull(Opportunity.Service_Type__c)),CASE(Opportunity.Service_Type__c,
+&apos;Air Compressor Service and Test Report&apos;,&apos;TestAirCertificatePreview&apos;,&apos;Getinge Autoclave&apos;,&apos;Getinge_Autoclave&apos;,&apos;Getinge Washer Disinfector&apos;,
+&apos;Getinge_Washer_Disinfector&apos;,&apos;Mechanical X-Ray Report&apos;,&apos;X_Ray_Report&apos;,
+&apos;Medisafe Washer disinfector service&apos;,&apos;MWD_Certificate_Preview&apos;,
+&apos;Report of Examination&apos;,&apos;Report_Examination_Certificate_Preview&apos;,&apos;Suction Pump Service&apos;,&apos;Suction_Pump_Certificate_Preview&apos;,&apos;Treatment Centre Certificate Of Service&apos;,
+&apos;Treatment_Centre_Certificate&apos;,&apos;Reactive Sheet&apos;,&apos;Service_Call_Page&apos;,&apos;&apos;),&apos;&apos;)}?id={!IF(Opportunity.Service_Sheet__c &lt;&gt; &quot;&quot;, Opportunity.Service_SheetId__c, Opportunity.Reactive_SheetId__c)}</url>
+</WebLink>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Third_Party_Technician__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Please tick this box if the technician works for a third party. Visits attended by a third party are rescheduled but the technician is left blank</inlineHelpText>
+    <label>Third Party Technician</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

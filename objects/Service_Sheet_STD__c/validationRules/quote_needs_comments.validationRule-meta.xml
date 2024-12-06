@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>quote_needs_comments</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (  TEXT(Sales_Quote_Required__c)= &quot;Yes&quot;, 
+ Comments_to_Sales__c = &quot;&quot;)</errorConditionFormula>
+    <errorDisplayField>Comments_to_Sales__c</errorDisplayField>
+    <errorMessage>If you select Yes, please fill in the comments to Sales.</errorMessage>
+</ValidationRule>

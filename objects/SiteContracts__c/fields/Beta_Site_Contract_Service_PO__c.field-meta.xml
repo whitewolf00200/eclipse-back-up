@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beta_Site_Contract_Service_PO__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Beta Service Site Contract PO</description>
+    <inlineHelpText>Beta Service Site Contract PO.
+If mandatory, yet a P/O is not required, enter a dot (.).</inlineHelpText>
+    <label>Beta Site Contract Service PO</label>
+    <referenceTo>PO__c</referenceTo>
+    <relationshipLabel>Site Contracts (Beta Service Site Contract PO)</relationshipLabel>
+    <relationshipName>Site_Contracts2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

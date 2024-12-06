@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site</fullName>
+    <active>true</active>
+    <label>Site</label>
+    <picklistValues>
+        <picklist>AM_Status__c</picklist>
+        <values>
+            <fullName>DORMANT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HOLD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LIVE</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AccountSource</picklist>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google AdWords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchased List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Account_Status__c</picklist>
+        <values>
+            <fullName>Account Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accounts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dormant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Live</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Account_Type_New__c</picklist>
+        <values>
+            <fullName>Competitor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Group__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Customers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lapsed Customers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Customers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Customers</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Status__c</picklist>
+        <values>
+            <fullName>A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cash Sale Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drop In Visit Suggested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ENT Department within</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_type__c</picklist>
+        <values>
+            <fullName>Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MOD%2FBarracks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medical %28inc%2E Hospital w%2Fo dental%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Modx User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NHS Trust Including Community Dental</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Sale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Podiatry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prison</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private Healthcare Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Veterinary Surgeon</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Delivery_Charged_For__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry</picklist>
+        <values>
+            <fullName>Agriculture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apparel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biotechnology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chemicals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Communications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Construction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consulting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electronics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Energy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engineering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertainment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Environmental</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food %26 Beverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Healthcare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospitality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Machinery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not For Profit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recreation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telecommunications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transportation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utilities</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NewStatus__c</picklist>
+        <values>
+            <fullName>Conditional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Failed QC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QC-APPROVED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restricted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Under Evaluation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Offshore__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ownership</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subsidiary</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Purchase_Order_Required__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rating</picklist>
+        <values>
+            <fullName>Cold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Region__c</picklist>
+        <values>
+            <fullName>AL Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BN Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BR Zone B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CT Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central London %28E%2CEC%2CWC%2CW%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA Zone A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EN Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GU Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HA Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HP Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IG Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KT Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LU Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ME Zone B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MK Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NW and N Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OX Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PO Zone E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RG Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RH Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM Zone B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S- Scotland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SL Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SM Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SO Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SS Zone C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Zone C%26D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN Zone B %26 C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TW Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UB Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WD Zone D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WF %28NHS%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Resolved__c</picklist>
+        <values>
+            <fullName>Waiting Customer Confirmation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sale_Initiated__c</picklist>
+        <values>
+            <fullName>Customer enquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Send_Booking_Confirmation_Emails__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Department__c</picklist>
+        <values>
+            <fullName>Error Location</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Middle North</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service North</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Southeast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Southwest</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supplier_Type__c</picklist>
+        <values>
+            <fullName>builder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>enginner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>equipment manufactuer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Dental Laboratory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dental Practice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orthodontic Practice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

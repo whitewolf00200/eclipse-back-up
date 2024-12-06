@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_on_Parent_Site_or_Ctrct__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( Purchase_Order_Number__c &lt;&gt; &quot;&quot;, Purchase_Order_Number__c, 
+IF ( Site__r.Current_Purchase_Order_No__c &lt;&gt; &quot;&quot;,  Site__r.Current_Purchase_Order_No__c ,  Site__r.Parent_Purchase_Order_No__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Purchase Order on Parent, Site or Ctrct</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

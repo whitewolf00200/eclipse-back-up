@@ -1,0 +1,106 @@
+<apex:component access="global">
+<apex:attribute description="sp" name="sp" type="Engineer_Checklist__c"/>
+ <apex:attribute name="Serviceid" type="Id" description="Attribute on the component."/>
+ <body >
+                  <div class="footer" >
+                              
+                <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>    
+
+              </div>
+<div class="footer" >             
+      <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="850px" height="100%" /></td></tr>
+</table>    
+
+              </div>
+                     
+      <table  >
+<tr><td class="a"><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td class="a" width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr> 
+                  <div Style="font-size:14px;margin-top:-30px">  &nbsp; Customer Address:
+                      <tr>
+                       <td  style="border: 100px white;padding-left:8px;"><apex:outputtext value="{!sp.Service_At__c}" escape="false"/></td>
+                       </tr>
+                            </div>
+                      
+                  
+                      <p style="text-align:center;font-size:22px;margin-top:-10px"> <u>Dental Chair Installation Certificate </u></p>
+                      
+                      <br/>
+                     
+                      <table style="align:center">
+                      <tr>
+                      <td class="b"> Equipment Make:</td><td>{!sp.Make__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Equipment Model:</td><td>{!sp.Model__c}</td>
+                      </tr>
+                      <tr>
+                      <td>Serial No:</td><td>{!sp.Serial_No__c}</td>
+                      </tr>
+                      <tr><td>Surgery name/Number: </td>
+                     <td>{!sp.surgery_name__c}</td></tr>
+                     
+                      <tr>
+                      <td> Date of installation:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_of_installation__c}" />
+</apex:outputText>
+</td>
+                      </tr>
+                      
+                     <tr>
+                      <td> Date service due:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_service_due__c}" /></apex:outputText></td>
+                      </tr>
+                          
+                     <tr><td>Lamp operation/stability:  </td>
+                     <td>{!sp.Lamp_Stability__c}</td></tr>
+                     
+                     
+                      <tr><td>Suction operation:  </td> 
+                     <td>{!sp.Suction_operation__c}</td></tr>
+                     
+                      <tr><td>Spittoon operation: </td> 
+                     <td>{!sp.Spittoon_operation__c}</td></tr>
+                     
+                      <tr><td>Movements operation: </td>
+                     <td>{!sp.Movements_operation__c}</td></tr>
+                     
+                      <tr><td>Delivery unit operation/stability: </td>
+                     <td>{!sp.Delivery_unit_operation__c}</td></tr>
+                     
+                      <tr><td>Pressure water regulator set at(Bar): </td>
+                     <td>{!sp.Mains_water_regulator_pressure__c}</td></tr>
+               
+                      <tr><td>Pressure air regulator set at(Bar):</td>
+                     <td>{!sp.Air_supply_regulator_pressure__c}</td></tr>
+                     
+                      <tr><td>Each outlet has sufficient air and water pressure: </td>
+                     <td>{!sp.Outlet_has_sufficient_air_water_pressure__c}</td></tr>
+                     
+                      <tr><td>Users suction tips and 3in1 tips fit:</td>
+                     <td>{!sp.User_suction_tips__c}</td></tr>
+
+                     <tr><td class="b">Equipment labelled: </td>
+                     <td>{!sp.Equipment_labelled__c}</td></tr>
+
+                       <tr><td>Equipment Isolator nearby: 
+
+ </td>
+                     <td>{!sp.Equipment_Isolator_nearby__c}</td></tr>
+                   
+                     <tr><td>Earth Continuity:
+
+ </td>
+ 
+                     <td>{!sp.Earth_Continuity__c}</td></tr>
+
+                    <tr><td>Installed by: </td>
+                     <td>{!sp.Engineer__r.name}</td></tr>
+                   
+                    </table>
+                 </table> 
+            
+                         </body>    
+                         </apex:component>

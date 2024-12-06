@@ -1,0 +1,150 @@
+<!--=========================================================================================================
+    *Page Name      : ProductPriceBookLineItemPage
+    *Description    : To add the custom price book for the products.
+    *Company        : Merfantz Technology
+    *Date           : 23 Nov 2018  
+ ============================================================================================================== -->
+
+<apex:page controller="ProductPBLController" docType="html-5.0"  >
+<script>
+    function Escalate(){
+     window.location.reload();
+    }
+    function checkAll(ele) {
+     var checkboxes= document.getElementsByTagName('input');
+     if (ele.checked) {
+         for (var i = 0; i < checkboxes.length; i++) {
+         
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = true;
+             }
+         }
+     } else {
+         for (var i = 0; i < checkboxes.length; i++) {
+             console.log(i)
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = false;
+             }
+         }
+     }
+     }
+</Script>
+
+<style>
+h1 { 
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+table.gridtable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+    
+}
+table.gridtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: Black;
+    background-color: #ffffff;
+}
+</style>
+
+<apex:form >
+<apex:outputPanel rendered="{!first}" >
+ <h1>Price Book Selection</h1>
+</apex:outputPanel>
+ <apex:pageBlock rendered="{!third}">
+ <center>
+  <p> Custom Prices have already been added for all PriceBook.</p><br/>
+  <apex:commandButton action="{!Cancel}" value="Cancel"/>
+ </center>
+  </apex:pageBlock>
+   <apex:pageBlock rendered="{!four}">
+ <center>
+  <p> Standard Price Book Entry has been empty!. Please add standard Price Book Entry  </p><br/>
+  <apex:commandButton action="{!Cancel}" value="Cancel"/>
+ </center>
+  </apex:pageBlock>
+   <apex:pageBlock title="Find Price Books [{!wrapperList.size}]"  rendered="{!first}">
+      
+       <center>        
+          <apex:commandButton action="{!Selected}" value="Select"/>
+          <apex:commandButton action="{!Cancel}" value="Cancel"/>
+       </center><br/>
+       
+      <table class="gridtable" width="90%">
+        
+        <tr>
+        <th >  <INPUT type="checkbox" onchange="checkAll(this)" name="chk[]" /></th>
+        <th>Price Book Name</th>
+        <th>Description</th>
+        <th>Last Modified Date</th>
+        <th>Active</th>
+         </tr>
+         
+         <apex:repeat value="{!wrapperList}" var="wrapRec" >
+         <tr>
+           <td> <apex:inputcheckbox value="{!wrapRec.selected}"  /> </td>
+               <td> <apex:outputField value="{!wrapRec.sc.Name}" / > </td>
+               <td><apex:outputField value="{!wrapRec.sc.Description}" /></td>
+               <td><apex:outputField value="{!wrapRec.sc.LastModifiedDate}" /></td>
+               <td><apex:outputfield value="{!wrapRec.sc.ISActive}" /></td>
+           
+               </tr>
+             </apex:repeat>
+        </table>
+         </apex:pageblock> 
+         
+  <apex:outputPanel rendered="{!second}">
+     <h1>Add List Price</h1>
+     <p>You need to specify a List Price if you want to add a product to the price book. </p>   
+  </apex:outputPanel>
+  
+    <apex:pageblock rendered="{!second}">
+       
+        <table class="gridtable" width="60%">
+        <tr>
+        <th >  Product</th>
+        <th>Price Book</th>
+        <th>Use Standard Price  </th>
+        <th>List Price  </th>
+        <th>Active</th>
+         </tr>
+         
+         <apex:repeat value="{!selectedList}" var="listRec" >
+         <tr>
+           <td> <apex:outputField value="{!listRec.Product2Id}" / > </td>
+               <td><apex:outputField value="{!listRec.PriceBook2ID}" /></td>
+               <td width="20%">{!listRec.CurrencyIsoCode }&nbsp;{!listRec.UnitPrice}&nbsp;<apex:inputfield value="{!listRec.UseStandardPrice}" required="false"/></td>
+               <td><Apex:inputfield value="{!listRec.UnitPrice}" /> </td>
+               <td width="20"> <apex:inputfield value="{!listRec.Isactive}" required="false" /></td>
+               
+               </tr>
+             </apex:repeat>
+        </table><br/>
+      
+       <center>
+        <apex:commandButton action="{!SaveFun}" value="save"/>
+         <apex:commandButton action="{!SaveMore}" value="save & More" onclick="Escalate()"/>
+        <apex:commandButton action="{!Cancel}" value="Cancel"/>
+        </center>
+    </apex:pageblock>
+ </apex:form> 
+
+</apex:page>

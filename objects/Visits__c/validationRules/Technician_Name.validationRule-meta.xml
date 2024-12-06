@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technician_Name</fullName>
+    <active>false</active>
+    <description>A Visit must have a technician name, unless it is cancelled.
+14/05/14~reenabled~WB.</description>
+    <errorConditionFormula>AND( Engineer2__c =&quot;&quot;,  Cancelled__c = FALSE)</errorConditionFormula>
+    <errorDisplayField>Engineer2__c</errorDisplayField>
+    <errorMessage>You must enter a value in the Technician field, unless this Visit is cancelled.</errorMessage>
+</ValidationRule>

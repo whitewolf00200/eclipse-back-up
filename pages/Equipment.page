@@ -1,0 +1,14 @@
+<apex:page renderAs="pdf">
+    <style>
+</style>
+     <div class="mainContent" style="page-break-after:always;">
+  <div>
+     <table>a table with more or less lines (dynamic)</table>
+  </div>
+  <div class="footer" style="position:fixed; bottom: 0px;">my footer</div>
+</div>
+<div class="lastPage">the last page</div>
+
+
+
+</apex:page>

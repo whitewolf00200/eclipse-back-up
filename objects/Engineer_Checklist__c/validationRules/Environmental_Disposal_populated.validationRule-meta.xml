@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Environmental_Disposal_populated</fullName>
+    <active>false</active>
+    <description>This validation rule ensures that the Environmental Disposal amount is either equal to or greater than the sum of the Service Exchange quantities.</description>
+    <errorConditionFormula>OR(  
+
+AND ( (X2KG_Dry_Pow_Service_Exchange__c + 
+X4KG_Dry_Pow_Service_Exchange__c+ 
+X6KG_Dry_Powder_Service_Exchange__c + 
+X9KG_Dry_Pow_Service_Exchange__c +  
+X3L_Wet_Chem_Service_Exchange__c +
+X6L_Wet_Chem_Service_Exchange__c +
+X1x1_Fire_Blan_Service_Exchange__c+ 
+X12x12_FB_Service_Exchange__c + 
+X12x18_FB_Service_Exchange__c  +   
+Hose_Reel_19_Service_Exchange__c + 
+ALUnit_Service_Exchange__c  +
+X6L_Water_Service_Exchange__c + 
+X9L_Water_Service_Exchange__c  +
+X2L_AFFF_Service_Exchange__c  +
+X3L_Water_Mist_Service_Exchange__c + 
+X3L_AFFF_Service_Exchange__c + 
+X6L_AFFF_Service_Exchange__c+  
+X9L_AFFF_Service_Exchange__c+  
+X2KG_CO2_Service_Exchange__c+ 
+X5KG_CO2_Service_Exchange__c  +
+X1KG_Dry_Pow_Service_Exchange__c + 
+X6L_water_mist_Service_Exchange__c + 
+X9L_water_mist_Service_Exchange__c)  
+&gt; Environmental_Disposal__c, TEXT ( Environmental_Disposal__c) &lt;&gt;&quot; &quot;),
+
+AND ( TEXT(Environmental_Disposal__c) = &quot; &quot;,
+(X2KG_Dry_Pow_Service_Exchange__c + 
+X4KG_Dry_Pow_Service_Exchange__c+ 
+X6KG_Dry_Powder_Service_Exchange__c + 
+X9KG_Dry_Pow_Service_Exchange__c +  
+X3L_Wet_Chem_Service_Exchange__c +
+X6L_Wet_Chem_Service_Exchange__c +
+X1x1_Fire_Blan_Service_Exchange__c+ 
+X12x12_FB_Service_Exchange__c + 
+X12x18_FB_Service_Exchange__c  +   
+Hose_Reel_19_Service_Exchange__c + 
+ALUnit_Service_Exchange__c  +
+X6L_Water_Service_Exchange__c + 
+X9L_Water_Service_Exchange__c  +
+X2L_AFFF_Service_Exchange__c  +
+X3L_Water_Mist_Service_Exchange__c + 
+X3L_AFFF_Service_Exchange__c + 
+X6L_AFFF_Service_Exchange__c+  
+X9L_AFFF_Service_Exchange__c+  
+X2KG_CO2_Service_Exchange__c+ 
+X5KG_CO2_Service_Exchange__c  +
+X1KG_Dry_Pow_Service_Exchange__c + 
+X6L_water_mist_Service_Exchange__c + 
+X9L_water_mist_Service_Exchange__c)  &gt; 0)
+
+)</errorConditionFormula>
+    <errorMessage>Your Environmental Disposal quantity can not be less than the sum of your Service Exchanges.</errorMessage>
+</ValidationRule>

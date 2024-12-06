@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maintenance_Sheet</fullName>
+    <active>false</active>
+    <label>Maintenance Sheet</label>
+    <picklistValues>
+        <picklist>Account_Group__c</picklist>
+        <values>
+            <fullName>Aster Property</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bourne Leisure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C%2E Brewer %26 Sons</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Police and Crime Commissioner for West Mercia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West Midlands Ambulance Service NHS FoundationTrust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wilko Retail Ltd</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Additional_EL_Tube__c</picklist>
+        <values>
+            <fullName>2D Lamp%2FBiax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 Watt Tube rep%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6 Watt Tube rep%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8 Watt Tube rep%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Additional_Emergency_Lights__c</picklist>
+        <values>
+            <fullName>16w 2D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>28w 2D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>28w 2D c%2Fw P%2Fc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>38w 2D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8w Bulkhead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exit Box</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twinspot Beam</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Additional_Nicad_Hi_Temp_Cells_X__c</picklist>
+        <values>
+            <fullName>1 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>All_parts_used_noted_above__c</picklist>
+        <values>
+            <fullName>-</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Base__c</picklist>
+        <values>
+            <fullName>Detector Base</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diode Base</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Close_Visit__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Dental_CRM_bridge_with_imaging_software__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>See Note</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Each_outlet_has_sufficient_air_water__c</picklist>
+        <values>
+            <fullName>N%2Fa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>See note</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>FA_Breakglass_Callpoint__c</picklist>
+        <values>
+            <fullName>ADT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo S65</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo XP95</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autronica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hochiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Menvier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nittan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notifier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rafiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systemsensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ziton</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>FA_Electronic_Sounder__c</picklist>
+        <values>
+            <fullName>ADT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo S65</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo XP95</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autronica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hochiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Menvier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nittan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notifier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rafiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systemsensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ziton</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>FA_Heat_Detector__c</picklist>
+        <values>
+            <fullName>ADT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo S65</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo XP95</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autronica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hochiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Menvier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nittan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notifier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rafiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systemsensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ziton</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>FA_Heat_Sounder__c</picklist>
+        <values>
+            <fullName>ADT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo S65</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo XP95</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autronica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hochiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Menvier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nittan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notifier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rafiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systemsensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ziton</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>FA_IA_SLA__c</picklist>
+        <values>
+            <fullName>12v 1%2E2Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 12Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 17Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 2%2E1Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 2%2E8Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 24Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 3%2E2Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 7Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6v 10Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>FA_Smoke_Detector__c</picklist>
+        <values>
+            <fullName>ADT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo S65</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo XP95</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autronica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hochiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Menvier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nittan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notifier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rafiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systemsensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ziton</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>FA_Spare_Parts_Beacon__c</picklist>
+        <values>
+            <fullName>ADT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo S65</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo XP95</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autronica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hochiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Menvier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nittan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notifier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rafiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systemsensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ziton</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>FA_Spare_Parts_Emergency_Lights__c</picklist>
+        <values>
+            <fullName>16w 2D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>28w 2D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>28w 2D c%2Fw P%2Fc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>38w 2D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8w Bulkhead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exit Box</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twinspot Beam</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Levels_correct__c</picklist>
+        <values>
+            <fullName>N%2Fa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>See note</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Machine_installed_and_connected_to_netwo__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>See Note</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Maintenance_Type__c</picklist>
+        <values>
+            <fullName>Fire Door</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nurse Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portable Appliance Testing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Smoke Vent %2F Curtain</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Nicad_Hi_Temp_CellsX__c</picklist>
+        <values>
+            <fullName>1 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5 cell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Out_of_Hours__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PIRsp_Qty__c</picklist>
+        <values>
+            <fullName>Range Up To 100m</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Range above 100m</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Re_Visit_Required__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SLA_Batterysp__c</picklist>
+        <values>
+            <fullName>12v 1%2E2Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 12Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 17Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 2%2E1Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 2%2E8Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 24Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 3%2E2Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12v 7Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6v 10Ah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sales_Quote_Required__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Shielding_sufficient__c</picklist>
+        <values>
+            <fullName>N%2Fa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>See note</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Smoke_Sounder__c</picklist>
+        <values>
+            <fullName>ADT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo S65</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apollo XP95</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autronica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hochiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Menvier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nittan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notifier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rafiki</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Systemsensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ziton</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Suction_operation__c</picklist>
+        <values>
+            <fullName>N%2Fa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>See note</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>System_Type__c</picklist>
+        <values>
+            <fullName>Access Control</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CCTV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dry Riser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Emergency Lighting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fire Alarm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fire Door</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fire Extinguisher</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fire Suppression</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hydrant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intruder Alarm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nurse Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Smoke Vent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sprinkler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vesda</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X4_6_8W_Tube__c</picklist>
+        <values>
+            <fullName>2D Lamp%2FBiax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 Watt Tube rep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6 Watt Tube rep%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8 Watt Tube rep%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

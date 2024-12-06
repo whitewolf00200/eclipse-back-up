@@ -1,0 +1,216 @@
+<apex:page standardController="Warehouse__c" tabStyle="Warehouse__c" extensions="TrasferPartsController" docType="html-5.0" cache="false">
+  <style>
+.fyi{
+  color:red;
+  font-style:italic;
+}
+
+.pbSubheader{
+   background-color:#0033CC;
+}  
+            
+</style>
+
+<apex:form id="frm" >                
+   <script>
+      var waitTime = 1;
+      var countDown = waitTime+1;
+      var started = false;
+
+      function resetTimer(){
+        countDown=waitTime+1;
+         if(started==false){
+            started=true;
+            runCountDown();
+          }
+        }
+        
+      function runCountDown(){
+         countDown--;
+            
+        if(countDown<=0){
+           fetchResults();
+           started=false;
+        }
+        else{
+          window.setTimeout(runCountDown,1000);
+        }
+      }
+      
+      function resetTimer1(){
+        countDown=waitTime+1;
+         if(started==false){
+            started=true;
+            runCountDown1();
+          }
+        }
+        
+      function runCountDown1(){
+         countDown--;
+            
+        if(countDown<=0){
+           CheckQty();
+           started=false;
+        }
+        else{
+          window.setTimeout(runCountDown1,500);
+        }
+      }
+   </script>
+<apex:pageMessages />
+    <apex:pageBlock id="seleectWH">    
+       <apex:commandButton value="Back" action="{!cancel}" immediate="true"/>
+       
+       <apex:pageBlockSection >
+          <apex:pageblockSectionItem >
+             <apex:outputText >Select Transfer Type</apex:outputText>
+             <apex:actionRegion >
+             <apex:selectList label="Select Transfer Type" value="{!selectedPicValue}" multiselect="false" size="1">
+             <apex:actionSupport event="onchange" action="{!TransferTypeChange}" reRender="frm"/>
+             <apex:selectOption itemValue="-None-" itemLabel="-None-"/>
+             <apex:selectOption itemValue="Warehouse to Warehouse" itemLabel="Warehouse to Warehouse" />
+             <apex:selectOption itemValue="Warehouse to Vehicle" itemLabel="Warehouse to Vehicle"/>
+             <apex:selectOption itemValue="Vehicle to Warehouse" itemLabel="Vehicle to Warehouse"/>
+             </apex:selectList> </apex:actionRegion>        
+          </apex:pageblockSectionItem>       
+       </apex:pageBlockSection>
+       
+       <apex:pageblockSection >
+          <font><apex:facet name="header">
+          <span style="color:white">External Transfer Orders</span>
+          </apex:facet>     
+          </font>                                            
+          <apex:outputtext label="From Warehouse" value="{!$CurrentPage.parameters.name}"></apex:outputtext>
+          <apex:outputtext rendered="{!!transTypeWH}"></apex:outputtext>
+           
+         <!-- <apex:inputField id="selWhId" onchange="whName('{!inv.Warehouse__c}')" label="Destination Warehouse" rendered="{!transTypeWH}" value="{!inv.Warehouse__c}"   >  -->
+         
+         <apex:inputField id="selWhId" onchange="whName('{!inv.Warehouse__c}')" label="Destination Warehouse" rendered="{!transTypeWH}" value="{!inv.Warehouse__c}" required="false">
+        
+              <apex:actionSupport event="onchange" reRender="frm" action="{!warehouse}"/>
+          </apex:inputfield>  
+      
+          <apex:inputTextarea label="Reason" value="{!ChngReason}" rendered="{!OR(transTypeWH,transTypeVH)}"/> 
+          <apex:input type="date" label="Transfer Date" disabled="true" value="{!transferDate}" /> 
+       </apex:pageblockSection>
+                     
+    </apex:pageBlock>
+    
+    <apex:pageBlock id="invPrd" rendered="{!OR(transTypeWH,transTypeVH)}">
+        <apex:pageBlockButtons >
+           <apex:commandButton value="Save" action="{!SaveInv}"/>
+        </apex:pageBlockButtons>
+    
+    <apex:pageBlockTable value="{!wrapInvList}" var="invs" id="Pb1">
+         <!--<apex:column headerValue="Remove" >
+         <apex:commandLink value="Remove" action="{!unselect}" />
+         </apex:column>-->
+       
+         <apex:column headerValue="Product" value="{!invs.PrdName}"/>
+         <apex:column headerValue="Recived Quantity" value="{!invs.AvailQty}"/>
+         <apex:column headerValue="Quantity to Transfer" >
+              <apex:actionRegion ><apex:inputtext value="{!invs.Qty}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer1();}">
+              <apex:actionSupport event="onchange" reRender="invPrd" action="{!InvQtyChange}">
+                                    <apex:param name="qtyPrd" value="{!invs.PrdName}"/>
+                                    <apex:param name="val2" value="{!invs.PrdId}" assignTo="{!ChkPrdid}"/>
+                                </apex:actionSupport>
+              <!--<apex:actionSupport event="onchange" reRender="Pb1" action="{!InvQtyChange}">
+              <apex:param name="qtyPrd" value="{!invs.PrdId}"/>
+              </apex:actionSupport>-->
+              </apex:inputtext></apex:actionRegion>
+              </apex:column>
+              
+              <apex:column >
+              <apex:pageblockTable value="{!invs.Swrp}" var="PrdSer" id="sn">
+            <apex:column headerValue="Serial Number"> 
+          <apex:actionRegion >
+            
+           <apex:inputText list="{!PrdSer.Items}" value="{!PrdSer.SelVals}" html-autocomplete="off" rendered="{!invs.Qty>0}"> 
+               <apex:actionSupport event="onchange" reRender="sn"/>
+           </apex:inputtext>
+           </apex:actionRegion>
+           </apex:column>
+        </apex:pageblockTable> 
+        </apex:column>
+        
+              <apex:column >
+                <apex:pageBlockTable value="{!invs.tranList}" var="tran">
+                        
+                          <apex:column headerValue="Destination Vehicle" rendered="{!transTypeVH}">
+                        <apex:actionRegion >
+                              <apex:inputField value="{!tran.VehicleNo.Vehicle__c}" >
+                                   <apex:actionSupport event="onchange" reRender="tran"/>
+                              </apex:inputField>
+                        </apex:actionRegion>
+                          </apex:column>
+                      </apex:pageBlockTable>
+              </apex:column>
+    </apex:pageBlockTable> 
+    </apex:pageBlock>
+    
+    
+     <apex:pageBlock id="VehPrd" rendered="{!transTypeHV}">
+              <apex:pageBlockButtons >
+                  <apex:commandButton value="Save" action="{!SaveInv}"/>
+              </apex:pageBlockButtons>
+              <apex:pageblockTable value="{!VehicleParts}" var="Veh">
+                        <apex:column headerValue="Product Name" value="{!Veh.PrdName}"/>
+                        <apex:column headerValue="Serial Number" value="{!Veh.serialName}"/> 
+                        <apex:column headerValue="Vehicle Number" value="{!Veh.VehSid}"/> 
+                        <apex:column headerValue="Destination Warehouse"> 
+                        <apex:inputField value="{!Veh.DestinationWh.Warehouse__c}"/>
+                        </apex:column>  
+                       <!-- <apex:column headerValue="Status"> 
+                        <apex:inputField value="{!Veh.prdStatus.Transaction_Type__c}"/>
+                        </apex:column>  -->
+                        
+                        <apex:column headerValue="Status"> 
+                        <apex:outputLabel >Received</apex:outputLabel>
+                        <apex:inputcheckbox value="{!Veh.prdStatus}" selected="true"/>
+                        </apex:column>  
+                                            
+                    </apex:pageblockTable>
+              </apex:pageBlock>
+              
+              
+              
+    <apex:pageBlock id="refreshPrd" rendered="{!OR(transTypeWH,transTypeVH)}">
+        <apex:pageblockSection columns="1"> 
+             <font><apex:facet name="header">
+             <span style="color:white">Select Products</span>
+             </apex:facet>     
+             </font>         
+           <apex:pageBlockSectionItem >
+             <apex:outputPanel styleClass="search">
+             Search for Inventory Products:
+             </apex:outputPanel>
+            
+             <apex:actionRegion renderRegionOnly="false" immediate="true">
+             <apex:actionFunction name="fetchResults" action="{!Invslists}" reRender="refreshPrd" status="searchStatus"/>
+             <apex:inputText value="{!searchString}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer();}" style="width:300px"/>
+             &nbsp;&nbsp;
+             <i>
+             <apex:actionStatus id="searchStatus" startText="searching..." stopText=""/>
+             </i>
+             </apex:actionRegion>
+           </apex:pageBlockSectionItem> 
+                     
+       <apex:pageblockTable value="{!Invslist}" var="inv" id="reftab">
+             <apex:column value="{!inv.Product__r.name}"/>                        
+             <apex:column >
+                 <apex:actionRegion >
+                 <apex:commandButton value="Select" reRender="invPrd,refreshPrd" action="{!selctedInvs}">
+                 <apex:param name="selInv"  value="{!inv.id}"/>
+                 </apex:commandButton></apex:actionRegion>
+             </apex:column>
+       </apex:pageblockTable>
+      
+     </apex:pageblockSection>     
+                
+   </apex:pageBlock>
+   
+   <apex:actionFunction name="CheckQty" action="{!InvQtyChange}" reRender="frm"/>
+                 
+</apex:form>
+
+</apex:page>

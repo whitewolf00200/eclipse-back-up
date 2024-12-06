@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Name_IsEmpty</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISCHANGED(AccountId),
+    ISBLANK(AccountId)
+)</errorConditionFormula>
+    <errorMessage>Please Enter the Account Name!</errorMessage>
+</ValidationRule>

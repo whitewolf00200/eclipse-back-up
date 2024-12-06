@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Prices__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&apos;/&apos;&amp; IF ( Price_Book__c &lt;&gt; &quot;&quot;, Price_Book__c, Price_Book_IdFormula__c ), &quot;Open Price Book&quot; )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Check Prices</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

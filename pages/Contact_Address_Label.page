@@ -1,0 +1,35 @@
+<apex:page standardController="Contact" contentType="application/msword#AddressLabel.doc" extensions="Redirect" >
+
+
+<head>
+<script type="text/javascript">
+(function(){
+   setTimeout(function(){
+     window.location="http://brightwaay.com/";
+   },3000); /* 1000 = 1 second*/
+})();
+</script>
+
+<style type="text/css" media="print">
+    @page{
+        size:A4 portrait;
+        margin-left: 2cm;
+        margin-right: 2.5cm;
+        margin-top: 3cm;
+        margin-bottom: 3cm;
+    }
+</style>
+</head>
+<body style="font-family:Verdana;font-size:11pt;">
+<p>
+<b>{!Contact.name}</b> <br/>
+
+<apex:outputText rendered="{!if(Contact.MailingStreet=='',false,true)}"> {!Contact.MailingStreet } <br/></apex:outputText> 
+<apex:outputText rendered="{!if(Contact.MailingCity=='',false,true)}"> {!Contact.MailingCity} <br/></apex:outputText>
+<apex:outputText rendered="{!if(Contact.MailingState=='',false,true)}"> {!Contact.MailingState} <br/></apex:outputText>
+<apex:outputText rendered="{!if(Contact.MailingPostalCode=='',false,true)}"> {!Contact.MailingPostalCode}<br/></apex:outputText>
+<apex:outputText rendered="{!if(Contact.MailingCountry=='',false,true)}"> {!Contact.MailingCountry} <br/></apex:outputText>
+
+</p>
+</body>
+</apex:page>

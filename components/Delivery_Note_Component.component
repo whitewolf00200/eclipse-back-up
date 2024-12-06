@@ -1,0 +1,142 @@
+<apex:component access="global" rendered="true">
+  <apex:attribute description="DelNote" name="delno"  type="Delivery_Note__c"/>
+  
+<!-- <apex:stylesheet value="{!$Resource.BasicProposalCss}"/> -->
+<body class="start">
+ <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>  
+               <br /> <br /> <br /> <br /> <br /> 
+               <div class="footer"> 
+                <!-- <p style="border-top: 1px solid #038B99;" ><span style="color:#038B99;text-align:left"><b >Guaranteed solutions....</b> </span><br/> 
+                 {!$Label.Company_Name} | Westview Court |10-14 Kent Road | Dartford | Kent | DA1 2AJ |
+                 Tel: 01322 293333 | Email: info@eclipse-dental.com<br/>
+                 Vat No: GB 714315367 | Company Registration No.12402632 Registered at above address
+                 </p>   -->
+     <table width="100%" height="100%" >
+    <tr> <td width="100%" height="100%"><img src="{!$Resource.footernew}" height="100%" width="800px" style="padding-bottom:0px;" /></td></tr>
+</table>
+               </div> 
+ 
+               <table width="100%"  >
+               <tr><td colspan="3" style="font-size:14pt;"><b>Delivery Note</b></td></tr>
+               <tr><td>&nbsp;</td></tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%">For the attention of :&nbsp;{!delno.Site__r.Name}</td>
+                   <td width="30%">&nbsp;</td>
+               </tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%" style="vertical-align:top;"><apex:outputtext value="{!IF(delno.Opportunity__r.Delivery_Address__c!=null,delno.Opportunity__r.Delivery_Address__c,delno.Opportunity__r.Invoice_Address__c)}" escape="false"  />
+                       <br/><br/>Delivery Address:<br/><apex:outputtext value="{!IF(delno.Delivery_Address__c!=null,delno.Delivery_Address__c,delno.Opportunity__r.Site_Address__c)}" escape="false" style="white-space:pre-line;"/>
+                   </td>
+                   <td width="45%">
+                       <table align="left" style="vertical-align:top;" border="">
+                           <tr>
+                               <td>Delivery Note No:</td>
+                               <td style="font-size:16px;">{!delno.Name}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Customer Order No.:</td>
+                               <td>{!delno.Customer_Order_No__c}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Delivery Date:</td>
+                               <td>{!DAY(DATEVALUE(delno.CreatedDate))}/{!MONTH(DATEVALUE(delno.CreatedDate))}/{!YEAR(DATEVALUE(delno.CreatedDate))}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Eclipse Order No:</td>
+                               <td><apex:outputtext value="{!If(delno.Sales_Order__r.name!=null,delno.Sales_Order__r.name,delno.Opportunity__r.Opportunity_Number_new__c)}"/></td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Account No.</td>
+                               <td><apex:outputtext value="{!If(delno.Site__r.parent.SAGE_Code__c!=null,delno.Site__r.parent.SAGE_Code__c,delno.Account_Number__c)}"/></td>
+                           </tr>
+                       </table>       
+                   </td>
+               </tr>
+               </table>
+               <br/>
+               <apex:outputPanel >
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" >
+                    <tr style="background-color:#6A2774;color:white;font-size:14px;">
+                      <td align="left" width ="4%"><b>Item</b></td>     
+                     <td align="left" width ="50%"><b>&nbsp;Product</b></td>
+                     <td align="left" width ="26%"><b>Serial Number</b></td>
+                     <td align="center" width ="8%"><b>Qty</b></td>
+                     <td align="center" width ="12%"><b>Unit</b></td>
+                    </tr>
+                </table>      
+                </apex:outputPanel>
+                <apex:outputPanel >
+                <table border="" width="100%">
+                 <apex:variable value="{!1}" var="rowNum"/>
+                    <apex:repeat value="{!delno.Delivery_Note_Line_Items__r}" var="line">
+                           
+                            
+                           
+                              <tr>
+                              <td align="left" width="4%" style="vertical-align:top;">{!rowNum}</td>
+                              <td align="left" width="50%" style="vertical-align:top;"><apex:outputText value="{!If(line.Sales_Description__c!=null,line.Sales_Description__c,line.Product__r.Name)}"/><br/>
+                              <apex:outputText rendered="{!AND(line.Show_Description__c,line.Extended_Sales_Description__c!=null)}" VAlue="{!line.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false" / >
+                              </td>
+                              <td align="left" width="26%" style="vertical-align:top;"><apex:outputText value="{!line.Sl_Number__c}" /></td>
+                              <td align="center" width="8%" style="vertical-align:top;"><apex:outputText value="{!FLOOR(line.Qty__c)}" /></td>
+                              <td align="center" width="12%" style="vertical-align:top;"><apex:outputText value="{!line.Product__r.Stock_Unit__c}" /></td>
+                              </tr>
+                               <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                    </apex:repeat> 
+                    </table>
+                   </apex:outputPanel>
+                   <br/><br/>
+                   <p>Goods/Services above have been received in good Working order.<br/>Any Damages, Missing items or Faults must be repaired within 24 hours of delivery.</p>
+                   <!--<br/><br/>
+                   <div>
+                   <table Width="40%" align="left">
+                  <tr>
+                      <td width="30%" style="font-size:14px;">Customer Signature:</td>
+                  </tr>
+                  <tr>
+                      <td width="50%" height="50" style = "border: 1px solid black;background-color:white;">
+                      <apex:outputText value="" escape="false"/>
+                      </td>
+                  </tr> 
+                  <tr>
+                      <td width="30%" style="font-size:14px;">Technician Signature:</td>
+                  </tr>
+                  <tr>
+                      <td width="50%" height="50" style = "border: 1px solid black;background-color:white;">
+                      <apex:outputText value="" escape="false"/>
+                      </td>
+                  </tr> 
+                </table> 
+                <table Width="40%" align="right">
+                    <tr>
+                      <td width="30%" style="font-size:14px;">Notes / Recommendations:</td>
+                    </tr>
+                    <tr>
+                      <td width="45%"  HEIGHT="120" style="border: 1px solid black;vertical-align:text-top;background-color:white;"></td>
+                    </tr>
+                 </table>
+                 </div>-->
+                   
+</body>
+</apex:component>

@@ -1,0 +1,19 @@
+<apex:page standardController="Task" >
+<html>
+<body>
+
+ <script>
+ function fun(){
+ console.log('123');
+ return alert('Are you sure?');
+ 
+ }
+  </script>
+  </body>
+</html>
+
+
+    
+  
+
+</apex:page>

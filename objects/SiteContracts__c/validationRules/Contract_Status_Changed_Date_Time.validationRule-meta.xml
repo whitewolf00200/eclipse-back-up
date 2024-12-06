@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Status_Changed_Date_Time</fullName>
+    <active>true</active>
+    <description>If Contract Status Changed This Field Has To Mandatory To Save The Record</description>
+    <errorConditionFormula>ISCHANGED( AM_Status__c ) &amp;&amp;   ISBLANK( Contract_Status_Change_Date_Time__c )</errorConditionFormula>
+    <errorMessage>Please Fill Contract Status Change Date/Time Field</errorMessage>
+</ValidationRule>

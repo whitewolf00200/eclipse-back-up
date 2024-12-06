@@ -1,0 +1,27 @@
+<apex:page Standardcontroller="Config__c">
+    <apex:tabPanel >
+        <apex:tab label="Template" name="Template" id="tab1">
+          
+            <br/><apex:form >
+                    <apex:pageblock > 
+                    <apex:pageblocksection columns="1" collapsible="false"> 
+               <apex:inputtext value="{!Config__c.Header__c}" />
+                 <apex:inputtext value="{!Config__c.Footer_Line_1__c}"/>
+                 <apex:inputtext value="{!Config__c.Footer_Line_2__c}"/>
+                <apex:inputtext value="{!Config__c.Background_Colour__c}"/>
+                <apex:inputtext value="{!Config__c.Product_Table_Colour__c}" />
+                    </apex:pageblocksection>
+                      
+                    <apex:pageBlockButtons ><apex:commandButton value="SAVE" action="{!save}"/>
+                    <apex:commandButton value="quick save" action="{!quicksave}"/></apex:pageBlockButtons>
+                    
+                   <apex:pageblocksection title="data in db" columns="1" collapsible="false">
+                    <apex:outputText value="{!Config__c.Header__c}">  </apex:outputText>
+                    <apex:outputText value="{!Config__c.Footer_Line_1__c}"></apex:outputText>
+                    <apex:outputText value="{!Config__c.Footer_Line_2__c}"></apex:outputText>
+                     <apex:outputText value="{!Config__c.Background_Colour__c}"></apex:outputText>
+                      <apex:outputText value="{!Config__c.Product_Table_Colour__c}"></apex:outputText></apex:pageblocksection></apex:pageblock>
+                 </apex:form> 
+        </apex:tab>
+    </apex:tabPanel>
+</apex:page>

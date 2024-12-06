@@ -1,0 +1,203 @@
+<apex:component access="global" rendered="true" controller="ServiceReportPreviosSheet">
+  <apex:attribute description="Service SheetId" name="SSId"  type="Id" assignTo="{!Sheetid}"/>
+  <apex:attribute description="Sheets" name="Sheets"  type="Service_Sheet_STD__c"/>
+  
+<body class="start">
+<div class="footer">
+<!--<table  border="" width="100%">
+        <tr>
+          <td width="50%" style="font-size:17px;color:#038B99;vertical-align:text-bottom;">Guaranteed solutions....</td>
+        
+          <td width="50%" align="right" style="color:#038B99;">
+                      Westview Court 10-14 Kent Road<br/>
+                    
+                      Dartford Kent DA1 2AJ<br/>
+                    
+                      Tel: 01322 293333<br />
+                      service@eclipse-dental.com<br />  
+                      www.eclipse-dental.com  
+          </td>
+       </tr>
+</table>-->
+          <table  width="100%" height="90%" >
+    <tr> <td><img src="{!$Resource.footernew}" width="800px" height="90%"/></td></tr>
+</table>     
+    
+</div>
+              <table >
+   <tr><td  ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40" title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>  
+               <br /> <br /> <br /> <br /> <br /> 
+               <table width="100%" style="margin-top:-100px" >
+               <tr><td colspan="3" style="font-size:16pt;"><b>Service Call</b></td></tr>
+               <tr><td></td></tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%"><b >Customer Address:</b></td>
+                   <td width="45%">&nbsp;</td>
+               </tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%" style="vertical-align:top;"><apex:outputtext value="{!Sheets.Site_Address__c}" escape="false"/></td>
+                   <td width="45%">
+                       <table align="left" style="vertical-align:top;"  >
+                           <tr>
+                               <td width="40%"><b>Service Call:</b></td>
+                               <td style="font-size:15px;"><b>{!Sheets.Name}</b></td>
+                           </tr>
+                           
+                           <tr>
+                               <td><b>Service Call Date:</b></td>
+                               <td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}" >
+                                   <apex:param value="{!Sheets.Order_Date__c}"/>
+                                   </apex:outputText></td>
+                           </tr>
+                           <tr>
+                               <td><b>Customer Contact:</b></td>
+                               <td>{!Sheets.Customer_Contact__c}</td>
+                           </tr>
+                           <tr>
+                               <td><b>Customer Order No:</b></td>
+                               <td>{!Sheets.Order_No__c}</td>
+                           </tr>
+                           <tr>
+                               <td><b>Customer Telephone:</b></td>
+                               <td>{!Sheets.Phone__c}</td>
+                           </tr>
+                       </table>       
+                   </td>
+               </tr>
+               </table>
+               <table width="80%" >
+                   <tr>
+                       <td width="15%"><b>Make:</b></td>
+                       <td width="65%">{!Sheets.Make__c}</td>    
+                   </tr>
+                   <tr>
+                       <td width="15%"><b>Model:</b></td>
+                       <td width="65%">{!Sheets.Model__c}</td>   
+                   </tr>
+                   <tr>
+                       <td width="15%"><b>Serial Number:</b></td>
+                       <td width="65%">{!Sheets.Serial_Number__c}</td>
+                   </tr>
+                   <tr>
+                       <td width="15%"><b>Location:</b></td>
+                       <td width="65%">{!Sheets.Locationn__c}</td>
+                   </tr>
+                   <tr>
+                       <td width="15%"><b>Reason For Visit:</b></td>
+                       <td width="65%">{!Sheets.Reason_For_Visit__c}</td>
+                   </tr>
+                   <tr>
+                       <td width="15%" style="vertical-align:text-top;"><b>Call Notes:</b></td>
+                       <td width="65%" height="" style="border: 1px solid black;vertical-align:text-top;"><apex:outputText value="{!Sheets.Visit__r.Primary_Reported_Fault_Type__c}"/> </td>
+                   </tr>
+                   
+                <!--   <tr>
+                       <td width="15%" style="vertical-align:text-top;"><b>Call Notes-Internal:</b></td>
+                       <td width="65%"><apex:outputText value="{!Sheets.Visit__r.Primary_Actual_Fault_Type__c}"/> </td>
+                   </tr> -->
+               </table>
+               <br/>
+                <apex:outputPanel rendered="{!OR(!hcopy,Sheets.Comments_to_service__c!='')}">
+               <table width="100%">
+                   <tr style="background-color:#48164d;color:white;font-size:14px;">
+                       <td>Engineers Report</td>
+                   </tr>
+                   <tr>
+                       <td height="100" style="border: 1px solid black;vertical-align:text-top;"> <apex:outputText value="{!Sheets.Comments_to_service__c}" escape="false"/> </td>
+                   </tr>    
+               </table>
+               </apex:outputPanel>
+              <apex:outputPanel rendered="{!AND(hcopy,Sheets.Comments_to_service__c=='')}">
+               <table width="100%">
+                   <tr style="background-color:#48164d;color:white;font-size:14px;">
+                       <td>Engineers Report</td>
+                   </tr>
+                   <tr>
+                       <td><br/> <br/><hr/><br/><hr/><br/><hr/> </td>
+                   </tr>    
+               </table>
+               </apex:outputPanel>
+               <br/>
+                <table width="100%" style="background-color:#48164d;color:white;font-size:14px;border-collapse:collapse;">
+                    <tr>       
+                    <!-- <td align="left" width ="20%"><b>Product Code</b></td>  -->
+                   <!-- <td align="left" width ="40%"></td> -->
+                     <td align="center" colspan="2"><b>Required Parts</b></td>
+                     <td align="center" colspan="2"><b>Requested For Next Visit</b></td>
+                    </tr>
+                    <tr>       
+                 <!--   <td align="left" width ="20%"></td> -->
+                     <td text-align="center" width ="40%"><b>Parts Used </b></td>
+                     <td text-align="center" width ="10%"><b>Qty</b></td>                     
+                     <td text-align="center" width ="40%"><b>Parts Used </b></td>
+                     <td text-align="center" width ="10%"><b>Qty</b></td>
+                    </tr>
+                </table>
+                <table width="100%">
+                
+                 <apex:repeat value="{!ResPrd}" var="SheetPrd">
+                     <tr>
+                   <!--  <td align="left" width ="20%">{!IF(SheetPrd.prdCode!=null,SheetPrd.prdCode,SheetPrd.Name)}</td> -->
+                    <td align="left" width ="40%"><apex:outputText value="{!IF(SheetPrd.Descrip!=null,SheetPrd.Descrip,IF(SheetPrd.PrdDesc!=null,SheetPrd.PrdDesc,SheetPrd.Name))}" escape="false" />  </td> 
+                     <td align="center" width ="10%">{!SheetPrd.qty}</td>
+                     <td align="left" width ="40%">{!IF(SheetPrd.NextPrd!=null,SheetPrd.NextPrd,SheetPrd.NxtName)}</td>
+                     <td align="center" width ="10%">{!SheetPrd.NextQty}</td>
+                    </tr>  
+                    </apex:repeat> 
+                </table>     
+                <br/> 
+               <!-- <apex:outputText rendered="{!hcopy}"><br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>     </apex:outputText> -->
+               <apex:outputText rendered="{!hcopy}"><br/><hr/><br/><hr/><br/><hr/><br/><hr/><br/><hr/><br/><hr/><br/><hr/> </apex:outputText>
+                <table width="100%" border="">
+                    <tr>
+                    
+                       <!-- <td >Start Travel Time:</td>
+                        <td style="border-bottom:solid 1pt;padding:0px 30px;"><apex:outputText value="{0,date,dd'/'MM'/'yyyy HH:mm }" >
+                                   <apex:param value="{!Sheets.Depart__c}"/></apex:outputText></td>
+                    
+                        <td >End Travel Time:</td>
+                        <td style="border-bottom:solid 1pt;padding:0px 30px;"><apex:outputText value="{0,date,dd'/'MM'/'yyyy HH:mm }" >
+                                   <apex:param value="{!Sheets.Arrive__c}"/></apex:outputText></td> -->
+                        <td width="20%" >Job Time (Hours):</td>
+                        <td  width="20%"  style="border-bottom:solid 1pt;padding:0px 30px;">
+                                   {!Sheets.Job_Time_Hours__c}
+                                  </td>
+                         
+                        <td width="20%" >Date:</td>
+                        <td  width="20%"  style="border-bottom:solid 1pt;padding:0px 30px;"><apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                                   <apex:param value="{!Sheets.Order_Date__c}"/>
+                                   </apex:outputText></td>
+                    </tr>
+                </table>
+                <br/>
+                <table width="100%" style="page-break-inside:avoid" >
+                    <tr>
+                        <td width="20%">Customer Signature:</td>
+                        <td width="40%" ><apex:outputtext value="{!substitute(Sheets.Customer_s_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/></td>
+                        <td width="20%">Name:</td>
+                        <td width="20%" ><apex:outputText value="{!Sheets.Customer_s_Name__c}" escape="false"/></td>
+                        
+                    </tr>
+                    <tr>
+                         <td width="20%">Engineer Signature:</td>
+                         <td width="40%" >
+                           <apex:outputPanel rendered="{!Sign}">
+                              <img alt="Image Not Found" src="{!TechSign}" style="height:70px;max-width:100%;"/>            
+                           </apex:outputPanel> 
+                         </td>
+                        <td width="20%">Engineer Name:</td>
+                        <td width="20%"><apex:outputText value="{!Sheets.Technician__r.Name}" escape="false"/></td>
+                    </tr>
+                
+                    
+                    <tr>
+                        <td colspan="4">By signing this form you agree to our terms and conditions of service.</td>
+                    </tr>
+                    
+                </table>
+</body>
+</apex:component>

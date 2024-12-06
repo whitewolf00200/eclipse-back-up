@@ -1,0 +1,199 @@
+<apex:page standardController="SFDC_Purchase_Order__c" extensions="Purchase_Order_Controller" showheader="false" sidebar="false" renderAs="pdf" applyHtmlTag="false">
+<head>
+<style>
+ @page {
+ @top-center {
+
+      content: element(header);
+
+   }
+
+  @bottom-left {
+
+  content: element(footer);
+
+    }                             
+                               
+ size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 5cm;
+    margin-bottom: 6.8cm;
+    font-family:Verdana;
+
+ }
+
+                               
+    
+.header{
+position: running(header);
+ padding: 10px;
+}
+
+table, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    
+div.footer {
+position: running(footer);
+font-size:7pt;
+font-family:sans-serif;
+ margin-left:-40px;
+}
+             
+  </style>
+  </head>
+<div id="container">
+
+<body class="container">
+<div class="header">
+   <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>	
+</div>
+    <div class="footer">
+    <table width="100%" height="100%" >
+    <tr> <td ><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>     
+       </div>
+    
+<br/><br/><br/><br/>
+ <p style="font-size:20px;"><b>Purchase Order</b></p>
+
+<div style="position:absolute;  ">
+            <p style="font:bold;font-family:Tahoma;font-size:13px;line-height:14px;"><b>
+                 &nbsp;&nbsp;
+                 <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                    <apex:param value="{!SFDC_Purchase_Order__c.Created_Date_Time__c}" /> 
+                </apex:outputText>
+                 </b></p><br/> 
+  </div>
+<div >
+            <p style="font:bold;font-family:Tahoma;font-size:13px;line-height:14px;position:absolute;top:120px; right:10px;"><b><i>
+                 ORDER NO : {!SFDC_Purchase_Order__c.Name} </i></b></p>
+                
+  </div><br/> <br/> <br/> 
+<table border="0" style="font-family:Verdana, Arial, Helvetica, sans-serif;font-family:Tahoma;font-size:13px;" >
+            <tbody>
+                 
+                  <tr>
+                     <td  width="00%" ></td>
+                    <td>{!SFDC_Purchase_Order__c.Supplier1__r.Contact_Name__c}<br/>
+                    {!SFDC_Purchase_Order__c.Supplier1__r.Billing_Street__c}<br/> 
+                    {!SFDC_Purchase_Order__c.Supplier1__r.Billing_City__c}<br/>
+                    {!SFDC_Purchase_Order__c.Supplier1__r.Billing_State_Province__c}<br/>
+                    {!SFDC_Purchase_Order__c.Supplier1__r.Billing_Zip_Postal_Code__c}<br/>
+                    {!SFDC_Purchase_Order__c.Supplier1__r.Billing_Country__c}<br/> 
+                    {!SFDC_Purchase_Order__c.Supplier1__r.Telephone_Number__c}<br/>
+                    {!SFDC_Purchase_Order__c.Supplier1__r.Telephone_Number_2__c}</td>
+                    
+                  </tr>
+                  
+            </tbody>
+ </table>
+ <div>
+            <p style="font:bold;font-family:Tahoma;font-size:13px;line-height:14px;"> Dear {!SFDC_Purchase_Order__c.Created_By__c},</p><br/>
+  </div>
+
+<table border="" style="font-family:Times New Roman;font-size:13px;cellpadding:100;cellspacing:100;width:100%;height:100%;" >
+  <thead style="background-color:#4F6228;color:#FFF;font-family:Times New Roman;font-size:16px;">
+  
+  <tr style="background-color:#48164d;color:white;font-size:14px;">
+    <td width="10%"><b><i>Part No</i></b></td>
+    <td width="30%"><b><i>Description</i></b></td>      
+    <td width="10%"><b><i>List Price</i></b></td>
+    <td width="10%"><b><i>Discount</i></b></td>
+    <td width="10%"><b><i>Total</i></b></td>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+             <td>1</td>
+             <td>{!SFDC_Purchase_Order__c.Purchase_Description__c}</td>             
+             <td></td>
+             <td></td>
+             <td><apex:outputText value="{0,number,###,##,##,##0.##}"><apex:param value="{!SFDC_Purchase_Order__c.Amount__c}"/>
+             </apex:outputText></td>
+         
+      </tr>
+      
+       <tr>
+             <td>2</td>
+             <td>{!SFDC_Purchase_Order__c.Purchase_Description_2__c}</td>
+             <td></td>
+             <td></td>
+             <td><apex:outputText value="{0,number,###,##,##,##0.##}"><apex:param value="{!SFDC_Purchase_Order__c.Amount_2__c}"/>
+             </apex:outputText></td>
+            
+      </tr>   
+       <tr>
+             <td>3</td>
+             <td>{!SFDC_Purchase_Order__c.Purchase_Description_3__c}</td>             
+             <td></td>
+             <td></td>
+             <td><apex:outputText value="{0,number,###,##,##,##0.##}"><apex:param value="{!SFDC_Purchase_Order__c.Amount_3__c}"/>
+             </apex:outputText></td>
+         
+      </tr>
+      <tr>
+             <td>4</td>
+             <td>{!SFDC_Purchase_Order__c.Purchase_Description_4__c}</td>             
+             <td></td>
+             <td></td>
+             <td><apex:outputText value="{0,number,###,##,##,##0.##}"><apex:param value="{!SFDC_Purchase_Order__c.Amount_4__c}"/>
+             </apex:outputText></td>
+         
+      </tr>
+      <tr>
+             <td>5</td>
+             <td>{!SFDC_Purchase_Order__c.Purchase_Description_5__c}</td>             
+             <td></td>
+             <td></td>
+             <td><apex:outputText value="{0,number,###,##,##,##0.##}"><apex:param value="{!SFDC_Purchase_Order__c.Amount_5__c}"/>
+             </apex:outputText></td>
+         
+      </tr>
+  <br/>
+    <table width="100%" border=""  style="font-family:Arial Unicode MS;font-size:12px">
+    <tr>
+    <td width="85%" align="right">Net Total</td>
+    <td><apex:outputText value="{0,number,###,##,##,##0.##}"><apex:param value="{!SFDC_Purchase_Order__c.Total_Amount__c}"/>
+             </apex:outputText></td>
+    </tr>
+    <tr>
+     <td align="right">GST</td>
+     <td><apex:outputText value="{0,number,###,##,##,##0.##}"><apex:param value="{!SFDC_Purchase_Order__c.GST__c}"/>
+             </apex:outputText></td>      
+    </tr>
+    <tr>
+    <td align="right">Order Total</td>
+    <td><apex:outputText value="{0,number,###,##,##,##0.##}"><apex:param value="{!SFDC_Purchase_Order__c.Order_Total__c}"/>
+             </apex:outputText></td>
+    </tr>
+    </table>
+  </tbody>
+  
+</table>
+
+</body>
+<div style="position:absolute; left:10px; top:820px;font-size:13px;font-family:Tahoma;line-height:12px;">
+<p> Yours Sincerely,</p>
+</div>
+
+
+<div style="position:absolute; left:10px; top:860px">
+            <p style="font:bold;font-size:13px;font-family:Tahoma;line-height:14px;">{!SFDC_Purchase_Order__c.Sign__c}</p><br/>
+ 
+ </div>
+ 
+ <div style="position:absolute; left:10px; top:900px ;font-size:13px;line-height:12px;font-family:Tahoma;;">
+<h4> Eclipse Dental  </h4>
+</div>
+
+
+
+</div>
+</apex:page>

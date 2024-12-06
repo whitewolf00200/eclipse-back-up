@@ -1,0 +1,250 @@
+<apex:component access="global" rendered="true" controller="QuoteController">
+    <apex:attribute description="Bpc" name="Bpc"  type="Quote"/>
+    <apex:attribute description="quote id" name="qoid" type="Id" assignTo="{!QliId}"/>
+    <style>
+        
+    </style>
+    
+    <body class="start">
+         <div class="firstpage">
+        <img src="{!$Resource.EquipmentProposalFront1}" style="width: 800px; height:1150px;" />
+        </div>
+         <div class="mainContent" style="page-break-after:always;"></div>
+        
+          <div class="footer"> 
+                <table width="100%" height="100%" >
+                       <tr> <td >
+                        <img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" />
+                        </td></tr>
+                </table>  
+            </div>
+        <div class="content">
+        
+        <table>
+            
+            <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+                <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+        </table>
+        <div style="margin:auto;margin-left:250px;margin-bottom:30px;font-size:20px;margin-top:-70px">
+            <b>Equipment Proposal</b>
+        </div>
+        <br /> <br /> <br /> <br /> <br />
+      
+           
+      
+            
+      
+        <table width="100%" style="margin-top:-60px;" border="">
+            <tr><td colspan="3" style="font-size:12pt;"><b>Proposal</b></td></tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td width="5%">&nbsp;</td>
+                <td width="50%">For the attention of :<br/>{!Bpc.Opportunity.Shipping_Contact__r.Salutation}<apex:outputText rendered="{!Bpc.Opportunity.Shipping_Contact__r.Salutation!=''}"> &nbsp;</apex:outputText>{!Bpc.Opportunity.Shipping_Contact__r.Name}</td>
+                <td width="30%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td width="5%">&nbsp;</td>
+                <td width="50%" style="vertical-align:top;"><apex:outputtext value="{!IF(Bpc.Bill_To__c!=NULL,Bpc.Bill_To__c,Bpc.Opportunity.Invoice_Address__c)}" escape="false"/>
+                    <br/><br/>Delivery Address:<br/><apex:outputtext value="{!Bpc.Opportunity.Site_Address__c}" escape="false"/>
+                </td>
+                <td width="45%">
+                    <table  border="">
+                        <tr>
+                            <td style="white-space:nowrap;">Proposal No:</td>
+                            <td style="font-size:12px;">{!Bpc.QuoteNumber} - &nbsp;<apex:outputText value="{0,number,###,###,##0}" style="font-size:12px;">       
+                                <apex:param value="{!Bpc.Version_Number__c}"/> 
+                                </apex:outputText></td>
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr> 
+                        <tr>
+                            <td>Date:</td>
+                            <td><!-- {!DAY(DATEVALUE(Bpc.CreatedDate))}/{!MONTH(DATEVALUE(Bpc.CreatedDate))}/{!YEAR(DATEVALUE(Bpc.CreatedDate))} -->
+                                <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!Bpc.CreatedDate}"/></apex:outputtext>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr> 
+                        <tr>
+                            <td>Your Ref:</td>
+                            <td>{!Bpc.Your_Ref__c}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr> 
+                        <tr>
+                            <td>Phone:</td>
+                            <td>{!Bpc.Phone}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr> 
+                        <tr>
+                            <td>Email:</td>
+                            <td>{!Bpc.Email}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr> 
+                        <tr>
+                            <td>Account No:</td>
+                            <td>{!IF(Bpc.Account.AccountNumber!=null,Bpc.Account.AccountNumber,Bpc.Account.parent.AccountNumber)}</td>
+                        </tr>
+                    </table>       
+                </td>
+            </tr>
+        </table>
+        <p style="text-align:center;font-size:12pt;"><b>{!Bpc.Opportunity.Name}</b></p>
+        <p >
+            Dear {!Bpc.Opportunity.Shipping_Contact__r.Salutation}&nbsp;{!Bpc.Opportunity.Shipping_Contact__r.Name},
+            <br/> <br/>
+            Thank you for the opportunity to help you make your dental practice even more successful.<br/><br/>
+            We have carefully selected the right equipment and service levels to ensure optimal performance for your dental practice through the added safety, efficiency and productivity they deliver.<br/><br/>
+            Here's our proposal to make your dental practice more successful.
+        </p><br />
+        <apex:outputPanel >
+            
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" >
+                <tr style="background-color:#48164d;color:white;font-size:18px;">       
+                    <td align="center" width ="5%"><b>Item</b></td>
+                    <td align="left" width ="47%"><b>&nbsp;&nbsp;Product</b></td>
+                    <td align="center" width ="8%"><b>Qty</b></td>
+                    <td align="center" width ="7%"><b>Unit</b></td>
+                    <td align="center" width ="10%"><b>Price</b></td>
+                    <td align="center" width ="20%"><b>Line Price</b></td>  
+                </tr>
+            </table>      
+        </apex:outputPanel>
+        <apex:outputPanel >
+            <table border="0" width="100%" >
+                <apex:variable value="{!1}" var="rowNum"/>
+                <apex:repeat value="{!Qli}" var="line">
+                    <tr>
+                        <td width="5%" valign="top">{!rowNum} </td>
+                        <td align="left" width="52%" style="vertical-align:top;"><apex:outputText value="{!If(line.Sales_Description__c!=null,line.Sales_Description__c,line.Product2.Name)}" style="white-space:pre-line;" escape="false"/ ><br/>
+                            <apex:outputText rendered="{!AND(line.Show_Description__c,line.Extended_Sales_Description__c!=null)}" VAlue="{!line.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false" / >
+                                <!--     <apex:outputText rendered="{!AND(line.Show_Description__c,line.Product2.Sales_Description__c!=null,line.Extended_Sales_Description__c==null)}" VAlue="{!line.Product2.Sales_Description__c}" escape="false" style="white-space:pre-line;"/>
+<apex:outputText rendered="{!AND(line.Show_Description__c,line.Product2.Description!=null,line.Extended_Sales_Description__c==null,line.Product2.Sales_Description__c==null)}" VAlue="{!line.Product2.Description}" escape="false"  style="white-space:pre-line;"/> -->
+                            </td>
+                            <td align="center" width="8%" style="vertical-align:top;"><apex:outputText value="{!line.Quantity}" /></td>
+                            <td align="center" width="7%" style="vertical-align:top;"><apex:outputText value="{!line.Product2.Stock_Unit__c}" /></td>
+                            <td align="center" width="13%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.UnitPrice}"/></apex:outputText></td>
+                            <td align="center" width="15%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.TotalPrice}"/></apex:outputText></td>
+                            </tr>
+                            <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                        </apex:repeat> 
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td align="right" colspan="3"><b>Total Price :</b><apex:outputText value="{0,number,£##,##,##0.00}">&nbsp;&nbsp;&nbsp;<apex:param value="{!Bpc.TotalPrice}"/></apex:outputText></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td align="right" colspan="3"><b>VAT Total :</b><apex:outputText value="{0,number,£##,##,##0.00}">&nbsp;&nbsp;&nbsp;<apex:param value="{!Bpc.Vat_Total__c}"/></apex:outputText></td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td align="right" colspan="3"><b>Quote Total :<apex:outputText value="{0,number,£##,##,##0.00}">&nbsp;&nbsp;&nbsp;<apex:param value="{!Bpc.Quote_Total__c}"/></apex:outputText></b></td>
+                    </tr>           
+                </table>  
+                
+            </apex:outputPanel>
+            <br/><br/><br/><br/><br/><br/>
+            <p  style="page-break-inside: avoid;">
+                We have discussed and agreed what success looks like for your practice. This has been carefully considered to inform the specifics of what we're proposing. You can be confident that implementing this work will make your practice more successful in the ways that matter most to you. <br/><br/>
+                All supported by our <b>Set up for Success Guarantee</b>- <br />
+                <ul style="margin-left:10px;">
+                    <li style="margin-top:6px;"> Operational efficiencies and customer experience designed to make your practice successful</li>
+                    <li style="margin-top:6px;"> Cost effectiveness built-in</li>
+                    <li style="margin-top:6px;"> Compliance assured<br/></li>
+            </ul>
+            -and <b>YOUR Dental Practice Success Delivery &amp; Check-In</b>
+            <ul>
+                <li>Ongoing, we review how your operational spaces and equipment are working for you and keep you up-to-date with the latest ways to keep every space operating as efficiently and effectively as possible</li>
+            </ul>
+        </p>
+        <br/>
+        <p style="page-break-inside: avoid;"><span style="font-size:16px;">
+            Payment Terms:</span><br/><br/>
+            <!--<font style="color:black;background:yellow">PLEASE NOTE OUR NEW BANK DETAILS: ECLIPSE DENTAL ENGINEERING LTD SORT CODE 30-91-91 ACCOUNT NUMBER 45605968 LLOYDS Bank of Scotland 12-20-26  01866640.</font><br/>-->
+            
+            Please make payments to:<br/> {!$Label.Company_Name} | Sort Code 30-91-91 | Account No. 45605968 | Lloyds Bank Plc stating your Account No. as a
+            reference.<br/><br/>
+            <apex:outputPanel rendered="{!Bpc.terms__c =='PAYMENT DUE ON PRESENTATION OF INVOICE'}">
+                <apex:outputText value="{!Bpc.terms__c}" rendered="{!Bpc.terms__c!='Other – see special terms'}"/><br/><br/>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!Bpc.terms__c =='Other – see special terms'}">
+                
+                <b><apex:outputText value="{!Bpc.terms__c}" rendered="{!Bpc.terms__c=='Other – see special terms'}" /> </b> <br/>
+                <apex:outputText value="{!Bpc.Payment_Terms__c}" rendered="{!Bpc.terms__c=='Other – see special terms'}" style="white-space:pre-line" escape="false"/>
+                <br/><br/>
+            </apex:outputPanel>
+            This proposal includes delivery and installation of all items listed, including equipment connection to building services pre-installed to our specifications.<br /><br/>
+            It is valid for 30 days and is subject to our standard terms and conditions of sale and installation. A copy is available on request, or for download from: <a href="https://eclipse-dental.com/legal/terms-of-sale/">https://eclipse-dental.com/legal/terms-of-sale/</a><br/><br />
+            Prices are subject to VAT that will be charged at the current rate. E. O. E.<br /><br />
+            
+            <p  style="page-break-inside: avoid;"><span style="font-size:16px;">Next Steps</span></p><br/>
+        Please sign and return the order confirmation below. Thank you.<br /><br />
+        If you have any questions or ideas to discuss, please contact us.<br/><br/>
+        We are looking forward to working with you to make your practice even more successful.<br/><br/>
+        Yours sincerely<br/><br/>
+        <i><b>{!Bpc.Created_By__c}</b></i><br/><br/>
+        <apex:outputpanel rendered="{!if(Bpc.Created_By__c!='Lyudmila Lopez',true,false)}" >Sales and Design Consultant</apex:outputpanel> 
+        <apex:outputpanel rendered="{!if(Bpc.Created_By__c=='Lyudmila Lopez',true,false)}" >Customer Account Manager</apex:outputpanel>
+        <br/>
+        Tel: 01322 293333</p>
+    <br/><br/><br/>
+    <p ><span style="font-size:16px;">Order Confirmation -Proposal No. {!Bpc.QuoteNumber} - &nbsp;<apex:outputText value="{0,number,###,###,##0}">       
+        <apex:param value="{!Bpc.Version_Number__c}"/> 
+        </apex:outputText></span><br/>
+        To proceed with above quotation, please complete below and return a copy to:<br /><br />
+        {!$Label.Company_Name}<br />
+        Westview Court<br />10-14 Kent Road<br />
+        Dartford<br />Kent  DA1 2AJ<br /><br />
+        Tel 01322 293333 Email <a href="info@eclipse-dental.com">info@eclipse-dental.com</a><br /><br />
+        Sign  :&nbsp;&nbsp;&nbsp;{!Bpc.Sign__c}<br /><br />
+        Print  :&nbsp;&nbsp;&nbsp;{!Bpc.Print__c}<br /><br />
+        Date : &nbsp;<!-- {!DAY(Bpc.Date__c)}<apex:outputText value="/" rendered="{!Bpc.Date__c!=null}" /> {!MONTH(Bpc.Date__c)}<apex:outputText value="/" rendered="{!Bpc.Date__c!=null}" />{!YEAR(Bpc.Date__c)} -->
+        <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!Bpc.Date__c}"/></apex:outputText>
+        <br /><br />
+        <!--Item Nos .............................................<br /><br />-->
+        <p >Thank you for working with Eclipse Dental!</p>
+</p>
+      </div>
+    <div class="mainContent" style="page-break-after:always;"></div>
+        <div class="lastPage">
+        <img src="{!$Resource.EquipmentProposalback}" style="width: 800px; height:1130px;" />
+        </div>
+
+</body>
+
+</apex:component>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PostCode_Areas__c</fullName>
+    <label>PostCode Areas</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>RM12 4TG</fullName>
+                <default>false</default>
+                <label>RM12 4TG</label>
+            </value>
+            <value>
+                <fullName>CT7 9RE</fullName>
+                <default>false</default>
+                <label>CT7 9RE</label>
+            </value>
+            <value>
+                <fullName>ME15 6YF</fullName>
+                <default>false</default>
+                <label>ME15 6YF</label>
+            </value>
+            <value>
+                <fullName>KT2 7QB</fullName>
+                <default>false</default>
+                <label>KT2 7QB</label>
+            </value>
+            <value>
+                <fullName>ME2 3ST</fullName>
+                <default>false</default>
+                <label>ME2 3ST</label>
+            </value>
+            <value>
+                <fullName>ME19 6JU</fullName>
+                <default>false</default>
+                <label>ME19 6JU</label>
+            </value>
+            <value>
+                <fullName>SE10 8NB</fullName>
+                <default>false</default>
+                <label>SE10 8NB</label>
+            </value>
+            <value>
+                <fullName>W1G 7LH</fullName>
+                <default>false</default>
+                <label>W1G 7LH</label>
+            </value>
+            <value>
+                <fullName>TN23 1PD</fullName>
+                <default>false</default>
+                <label>TN23 1PD</label>
+            </value>
+            <value>
+                <fullName>CT2 0BD</fullName>
+                <default>false</default>
+                <label>CT2 0BD</label>
+            </value>
+            <value>
+                <fullName>CT1 2QD</fullName>
+                <default>false</default>
+                <label>CT1 2QD</label>
+            </value>
+            <value>
+                <fullName>SE9 1AQ</fullName>
+                <default>false</default>
+                <label>SE9 1AQ</label>
+            </value>
+            <value>
+                <fullName>BR6 0RZ</fullName>
+                <default>false</default>
+                <label>BR6 0RZ</label>
+            </value>
+            <value>
+                <fullName>DA6 8AA</fullName>
+                <default>false</default>
+                <label>DA6 8AA</label>
+            </value>
+            <value>
+                <fullName>W5 3TJ</fullName>
+                <default>false</default>
+                <label>W5 3TJ</label>
+            </value>
+            <value>
+                <fullName>DA15 8PT</fullName>
+                <default>false</default>
+                <label>DA15 8PT</label>
+            </value>
+            <value>
+                <fullName>BR5 2RJ</fullName>
+                <default>false</default>
+                <label>BR5 2RJ</label>
+            </value>
+            <value>
+                <fullName>SS6 7EW</fullName>
+                <default>false</default>
+                <label>SS6 7EW</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

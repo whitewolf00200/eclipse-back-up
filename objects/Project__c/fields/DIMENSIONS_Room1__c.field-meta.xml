@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DIMENSIONS_Room1__c</fullName>
+    <inlineHelpText>Double check critical room dimensions and cabinetry dimensions (including heights) with client.</inlineHelpText>
+    <label>Room1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments_to_Sales__c</fullName>
+    <inlineHelpText>PLease add any information that Sales could use in their quotation - for example, what are we quoting for.</inlineHelpText>
+    <label>Comments to Sales</label>
+    <length>2500</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

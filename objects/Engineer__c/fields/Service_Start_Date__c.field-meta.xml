@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Start_Date__c</fullName>
+    <inlineHelpText>Enter the Start date of the technician on call. This will then display a message on the Visits that are scheduled during this time period to alert the schedulers that the technician is on call.</inlineHelpText>
+    <label>Call Start Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,266 @@
+<apex:component access="global" rendered="true">
+  <apex:attribute description="ac" name="ac" type="Engineer_Checklist__c"/>
+  <head>
+<style type="text/css" media="print">
+    @page{
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 3cm;
+    @top-center {
+        content: element(header);
+    }
+    @bottom-left {
+        content: element(footer);
+    }
+}
+
+
+
+div.footer {
+    padding: 15px;
+    position: running(footer);
+}
+
+.pagenumber:before {
+    content: counter(page);
+}
+
+.pagecount:after {
+    content: counter(pages);
+}
+</style>
+</head> 
+    <div class="header">
+        <table width="25%" align="right">
+            <tr><td style="vertical-align:bottom;"><img src="{!$Resource.FitOutEquipment}" width="70" height="65"  title="logo" align="right"/></td>
+            <td><img src="{!$Resource.EclipseDentalLogo}" width="82" height="86"  title="logo" align="right"/></td></tr>
+        </table> 
+    </div>
+    <div class="footer">
+               <p style="border-top: 1px solid #038B99;"><b style="color:#038B99;">Guaranteed solutions....</b><br/> 
+                 Eclipse Dental Engineering| Westview Court |10-14 Kent Road | Dartford | Kent | DA1 2AJ<br/>
+                 Tel: 01322 293333 | Email: info@eclipse-dental.com | Vat No: GB 714315367
+               </p>   
+      </div> 
+      <div style="position:absolute;top:100px;">
+          <!--<h2 style="position:absolute; border-bottom: solid 1pt;">Air Compressor Certificate Of Service</h2><br/><br/><br/><br/>-->
+          <table width="80%" align="left">
+              <tr>
+                  <td width="68%" style="border-bottom: solid 1pt;font-size:23px;"><b>Air Compressor Certificate Of Service</b></td>
+              </tr>
+              <tr><td>&nbsp;</td></tr>
+              <tr>
+                  <td style="vertical-align:top;">{!ac.Site__r.Name}</td>
+                  <td width="50%">
+                      <table width="97%" align="right" style="vertical-align:top;">
+                          <tr>
+                              <td style="vertical-align:top;">Date :</td>
+                              <td>{!DAY(ac.Date__c)}/{!MONTH(ac.Date__c)}/{!YEAR(ac.Date__c)}</td>
+                          </tr>
+                          <tr>
+                              <td >Account Ref : </td>
+                              <td >{!ac.Site__r.Parent_SAGE_ID__c}</td>
+                          </tr>
+                          <tr>
+                              <td >Certificate No : </td>
+                              <td >{!ac.Test_Report_Number__c}</td>
+                          </tr>     
+                      </table>    
+                  </td>
+              </tr>
+              <tr>
+                  <td width="50%" style="vertical-align:top;"><apex:outputtext value="{!ac.Service_At__c}" escape="false"/></td>
+                  <td width="30%"></td>
+              </tr>
+          </table>
+          <!--<table width="30%" align="right">
+              <tr>
+                  <td >Date :</td>
+                  <td>{!DAY(ac.Date__c)}/{!MONTH(ac.Date__c)}/{!YEAR(ac.Date__c)}</td>
+              </tr>
+              <tr>
+                  <td >Account Ref : </td>
+                  <td >{!ac.Site__r.Parent_SAGE_ID__c}</td>
+              </tr>
+              <tr>
+                  <td >Certificate No : </td>
+                  <td >{!ac.Test_Report_Number__c}</td>
+              </tr>     
+          </table>-->
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <table Width="100%">
+              <tr>
+                  <th colspan="3" style="border-bottom: solid 1pt;">Air Compressor Service Report</th>
+              </tr>
+              <tr>
+                <td width="20%" colspan="2" >Compressor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make :</td>
+                  <td width="20%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Make__c}</td>
+              </tr>
+              <tr>
+                 <td  width="20%" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Model :</td>
+                  <td width="20%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Model__c}</td> 
+              </tr>
+            
+              
+              <tr>
+                  <td width="20%" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial No :</td>
+                  <td width="20%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Serial_No__c}</td> 
+              </tr>   
+              <tr>
+                  <td width="20%" colspan="2">Date Of Manufacture :</td>
+                  <td width="20%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!DAY(ac.Date_Of_Manufacture__c)}/{!MONTH(ac.Date_Of_Manufacture__c)}/{!YEAR(ac.Date_Of_Manufacture__c)}</td>
+              </tr>
+              <tr>
+                  <td width="20%" colspan="2">Location :</td>
+                  <td width="20%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Location__c}</td>
+              </tr>
+              <tr><td rowspan="1"></td></tr>
+               <tr><td rowspan="1"></td></tr>
+               <tr><td rowspan="1"></td></tr>
+               <tr><td rowspan="1"></td></tr>
+               <tr><td rowspan="1"></td></tr>
+              <tr>
+                  <td width="20%" colspan="2">Pump Oil Checked/Changed:</td>
+                  <td width="20%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Pump_Oil_Checked_Changed__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2"> Intake Air Filter :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Air_Filter__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">Capacitors :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Capacitors__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">Belts/Pulleys :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Belts_Pulleys__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">Pressure Switch :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Pressure_Switch__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">Terminals Cables :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Terminals_Cables__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">Drier Operation :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Drier_Operation__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">Non Return Valve :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Non_Return_Valve__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">External Receiver Corrosion:</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.External_Receiver_Corrosion__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">Drier Condensate :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Drier_Condensate__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2">Drier prefilter :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!ac.Drier_Prefilters__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Nuts/Bolts Torque :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Nuts_Bolts_Torque__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Safety Valve :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Safety_Valve__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Condensate Drain :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Condensate_Drain__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Coaleasing Filter :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Coaleasing_Filter__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Carbon Filter :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Carbon_Filter__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Pre-Filter :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Service_Filter__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Pipework Condition :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Pipework_Condition__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Condensate Collector :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Condensate_Collector__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">External Clean :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.External_Clean__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Leaks :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Leaks__c}</td>
+              </tr>
+              <tr>
+                  <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Hours Run :</td>
+                  <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Hows_Run__c}</td>
+              </tr>
+              <tr>
+               <td width="30%" colspan="2" style="padding-top:0.1px;padding-bottom:0.1px;">Number of Surgeries Running :</td>
+               <td width="30%" style="border-bottom: solid 1pt;padding: 1px 150px;padding-top:0.1px;padding-bottom:0.1px;">{!ac.Number_of_Surgeries_Running__c}</td>
+               </tr>
+              </table>
+              <br/>
+               <textarea rows="4">
+               <b>Notes/Recommendations</b><br/>
+               <table border="1" width="100%" style="border-collapse: collapse;">
+               <tr style="border-collapse: collapse;"><td style="border-collapse: collapse;">{!ac.Note__c}</td></tr>
+               </table>
+               </textarea><br/><br/>
+               <textarea rows="4">
+               <b>Technician Signature</b><br/>
+               <table width="30%">
+              <tr><td style ="border: 1px solid black;"><apex:outputText value="{!ac.Engineer_s_Signature__c}" escape="false"/></td></tr>
+               </table>
+               </textarea>
+             <!--  <table Width="100%">
+              <tr>
+                  <td>Signed :</td>
+                 <td><apex:outputText value="{!Engineer_Checklist__c.Engineer_s_Signature__c}" escape="false"/></td>
+              </tr>
+              <tr>
+               <td><apex:outputText value="{!ac.Engineer_s_Signature__c}" escape="false"/></td>
+               </tr>
+              <tr>
+               <td><b>({!ac.Engineer__r.Name})</b></td>
+              </tr>
+               
+              <tr>
+                  <td>For Eclipe Dental Engineering</td>
+                  
+              </tr>
+          </table>-->
+          
+        <!-- <table Width="100%">
+              <tr>
+                  <td>Signed :</td>
+              </tr>
+              <tr>
+               <td><apex:outputText value="{!ac.Customer_s_Signature__c}" escape="false"/></td>
+               </tr> 
+              <tr>
+               <td><b>({!ac.Customer_s_Print__c})</b></td>
+              </tr>
+               
+              <tr>
+                  <td>For Customer Engineering</td>
+                  
+              </tr>
+          </table> -->
+          
+      </div>
+</apex:component>

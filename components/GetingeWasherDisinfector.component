@@ -1,0 +1,199 @@
+<apex:component access="global" rendered="true"  controller="ServiceController">
+  <apex:attribute description="gwd" name="gwd" type="Engineer_Checklist__c"/>
+  <apex:attribute name="Serviceid" type="Id"  assignTo="{!sheetid}" description="Attribute on the component."/>
+  
+<body class="start">
+    
+    <div class="footer" >
+        <table>
+  <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+        </table>
+    </div>
+<div style="width: 100% ;">
+   <!-- <table width="22%" style="position:absolute;right:15px;">
+    <tr><td rowsapn="2"></td></tr>
+    <tr><td style="vertical-align:bottom;"><img src="{!$Resource.FESS}" width="70" height="65"  title="logo" align="right"/></td>
+    <td><img src="{!$Resource.EclipseDentalLogo}" width="82" height="86"  title="logo" align="right"/></td></tr>
+    </table> -->
+    <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right" /></td></tr>
+</table> 
+    
+    <p style="font-size:30px;position:absolute;left:200px;text-align:center;margin-top:-60px;"><b>Getinge Washer Disinfector<br/>Certificate Of Service</b></p>
+    <br/><br/><br/>
+
+    <table width="40%" style="background-color:white;position:absolute;left:20px;">
+      <tr>
+      <td  width="50%" HEIGHT="80" style="border: 1px solid;vertical-align:top;"><apex:outputtext value="{!gwd.Service_At__c}" escape="false"/></td>
+      </tr>
+    </table>
+    <table width="40%" style="border: 1px solid;vertical-align:top;background-color:white;position:absolute;right:20px;">
+      <tr width="50%">
+      <td width="25%" style="vertical-align:text-top;">Date:</td>
+      <td width="25%" style="vertical-align:text-top;"><!-- {!DAY(gwd.Date__c)}/{!MONTH(gwd.Date__c)}/{!YEAR(gwd.Date__c)} -->
+      
+      <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!gwd.Date__c}"/></apex:outputtext>
+      </td>
+      </tr>
+      <tr width="50%">
+      <td width="25%" style="vertical-align:sup;">Account Ref :</td>
+      <td width="25%" style="vertical-align:sup;">{!if(gwd.Site__r.AccountNumber!=null,gwd.Site__r.AccountNumber,gwd.Site__r.Parent.AccountNumber)}</td>
+      </tr>
+      <tr  width="50%">
+      <td width="25%" style="vertical-align:sup;">Certificate No.</td>
+      <td width="25%" style="vertical-align:sup;">{!gwd.Name}</td>
+      </tr>
+      <tr>
+      <td width="25%" style="vertical-align:top;">Service Type:</td>
+      <td width="25%" style="vertical-align:top;">{!gwd.Service_Sheet_Type__c}</td>
+      </tr>
+     </table>
+     <div style="width: 100%;"><br/><br/><br/><br/><br/><br/><br/></div>
+     <div style="background-color:#6a2774;width: 100% ;"><br/></div>
+  </div>
+  <div >
+  <br/>
+               <table width="50%" style="border:1px solid;text-align:right;" border="">
+             <tr>
+               <td width="25%" style="text-align:right;"><span style="text-align:left;"><b style="border-bottom: solid;">Washer Disinfector</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make:</td>
+               <td width="25%" style="border-bottom: solid 1pt;text-align:center;">{!gwd.Make__c}</td> 
+               </tr>
+               <tr>
+              <td width="25" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Model:</td>
+               <td width="25" style="border-bottom: solid 1pt;text-align:center;">{!gwd.Model__c}</td> 
+               
+               </tr> 
+               <tr>
+               <td width="25" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial No:</td>
+               <td width="25" style="border-bottom: solid 1pt;text-align:center;">{!gwd.Serial_No__c}</td> 
+               </tr>
+               <tr>
+               <td width="25" >Date Of Manufacturer:</td>
+               <td width="25" style="border-bottom: solid 1pt;text-align:center;"><!-- {!DAY(gwd.Date_Of_Manufacture__c)}/{!MONTH(gwd.Date_Of_Manufacture__c)}/{!YEAR(gwd.Date_Of_Manufacture__c)} -->
+               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!gwd.Date_Of_Manufacture__c}"/></apex:outputtext>
+               </td>
+               </tr>
+               </table>
+               <br/>
+                <table style="border-collapse:collapse;">
+               <tr>
+               <td width="35%" colspan="2">General Condition:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.General_Condition_Operation__c}</td>
+               </tr>
+              <tr>
+               <td width="35%" colspan="2">Door Seal:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Door_Seal__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Empty Container alarms and hoses between pump and Containers:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Empty_Container_alarms_and_hoses__c}</td>
+               </tr>
+            
+               <tr>
+               <td width="35%" colspan="2">Hose between dosing pump and Machine:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Hose_Between_Dosing_pump_and_Machine__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Incoming Water Filter:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Incoming_Water_Filter__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Dosing Pump hose:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Dosing_pump_hose__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Washer arm bearings:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Washer_arm_bearings__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Door lock lubrication:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Door_lock_lubrication__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Ventilator:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.ventilator__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Operator Panel Circuit board protector:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Operator_Panel_Circuit_Board_Protector__c}</td>
+               </tr>
+               <tr>
+               <td width="35%" colspan="2">Drain Pump:</td>
+               <td width="65%" style="border-bottom: solid 1pt;padding: 1px 150px;">{!gwd.Drain_Pump__c}</td>
+               </tr>
+               </table>
+               <br/>
+                <div >
+                <table width="100%" border="">
+                    <tr>
+                        <td>  <b>Notes for next service:</b> </td> 
+                    </tr>
+                    <tr>
+                         <td style="white-space:pre-line;" valign="top"  height="200"> {!gwd.Notes_for_next_service__c} </td>
+                    </tr>
+            </table>
+       </div>
+      <br/><br/><br/>
+               <div style="width: 100% ;page-break-inside:avoid;">
+          <br/>
+         
+          <table Width="100%"  border="">
+              <tr>
+                  <td width="5%"> </td>
+                  <td width="35%" >Technician Signature:</td>
+                  <td width="10%"></td>
+                  <td width="45%" >Notes / Recommendations:</td>
+                  <td width="5%"> </td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td  height="50" style = "border: 1px solid black;background-color:white;">
+                       <!--  <b><apex:outputText value="{!substitute(gwd.Engineer_s_Signature__c,"alt=","height=\"50px\" Alt=")}" escape="false"/></b> -->
+                       <apex:outputPanel rendered="{!Sign}">
+                         <img alt="no img" src="{!TechSign}" style="height:70px;max-width:100%;"/>
+                          </apex:outputPanel> 
+                  </td>
+                   <td></td>
+                     <td rowspan="3" style="border: 1px solid black;vertical-align:text-top;background-color:white;">{!gwd.Note__c}</td>                
+                    <td></td> 
+              </tr> 
+              <tr>
+              <td></td>
+                  <td width="30%" >Print:</td>
+                  <td></td>
+                 <td></td>
+                                     
+              </tr>
+              <tr>
+              <td></td>
+                  <td  height="40" style = "border: 1px solid black;background-color:white;">
+                  <apex:outputText value="{!gwd.Engineer__r.Name}" escape="false"/>
+                  </td>
+                  <td></td>
+                   <td></td>                 
+              </tr> 
+              <tr>
+              <td></td>
+              <td></td><td></td><td></td><td></td>
+              </tr>
+              <!-- <tr>
+               <td></td>
+                  <td  style="font-size:17px;color:#038B99;vertical-align:text-bottom;">Guaranteed solutions....</td>
+                  <td></td>
+                   <td style="color:#038B99;text-align:right;">Westview Court 10-14 Kent Road<br/>
+                         Dartford Kent DA1 2AJ<br/>
+                         Tel: 01322 293333<br />
+                         service@eclipse-dental.com<br />  
+                         www.eclipse-dental.com 
+                   </td>
+                   <td></td>
+                 </tr> -->
+            </table> 
+          
+       </div>
+  
+
+      </div> 
+      </body>
+</apex:component>

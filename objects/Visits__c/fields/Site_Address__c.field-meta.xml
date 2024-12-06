@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>Site__r.ShippingStreet&amp;BR() + 
+Site__r.ShippingCity&amp;BR ()+  
+Site__r.ShippingState&amp;BR ()+ 
+Site__r.ShippingPostalCode&amp;BR ()+ 
+&quot;Tel : &quot; &amp; if(Site_Contract__r.TELEPHONE_NUMBER__c==NULL,  Site__r.Phone,Site_Contract__r.TELEPHONE_NUMBER__c )  &amp;BR ()+
+&quot;Contact : &quot;&amp; Site_Contract__r.ContactName__c
+&amp;
+IF ( Cancelled__c, BR()&amp;IMAGE(&quot;/servlet/servlet.FileDownload?file=015280000000oBn&quot;,&quot;Cross&quot;)&amp;&quot; VISIT HAS BEEN CANCELLED&quot;&amp;BR()&amp;&quot;PLEASE DO NOT BOOK&quot;,&quot;&quot;)</formula>
+    <inlineHelpText>Formula to present all the Site Details onto the Visit Page. Takes it from various fields.</inlineHelpText>
+    <label>Site Details</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,216 @@
+<apex:component controller="SignatureComponentController" allowDML="true" >
+ <apex:attribute name="parentId" type="id" description="The Id of the record for Signature" required="true"  assignTo="{!objParentId}" />
+ <apex:attribute name="IsCustomer" type="String" description="Is customer signature or engineer signature" required="true" assignTo="{!customer}"  />
+<head>
+ 
+ <link href="{!URLFOR($Resource.JQMobile, 'JQMobile/jquery.mobile-1.4.5.min.css')}" rel="stylesheet"/>
+ 
+ <script src="{!URLFOR($Resource.Jquerymoment, '/jquery.js')}"></script>
+     
+ <script>var $ = jQuery.noConflict();</script>
+ 
+ 
+ </head> 
+ 
+<body>
+
+<div data-role="page" id="signatureCaptureHome">
+     
+  <div data-role="content">           
+    <table>
+     <tr>
+         <td><h1 id="recordSigId" style="align:center"><apex:outputLabel value="Signature" /></h1></td>
+         <td><canvas id="signatureCanvas" width="350" height="150" style="border:2px solid black"></canvas></td>
+     </tr>
+ </table>
+    <br /><br />     
+    <input type="button" onclick="goback();" value="Go Back" />
+    <input type="button" onclick="javascript:clearArea();return false;" value="Clear" />
+    <input type="button" onclick="saveSignature();" value="Save Signature" />               
+  </div>
+ </div>
+ 
+ 
+ 
+</body>
+ 
+ <script>
+ 
+var canvas;
+    var context;
+    var drawingUtil;
+    var isDrawing = false;
+    var accountId = '';
+    var mousePressed = false;
+    var lastX, lastY;
+    var ctx;
+    var canSave = false;
+    var parentId = '{!JSENCODE(objParentId)}';
+    var iscustomer='{!JSENCODE(customer)}';
+ 
+canvas = document.getElementById("signatureCanvas");
+context = canvas.getContext("2d");
+drawingUtil = new DrawingUtil(canvas);
+
+function DrawingUtil() 
+{
+    isDrawing = false;
+    canvas.addEventListener("mousedown", mousestart,false);
+    canvas.addEventListener("mousemove", mousedraw,false);
+    canvas.addEventListener("mouseup", mousestop,false);
+    canvas.addEventListener("mouseleave", mousestop,false);
+   
+    canvas.addEventListener("touchstart",start,false);
+    canvas.addEventListener("touchmove",draw,false);
+    canvas.addEventListener("touchend",stop,false);
+    context.strokeStyle = "#FFF";  
+}
+
+//Start Event for Signature Captuare on HTML5 Canvas
+function start(event) 
+{
+    isDrawing = true;
+    canvas = document.getElementById("signatureCanvas");
+    context = canvas.getContext("2d");    
+    context.strokeStyle = "rgba(155,0,0,0.5)";      
+    context.beginPath();
+    context.moveTo(event.touches[0].pageX - canvas.getBoundingClientRect().left,event.touches[0].pageY - canvas.getBoundingClientRect().top);
+}
+
+
+//Event while someone is drawing to caputre the path while they draw....
+function draw(event) {
+    event.preventDefault();
+    if(isDrawing) {     
+        context.lineTo(event.touches[0].pageX - canvas.getBoundingClientRect().left,event.touches[0].pageY - canvas.getBoundingClientRect().top);
+        context.stroke();
+    }
+}
+
+
+//Event when someone stops drawing their signature line
+function stop(event) {
+    if(isDrawing) {
+        context.stroke();
+        context.closePath();
+        isDrawing = false;
+    }
+}
+
+//Start Event for Signature Captuare on HTML5 Canvas
+function mousestart(event) 
+{
+    isDrawing = true;
+    canvas = document.getElementById("signatureCanvas");
+    context = canvas.getContext("2d");    
+    context.strokeStyle = "rgba(155,0,0,0.5)";      
+    context.beginPath();
+    context.moveTo(event.pageX - canvas.getBoundingClientRect().left,event.pageY - canvas.getBoundingClientRect().top);
+}
+function mousedraw(event) {
+    event.preventDefault();
+    if(isDrawing) {     
+        context.lineTo(event.pageX - canvas.getBoundingClientRect().left,event.pageY - canvas.getBoundingClientRect().top);
+        context.stroke();
+    }
+}
+
+function mousestop(event) {
+    if(isDrawing) {
+        context.stroke();
+        context.closePath();
+        isDrawing = false;
+    }
+}
+
+
+
+$('#signatureCanvas').mousedown(function (e) {
+   mousePressed = true;
+   Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+ });
+
+ $('#signatureCanvas').mousemove(function (e) {
+   if (mousePressed) {
+     var canSave = true;
+     Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+   }
+ });
+
+ $('#signatureCanvas').mouseup(function (e) {
+   mousePressed = false;
+ });
+ $('#signatureCanvas').mouseleave(function (e) {
+   mousePressed = false;
+ });
+ 
+ function Draw(x, y, isDown) {
+   if (isDown) {
+     context.beginPath();
+     context.strokeStyle = $('#selColor').val();
+     context.lineWidth = $('#selWidth').val();
+     context.lineJoin = "round";
+     context.moveTo(lastX, lastY);
+     context.lineTo(x, y);
+     context.closePath();
+     context.stroke();
+   }
+   lastX = x; lastY = y;
+} 
+ 
+function clearArea() {
+ // Use the identity matrix while clearing the canvas
+  context.setTransform(1, 0, 0, 1, 0, 0);
+  context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+}
+ 
+ function saveSignature(){
+   
+   var strDataURI = canvas.toDataURL();
+   
+   console.log(strDataURI);
+   
+   SignatureComponentController.saveSignature(strDataURI,parentId,iscustomer,processResult);
+ }
+ 
+ function processResult(result){
+   if(result){       
+     var dev="{!JSENCODE($User.UITheme)}"; 
+       RedirctUrl='/'+parentId;
+            if(RedirctUrl.startsWith('/')){   
+                RedirctUrl=RedirctUrl.replace(new RegExp('/', 'gi'),'');
+            }
+      if(dev=="Theme4t" || dev=="Theme4d"){
+           sforce.one.navigateToURL("/"+RedirctUrl);          
+     }else{
+         top.location.href='/'+RedirctUrl;
+     }
+   }else{
+     alert('An error occurred while saving the signature. Please try again.');
+   }
+   console.log(result);
+ }
+ 
+ function goback() {
+     var dev="{!JSENCODE($User.UITheme)}";   
+            RedirctUrl='/'+parentId;
+            if(RedirctUrl.startsWith('/')){   
+                RedirctUrl=RedirctUrl.replace(new RegExp('/', 'gi'),'');
+            }
+      if(dev=="Theme4t"){
+         sforce.one.navigateToURL("/"+RedirctUrl);           
+     }else{
+         top.location.href='/'+RedirctUrl;       
+
+     } 
+ }
+ 
+ function checkplatform() {
+  var check = false;
+ 
+  
+  return check;
+}
+ 
+ </script>
+</apex:component>

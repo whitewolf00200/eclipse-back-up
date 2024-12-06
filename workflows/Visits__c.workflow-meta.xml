@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Survey_Sent_Email_Alert</fullName>
+        <ccEmails>salesforcetestwork@gmail.com</ccEmails>
+        <ccEmails>p.mudigoudar@salesforce.com</ccEmails>
+        <description>Survey Sent Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Visit_Confirmation_Email_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Customer_Survey_Template_From_visit</template>
+    </alerts>
+    <alerts>
+        <fullName>VisitEmailAlert</fullName>
+        <ccEmails>salesforcetestwork@gmail.com</ccEmails>
+        <description>VisitEmailAlert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Visit_Template/Visit_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Visit_Booking_Confirmation_to_Technician</fullName>
+        <description>Visit Booking Confirmation to Technician</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Visit_Confirmation_Email_to__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Invoice_Templates/Visit_Booking_Conformation_Email</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Annual_Service_Due_Calc</fullName>
+        <field>Annual_Service_Due_Date__c</field>
+        <formula>Actual_Service_Date__c +365</formula>
+        <name>Annual Service Due Calc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Check_Box</fullName>
+        <field>Booking_Confirmation_Check__c</field>
+        <literalValue>1</literalValue>
+        <name>Check Box</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Equipment_Status</fullName>
+        <field>Status__c</field>
+        <name>Equipment Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>PreviousValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Equipment_Statuss</fullName>
+        <field>Equipment_Status__c</field>
+        <formula>TEXT( Asset__r.Status )</formula>
+        <name>Equipment Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Actual_Visit_Date_In_Next_Visit</fullName>
+        <field>Actual_Service_Date__c</field>
+        <formula>Date__r.Date_Field__c</formula>
+        <name>Update Actual Visit Date In Next Visit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Make_in_Visit</fullName>
+        <field>Make_New__c</field>
+        <formula>Asset__r.Make__c</formula>
+        <name>Update Make in Visit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Model_in_Visit</fullName>
+        <field>Model_New__c</field>
+        <formula>Asset__r.Model__c</formula>
+        <name>Update Model in Visit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Serial_Number_in_Visit</fullName>
+        <field>Serial_Number_New__c</field>
+        <formula>Asset__r.SerialNumber</formula>
+        <name>Update Serial Number in Visit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Site_Additional_Instruction</fullName>
+        <field>Site_Additional_Instructions__c</field>
+        <formula>IF(ISBLANK( Site_Additional_Instructions__c ),
+ Site__r.Site_Additional_Instructions__c ,Site_Additional_Instructions__c 
+)</formula>
+        <name>Update Site Additional Instruction</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Special_Technician_Instructions</fullName>
+        <field>Special_Technician_Instructions__c</field>
+        <formula>IF(ISBLANK( Special_Technician_Instructions__c ),Site__r.Special_Engineer_Instructions__c,Special_Technician_Instructions__c )</formula>
+        <name>Update Special Technician Instructions</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Time_allowed_visit</fullName>
+        <field>Time_Allowed_for_Visit__c</field>
+        <formula>&apos;01.00&apos;</formula>
+        <name>Update Time allowed visit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Visit_Completed_Field</fullName>
+        <field>Visit_Completed__c</field>
+        <formula>NOW()</formula>
+        <name>Update Visit Completed Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_location</fullName>
+        <field>Location__c</field>
+        <formula>IF( Visit_Complete__c== false, Asset__r.Location__c, Location__c)</formula>
+        <name>Update location</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Visit_Confirmation_Email_Populate</fullName>
+        <field>Visit_Confirmation_Email_to__c</field>
+        <formula>IF(ISBLANK( Visit_Confirmation_Email_to__c ), 
+IF (Site__r.Visit_Confirmation_Email_to__c &lt;&gt; &quot;&quot;, Site__r.Visit_Confirmation_Email_to__c, 
+IF (Site__r.Test_Certificate_to_HQ_email__c &lt;&gt; &quot;&quot;, Site__r.Test_Certificate_to_HQ_email__c, 
+&quot;&quot;)),Visit_Confirmation_Email_to__c )</formula>
+        <name>Visit Confirmation Email Populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Calculate Annual Service Due</fullName>
+        <actions>
+            <name>Annual_Service_Due_Calc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Visit_Complete__c</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Date on Installation</fullName>
+        <active>false</active>
+        <formula>ISCHANGED( Actual_Service_Date__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Equipment status Update</fullName>
+        <actions>
+            <name>Equipment_Statuss</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visits__c.Actual_Service_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Location update</fullName>
+        <actions>
+            <name>Update_location</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visits__c.Location__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>New Visit Email Alert</fullName>
+        <actions>
+            <name>VisitEmailAlert</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>ISNEW()</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send A Visit Survey</fullName>
+        <active>false</active>
+        <formula>AND(
+ Visit_Complete__c ,
+ Site__r.Survey_Required__c 
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Actual Visit Date</fullName>
+        <actions>
+            <name>Update_Actual_Visit_Date_In_Next_Visit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND ( Date__c &lt;&gt;&quot;&quot;, TEXT(Actual_Service_Date__c) = &quot;&quot; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Make in Visit</fullName>
+        <actions>
+            <name>Update_Make_in_Visit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visits__c.Make_New__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Model in Visit</fullName>
+        <actions>
+            <name>Update_Model_in_Visit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visits__c.Model_New__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Serial Number in Visit</fullName>
+        <actions>
+            <name>Update_Serial_Number_in_Visit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visits__c.Serial_Number_New__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Site Instructions To Visit</fullName>
+        <actions>
+            <name>Update_Site_Additional_Instruction</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Special_Technician_Instructions</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(
+ISBLANK(Special_Technician_Instructions__c ),
+ISBLANK(Site_Additional_Instructions__c))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Visit Completed</fullName>
+        <actions>
+            <name>Update_Visit_Completed_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visits__c.Visit_Complete__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Visit Booking Confirmation</fullName>
+        <actions>
+            <name>Visit_Booking_Confirmation_to_Technician</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Check_Box</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visits__c.Booking_Confirmation_Check__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Visit Confirmation Email Populate</fullName>
+        <actions>
+            <name>Visit_Confirmation_Email_Populate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Visits__c.Visit_Confirmation_Email_to__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

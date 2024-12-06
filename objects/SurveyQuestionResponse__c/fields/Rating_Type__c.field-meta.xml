@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rating_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Rating__c&gt;=9,&apos;Promoter&apos;,if(Rating__c&lt;=6,&apos;Detractor&apos;,if(AND(Rating__c&gt;6,Rating__c&lt;9),&apos;Passives&apos;,&apos;&apos;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Rating Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Engineer__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(SurveyTaker__r.Visit__r.Engineer2__c&lt;&gt;NULL,SurveyTaker__r.Visit__r.Engineer2__r.Name, SurveyTaker__r.Visit__r.X2nd_Technician__r.Name )</formula>
+    <label>Engineer</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

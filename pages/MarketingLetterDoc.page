@@ -1,0 +1,14 @@
+<apex:page standardController="Account" contentType="application/msword#MarketingLetter.doc">
+<head>  
+  <style type="text/css" media="print">
+  @page{    
+        size:A4 portrait;
+        margin-left: 2cm;
+        margin-right: 2.5cm;
+        margin-top: 3cm;
+        margin-bottom: 3cm;
+  }
+</style>
+</head>
+<c:MarketingLetter Acc="{!Account}"/>
+</apex:page>

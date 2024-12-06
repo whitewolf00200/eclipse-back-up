@@ -1,0 +1,270 @@
+<apex:component access="global" rendered="true" controller="UpdateDeliveryNoteNumber"  >
+<apex:attribute description="opportunity id" name="oppid"  type="Id" assignTo="{!Delnoteid}" />
+<apex:attribute description="opp" name="opp"  type="Opportunity"/>
+<!--<apex:stylesheet value="{!URLFOR($Resource.pdfstyles)}" />-->
+<!--<head>  
+<style type="text/css" media="print">
+ 
+   @page{
+size:A4 portrait;
+margin-left: 1cm;
+margin-right: 1cm;
+margin-top: 1cm;
+margin-bottom: 6.8cm;
+font-family:Verdana;
+
+
+@top-center {
+    content: element(header);
+}
+@bottom-left {
+    content: element(footer);
+}
+}
+
+div.footer {
+position: running(footer);
+font-size:7pt;
+font-family:sans-serif;
+margin-left:-40px;
+}
+
+.pagenumber:before {
+content: counter(page);
+}
+
+.pagecount:after {
+content: counter(pages);
+}
+.start{
+font-size:8pt;
+font-family:sans-serif ;
+}
+  
+</style> 
+</head>-->
+<div>
+<body class="start">
+<table >
+<tr><td><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+<td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>   
+           <br /> <br /> <br /> <br /> <br /> 
+           <div class="footer"> 
+           
+               <table width="100%" height="100%" >
+               <tr>
+                   <td width="100%" height="100%"><img src="{!$Resource.footernew}" height="100%" width="800px" style="background-repeat: no-repeat;" /></td>
+               </tr>
+               </table>     
+           </div> 
+
+           <table width="100%" style="margin-top:-80px;" border="">
+           <tr><td colspan="3" style="font-size:14pt;"><b>Invoice</b></td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr>
+               <td width="5%">&nbsp;</td>
+               <td width="50%">For the attention of :<br/>{!IF(opp.Shipping_Contact__r.Name!=null,opp.Shipping_Contact__r.Name,opp.Site_Contract__r.Contact_Site_Contracts__r.Name)}</td>
+               <td width="30%">&nbsp;</td>
+           </tr>
+           <tr>
+               <td width="5%">&nbsp;</td>
+               <td width="50%" style="vertical-align:top;">
+               <apex:outputtext value="{!IF(opp.Delivery_Address__c!='',opp.Delivery_Address__c,opp.Invoice_Address__c)}" escape="false"/>
+                   <br/><br/><b>Delivery Address:</b><br/>
+                   
+                     <apex:outputPanel rendered="{!if(opp.Alternative_Address__c = '<br>',true,false)}">
+                       <apex:outputtext value="{!opp.Site_Address__c}" escape="false"/>
+                   </apex:outputPanel>
+                   <apex:outputPanel rendered="{!if(opp.Alternative_Address__c != '<br>',true,false)}">
+                       <apex:outputtext value="{!opp.Alternative_Address__c}" escape="false"/>
+                   </apex:outputPanel> 
+                   
+                                      </td>
+               <td width="45%">
+                   <table align="left" style="vertical-align:top;" border="" width="100%">
+                       <tr>
+                           <td width="42%">Invoice No:</td>
+                           <td width="58%" style="font-size:16px;">{!if(opp.Xero_Invoice_Number__c!=NULL,opp.Xero_Invoice_Number__c,opp.Opportunity_Number_new__c)}</td>
+                       </tr>
+                       
+                      
+                       <tr>
+                           <td>Date:</td>
+                          <td><!-- {!if(opp.Opportunity_Created_Date__c!=null,DAY(opp.Opportunity_Created_Date__c),DAY(DATEVALUE(opp.CreatedDate)))}/{!if(opp.Opportunity_Created_Date__c!=null,MONTH(opp.Opportunity_Created_Date__c),MONTH(DATEVALUE(opp.CreatedDate)))}/{!if(opp.Opportunity_Created_Date__c!=null,YEAR(opp.Opportunity_Created_Date__c),YEAR(DATEVALUE(opp.CreatedDate)))} -->
+                          <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!IF(opp.Opportunity_Created_Date__c!=null,opp.Opportunity_Created_Date__c,opp.CreatedDate)}"/></apex:outputtext>
+                          </td> 
+                       </tr>
+                       <tr>
+                       <td></td>
+                       </tr>
+                       <tr style="display: {!IF(opp.RecordType.Name='Invoice (To Invoice)', 'table-row','none')};">
+                           <td>Sales Order No.:</td>
+                          <td> {!opp.Sales_Order__r.Name} </td> 
+                       </tr>
+                       <tr>
+                           <td>Customer Order No.</td>
+                           <td>{!opp.Purchase_Order_Number__c}</td>
+                       </tr>
+                        
+                     <tr>
+                       <td></td>
+                     </tr>
+                       
+                       <tr>
+                           <td>Account No.</td>
+                           <td>{!IF(opp.Account.AccountNumber!=null,opp.Account.AccountNumber,opp.Account.parent.AccountNumber)}</td>
+                       </tr>
+                    
+                   </table>       
+               </td>
+           </tr>
+           </table>
+           <br/> <br/>
+           <table border="" cellspacing="0" cellpadding="0" width="100%" >
+                <tr style="background-color:#48164d;color:white;font-size:14px;">  
+                <td width="4%">Item</td>     
+                 <td align="left" width ="49%"><b>&nbsp;&nbsp;Product</b></td>
+                 <td align="center" width ="7%"><b>Qty</b></td>
+                 <td align="center" width ="11%"><b>Unit</b></td>
+                 <td align="center" width ="10%"><b>Price</b></td>
+                 <td align="right" width ="13%"><b>Total Price</b></td>
+                 <td align="right" width ="6%"><b>Vat%</b></td>  
+                </tr>
+            </table>
+    <apex:variable var="count" value="{!1}"   />  
+          
+<apex:outputPanel rendered="{!sheeton}">
+
+          <apex:repeat value="{!Wlist}" var="sheet">
+
+<apex:outputPanel >
+<br/>
+ <div>
+ <table width="100%" style="font-family:sans-serif ;font-size: 15px;">
+ <tr>
+ <td style="font-weight:bold;"><apex:outputText value="Ref:" rendered="{!sheet.SNo!=null}"/><apex:outputText value="{!sheet.SNo}"/> <apex:outputText value="-" rendered="{!sheet.Asset!=null}"/>   {!sheet.Asset} <apex:outputText value="-" rendered="{!sheet.Servi!=null}"/>  {!DAY(sheet.Servi)} <apex:outputText value="/" rendered="{!sheet.Servi!=null}"/>{!MONTH(sheet.Servi)}<apex:outputText value="/" rendered="{!sheet.Servi!=null}"/>{!YEAR(sheet.Servi)} </td>
+ </tr>
+ </table>
+ </div>
+ <br/>
+ 
+        
+
+            <apex:repeat value="{!Oli}" var="ol">
+            
+
+   <apex:outputPanel rendered="{!IF(sheet.SNo=ol.Service_Sheet__r.name,true,IF(sheet.SNo=ol.Maintenance_Reactive_Sheet__r.name,true,false))}">
+   
+   <table border="" width="100%" >
+              
+                      <tr>     
+                         
+                         <td width="4%" valign="top" > {!count}.</td>
+                      
+                          <td align="left" width="49%" style="vertical-align:top;"> 
+                          <apex:outputField value="{!ol.Product2.Name}" rendered="{!IF(ISNULL(ol.SalesDescription__c),true,false)}"/><apex:outputField value="{!ol.SalesDescription__c}" rendered="{!IF(NOT(ISNULL(ol.SalesDescription__c)),true,false)}"/><br/>
+                       
+                          <apex:outputText rendered="{!AND(ol.Show_Description__c,ol.Extended_Sales_Description__c!=null)}" VAlue="{!ol.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false"/>
+                         <!-- <apex:outputText rendered="{!AND(ol.Show_Description__c,ol.Product2.Sales_Description__c!=null,ol.Extended_Sales_Description__c==null)}" VAlue="{!ol.Product2.Sales_Description__c}" style="white-space:pre-line;" escape="false"/>
+                          <apex:outputText rendered="{!AND(ol.Show_Description__c,ol.Description!=null,ol.Extended_Sales_Description__c==null,ol.Product2.Sales_Description__c==null)}" VAlue="{!ol.Description}" style="white-space:pre-line;" escape="false"/> -->
+                      
+                          </td>
+                          <td align="center" width="7%" style="vertical-align:top;"><apex:outputText value="{!ol.Quantity}" /></td>
+                          <td align="center" width="11%" style="vertical-align:top;"><apex:outputText value="{!ol.Product2.Stock_Unit__c}" /></td>
+                          <td align="right" width="10%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!ol.UnitPrice}"/></apex:outputText></td>
+                          <td align="right" width="13%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!ol.TotalPrice}"/></apex:outputText></td>
+                          <td align="right" width="6%" style="vertical-align:top;"><apex:outputText value="{0,number,##,##,##,##}"><apex:param value="{!ol.Vat_Rate__c}"/></apex:outputText></td>
+                     </tr>
+                 </table> 
+   
+  <apex:variable var="count" value="{!count+1}"   />  
+    </apex:outputPanel>
+     
+  </apex:repeat>
+</apex:outputPanel>
+
+</apex:repeat> 
+  </apex:outputPanel>       
+  
+  <apex:outputPanel rendered="{!Nosheet}">
+          
+  <apex:outputPanel rendered="{!!Primatch}">
+ <table width="100%" border="" style="font-family:sans-serif;font-size: 15px;">
+ <tr>
+ <td style="font-weight:bold;"> <apex:outputText value="Ref:" rendered="{!PriSheet!=null}"/>  <apex:outputText value="{!PriSheet}" /> <apex:outputText value="-" rendered="{!Asset!=null}"/>  {!Asset} <apex:outputText value="-" rendered="{!Service!=null}"/>  {!DAY(Service)}<apex:outputText value="/" rendered="{!Service!=null}"/>{!MONTH(Service)}<apex:outputText value="/" rendered="{!Service!=null}"/>{!YEAR(Service)} </td>
+ </tr>
+ </table>
+ </apex:outputPanel>
+            <table border="0" width="100%">
+            
+                <apex:repeat value="{!Olii}" var="line">
+                          <tr>
+                          
+                        
+                           <td width="4%" valign="top">{!count}.</td>
+                            
+                           <td align="left" width="49%" style="vertical-align:top;"> 
+                           <apex:outputField value="{!line.Product2.Name}" rendered="{!IF(ISNULL(line.SalesDescription__c),true,false)}"/><apex:outputField value="{!line.SalesDescription__c}" rendered="{!IF(NOT(ISNULL(line.SalesDescription__c)),true,false)}"/><br/> 
+                          
+                          <apex:outputText rendered="{!AND(line.Show_Description__c,line.Extended_Sales_Description__c!=null)}" VAlue="{!line.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false"/>
+                         <!-- <apex:outputText rendered="{!AND(line.Show_Description__c,line.Product2.Sales_Description__c!=null,line.Extended_Sales_Description__c==null)}" VAlue="{!line.Product2.Sales_Description__c}" style="white-space:pre-line;" escape="false"/>
+                          <apex:outputText rendered="{!AND(line.Show_Description__c,line.Description!=null,line.Extended_Sales_Description__c==null,line.Product2.Sales_Description__c==null)}" VAlue="{!line.Description}" style="white-space:pre-line;" escape="false"/> -->
+                          
+                        
+                           </td>
+                          <td align="center" width="7%" style="vertical-align:top;"><apex:outputText value="{!line.Quantity}" /></td>
+                          <td align="center" width="11%" style="vertical-align:top;"><apex:outputText value="{!line.Product2.Stock_Unit__c}" /></td>
+                          <td align="right" width="10%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.UnitPrice}"/></apex:outputText></td>
+                          <td align="right" width="13%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.TotalPrice}"/></apex:outputText></td>
+                          <td align="right" width="6%" style="vertical-align:top;"><apex:outputText value="{0,number,##,##,##,##}"><apex:param value="{!line.Vat_Rate__c}"/></apex:outputText></td>
+                          </tr>
+                <apex:variable var="count" value="{!count+1}"   /> 
+                </apex:repeat> 
+                </table>   
+                </apex:outputPanel>           
+          <br/><br/><br/>
+         <div class="total">
+          <table  border="" width="100%">
+                   <tr>
+                       <td width="50%"></td>
+                       <td width="40%" align="RIGHT">Total Price :</td>
+                       <td width="10%" align="RIGHT"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!opp.Amount}"/></apex:outputText></td>
+                   </tr>
+                   <tr>
+                       <td width="50%"></td>
+                       <td align="RIGHT">VAT Total :</td>
+                       <td align="RIGHT"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!opp.Total_VAT__c}"/></apex:outputText></td>
+                   </tr>
+                   <tr> 
+                       <td width="50%"></td>
+                       <td align="RIGHT">Invoice Total :</td>
+                       <td align="RIGHT"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!opp.Invoice_Total__c}"/></apex:outputText></td>
+                   </tr>           
+               </table>
+          </div>
+          
+              
+              
+      <!--    <p style="width:70%;page-break-inside:avoid">Payment Terms:  {!IF(opp.Payment_Terms__c!=null,opp.Payment_Terms__c,'PAYMENT DUE ON PRESENTATION OF INVOICE')}   <br /> <br />
+          Any queries should be received in writing within 5 working days of receipt of invoice. All goods supplied remain the property of the Supplier untill all invoices are paid in full. Our Standard Terms and Conditions of Sale, Installation and Service apply to all contracts. <br /> <br />
+          Please make remittance to our bank details below, stating your Account No. as a reference.  Sort Code: 30-91-91 Account No. 45605968</p> -->
+          <div style="page-break-inside:avoid; ">
+         <p>
+         <b> Payment Terms:</b> <br/><br/>
+         
+        
+          <apex:outputText value="{!opp.Payment_Terms__c}" rendered="{!opp.Payment_Terms__c!='Other – see special terms'}"/> <br/><br/>
+           Please make payments to: {!$Label.Company_Name} | Sort Code 30-91-91 | Account No. 45605968 | Lloyds Bank Plc stating your Account No. as a reference. Please note we do not accept cheques.
+            <b><apex:outputText value="{!opp.Payment_Terms__c}" rendered="{!opp.Payment_Terms__c=='Other – see special terms'}" /> </b> <br/>
+            <apex:outputText value="{!opp.Special_Terms__c}" rendered="{!opp.Payment_Terms__c=='Other – see special terms'}" style="white-space:pre-line" escape="false"/> </p>
+       <p> <br/><br/>Any queries should be received in writing within 5 working days of receipt of invoice. All goods supplied remain the property of the Supplier untill all invoices are paid in full. Our Standard Terms and Conditions of Sale, Installation and Service apply to all contracts and can be viewed on our website <a href="https://eclipse-dental.com/legal/terms-of-sale/">https://eclipse-dental.com/legal/terms-of-sale/</a><br/><br/>
+         
+         </p>
+          
+          </div>
+          
+          
+</body>
+</div>
+</apex:component>

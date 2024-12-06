@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_No_of_CCTV_Monitors__c</fullName>
+    <externalId>false</externalId>
+    <formula>CCTV_O_C_Zone_Monitoring__c + CCTV_S_C_Zone_Monitoring_Qty__c + O_C_Sounder_Monitoring_Qty__c + CCTV_Mains_Monitoring_Qty__c + CCTV_SLA_Monitoring_Qty__c +  CCTV_Loop_Monitoring_Qty__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total No. of CCTV Monitors</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

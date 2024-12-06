@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SCALER_Room1__c</fullName>
+    <inlineHelpText>-Water supply required? 
+-Ensure their existing tips will fit 
+-Cavitron – confirm 25 or 30K?</inlineHelpText>
+    <label>Room1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

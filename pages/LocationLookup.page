@@ -1,0 +1,46 @@
+<apex:page controller="LocationLookupController" sidebar="false" showHeader="false" action="{!viewTech}">
+  <apex:form >
+ <script>
+   function selectedLoc(name,id)
+   {
+      var winMain=window.opener;
+      if (null==winMain)
+      {
+         winMain=window.parent.opener;
+      }
+      var ele=winMain.document.getElementById('{!$CurrentPage.parameters.Product}');
+       ele.value=name;
+      var ele1=winMain.document.getElementById('{!$CurrentPage.parameters.PrdId}');
+      ele1.value=id;
+      CloseWindow();
+   }
+ 
+   function CloseWindow()
+   {
+      var winMain=window.opener;
+      if (null==winMain)
+      {
+         winMain=window.parent.opener;
+      }
+      winMain.closeLookupPopup();      
+   }
+ </script>
+ </apex:form>
+ 
+   <div class="pBody">
+   <br/><br/>
+   <apex:form >
+                    &nbsp;&nbsp;<label for="lksrch">Search</label>
+                    <apex:inputText value="{!queryKey}"/>
+                    <apex:commandButton value=" Go! " action="{!search}"/>
+                    <div class="bDescription">&nbsp;"Your search results"</div>
+                    </apex:form>
+                </div>
+       <apex:pageBlock title="Products">
+              <apex:pageBlockTable value="{!location}" var="Prds">
+                 <apex:column headerValue="Product Name">
+                  <apex:outputLink value="#" onclick="selectedLoc('{!Prds.name}','{!Prds.id}')">{!Prds.Name}</apex:outputLink>       
+                </apex:column>               
+              </apex:pageBlockTable>    
+        </apex:pageBlock>
+</apex:page>

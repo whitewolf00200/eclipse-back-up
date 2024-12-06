@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_MS_Service_Sheet</fullName>
+    <availability>online</availability>
+    <description>This is the button to use for Mechanical service sheet</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Submit Service</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/{!Mechanical_Service_Sheet__c.Id}/e?={!Mechanical_Service_Sheet__c.Id}&amp;retURL={!Mechanical_Service_Sheet__c.Id}&amp;00N28000001aGKm=1</url>
+</WebLink>

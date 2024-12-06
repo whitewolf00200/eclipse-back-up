@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Visit_Survey_Email_Alert</fullName>
+        <ccEmails>salesforcetestwork@gmail.com</ccEmails>
+        <description>Visit Survey Email Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Visit_Template/Customer_Survey_Template</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Price_book_name_update</fullName>
+        <field>Price_Book_Name__c</field>
+        <formula>Price_Book__r.Name</formula>
+        <name>Price book name update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Pricebook_indicator_update</fullName>
+        <field>Price_Book_Indicator__c</field>
+        <formula>Price_Book__r.Id</formula>
+        <name>Pricebook indicator update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_City</fullName>
+        <field>ShippingCity</field>
+        <formula>BillingCity</formula>
+        <name>Update City</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Country</fullName>
+        <field>ShippingCountry</field>
+        <formula>BillingCountry</formula>
+        <name>Update Country</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Postal</fullName>
+        <field>ShippingPostalCode</field>
+        <formula>BillingPostalCode</formula>
+        <name>Update Postal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Site_Hourly_Rate</fullName>
+        <field>Hourly_Rate__c</field>
+        <formula>Parent.Hourly_Rate__c</formula>
+        <name>Update Site Hourly Rate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_State</fullName>
+        <field>ShippingState</field>
+        <formula>BillingState</formula>
+        <name>Update State</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Street</fullName>
+        <field>ShippingStreet</field>
+        <formula>BillingStreet</formula>
+        <name>Update Street</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update Address</fullName>
+        <actions>
+            <name>Update_City</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Country</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Postal</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_State</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Street</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>True</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Hourly Rate</fullName>
+        <actions>
+            <name>Update_Site_Hourly_Rate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Parent.Id= $Label.Bupa_Account_Id)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Price Book For Account Rule</fullName>
+        <actions>
+            <name>Price_book_name_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Pricebook_indicator_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR( AND(ISNEW(), Price_Book__c &lt;&gt; &apos;&apos;),ISCHANGED( Price_Book__c ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

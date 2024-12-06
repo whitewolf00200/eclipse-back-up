@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SC_Call_Out_OOH_Charge_Per_Hour_Thereaft__c</fullName>
+    <description>Service Charge Call Out OOH Charge Per Hour Thereaft</description>
+    <formula>IF(Call_Out_OOH_Charge_Per_Hour_Thereafter__c &lt;&gt; null,Call_Out_OOH_Charge_Per_Hour_Thereafter__c, Sales_Contract__r.Call_Out_OOH_Charge_Per_Hour_Thereafter__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SC Call Out OOH Charge Per Hour Thereaft</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region__c</fullName>
+    <label>Region</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BN Zone D</fullName>
+                <default>false</default>
+                <label>BN Zone D</label>
+            </value>
+            <value>
+                <fullName>BR Zone B</fullName>
+                <default>false</default>
+                <label>BR Zone B</label>
+            </value>
+            <value>
+                <fullName>Central London (E,EC,WC,W)</fullName>
+                <default>false</default>
+                <label>Central London (E,EC,WC,W)</label>
+            </value>
+            <value>
+                <fullName>CM Zone C</fullName>
+                <default>false</default>
+                <label>CM Zone C</label>
+            </value>
+            <value>
+                <fullName>CR Zone C</fullName>
+                <default>false</default>
+                <label>CR Zone C</label>
+            </value>
+            <value>
+                <fullName>CT Zone C</fullName>
+                <default>false</default>
+                <label>CT Zone C</label>
+            </value>
+            <value>
+                <fullName>CN Zone D</fullName>
+                <default>false</default>
+                <label>CN Zone D</label>
+            </value>
+            <value>
+                <fullName>DA Zone A</fullName>
+                <default>false</default>
+                <label>DA Zone A</label>
+            </value>
+            <value>
+                <fullName>E Zone C</fullName>
+                <default>false</default>
+                <label>E Zone C</label>
+            </value>
+            <value>
+                <fullName>GU Zone D</fullName>
+                <default>false</default>
+                <label>GU Zone D</label>
+            </value>
+            <value>
+                <fullName>HA Zone D</fullName>
+                <default>false</default>
+                <label>HA Zone D</label>
+            </value>
+            <value>
+                <fullName>HP Zone D</fullName>
+                <default>false</default>
+                <label>HP Zone D</label>
+            </value>
+            <value>
+                <fullName>IG Zone C</fullName>
+                <default>false</default>
+                <label>IG Zone C</label>
+            </value>
+            <value>
+                <fullName>KT Zone C</fullName>
+                <default>false</default>
+                <label>KT Zone C</label>
+            </value>
+            <value>
+                <fullName>ME Zone B</fullName>
+                <default>false</default>
+                <label>ME Zone B</label>
+            </value>
+            <value>
+                <fullName>MK Zone D</fullName>
+                <default>false</default>
+                <label>MK Zone D</label>
+            </value>
+            <value>
+                <fullName>NL</fullName>
+                <default>false</default>
+                <label>NL</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>PO Zone E</fullName>
+                <default>false</default>
+                <label>PO Zone E</label>
+            </value>
+            <value>
+                <fullName>RG Zone D</fullName>
+                <default>false</default>
+                <label>RG Zone D</label>
+            </value>
+            <value>
+                <fullName>RH Zone C</fullName>
+                <default>false</default>
+                <label>RH Zone C</label>
+            </value>
+            <value>
+                <fullName>RM Zone B</fullName>
+                <default>false</default>
+                <label>RM Zone B</label>
+            </value>
+            <value>
+                <fullName>SE Zone C</fullName>
+                <default>false</default>
+                <label>SE Zone C</label>
+            </value>
+            <value>
+                <fullName>SG</fullName>
+                <default>false</default>
+                <label>SG</label>
+            </value>
+            <value>
+                <fullName>SL Zone D</fullName>
+                <default>false</default>
+                <label>SL Zone D</label>
+            </value>
+            <value>
+                <fullName>SM Zone C</fullName>
+                <default>false</default>
+                <label>SM Zone C</label>
+            </value>
+            <value>
+                <fullName>SO Zone D</fullName>
+                <default>false</default>
+                <label>SO Zone D</label>
+            </value>
+            <value>
+                <fullName>S- Scotland</fullName>
+                <default>false</default>
+                <label>S- Scotland</label>
+            </value>
+            <value>
+                <fullName>SS Zone C</fullName>
+                <default>false</default>
+                <label>SS Zone C</label>
+            </value>
+            <value>
+                <fullName>SW Zone C&amp;D</fullName>
+                <default>false</default>
+                <label>SW Zone C&amp;D</label>
+            </value>
+            <value>
+                <fullName>TN Zone B &amp; C</fullName>
+                <default>false</default>
+                <label>TN Zone B &amp; C</label>
+            </value>
+            <value>
+                <fullName>TW Zone D</fullName>
+                <default>false</default>
+                <label>TW Zone D</label>
+            </value>
+            <value>
+                <fullName>UB Zone D</fullName>
+                <default>false</default>
+                <label>UB Zone D</label>
+            </value>
+            <value>
+                <fullName>WF (NHS)</fullName>
+                <default>false</default>
+                <label>WF (NHS)</label>
+            </value>
+            <value>
+                <fullName>AL Zone D</fullName>
+                <default>false</default>
+                <label>AL Zone D</label>
+            </value>
+            <value>
+                <fullName>CO Zone D</fullName>
+                <default>false</default>
+                <label>CO Zone D</label>
+            </value>
+            <value>
+                <fullName>IP Zone D</fullName>
+                <default>false</default>
+                <label>IP Zone D</label>
+            </value>
+            <value>
+                <fullName>LU Zone D</fullName>
+                <default>false</default>
+                <label>LU Zone D</label>
+            </value>
+            <value>
+                <fullName>NW and N Zone D</fullName>
+                <default>false</default>
+                <label>NW and N Zone D</label>
+            </value>
+            <value>
+                <fullName>WD Zone D</fullName>
+                <default>false</default>
+                <label>WD Zone D</label>
+            </value>
+            <value>
+                <fullName>EN Zone C</fullName>
+                <default>false</default>
+                <label>EN Zone C</label>
+            </value>
+            <value>
+                <fullName>OX Zone D</fullName>
+                <default>false</default>
+                <label>OX Zone D</label>
+            </value>
+            <value>
+                <fullName>SW Zone C &amp; D</fullName>
+                <default>false</default>
+                <label>SW Zone C &amp; D</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

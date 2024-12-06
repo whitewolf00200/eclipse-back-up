@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Role__c</fullName>
+    <label>Job Title</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accounts Department</fullName>
+                <default>false</default>
+                <label>Accounts Department</label>
+            </value>
+            <value>
+                <fullName>Architect</fullName>
+                <default>false</default>
+                <label>Architect</label>
+            </value>
+            <value>
+                <fullName>Area Manager</fullName>
+                <default>false</default>
+                <label>Area Manager</label>
+            </value>
+            <value>
+                <fullName>Asset Manager</fullName>
+                <default>false</default>
+                <label>Asset Manager</label>
+            </value>
+            <value>
+                <fullName>Associate Dentist</fullName>
+                <default>false</default>
+                <label>Associate Dentist</label>
+            </value>
+            <value>
+                <fullName>Beautician</fullName>
+                <default>false</default>
+                <label>Beautician</label>
+            </value>
+            <value>
+                <fullName>Builder</fullName>
+                <default>false</default>
+                <label>Builder</label>
+            </value>
+            <value>
+                <fullName>Business Manager</fullName>
+                <default>false</default>
+                <label>Business Manager</label>
+            </value>
+            <value>
+                <fullName>Chaplin</fullName>
+                <default>false</default>
+                <label>Chaplin</label>
+            </value>
+            <value>
+                <fullName>Chief Executive</fullName>
+                <default>false</default>
+                <label>Chief Executive</label>
+            </value>
+            <value>
+                <fullName>Clinical Director</fullName>
+                <default>false</default>
+                <label>Clinical Director</label>
+            </value>
+            <value>
+                <fullName>Clinical Manager</fullName>
+                <default>false</default>
+                <label>Clinical Manager</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Consultant Dental Surgeon</fullName>
+                <default>false</default>
+                <label>Consultant Dental Surgeon</label>
+            </value>
+            <value>
+                <fullName>Dental Nursing Manager</fullName>
+                <default>false</default>
+                <label>Dental Nursing Manager</label>
+            </value>
+            <value>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+                <label>Dentist</label>
+            </value>
+            <value>
+                <fullName>Director</fullName>
+                <default>false</default>
+                <label>Director</label>
+            </value>
+            <value>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+                <label>Doctor</label>
+            </value>
+            <value>
+                <fullName>Electrician</fullName>
+                <default>false</default>
+                <label>Electrician</label>
+            </value>
+            <value>
+                <fullName>EME Manager</fullName>
+                <default>false</default>
+                <label>EME Manager</label>
+            </value>
+            <value>
+                <fullName>Engineer</fullName>
+                <default>false</default>
+                <label>Engineer</label>
+            </value>
+            <value>
+                <fullName>Equipment Contract Manager</fullName>
+                <default>false</default>
+                <label>Equipment Contract Manager</label>
+            </value>
+            <value>
+                <fullName>Estates</fullName>
+                <default>false</default>
+                <label>Estates</label>
+            </value>
+            <value>
+                <fullName>Facilities Manager</fullName>
+                <default>false</default>
+                <label>Facilities Manager</label>
+            </value>
+            <value>
+                <fullName>Finance Contact</fullName>
+                <default>false</default>
+                <label>Finance Contact</label>
+            </value>
+            <value>
+                <fullName>Governor</fullName>
+                <default>false</default>
+                <label>Governor</label>
+            </value>
+            <value>
+                <fullName>Group Manager</fullName>
+                <default>false</default>
+                <label>Group Manager</label>
+            </value>
+            <value>
+                <fullName>Group Owner</fullName>
+                <default>false</default>
+                <label>Group Owner</label>
+            </value>
+            <value>
+                <fullName>Head Nurse</fullName>
+                <default>false</default>
+                <label>Head Nurse</label>
+            </value>
+            <value>
+                <fullName>Head of Department</fullName>
+                <default>false</default>
+                <label>Head of Department</label>
+            </value>
+            <value>
+                <fullName>Head of Estates</fullName>
+                <default>false</default>
+                <label>Head of Estates</label>
+            </value>
+            <value>
+                <fullName>Head of Finance</fullName>
+                <default>false</default>
+                <label>Head of Finance</label>
+            </value>
+            <value>
+                <fullName>Head of Healthcare</fullName>
+                <default>false</default>
+                <label>Head of Healthcare</label>
+            </value>
+            <value>
+                <fullName>Head Receptionist</fullName>
+                <default>false</default>
+                <label>Head Receptionist</label>
+            </value>
+            <value>
+                <fullName>Hygenist</fullName>
+                <default>false</default>
+                <label>Hygenist</label>
+            </value>
+            <value>
+                <fullName>Infection Control Lead</fullName>
+                <default>false</default>
+                <label>Infection Control Lead</label>
+            </value>
+            <value>
+                <fullName>Lead Consultant</fullName>
+                <default>false</default>
+                <label>Lead Consultant</label>
+            </value>
+            <value>
+                <fullName>Main Contact</fullName>
+                <default>false</default>
+                <label>Main Contact</label>
+            </value>
+            <value>
+                <fullName>Maintenance Supervisor</fullName>
+                <default>false</default>
+                <label>Maintenance Supervisor</label>
+            </value>
+            <value>
+                <fullName>Manager</fullName>
+                <default>false</default>
+                <label>Manager</label>
+            </value>
+            <value>
+                <fullName>Managing Director</fullName>
+                <default>false</default>
+                <label>Managing Director</label>
+            </value>
+            <value>
+                <fullName>Matron</fullName>
+                <default>false</default>
+                <label>Matron</label>
+            </value>
+            <value>
+                <fullName>Nurse</fullName>
+                <default>false</default>
+                <label>Nurse</label>
+            </value>
+            <value>
+                <fullName>Nurse/receptionist</fullName>
+                <default>false</default>
+                <label>Nurse/receptionist</label>
+            </value>
+            <value>
+                <fullName>Nursing Manager</fullName>
+                <default>false</default>
+                <label>Nursing Manager</label>
+            </value>
+            <value>
+                <fullName>Operations Manager</fullName>
+                <default>false</default>
+                <label>Operations Manager</label>
+            </value>
+            <value>
+                <fullName>Oral Surgeon</fullName>
+                <default>false</default>
+                <label>Oral Surgeon</label>
+            </value>
+            <value>
+                <fullName>Orthodontist</fullName>
+                <default>false</default>
+                <label>Orthodontist</label>
+            </value>
+            <value>
+                <fullName>Outpatients Manager</fullName>
+                <default>false</default>
+                <label>Outpatients Manager</label>
+            </value>
+            <value>
+                <fullName>Partner</fullName>
+                <default>false</default>
+                <label>Partner</label>
+            </value>
+            <value>
+                <fullName>Plumber</fullName>
+                <default>false</default>
+                <label>Plumber</label>
+            </value>
+            <value>
+                <fullName>Practice Manager</fullName>
+                <default>false</default>
+                <label>Practice Manager</label>
+            </value>
+            <value>
+                <fullName>Practice Owner</fullName>
+                <default>false</default>
+                <label>Practice Owner</label>
+            </value>
+            <value>
+                <fullName>Practice Support Manager</fullName>
+                <default>false</default>
+                <label>Practice Support Manager</label>
+            </value>
+            <value>
+                <fullName>Principal Dentist</fullName>
+                <default>false</default>
+                <label>Principal Dentist</label>
+            </value>
+            <value>
+                <fullName>Principal Dentist/Practice Manager</fullName>
+                <default>false</default>
+                <label>Principal Dentist/Practice Manager</label>
+            </value>
+            <value>
+                <fullName>Procurement</fullName>
+                <default>false</default>
+                <label>Procurement</label>
+            </value>
+            <value>
+                <fullName>Project Manager</fullName>
+                <default>false</default>
+                <label>Project Manager</label>
+            </value>
+            <value>
+                <fullName>Projects Buyer</fullName>
+                <default>false</default>
+                <label>Projects Buyer</label>
+            </value>
+            <value>
+                <fullName>Quantity Surveyor</fullName>
+                <default>false</default>
+                <label>Quantity Surveyor</label>
+            </value>
+            <value>
+                <fullName>Radiographer</fullName>
+                <default>false</default>
+                <label>Radiographer</label>
+            </value>
+            <value>
+                <fullName>Receptionist</fullName>
+                <default>false</default>
+                <label>Receptionist</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Secretary</fullName>
+                <default>false</default>
+                <label>Secretary</label>
+            </value>
+            <value>
+                <fullName>Secretary to Executive Director</fullName>
+                <default>false</default>
+                <label>Secretary to Executive Director</label>
+            </value>
+            <value>
+                <fullName>Senior Consultant</fullName>
+                <default>false</default>
+                <label>Senior Consultant</label>
+            </value>
+            <value>
+                <fullName>Senior Maxillofacial Nurse</fullName>
+                <default>false</default>
+                <label>Senior Maxillofacial Nurse</label>
+            </value>
+            <value>
+                <fullName>Senior Nurse</fullName>
+                <default>false</default>
+                <label>Senior Nurse</label>
+            </value>
+            <value>
+                <fullName>Site Manager</fullName>
+                <default>false</default>
+                <label>Site Manager</label>
+            </value>
+            <value>
+                <fullName>Technical</fullName>
+                <default>false</default>
+                <label>Technical</label>
+            </value>
+            <value>
+                <fullName>Treatment Coordinator</fullName>
+                <default>false</default>
+                <label>Treatment Coordinator</label>
+            </value>
+            <value>
+                <fullName>Ward Sister</fullName>
+                <default>false</default>
+                <label>Ward Sister</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

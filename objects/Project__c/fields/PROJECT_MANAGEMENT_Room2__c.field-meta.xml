@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PROJECT_MANAGEMENT_Room2__c</fullName>
+    <inlineHelpText>-What level is required? 
+-How does the client want the job managed? 
+-How does the client want to communicate? 
+-RAMS -CDM if over 30 days</inlineHelpText>
+    <label>Room2</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

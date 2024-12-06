@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SC_Standard_Reactive_Call_Out_Charge__c</fullName>
+    <description>Service Charge Standard Reactive Call Out Charge</description>
+    <formula>IF(  Standard_Reactive_Call_Out_Charge__c &lt;&gt; NULL,  Standard_Reactive_Call_Out_Charge__c, Sales_Contract__r.Standard_Reactive_Call_Out_Charge__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SC Standard Reactive Call Out Charge</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Capture_Technician_signature</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Capture Technician signature</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/apex/Capture_Signature?id={!SalesOrder__c.Id}&amp;ObjectType=SalesOrder__c&amp;targetRTField=Engineer_s_Signature__c&amp;targetPrintField=Engineer_s_Print__c</url>
+</WebLink>

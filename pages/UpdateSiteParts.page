@@ -1,0 +1,186 @@
+<apex:page standardController="SalesOrder__c" extensions="SitePartsUpdate" docType="html-5.0">
+
+<script type='text/javascript'>
+    
+        // This script assists the search bar functionality
+        // It will execute a search only after the user has stopped typing for more than 1 second
+        // To raise the time between when the user stops typing and the search, edit the following variable:
+        
+        var waitTime = 1;
+        
+    
+        var countDown = waitTime+1;
+        var started = false;
+        
+        function resetTimer(){
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown();
+            }
+        }
+        
+        function resetTimer1(){
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown1();
+            }
+        }
+        
+        function resetTimer2(){
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown2();
+            }
+        }
+        
+        function runCountDown(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                AJAXRefresh();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,500);
+            }
+        }
+        
+        function runCountDown1(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                AJAXRefresh1();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown1,500);
+            }
+        }
+        
+        function runCountDown2(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                AJAXRefresh2();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown2,500);
+            }
+        }
+    
+    </script>
+    
+<apex:form id="frm">
+    <apex:pageBlock >
+   
+<apex:pageblockButtons >
+<apex:commandButton value="Save" action="{!SaveAction}"  rendered="{!AllowSave}"/>
+<apex:commandButton value="Cancel" action="{!Cancel}"/>
+</apex:pageblockButtons>
+<apex:pageMessages id="err"/>
+          <apex:pageblockSection columns="6" title="Non Stock Items" rendered="{!NewStock.size>0}">
+                               
+                    <apex:repeat value="{!NewStock}" var="NewStk">
+                        <apex:pageblockSectionItem dataStyle="width:3%" labelStyle="width:5%">             
+                        <apex:outputText >Log Asset</apex:outputText><apex:inputCheckbox value="{!NewStk.LogAss}"/>                                                    
+                        </apex:pageblockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:10%" labelStyle="width:10%">
+                        <apex:outputText value="{!NewStk.PrdName}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Raised Quantity</apex:outputText><apex:outputText value="{!NewStk.Qty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Total Delivered Quantity</apex:outputText><apex:outputText value="{!NewStk.TotQty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Remaining Quantity</apex:outputText><apex:outputText value="{!NewStk.RemQty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Received Quantity</apex:outputText><apex:InputText value="{!NewStk.RecQty}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer2();}">
+                        <apex:actionSupport reRender="frm,err" event="onchange" action="{!NonStockQtyCheck}">
+                        </apex:actionSupport>
+                        </apex:InputText>
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+          </apex:pageblockSection>
+          
+          
+          <apex:pageblockSection columns="6" title="Non Serialized Items" rendered="{!NewNonSerial.size>0}">
+                <apex:repeat value="{!NewNonSerial}" var="NonSerial">
+                        <apex:pageblockSectionItem dataStyle="width:3%" labelStyle="width:5%">             
+                        <apex:outputText >Log Asset</apex:outputText><apex:inputCheckbox value="{!NonSerial.LogAss}"/>                                                    
+                        </apex:pageblockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:10%" labelStyle="width:10%">
+                        <apex:outputText value="{!NonSerial.PrdName}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Raised Quantity</apex:outputText><apex:outputText value="{!NonSerial.Qty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Total Delivered Quantity</apex:outputText><apex:outputText value="{!NonSerial.TotQty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Remaining Quantity</apex:outputText><apex:outputText value="{!NonSerial.RemQty}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem dataStyle="width:2%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Received Quantities</apex:outputText>
+                        <apex:InputText value="{!NonSerial.RecQty}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer2();}">
+                        <apex:actionSupport reRender="frm.err" event="onchange" action="{!NonStockQtyCheck}">
+                        </apex:actionSupport>
+                        </apex:InputText>
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>
+          </apex:pageblockSection>
+        
+         <apex:pageBlockSection columns="6" title="Serialized Items" rendered="{!NewSerial.size>0}">
+           <apex:repeat value="{!NewSerial}" var="VarSerial">
+       
+            <apex:pageblockSectionItem dataStyle="width:3%" labelStyle="width:5%">             
+                <apex:outputText >Log Asset</apex:outputText><apex:inputCheckbox value="{!VarSerial.LogAss}"/>                                                    
+            </apex:pageblockSectionItem>
+            
+            <apex:pageblockSectionItem dataStyle="width:10%" labelStyle="width:10%">             
+                <apex:outputText value="{!VarSerial.PrdName}"/>                                                      
+            </apex:pageblockSectionItem>
+            
+            <apex:pageblockSectionItem dataStyle="width:5%" labelStyle="width:5%">             
+                <apex:outputText id="changes">Raised Quantity</apex:outputText><apex:outputText value="{!VarSerial.Qty}"/>                                                     
+            </apex:pageblockSectionItem>
+            
+            <apex:pageblockSectionItem dataStyle="width:5%" labelStyle="width:5%">             
+                <apex:outputText id="changes">Total Delivered Quantity</apex:outputText><apex:outputText value="{!VarSerial.TotQty}"/>                                                      
+            </apex:pageblockSectionItem>
+            <apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:5%">
+                        <apex:outputText id="changes">Remaining Quantity</apex:outputText><apex:outputText value="{!VarSerial.RemQty}"/>
+                        </apex:pageBlockSectionItem>
+            <apex:pageblockSectionItem dataStyle="width:2%" labelStyle="width:5%">             
+          <apex:outputText id="changes">Received Quantities</apex:outputText>
+          <apex:InputText value="{!VarSerial.RecQty}"  onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer2();}">
+          <apex:actionSupport reRender="frm,err" event="onchange" action="{!NonStockQtyCheck}">
+          </apex:actionSupport>
+          </apex:InputText>                                    
+            </apex:pageblockSectionItem>
+       
+         </apex:repeat>
+         </apex:pageBlockSection> 
+        
+    </apex:pageBlock>
+            
+           
+                   
+                    <apex:actionFunction name="AJAXRefresh2" action="{!NonStockQtyCheck}" rerender="frm,err" status="myStatus"/>
+                    <apex:actionStatus id="myStatus" startText="Please Wait..."/>
+                   
+</apex:form>
+</apex:page>

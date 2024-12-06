@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Status__c</fullName>
+    <inlineHelpText>Those placing the order, select a priority 1, 2 or 3.</inlineHelpText>
+    <label>Priority/Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 = Life Threatening Within 24hrs</fullName>
+                <default>false</default>
+                <label>1 = Life Threatening Within 24hrs</label>
+            </value>
+            <value>
+                <fullName>2 = Urgent 48hrs</fullName>
+                <default>false</default>
+                <label>2 = Urgent 48hrs</label>
+            </value>
+            <value>
+                <fullName>3 = Not urgent within 7 days</fullName>
+                <default>false</default>
+                <label>3 = Not urgent within 7 days</label>
+            </value>
+            <value>
+                <fullName>Returned For More Information</fullName>
+                <default>false</default>
+                <label>Returned For More Information</label>
+            </value>
+            <value>
+                <fullName>Part Dispatched</fullName>
+                <default>false</default>
+                <label>Part Dispatched</label>
+            </value>
+            <value>
+                <fullName>Parts On Order</fullName>
+                <default>false</default>
+                <label>Parts On Order</label>
+            </value>
+            <value>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+                <label>Dispatched</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

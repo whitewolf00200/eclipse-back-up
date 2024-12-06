@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inv_Last_Qtrs__c</fullName>
+    <label>Inv Last Qtr</label>
+    <summarizedField>Opportunity.Total_Sales_Price__c</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>Closed Won, Sent</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Invoice_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>8/1/2022</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.Invoice_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>11/30/2022</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

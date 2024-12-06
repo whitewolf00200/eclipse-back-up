@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Contract_Purchase_Order_Expired</fullName>
+    <active>true</active>
+    <description>If the Site Contract Purchase Order has expired - you cannot progress</description>
+    <errorConditionFormula>AND(
+
+( Beta_Site_Contract_PO__r.Purchase_Order_Expiry_Date__c   &lt; TODAY()))</errorConditionFormula>
+    <errorDisplayField>Beta_Site_Contract_PO__c</errorDisplayField>
+    <errorMessage>This Site Contract Purchase Order cannot be used as it has Expired.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MSS_Manual_Release_Quantity_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK( Manual_Release_Point_Qty__c )), 
+OR(ISBLANK( Manual_Release_Point_Pass__c )), ISBLANK( Manual_Release_Point_Fail__c ))</errorConditionFormula>
+    <errorMessage>Please enter Pass or Fail for Manual Release Point Quantity</errorMessage>
+</ValidationRule>

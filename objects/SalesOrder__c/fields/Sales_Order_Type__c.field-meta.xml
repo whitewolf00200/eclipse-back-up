@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Order_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE ( RecordTypeId , 
+&quot;0124E0000000Cvz&quot; , &quot;Basic Order Confirmation&quot; , 
+&quot;0124E0000000Cw4&quot; , &quot;Long Project Order Confirmation&quot;, 
+&quot;&quot; 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sales Order Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

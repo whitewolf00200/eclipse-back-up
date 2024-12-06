@@ -1,0 +1,776 @@
+<apex:page standardcontroller="Service_Sheet_STD__c" showheader="false" sidebar="false" renderas="pdf" applyHtmlTag="false">
+
+<head>
+<style>
+body {
+background-color:#CCC;
+color:#333;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:21px;
+}
+
+h1,
+h2,
+hr {
+background-color:#00B050;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+}
+h1 {
+font-size:20px;
+line-height:20px;
+min-height:20px;
+padding:10px;
+text-align:center;
+}
+h2 {
+width:650px;
+padding:5px;
+font-size:14px;
+line-height:14px;
+}
+p {
+font-size:13px;
+line-height:21px;
+margin:0 0 7px;
+}
+p strong {
+font-weight:bold;
+}
+hr {
+height:25px;
+margin:0 0 5px;
+padding:0;
+}
+#logo {
+width:280px;
+height:100px;
+margin:10px auto;
+}
+
+
+table {
+width:660px;
+font-size:13px;
+border:0;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+border-spacing: 0;
+}
+td {
+padding:2px;
+text-align:left;
+border:1px solid #FFF;
+vertical-align:top;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+}
+th{
+background-color:#00B050 !important;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+line-height:21px;
+}
+th.tth{
+background-color:#00B050 !important;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:21px;
+font-weight:bold;
+}
+td.tt{
+background-color:#00B050;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+img{
+width:50px;
+}
+
+  </style>
+  </head>
+<p  style="text-align:center;background-color:#00B050;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:21px;"><br/>Reactive Visit Report<br/>
+</p>
+<div style="text-align: center;width:30;height:30;" id="logo">       
+<img style="width:250px;height:100px;" src="https://c.eu6.content.force.com/servlet/servlet.FileDownload?file=01558000000MUFm"/>
+ </div>
+<p style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:21px;">Registered Address: Eclipse Dental Care, 27 Branch Road, Batley, West Yorkshire WF17 5SB <br/>
+    </p>
+    <div style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">Tel: 01924 473396 / 01924 472183
+    Email: <a href="reception@eclipsedentalcare.co.uk">reception@eclipsedentalcare.co.uk</a>
+</div>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr>
+        <th class="tth"  width="40%" colspan = "4">Date &#38; Time On Site</th>
+        <th class="tth"  width="12%">Travel Time</th>
+        <th class="tth"  width="12%" >Out Of Hours</th>
+        <th class="tth" width="12%">Order No.</th>
+        <th class="tth" width="12%">Technician</th>
+        <th class="tth"  width="12%">Number</th>
+      </tr>
+</table>
+  <table  style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr>
+        <td width="10%">Arrive</td>
+        <td width="10%"><apex:outputfield value="{!Service_Sheet_STD__c.Arrive__c}"/></td>
+        <td width="10%">Depart</td>
+        <td width="10%"><apex:outputfield value="{!Service_Sheet_STD__c.Depart__c}"/></td>
+        <td width="12%">{!Service_Sheet_STD__c.Travel_Time__c}</td>
+        <td width="12%">{!if(Service_Sheet_STD__c.Out_of_Hours__c='Yes','Yes','No')}</td> 
+        <td width="12%">{!Service_Sheet_STD__c.PO_Number_on_Certificate__c}</td>
+        <td width="12%"><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Engineer_Code__c}"/></td>
+        <td width="12%">{!Service_Sheet_STD__c.PreviewSheetNo__c}</td>
+        </tr>
+
+  </table>
+ 
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="33%">Site Address:</th>
+       </tr>
+        <tr>
+        <td> <p style="text-align:left;"> <apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Site_Address__c}"/></p></td>
+        </tr>
+
+    </tbody>
+  </table>
+
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="100%"><label for="order">Visit Details / Comments:</label></th>
+       </tr>
+            <tr>
+        <td><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Site_Visit_Details_Comments__c}"/></td>
+        </tr>
+        <td><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Parts_Used_and_Quantity__c}"/></td>
+        <tr style="{!if(isnull(Service_Sheet_STD__c.Comments_to_Sales__c),'display:none;','display:tablerow;')}" >
+        <td>Comments To Compliance Team: <apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Comments_to_Sales__c}"/></td>
+        </tr>
+    </tbody>
+  </table>
+  <apex:outputpanel rendered="{!Service_Sheet_STD__c.System_Type__c='Fire Suppression'}">
+  <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>Main Body Pressure Seal</td>
+            <td>{!Floor(Service_Sheet_STD__c.Main_Body_Pressure_Seal__c)}</td>
+            </tr>
+            <tr>
+            <td>Valve Control Safety Pin</td>
+            <td>{!Floor(Service_Sheet_STD__c.Valve_Control_Safety_Pin__c)}</td>
+            </tr>
+            <tr>
+            <td>Discharge Pressure Seal</td>
+            <td>{!Floor(Service_Sheet_STD__c.Discharge_Pressure_Seals__c)}</td>
+            </tr>
+            <tr>
+            <td>Pi Calibration</td>
+            <td>{!Floor(Service_Sheet_STD__c.PI_Calibration__c)}</td>
+            </tr>
+            <tr>
+             <td>Decon Outlet Head</td>
+            <td>{!Floor(Service_Sheet_STD__c.Decon_Outlet_Head__c)}</td>
+            </tr>
+            <tr>
+            <td>Decon Fluid Lines</td>
+            <td>{!Floor(Service_Sheet_STD__c.Decon_Fluid_Lines__c)}</td>
+            </tr>
+     </table>
+     </div>
+           <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>WSP Lubrication</td>
+            <td>{!Floor(Service_Sheet_STD__c.WSP_Lubrication__c)}</td>
+            </tr>
+            <tr>
+           <td>Rubber Nozzle Caps</td>
+            <td>{!Floor(Service_Sheet_STD__c.Rubber_Nozzle_Caps__c)}</td>
+            </tr>
+            <tr>
+            <td>Stainless Steel Nozzle Caps</td>
+            <td>{!Floor(Service_Sheet_STD__c.Stainless_Steel_Nozzle_Caps__c)}</td>
+            </tr>
+            <tr>
+            <td>Fusible Links</td>
+            <td>{!Floor(Service_Sheet_STD__c.Fusible_Links__c)}</td>
+            </tr>
+            <tr>
+            <td>Suppression/Sprinkler Outlet Head</td>
+            <td>{!Floor(Service_Sheet_STD__c.Suppression_Sprinkler_Outlet_Head__c)}</td>
+            </tr>
+</table>
+</div>
+</apex:outputPanel>
+
+<apex:outputpanel rendered="{!Service_Sheet_STD__c.System_Type__c='Sprinkler'}">
+  <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>Brass LCI Padlock</td>
+            <td>{!Floor(Service_Sheet_STD__c.Brass_LCI_Padlock_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Decon Outlet Head</td>
+            <td>{!Floor(Service_Sheet_STD__c.Decon_Outlet_Head__c)}</td>
+            </tr>
+            <tr>
+            <td>Drain Valve Sign</td>
+            <td>{!Floor(Service_Sheet_STD__c.Drain_Valve_Sign__c)}</td>
+            </tr>
+            <tr>
+            <td>Flow/Pressure Switch</td>
+            <td>{!Floor(Service_Sheet_STD__c.Flow_Pressure_Switch__c)}</td>
+            </tr>
+            <tr>
+             <td>Gauge Calibration</td>
+            <td>{!Floor(Service_Sheet_STD__c.Gauge_Calibration__c)}</td>
+            </tr>
+            <tr>
+            <td>Replacement Gauge</td>
+            <td>{!Floor(Service_Sheet_STD__c.Lubrication_Grease__c)}</td>
+            </tr>
+     </table>
+     </div>
+           <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>WSP Lubrication</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Deacon_Diffuser__c)}</td>
+            </tr>
+            <tr>
+           <td>Rubber Nozzle Caps</td>
+            <td>{!Floor(Service_Sheet_STD__c.Pipe_Sealant_Clamp__c)}</td>
+            </tr>
+            <tr>
+            <td>Stainless Steel Nozzle Caps</td>
+            <td>{!Floor(Service_Sheet_STD__c.Pump_Room_Signs__c)}</td>
+            </tr>
+            <tr>
+            <td>Fusible Links</td>
+            <td>{!Floor(Service_Sheet_STD__c.Replacement_Gasket__c)}</td>
+            </tr>
+            <tr>
+            <td>Suppression/Sprinkler Outlet Head</td>
+            <td>{!Floor(Service_Sheet_STD__c.Replacement_Gauge__c)}</td>
+            </tr>
+</table>
+</div>
+</apex:outputPanel>
+
+<apex:outputpanel rendered="{!Service_Sheet_STD__c.System_Type__c='Dry Riser'|| Service_Sheet_STD__c.System_Type__c='Hydrant'}">
+  <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>Valve Sealing Units</td>
+            <td>{!Floor(Service_Sheet_STD__c.HYD_Valve_Sealing_Units_64mm__c)}</td>
+            </tr>
+            <tr>
+            <td>LCI Leather Strap</td>
+            <td>{!Floor(Service_Sheet_STD__c.HYD_LCI_Leather_Strap__c)}</td>
+            </tr>
+            <tr>
+            <td>Brass LCI Padlock</td>
+            <td>{!Floor(Service_Sheet_STD__c.Brass_LCI_Padlock_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Outlet Valve Blank Dust Cap</td>
+            <td>{!Floor(Service_Sheet_STD__c.HYD_Outlet_Valve_Blank_Dust_Cap__c)}</td>
+            </tr>
+            <tr>
+             <td>Dust Cap Fixing Chain</td>
+            <td>{!Floor(Service_Sheet_STD__c.Dust_Cap_Fixing_Chain_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Outlet Sign BS5499</td>
+            <td>{!Floor(Service_Sheet_STD__c.HYD_Outlet_Sign_BS5499__c)}</td>
+            </tr>
+            <tr>
+            <td>Glazing Seal and Channel</td>
+            <td>{!Floor(Service_Sheet_STD__c.Glazing_Seal_Channel_Qty__c)}</td>
+            </tr>
+     </table>
+     </div>
+           <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>Air Release Valve</td>
+            <td>{!Floor(Service_Sheet_STD__c.Air_Release_Valve_Std_Qty__c)}</td>
+            </tr>
+            <tr>
+           <td>Hydrant Marker Respray</td>
+            <td>{!Floor(Service_Sheet_STD__c.Hydrant_Marker_Respray_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Hydrant Cover Respray</td>
+            <td>{!Floor(Service_Sheet_STD__c.Hydrant_Cover_Respray_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Hydrant Marker Post</td>
+            <td>{!Floor(Service_Sheet_STD__c.Hydrant_Marker_Post_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Hydrant Marker Numbers</td>
+            <td>{!Floor(Service_Sheet_STD__c.Hydrant_Marker_Numbers_Qty__c)}</td>
+            </tr>
+              <tr>
+            <td>Georgian Wired Glass</td>
+            <td>{!Floor(Service_Sheet_STD__c.HYD_Georgian_Wired_Glass__c)}</td>
+            </tr>
+</table>
+</div>
+</apex:outputPanel>
+
+<apex:outputpanel rendered="{!Service_Sheet_STD__c.System_Type__c='Access Control'|| Service_Sheet_STD__c.System_Type__c='CCTV' || Service_Sheet_STD__c.System_Type__c='Intruder Alarm'}">
+  <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>SLA Power Calibration Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.SLA_Power_Calibration_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>SLA Term Set Decon Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.SLA_Term_Set_Decon_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>SLA Interconnection Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.SLA_Interconnection_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Radioactive Disposal Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Radioactive_Disposal_Qty__c)}</td>
+            </tr>
+            <tr>
+             <td>Environmental Disposal B Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Environmental_Disposal_B_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Decon PCB Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Decon_PCB_Qty__c)}</td>
+            </tr>
+               <tr>
+            <td>Decon Detector Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Decon_Detector_Qty__c)}</td>
+            </tr>
+               <tr>
+            <td>Decon Housing Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Decon_Housing_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Detector Calibration Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Detector_Calibration_Qty__c)}</td>
+            </tr>
+             <tr>
+            <td>Camera Calibration and Focusing Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Camera_Calibration_Focusing_Qty__c)}</td>
+            </tr>
+             <tr>
+            <td>Add Loop Calibration Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Add_Loop_Calibration_Qty__c)}</td>
+            </tr>
+             <tr>
+            <td>Add Data Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Add_Data_Qty__c)}</td>
+            </tr>
+             <tr>
+            <td>Callpoint/Zone ID Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Callpoint_Zone_ID_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Mechanical Friction Inhib. Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Mechanical_Friction_Inhib_Qty__c)}</td>
+            </tr>
+     </table>
+     </div>
+           <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>Door Contact Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Door_Contact_Qty__c)}</td>
+            </tr>
+            <tr>
+           <td>Glass Detector Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Glass_Detector_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Maglock Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Maglocksp_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Breakglass Release Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Breakglass_Releasesp_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Test Keys Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Test_Keys_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Replacement Glass</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Replacement_Glass__c)}</td>
+            </tr>
+            <tr>
+            <td>Release Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Releasesp_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Electronic Sounder Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Proxi_Card_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Proxi Card Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Maglocksp_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Proxi Reader Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Proxi_Readersp_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Camera Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Camera_Qty__c)}</td>
+            </tr>
+              <tr>
+            <td>Housing Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.Housingsp_Qty__c)}</td>
+            </tr>  
+
+   <div style="float: left; width: 110%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:92%;float:left">
+          <tr style="{!if(OR(Service_Sheet_STD__c.QTYsp__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">SLA Battery</td>
+            <td width="40%">{!Service_Sheet_STD__c.SLA_Batterysp__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.QTYsp__c)}</td>
+            </tr>
+          <tr style="{!if(OR(Service_Sheet_STD__c.Other_Qtysp__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Other</td>
+            <td width="40%">{!Service_Sheet_STD__c.Othersp__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.Other_Qtysp__c)}</td>
+            </tr>
+</table>
+</div>
+</table>
+</div>
+</apex:outputPanel>
+
+<apex:outputpanel rendered="{!Service_Sheet_STD__c.System_Type__c='Fire Alarm'|| Service_Sheet_STD__c.System_Type__c='Emergency Lighting'}">
+ <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>SLA Power Calibration</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_SLA_Power_Calibration__c)}</td>
+            </tr>
+            <tr>
+           <td>SLA Term Set Decon</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_SLA_Term_Set_Decon__c)}</td>
+            </tr>
+            <tr>
+            <td>SLA Interconnection</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_SLA_Interconection__c)}</td>
+            </tr>
+            <tr>
+            <td>Radioactive Disposal</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Radioactive_Disposal__c)}</td>
+            </tr>
+            <tr>
+            <td>Environmental Disposal T</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Environmental_Disposal_T__c)}</td>
+            </tr>
+            <tr>
+            <td>Environmental Disposal B</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Environmental_Disposal_B__c)}</td>
+            </tr>
+            <tr>
+            <td>Decon PCB</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Deacon_PCB__c)}</td>
+            </tr>
+            <tr>
+            <td>Decon Detector</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Deacon_Detector__c)}</td>
+            </tr>
+            <tr>
+            <td>dBa Reading</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_dBa_Reading__c)}</td>
+            </tr>
+            <tr>
+            <td>S65 Detector Calibration</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_S65_Detector_Calibration__c)}</td>
+            </tr>
+            <tr>
+            <td>Detector Calibration</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_STD_Detector_Calibration__c)}</td>
+            </tr>
+            <tr>
+            <td>Add. Loop Calibration</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Add_Loop_Calibration__c)}</td>
+            </tr>  
+            <tr>
+            <td>Add. Data</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Add_Data__c)}</td>
+            </tr>  
+            <tr>
+            <td>Callpoint/Zone ID</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Callpoint_Zone_ID__c)}</td>
+            </tr>  
+            <tr>
+            <td>Mechanical Friction Inhib.</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_Mechanical_Friction_Inhib__c)}</td>
+            </tr>  
+            <tr>
+            <td>RSSI Calibration</td>
+            <td>{!Floor(Service_Sheet_STD__c.FA_RSSI_Calibration__c)}</td>
+            </tr>  
+ </table>
+</div>
+<div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+             <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>TYPE</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Smoke_Detector_Qty__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Smoke Detector</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Smoke_Detector__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Smoke_Detector_Qty__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Heat_Detector_Qty__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Heat Detector</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Heat_Detector__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Heat_Detector_Qty__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.Base_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Base</td>
+            <td width="40%">{!Service_Sheet_STD__c.Base__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.Base_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Smoke_Sounder_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Smoke Sounder</td>
+            <td width="40%">{!Service_Sheet_STD__c.Smoke_Sounder__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Smoke_Sounder_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Heat_Detector_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Heat Sounder</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Heat_Sounder__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Heat_Detector_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Breakglass_Callpoint_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Breakglass Callpoint</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Breakglass_Callpoint__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Breakglass_Callpoint_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Test_Keys_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Test Keys</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Test_Keys__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Test_Keys_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Replacement_Glass_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Replacement Glass</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Replacementsp_Glass__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Replacement_Glass_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Electronic_Sounder_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Electronic Sounder</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Electronic_Sounder__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Electronic_Sounder_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Fire_Bell_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Fire Bell</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Fire_Bell__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Fire_Bell_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Beacon_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Beacon</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Spare_Parts_Beacon__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Beacon_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Door_Release_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Door Release</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Door_Release__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Door_Release_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Printer_Consumables_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Printer Consumables</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Printer_Consumables__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Printer_Consumables_QTY__c)}</td>
+            </tr>
+             <tr style="{!if(OR(Service_Sheet_STD__c.FA_IA_Spare_Parts_SLA_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">SLA Battery</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_IA_SLA__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_IA_Spare_Parts_SLA_QTY__c)}</td>
+            </tr>
+             <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Nicad_HiTemp_Cellsx_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Nicad Hi-Temp Cells X</td>
+            <td width="40%">{!Service_Sheet_STD__c.Nicad_Hi_Temp_CellsX__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Nicad_HiTemp_Cellsx_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Additional_Nicad_Qty__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Additional Nicad Hi-Temp Cells X</td>
+            <td width="40%">{!Service_Sheet_STD__c.Additional_Nicad_Hi_Temp_Cells_X__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Additional_Nicad_Qty__c)}</td>
+            </tr>
+             <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_Emergency_Lights_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Emergency Lights</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_Spare_Parts_Emergency_Lights__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_Emergency_Lights_QTY__c)}</td>
+            </tr>
+             <tr style="{!if(OR(Service_Sheet_STD__c.QTY_Additional_Emergency_Light__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Additional Emergency Lights</td>
+            <td width="40%">{!Service_Sheet_STD__c.Additional_Emergency_Lights__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.QTY_Additional_Emergency_Light__c)}</td>
+            </tr>
+             <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_468FT_Tube_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">EL Tube</td>
+            <td width="40%">{!Service_Sheet_STD__c.X4_6_8W_Tube__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_468FT_Tube_QTY__c)}</td>
+            </tr>
+             <tr style="{!if(OR(Service_Sheet_STD__c.QTY_Additional_EL_Tube__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Additional EL Tube</td>
+            <td width="40%">{!Service_Sheet_STD__c.Additional_EL_Tube__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.QTY_Additional_EL_Tube__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.FA_Spare_Parts_468W_Tube_QTY__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">4,6,8FT Tube</td>
+            <td width="40%">{!Service_Sheet_STD__c.FA_X4_6_8FT_Tube__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.FA_Spare_Parts_468W_Tube_QTY__c)}</td>
+            </tr>
+            <tr style="{!if(OR(Service_Sheet_STD__c.QtyFA__c!=null),'display:tablerow','display:none')}">
+            <td width="40%">Other</td>
+            <td width="40%">{!Service_Sheet_STD__c.OtherFA__c}</td>
+            <td width="20%">{!FLOOR(Service_Sheet_STD__c.QtyFA__c)}</td>
+            </tr>
+</table>
+</div>
+</apex:outputPanel>         
+            
+<apex:outputpanel rendered="{!Service_Sheet_STD__c.System_Type__c='Fire Extinguisher'}">
+  <div style="float: left; width: 50%;">
+   <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>        
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>Qty</td>
+            <td>{!Floor(Service_Sheet_STD__c.X6L_Water_Qty__c)}</td>
+            </tr>
+            <tr>
+            <td>Condemned</td>
+            <td>{!Floor(Service_Sheet_STD__c.X6L_Water_Condemned__c)}</td>
+            </tr>
+            <tr>
+            <td>Re-Charged</td>
+            <td>{!Floor(Service_Sheet_STD__c.X6L_Water_Re_Charged__c)}</td>
+            </tr>
+            <tr>
+            <td>Service Exchange</td>
+            <td>{!Floor(Service_Sheet_STD__c.X6L_Water_Service_Exchange__c)}</td>
+            </tr>
+            <tr>
+             <td>New Equipment Left On-Site</td>
+            <td>{!Floor(Service_Sheet_STD__c.X6L_Water_New_Equipment_Left_On_Site__c)}</td>
+            </tr>
+</table>
+</div>
+</apex:outputPanel>
+ <div style="float: left; width: 100%;">
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="50%">System Type:</th>
+        <th width="50%">Revisit Required:</th>
+       </tr>
+            <tr>
+        <td><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.System_Type__c}"/></td>
+        <td><apex:outputtext escape="false" value="{!if(Service_Sheet_STD__c.Revisit_Required__c,'Yes','No')}"/></td>
+        </tr>
+
+    </tbody>
+  </table>
+  </div>          
+  <div style="float: left; width: 100%;">
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+           <tr>
+                <th style="font-family:Verdana, Arial, Helvetica, sans-serif;width:50%"></th>
+        <th style="font-family:Verdana, Arial, Helvetica, sans-serif;width:50%"></th>
+       </tr>
+  
+      </table>
+ <br/>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:300px">
+    <tbody>
+     <tr>
+        <td width="150px">Technician's signature</td>
+        <td width="150px">Customer's signature</td>
+        <td width="150px">Customer's FeedBack</td>
+              </tr>
+     <tr>
+        <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Service_Sheet_STD__c.Technician_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/>
+        </span>
+        </td>
+     <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Service_Sheet_STD__c.Customer_s_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/> 
+        </span>
+        </td>
+        
+        <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Service_Sheet_STD__c.CustomerRating__c,"alt=","width=\"30px\" Alt=")}" escape="false"/> 
+        </span>
+        </td>
+        
+         </tr>
+     <tr>
+         <td width="150px">
+        <apex:outputText value="{!Service_Sheet_STD__c.Technician_s_Print__c}" escape="false"/>
+        </td>
+   <td width="150px">
+        <apex:outputText value="{!Service_Sheet_STD__c.Customer_s_Name__c}" escape="false"/>
+        </td>
+        <td width="150px">
+        <apex:outputText value="{!Service_Sheet_STD__c.Feedback_Comments__c}" escape="false"/>
+        </td>
+          </tr>
+      </tbody>
+</table></div>
+</apex:page>

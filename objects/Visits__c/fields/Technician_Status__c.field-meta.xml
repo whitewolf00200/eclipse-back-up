@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technician_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF
+( AND(Actual_Service_Date__c  = TODAY(), IF(Visit_Complete__c ,1,0) = 0), IMAGE( &quot;/img/samples/color_yellow.gif&quot;, &quot;yellow&quot;, 15, 200),
+IF
+( AND (Actual_Service_Date__c  = TODAY(),VALUE(MID(TEXT(NOW()),12,2)) +1  &gt; 15, IF(Visit_Complete__c ,1,0) = 0), IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 200),
+IF
+(IF(Visit_Complete__c ,1,0) = 1, IMAGE( &quot;/img/samples/color_green.gif&quot;, &quot;green&quot;, 15, 200),
+ &quot;&quot;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>If Actual Service Date is today and Visit Complete checkbox is ticked - Green
+If Actual Service Date is today and Visit Complete checkbox is not ticked - Yellow
+If Actual Service Date is today after 4pm and Complete checkbox is not ticked - Red</inlineHelpText>
+    <label>Technician Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,36 @@
+<apex:page standardController="Product2"  extensions="ProductDetails"  recordSetVar="recordSet" readOnly="true" sidebar="false" showHeader="false" contentType="application/vnd.ms-excel#Product.xls" >
+ 
+     <body>
+    
+  <table>
+    <tr>
+    <apex:repeat value="{!fields}" var="f">
+    <td><b>{!f.label}</b></td>
+    </apex:repeat> </tr> 
+ </table>
+ 
+  <apex:dataTable value="{!merch}" var="m">
+    
+     <apex:repeat value="{!fields}" var="f">
+    
+     <apex:column value="{!m[f]}"/>
+     </apex:repeat>
+     </apex:dataTable>
+   
+    </body> 
+    
+    
+     
+ <!-- <apex:form >    
+<apex:pageBlock >
+ <apex:pageBlockTable value="{!merch}" var="m">
+
+  <apex:repeat value="{!fields}" var="f"> 
+ <apex:column value="{!m[f]}" />
+ </apex:repeat> 
+ </apex:pageBlockTable>
+ </apex:pageBlock> 
+
+ </apex:form>  -->
+
+</apex:page>

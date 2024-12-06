@@ -1,0 +1,131 @@
+<apex:component access="global">
+<apex:attribute description="sp" name="sp" type="Engineer_Checklist__c"/>
+ <apex:attribute name="Serviceid" type="Id" description="Attribute on the component."/>
+ 
+ <table style="width:100%;border-collapse:0px;margin-top:-20px">
+   <tr>
+  
+  <!-- <td colspan="2" width="100%;" class="a"> <img src="{!$Resource.FitOutEquipment1}" width="120" height="100"  title="logo" align="right"/></td>
+    <td class="a" ><img src="{!$Resource.EclipseDentalLogo1}" width="130" height="120"  title="logo" align="right"/></td>
+   -->
+     <td class="a"><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td class="a" width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td>                 
+
+     </tr>     
+    <div Style="font-size:14px;margin-top:-20px"> &nbsp; Customer Address:
+      <tr>
+               <td   style="border: 100px white;padding-left:8px;"><apex:outputtext value="{!sp.Service_At__c}" escape="false"/></td>
+
+                      </tr>
+                    </div>        
+                     
+                      
+                      <p style="text-align:center; font-size:22px;margin-top:-25px"> <u>Suction Pump Installation Certificate </u></p>
+                     
+
+                      <table style="align:center">
+                      <tr>
+                      <td class="b"> Equipment Make:</td><td>{!sp.Make__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Equipment Model:</td><td>{!sp.Model__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Date of installation:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                        <apex:param value="{!sp.Date_of_installation__c}" />
+                        </apex:outputText></td>
+                      </tr>
+                      
+                     <tr>
+                         <td> Date service due:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_service_due__c}" /></apex:outputText></td>
+                      </tr>
+                       <tr>
+                      <td> Surgery no/location:</td><td>{!sp.Surgery_no_location__c}</td>
+                      </tr>
+                         <tr>
+                      <td> Serial No:</td><td>{!sp.Serial_No__c}</td>
+                      </tr> 
+                      
+                        <tr><td>Suction working at all surgeries: </td>
+                     <td>{!sp.Suction_working_at_all_surgeries__c}</td></tr>
+                   
+                      
+                     <tr><td>Leaks from any pipework connections:</td>
+                     <td>{!sp.Leaks_in_pipework__c}</td></tr>
+                     <tr><td>Equipment Isolator nearby:</td>
+                     <td>{!sp.Equipment_Isolator_nearby__c}</td></tr>
+                     
+                     
+                                          <tr><td>Location suitably ventilated:</td>
+                     <td>{!sp.Location_suitably_ventilated__c}</td></tr>
+                     
+                     <tr><td>Connected to correct power supply:</td>
+                     <td>{!sp.Suitable_power_supply_available__c}</td></tr>  
+                     
+                     <tr><td>Equipment labelled: </td>
+                     <td>{!sp.Equipment_labelled__c}</td></tr>
+                     
+                      <tr><td>Name of person given user training and
+manuals:
+ </td>
+                     <td>{!sp.Name_of_person_given_user_training__c}</td></tr>
+                     
+                       <tr><td>Exhaust to outside or Bacterial filter
+fitted?:
+ </td>
+  <td> {!sp.Exhaust_to_outside_or_Bacterial_filter__c}</td>
+  
+  </tr>  
+                  
+  <tr><td>Integral or separate amalgam seperation? </td>
+        <td>{!sp.Integral_or_separate_amalgam_separationn__c}</td></tr>
+        <tr>
+        <td style="display:{!if(sp.Integral_or_separate_amalgam_separationn__c="Separate",'','none')};">If separate,detail the type and size</td>
+        <td style="display:{!if(sp.Integral_or_separate_amalgam_separationn__c="Separate",'','none')};">{!sp.Separate_Details__c}</td></tr>
+                   
+                     <tr><td>Notes: </td>
+                     <td>{!sp.Note__c}</td></tr>
+                   
+                    <tr><td>Installed by: </td>
+                     <td>{!sp.Engineer__r.name}</td></tr>
+                          
+                         
+                            
+                      </table>
+                 </table> 
+                 <div class="footer" >
+                     <!-- <p style="border-top: 3px solid #038B99;" ><span style="color:#038B99;text-align:left; font-size:20px"><b >Guaranteed solutions....</b> </span></p>
+               
+     <div class="vl"> 
+     <p style="color:#038B99;position:relative;top:30px;">
+      <br/> Vat No: GB714 3153 67&nbsp; &nbsp;
+      <br/> CM,DW,PJ,RW,TWJ Boyt&nbsp;&nbsp;
+      <br/> T/A Eclipse Dental Engineering  &nbsp;&nbsp;<br/> 
+    </p> 
+     </div> 
+                       <div style="border-right: solid #038B99 2px"> </div>
+                       
+   <div style="text-align:right; color:#038B99;position:relative;top:-25px;font-size:12px;"> 
+                <br/>
+                 Westview Court 10-14 Kent Road<br/>
+                 Dartford  Kent  DA1 2AJ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                 Tel: 01322 293333 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                 Fax 01322 421158&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                 info@eclipse-dental.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                 www.eclipse-dental.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>-->
+   	  <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>   
+    </div>
+
+<!--<div class="footer" >
+        
+  <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>
+              </div>-->
+
+           
+            </apex:component>

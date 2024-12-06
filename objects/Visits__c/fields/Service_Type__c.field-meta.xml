@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Type__c</fullName>
+    <label>Part</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Visit_Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mechanical X-Ray</fullName>
+                <default>false</default>
+                <label>Mechanical X-Ray</label>
+            </value>
+            <value>
+                <fullName>Air Compressor</fullName>
+                <default>false</default>
+                <label>Air Compressor</label>
+            </value>
+            <value>
+                <fullName>General Equipment</fullName>
+                <default>false</default>
+                <label>General Equipment</label>
+            </value>
+            <value>
+                <fullName>Getinge Autoclave</fullName>
+                <default>false</default>
+                <label>Autoclave</label>
+            </value>
+            <value>
+                <fullName>Getinge Washer Disinfector</fullName>
+                <default>false</default>
+                <label>Getinge Washer Disinfector</label>
+            </value>
+            <value>
+                <fullName>Medisafe Washer Disinfector</fullName>
+                <default>false</default>
+                <label>Medisafe Washer Disinfector</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Report of Examination</fullName>
+                <default>false</default>
+                <label>Report of Examination</label>
+            </value>
+            <value>
+                <fullName>Suction Pump</fullName>
+                <default>false</default>
+                <label>Suction Pump</label>
+            </value>
+            <value>
+                <fullName>Treatment Centre</fullName>
+                <default>false</default>
+                <label>Treatment Centre</label>
+            </value>
+            <value>
+                <fullName>X-Ray</fullName>
+                <default>false</default>
+                <label>X-Ray</label>
+            </value>
+            <value>
+                <fullName>Annual Mechanical Service &amp; Certificate to Pan Oral X-ray</fullName>
+                <default>false</default>
+                <label>Annual Mechanical Service &amp; Certificate to Pan Oral X-ray</label>
+            </value>
+            <value>
+                <fullName>OPG</fullName>
+                <default>false</default>
+                <label>OPG</label>
+            </value>
+            <value>
+                <fullName>Chair</fullName>
+                <default>false</default>
+                <label>Chair</label>
+            </value>
+            <value>
+                <fullName>Image Plate Scanner</fullName>
+                <default>false</default>
+                <label>Image Plate Scanner</label>
+            </value>
+            <value>
+                <fullName>Sewer pump</fullName>
+                <default>false</default>
+                <label>Sewer pump</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>Air Compressor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>Suction Pump</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>Treatment Centre</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>X-Ray</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <valueName>OPG</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Image Plate Scanner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Sewer pump</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Mechanical X-Ray</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>General Equipment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>Getinge Autoclave</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>Getinge Washer Disinfector</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>Medisafe Washer Disinfector</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Callout</controllingFieldValue>
+            <valueName>Report of Examination</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Annual Mechanical Service &amp; Certificate to Pan Oral X-ray</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

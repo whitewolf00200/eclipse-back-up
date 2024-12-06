@@ -1,0 +1,162 @@
+<apex:page standardController="Engineer_Checklist__c" extensions="addPartsAdvancepageClass" lightningStylesheets="false" docType="html-5.0" sidebar="false">
+
+<apex:sectionHeader Title="Transfer Product Into Warhouses" subtitle="Test"/>
+    <apex:messages style="color:red"/>
+    
+  <style>
+        .search{
+            font-size:14pt;
+            margin-right: 20px;    
+        }
+        .fyi{
+            color:red;
+            font-style:italic;
+        }
+        .label{
+            margin-right:10px;
+            font-weight:bold;
+        }
+    </style>
+    <script type='text/javascript'>
+   
+        var waitTime = 1;
+    
+        var countDown = waitTime+1;
+        var started = false;
+        
+        function resetTimer(){
+        
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown();
+            }
+        }
+        
+        function runCountDown(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                fetchResults();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,1000);
+            }
+        }
+    </script> 
+    <apex:form >
+        <apex:pageBlock >
+            <apex:outputPanel styleClass="search">
+                Search for {!$ObjectType.Product2.LabelPlural}:
+            </apex:outputPanel>
+            <apex:actionRegion renderRegionOnly="false" immediate="true" />
+                <apex:actionFunction name="fetchResults" action="{!updateAvailableList}" reRender="searchResults" status="searchStatus"/>
+                <apex:inputText value="{!searchString}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer();}" style="width:300px"/>
+                &nbsp;&nbsp;
+                <i>
+                    <apex:actionStatus id="searchStatus" startText="searching..." stopText=" "/>
+                </i>
+                <br/>
+                <br/>
+                
+            <apex:outputPanel id="searchResults">
+                    
+                <apex:pageBlockTable value="{!AvailableProducts}" var="b">
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.Name.Label}" value="{!b.Name}" />
+                           
+                             
+                    <apex:Column >
+                            <apex:commandButton value="Select" action="{!Changestatus}" reRender="selected,searchResults" immediate="true">
+                                <apex:param value="{!b.Id}" assignTo="{!toSelect}" name="toSelect"/>
+                            </apex:commandButton>
+                        </apex:Column>
+                    </apex:pageBlockTable>
+                    <apex:outputPanel styleClass="fyi" rendered="{!overLimit}">
+                        <br/>
+                        Your search returned over 100 results, use a more specific search string if you do not see the desired {!$ObjectType.Product2.Label}.
+                        <br/>
+                    </apex:outputPanel>
+            </apex:outputPanel>
+            </apex:pageBlock> 
+        
+        <apex:outputPanel id="mainBody">
+            <apex:pageBlock title="Select {!$ObjectType.Product2.LabelPlural}" id="selected">
+                <apex:pageblockTable value="{!recordlist}" var="s">
+                     
+                   <!-- <apex:column > 
+                          <apex:inputCheckbox value="{!s.selected}">
+                        <apex:actionSupport event="onchange" action="{!changestatus}"/>
+                          </apex:inputCheckbox>
+                        </apex:column>-->
+                    
+                    <apex:column headerValue="{!$ObjectType.Product2.Fields.Name.Label}" value="{!s.record.Name}"/> 
+                    
+                       <!-- <apex:column headerValue="Available Quantity">
+                        <div class="slds-form-element">
+                                 <br/>
+                             <!--<label class="slds-form-element__label" for="form-element-01">Available Quantity</label>
+                               <div class="slds-form-element__control">
+                           
+                                 <input type="text" disabled="disabled" value="{!s.record.In_Hand_Quantity__c}"  class="slds-input slds-size_2-of-2" />
+                               <br/>
+                            </div>
+                              </div>
+                        </apex:column>-->
+                    <br/>
+                     <apex:column headerValue="Warehouse">
+                    <div class="slds-form-element">
+                                  <br/>
+                                   <!-- <label class="slds-form-element__label">Target Warehouse</label>-->
+                                    <div class="slds-form-element__control">
+                                        <div>
+                                            <br/>
+                                     <apex:selectlist value="{!s.selectedWH}" size="1" styleClass="slds-select" >
+                                     <apex:actionSupport event="onchange" reRender="transBtn" status="status"/>
+                                     <apex:selectOptions value="{!options}" >
+    
+                                        </apex:selectOptions>
+    
+                                       </apex:selectlist> 
+                                   
+                                  </div>
+                              </div>
+                              </div>
+                         <br/>
+                    </apex:column>
+                    <br/>
+                       <apex:column headerValue="Quantity">  
+                      <div class="slds-form-element">
+                                 <br/>
+                             <!--<label class="slds-form-element__label" for="form-element-01">Transfer Quantity</label>-->
+                               <div class="slds-form-element__control">
+                                 
+                                     <apex:input value="{!s.numb}" styleclass="slds-input slds-m-around-small" type="number" html-min="1" required="true" />
+                               <br/>
+                          </div>
+                              </div>
+                        </apex:column>
+                    <br/>
+                    <apex:column > 
+                        <apex:commandLink value="Remove" action="{!removeFromShoppingCart}" reRender="selected,searchResults" immediate="true">
+                            <apex:param value="{!s.record.id}" assignTo="{!toUnselect}" name="toUnselect"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    
+                </apex:pageblockTable>
+             
+            
+                <apex:pageBlockButtons >
+                    <!--<apex:commandButton action="{!Savepro}" value="save"/>-->
+                    <apex:commandButton action="{!onSave}" value="Add Parts"/>
+                    <apex:commandButton action="{!onCancel}" value="Cancel" immediate="true"/>
+                </apex:pageBlockButtons>
+            
+            </apex:pageBlock>
+       
+        </apex:outputPanel> 
+    
+        </apex:form> 
+</apex:page>

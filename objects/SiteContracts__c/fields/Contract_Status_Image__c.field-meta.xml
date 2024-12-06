@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Status_Image__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(  Number_of_Open_Visits__c = 0, Number_of_Open_Visits_Booked__c =0, Number_of_Open_Visits_with__c =0,TEXT(AM_Status__c)= &quot;Dormant&quot;),IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 200)&amp; &quot;No Open Planned Visit&quot;,
+
+IF(TEXT(AM_Status__c)= &quot;Dormant&quot;, IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 200),
+
+IF(TEXT(Next_Planned_Fire_Extinguisher_Visit__c) = &quot;&quot;, IMAGE( &quot;/img/samples/color_yellow.gif&quot;, &quot;yellow&quot;, 15, 200)&amp;&quot;No Planned Visit Date&quot;,
+
+
+IF (TEXT(AM_Status__c)= &quot;Hold&quot; , IMAGE( &quot;/img/samples/color_yellow.gif&quot;, &quot;yellow&quot;, 15, 200),
+
+
+ IMAGE( &quot;/img/samples/color_green.gif&quot;, &quot;green&quot;, 15, 200)
+
+))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Contract Status Image</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

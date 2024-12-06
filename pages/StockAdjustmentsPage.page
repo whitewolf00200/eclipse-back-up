@@ -1,0 +1,186 @@
+<apex:page standardController="Warehouse__c" extensions="StockAdjustmentsController" sidebar="false">
+<style>
+.fyi{
+    color:red;
+    font-style:italic;
+}
+</style>
+
+<script>
+    var newWin=null;
+    function openLookupPopup(name,id)
+    {
+        var url="/apex/LookupProuctPopupPage?namefield=" + name + "&idfield=" + id;
+        newWin=window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+        if (window.focus) 
+        {
+            newWin.focus();
+        }
+        return false;
+    }
+                  
+    function closeLookupPopup()
+    {
+       if (null!=newWin)
+       {
+          newWin.close();
+       }  
+    }
+    
+        // This script assists the search bar functionality
+        // It will execute a search only after the user has stopped typing for more than 1 second
+        // To raise the time between when the user stops typing and the search, edit the following variable:
+        
+        var waitTime = 1;
+        
+    
+        var countDown = waitTime+1;
+        var started = false;
+        
+        function resetTimer(){
+            countDown=waitTime+1;
+            if(started==false){
+                started=true;
+                runCountDown();
+            }
+        }
+        
+        function CallFun(){
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown1();
+            }
+        }
+        
+        function runCountDown(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                AJAXRefresh();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,500);
+            }
+        }
+        
+        function runCountDown1(){
+        
+            countDown--;
+            if(countDown<=0){
+                SearchPrd();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown1,500);
+            }
+        }
+     
+    </script>
+  
+  <apex:form id="frm">
+  '{!$CurrentPage.parameters.idfield}'
+      <apex:sectionHeader title="New Adjustment"/>
+        <apex:outputPanel rendered="{!AdjustBoolean}">
+        <center><apex:commandButton styleClass="buttons" value="Add Product" action="{!AddStock}" reRender="frm"/>&nbsp; &nbsp; 
+        <apex:commandButton styleClass="buttons" value="Remove Product" action="{!RemoveStock}" reRender="frm"/>&nbsp; &nbsp;
+        <apex:commandButton styleClass="buttons" value="Cancel" action="{!Cancel}"/></center>
+        </apex:outputPanel>
+        
+        <apex:pageBlock id="pb" rendered="{!AddPrdBoolean}">
+        <apex:pagemessages />
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save"  action="{!saveclick}" rendered="{!AllowSave}"> </apex:commandButton>
+                <apex:commandButton value="Cancel" action="{!PrdCancel}" reRender="frm"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageblockSection >
+                <apex:pageBlockSectionItem >
+                      <apex:outputLabel Style="Width:30px"> <b> Product Name </b></apex:outputLabel>  
+                  <apex:outputPanel >
+                     <apex:inputText size="20" id="ProductName" Value="{!ProductName}"/>
+                     <a href="#" onclick="openLookupPopup('{!$Component.ProductName}', '{!$Component.targetId}'); return false"> 
+                     <apex:image id="theImage" value="{!$Resource.Lookup}" width="18" height="15"  /></a>&nbsp;
+                  </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                     <apex:outputLabel Style="Width:30px"> <b>Quantity of Adjustment </b></apex:outputLabel>
+                     <apex:inputText size="20" id="Quantity" Value="{!Quantity}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer();}"/>
+                </apex:pageBlockSectionItem>
+                               
+                <apex:pageBlockSectionItem >
+                     <apex:outputLabel Style="Width:30px"><b> Reason for Adjustment </b></apex:outputLabel>
+                     <apex:inputText size="30" id="reason" Value="{!Reason}" /> 
+                </apex:pageBlockSectionItem>
+                
+             </apex:pageblockSection>
+             
+             <apex:inputHidden value="{!ProductId }" id="targetId" /> 
+  </apex:pageblock>
+  
+  <apex:pageBlock rendered="{!SerialBoolean}">
+         <apex:pageBlockTable value="{!InsertInv}" var="tn" width="100">
+              <apex:column width="33%" headerValue="Product Name" value="{!tn.Product2__c}"/>
+              <apex:column width="33%" headerValue="Serial Number"> <apex:inputtext Value="{!tn.Name}"/> </apex:column> 
+              <apex:column width="33%" HeaderValue="Type" value="{!tn.Transaction_Type__c} "/>
+          
+          </apex:pageBlockTable>
+  </apex:pageBlock>
+  
+  <apex:pageblock title="Remove Inventory Transaction form Warehouse" rendered="{!RemoveBoolean}">
+      
+      <apex:pageblockSection >
+      
+          <apex:pageBlockSectionItem >
+                     <apex:outputLabel Style="Width:30px"> <b>Search Product</b></apex:outputLabel>
+                     <apex:inputText size="20" id="SrchPrd" Value="{!SelectedPrd}" onkeydown="if(event.keyCode==13){this.blur();}else{CallFun();}"/>
+         </apex:pageBlockSectionItem>
+                    
+      </apex:pageblockSection>
+      
+      <apex:pageblockTable value="{!remInvTrans}" var="rem" rendered="{!NOT(OR(ISNULL(remInvTrans),remInvTrans.size=0))}">
+          <apex:column headerValue="Serial Number" value="{!rem.Name}"/>
+          <apex:column headerValue="PO Number" value="{!rem.Purchase_Order__r.Name}"/>
+          <apex:column headerValue="Transaction Type" >
+              <apex:inputfield value="{!rem.Transaction_Type__c}"/>
+          </apex:column>
+      </apex:pageblockTable>
+      
+      <apex:pageBlockButtons >
+          <apex:commandButton value="Save" action="{!UpdateInvTrans}" rendered="{!RemoveSaveBoolean}"/>
+          <apex:commandButton value="Cancel" action="{!PrdRemCancel}" reRender="frm"/>
+      </apex:pageBlockButtons>
+      
+      <apex:pageblockTable value="{!AvailableProducts }" var="inv" rendered="{!AvailPrd}">
+      <apex:column value="{!inv.name}"/>
+      <apex:column value="{!inv.Product__r.name}"/>
+      <apex:column value="{!inv.In_Hand_Quantity__c}"/>                        
+      <apex:column >
+      <apex:actionRegion >
+      <apex:commandButton value="Select" reRender="frm" action="{!RemovePrdSelect}">
+      <apex:param name="selInv" assignTo="{!selPrd}" value="{!inv.id}"/>
+      </apex:commandButton></apex:actionRegion>
+      </apex:column>
+      </apex:pageblockTable>
+  
+  </apex:pageblock>
+  
+  <apex:outputPanel styleClass="fyi" rendered="{!overLimit}">
+     <br/>
+     Your search returned over 100 results, use a more specific search string if you do not see the desired {!$ObjectType.Product2.Label}.
+     <br/>
+  </apex:outputPanel>
+                    
+  <apex:actionFunction name="AJAXRefresh" action="{!StockAdjust}" rerender="frm" status="myStatus"/>
+  <apex:actionStatus id="myStatus" startText="Please Wait..."/>
+  
+  <apex:actionFunction name="SearchPrd" action="{!StockSearch}" rerender="frm" status="myStatus1"/>
+  <apex:actionStatus id="myStatus1" startText="Searching..."/>  
+  
+  </apex:form>
+</apex:page>

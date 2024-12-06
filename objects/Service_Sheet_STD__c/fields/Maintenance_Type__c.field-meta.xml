@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maintenance_Type__c</fullName>
+    <label>Maintenance Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fire Door</fullName>
+                <default>false</default>
+                <label>Fire Door</label>
+            </value>
+            <value>
+                <fullName>Nurse Call</fullName>
+                <default>false</default>
+                <label>Nurse Call</label>
+            </value>
+            <value>
+                <fullName>Portable Appliance Testing</fullName>
+                <default>false</default>
+                <label>Portable Appliance Testing</label>
+            </value>
+            <value>
+                <fullName>Smoke Vent / Curtain</fullName>
+                <default>false</default>
+                <label>Smoke Vent / Curtain</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

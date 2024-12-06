@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beta_S_Visit_PO__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Beta Service Visit PO</description>
+    <inlineHelpText>Beta Service Visit PO
+If mandatory, yet a P/O is not required, enter a dot (.).</inlineHelpText>
+    <label>Beta S Visit PO</label>
+    <referenceTo>PO__c</referenceTo>
+    <relationshipLabel>Visits (Beta Service Visit PO)</relationshipLabel>
+    <relationshipName>Visits2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

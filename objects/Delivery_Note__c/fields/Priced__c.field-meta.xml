@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priced__c</fullName>
+    <label>Priced</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NO INVOICE</fullName>
+                <default>false</default>
+                <label>NO INVOICE</label>
+            </value>
+            <value>
+                <fullName>NOT PRICED</fullName>
+                <default>false</default>
+                <label>NOT PRICED</label>
+            </value>
+            <value>
+                <fullName>PRICED</fullName>
+                <default>false</default>
+                <label>PRICED</label>
+            </value>
+            <value>
+                <fullName>RETURN TO SERVICE</fullName>
+                <default>false</default>
+                <label>RETURN TO SERVICE</label>
+            </value>
+            <value>
+                <fullName>SERVICE TO PRICE</fullName>
+                <default>false</default>
+                <label>SERVICE TO PRICE</label>
+            </value>
+            <value>
+                <fullName>UPLOADED</fullName>
+                <default>false</default>
+                <label>UPLOADED</label>
+            </value>
+            <value>
+                <fullName>ZERO INVOICE</fullName>
+                <default>false</default>
+                <label>ZERO INVOICE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,144 @@
+<apex:page standardcontroller="Engineer_Checklist__c" showheader="false" sidebar="false" 
+renderAs="pdf" applyHtmlTag="false">
+<head>
+<style>
+body {
+background-color:#CCC;
+color:#333;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:15px;
+}
+
+h1,
+h2,
+hr {
+background-color:#00B050;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+}
+h1 {
+font-size:20px;
+line-height:20px;
+min-height:20px;
+padding:10px;
+text-align:center;
+}
+h2 {
+width:650px;
+padding:5px;
+font-size:14px;
+line-height:14px;
+}
+p {
+font-size:13px;
+line-height:15px;
+margin:0 0 7px;
+}
+p strong {
+font-weight:bold;
+}
+hr {
+height:25px;
+margin:0 0 5px;
+padding:0;
+}
+#logo {
+width:180px;
+height:50px;
+margin:10px auto;
+}
+
+
+table {
+width:660px;
+font-size:13px;
+border:0;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+border-spacing: 0;
+}
+td {
+padding:2px;
+text-align:left;
+border:1px solid #FFF;
+vertical-align:top;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:15px;
+
+}
+th{
+background-color:#00B050 !important;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:15px;
+}
+th.tth{
+background-color:#00B050 !important;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:18px;
+font-weight:bold;
+}
+tr{
+page-break-inside:avoid;
+}
+td.tt{
+background-color:#00B050;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+img{
+width:200px;
+}
+
+  </style>
+  </head>
+<div id="container">
+<h1 style="text-align:center;background-color:00B050;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:21px;"><br/>Service Sheet Certificate of Inspection<br/><br/></h1>
+<div style="text-align:center;">      
+<img src="https://c.eu6.content.force.com/servlet/servlet.FileDownload?file=01558000000MUFm" width="300" height="100"  title="logo"/>
+ </div>
+ 
+<p style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:21px;">Registered Address: Eclipse Dental Care. Registered Office : Eclipse Dental Care, 27 Branch Road, Batley, West Yorkshire WF17 5SB<br/>
+</p>
+<div style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">Tel: 0845 37 111 37 
+Email: <a href="mailto:reception@eclipsedentalcare.co.uk">reception@eclipsedentalcare.co.uk</a></div>
+<p id="nav"></p>
+<div style="text-align:center;background-color:#CCC;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+      
+      <tr>
+        <th width="11%"><label for="date">Date</label></th>
+        <th width="11%"><label for="order">Order No.</label></th>
+        <th width="11%"><label for="number">Number</label></th>
+      </tr>
+      <tr>
+        <td></td>
+         <td></td>
+        <td></td>
+     </tr>
+    </tbody>
+  </table>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+    <tbody>
+      <tr>
+        <th width="22%" align="left">
+        <label for="service_address">Service At:</label>
+        </th>
+      </tr>
+      <tr>
+        <td rowspan="3"><apex:outputtext value="" escape="false"/></td>
+        </tr>
+    </tbody>
+  </table>
+  <br/>
+ </div>
+</div> 
+
+ </apex:page>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_Service_Sprinkler_Sheet</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Submit Service</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{! 
+IF( 
+Mechanical_Service_Sheet__c.RecordType = &apos;01228000000D11k&apos;, 
+
+&quot;window.open(&apos;/&quot; &amp; Mechanical_Service_Sheet__c.Id &amp; &quot;/e?=&quot; &amp; Mechanical_Service_Sheet__c.Id &amp; &quot;&amp;retURL=%2F&quot; &amp; Mechanical_Service_Sheet__c.Id &amp; &quot;&amp;00N28000001aGKm=1&apos;, &apos;_self&apos;);&quot;,&quot;&quot; ) 
+
+}</url>
+</WebLink>

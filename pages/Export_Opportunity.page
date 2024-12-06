@@ -1,0 +1,22 @@
+<apex:page standardController="Opportunity"  extensions="Oppdetails"  recordSetVar="recordSet" readOnly="true" sidebar="false" showHeader="false" contentType="application/vnd.ms-excel#Opportunity.xls" cache="true">
+ 
+     <body>
+    
+  <table>
+    <tr>
+    <apex:repeat value="{!fields}" var="f">
+    <td><b>{!f.label}</b></td>
+    </apex:repeat> </tr> 
+ </table>
+ 
+  <apex:dataTable value="{!merch}" var="m">
+    
+     <apex:repeat value="{!fields}" var="f">
+    
+     <apex:column value="{!m[f]}"/>
+     </apex:repeat>
+     </apex:dataTable>
+   
+    </body>
+
+</apex:page>

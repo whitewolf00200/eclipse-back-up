@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Department__c</fullName>
+    <description>Auto Populate the Service Department based on the Postcode area values.</description>
+    <inlineHelpText>Auto Populate the Service Department based on the Postcode area values.</inlineHelpText>
+    <label>Service Department</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Service North</fullName>
+                <default>false</default>
+                <label>Service North</label>
+            </value>
+            <value>
+                <fullName>Service Middle North</fullName>
+                <default>false</default>
+                <label>Service Middle North</label>
+            </value>
+            <value>
+                <fullName>Service Southwest</fullName>
+                <default>false</default>
+                <label>Service Southwest</label>
+            </value>
+            <value>
+                <fullName>Service Southeast</fullName>
+                <default>false</default>
+                <label>Service Southeast</label>
+            </value>
+            <value>
+                <fullName>Error Location</fullName>
+                <default>false</default>
+                <label>Error Location</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

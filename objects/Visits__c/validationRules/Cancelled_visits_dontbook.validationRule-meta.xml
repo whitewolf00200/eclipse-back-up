@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancelled_visits_dontbook</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( 
+  Cancelled__c = TRUE, 
+     ISPICKVAL(Booked_with_Customers__c , &apos;Yes&apos;))</errorConditionFormula>
+    <errorDisplayField>Booked_with_Customers__c</errorDisplayField>
+    <errorMessage>You cannot book a visit that has been cancelled</errorMessage>
+</ValidationRule>

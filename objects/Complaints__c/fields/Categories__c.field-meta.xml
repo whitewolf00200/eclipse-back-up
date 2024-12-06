@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Categories__c</fullName>
+    <label>Categories</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accounts Error</fullName>
+                <default>false</default>
+                <label>Accounts Error</label>
+            </value>
+            <value>
+                <fullName>Communication - Reactive</fullName>
+                <default>false</default>
+                <label>Communication - Reactive</label>
+            </value>
+            <value>
+                <fullName>Communication - Sales</fullName>
+                <default>false</default>
+                <label>Communication - Sales</label>
+            </value>
+            <value>
+                <fullName>Communication - Service</fullName>
+                <default>false</default>
+                <label>Communication - Service</label>
+            </value>
+            <value>
+                <fullName>Dispatch</fullName>
+                <default>false</default>
+                <label>Dispatch</label>
+            </value>
+            <value>
+                <fullName>Invoice Queries</fullName>
+                <default>false</default>
+                <label>Invoice Queries</label>
+            </value>
+            <value>
+                <fullName>Projects</fullName>
+                <default>false</default>
+                <label>Projects</label>
+            </value>
+            <value>
+                <fullName>Technician Error</fullName>
+                <default>false</default>
+                <label>Technician Error</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

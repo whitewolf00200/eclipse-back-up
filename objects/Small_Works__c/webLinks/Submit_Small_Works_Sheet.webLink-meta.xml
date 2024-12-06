@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_Small_Works_Sheet</fullName>
+    <availability>online</availability>
+    <description>Ticks the Submit this small work box</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Submit Small Works Sheet</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/{!Small_Works__c.Id}/e?={!Small_Works__c.Id}&amp;
+retURL={!Small_Works__c.Id}&amp;00N28000001aGgX=1</url>
+</WebLink>

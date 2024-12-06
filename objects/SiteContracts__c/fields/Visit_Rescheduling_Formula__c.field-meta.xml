@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Rescheduling_Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( TEXT( Visit_Rescheduling__c ) &lt;&gt; &quot;&quot;, TEXT( Visit_Rescheduling__c ) ,
+IF ( AND ( TEXT( Site__r.Visit_Reschedule__c ) &lt;&gt; &quot;&quot;,TEXT( Site__r.Visit_Reschedule__c ) &lt;&gt; &quot;NONE&quot;), TEXT( Site__r.Visit_Reschedule__c ), 
+TEXT( Site__r.Parent.Visit_Reschedule__c )))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This formula is used in the trigger. It will show the highest level of chosen scheduling logic, at the parent, then the site, then the site contract. The lowest level wins, so that the site contract over-rules the site or parent.</inlineHelpText>
+    <label>Visit Reschedule (Cust, Site, Contract)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

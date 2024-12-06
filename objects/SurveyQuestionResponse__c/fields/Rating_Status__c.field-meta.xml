@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rating_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Survey_Question__r.Name ==&apos;Based on your recent experience with the Eclipse Dental engineer,how likely are&apos;,&apos;Eng&apos;,
+
+IF(Survey_Question__r.Name ==&apos;Based on your recent experience booking your service or repair call with the Ec&apos;,&apos;Ofc&apos;,&apos;&apos;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Rating For</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

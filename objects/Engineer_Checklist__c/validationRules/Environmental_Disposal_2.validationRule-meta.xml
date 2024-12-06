@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Environmental_Disposal_2</fullName>
+    <active>false</active>
+    <description>If 4,6,8 FT tube is filled in, then Environmental Disposal T must be filled in.</description>
+    <errorConditionFormula>AND( TEXT(  FA_Spare_Parts_468FT_Tube_QTY__c  ) &lt;&gt; &quot;&quot; , 
+
+  TEXT(FA_Environmental_Disposal_T__c)= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have filled in a Qty for either 4,6,8 W  or 4,6,8 FT Tube Spare Parts. You need to fill in the Environmental Disposal field.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Long_Project_Proposal</fullName>
+    <active>true</active>
+    <label>Project Proposal</label>
+    <picklistValues>
+        <picklist>Created_By__c</picklist>
+        <values>
+            <fullName>Chester Boyt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lyudmila Lopez</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Despatch_Method__c</picklist>
+        <values>
+            <fullName>Delivery By Hand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engineer Installation</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Post</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TNT Courier</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Job_Scale__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Active</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Relationship__c</picklist>
+        <values>
+            <fullName>Average</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strong</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Requirement__c</picklist>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spares</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Surgery Fitout</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sales_Type__c</picklist>
+        <values>
+            <fullName>Project</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Small Equipment</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Type__c</picklist>
+        <values>
+            <fullName>Air Compressor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Getinge Autoclave</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Getinge Washer Disinfector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mechanical X-Ray</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medisafe Washer disinfector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Report of Examination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suction Pump</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Treatment Centre</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Accept</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>terms__c</picklist>
+        <values>
+            <fullName>30 days from End of Month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30 days from Invoice Date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 deposit with order%2C balance due on day of installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 deposit with order%2C balance due within 30 days of Invoice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 with order%2C 60%25 7 days before installation and 10%25 balance on completion of installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 with order%2C 60%25 on first day of installation and 10%25 balance on completion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%25 with order%2C 50%25 on delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%25 with order%2C 50%25 on installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60 days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %E2%80%93 see special terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PAYMENT DUE ON PRESENTATION OF INVOICE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PAYMENT RECEIVED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payable by monthly standing order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment On Installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proforma</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

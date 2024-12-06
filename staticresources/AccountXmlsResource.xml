@@ -1,0 +1,50 @@
+<Invoice>
+      <Contact>
+        <ContactID>d1e32067-188c-4c46-825a-725c178cc7b7</ContactID>
+      </Contact>
+      <Date>2017-02-08T00:00:00</Date>
+      <DueDate>2017-02-08T00:00:00</DueDate>
+      <BrandingThemeID>f9bec8ee-a5ce-471e-b798-fb2c82fe67ae</BrandingThemeID>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <ItemCode>null</ItemCode>
+          <Description>0% 12 Months Finance Offer</Description>
+          <UnitAmount>0.00</UnitAmount>
+          <TaxType>OUTPUT2</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>0.00</LineAmount>
+          <Quantity>1.0000</Quantity>
+          <DiscountRate>10.00</DiscountRate>
+        </LineItem>
+        <LineItem>
+          <ItemCode>null</ItemCode>
+          <Description>0-30 PSI 50MM ABS GAUGE 1/4"BSPT BACK</Description>
+          <UnitAmount>15.80</UnitAmount>
+          <TaxType>OUTPUT2</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>31.60</LineAmount>
+          <Quantity>2.0000</Quantity>
+          <DiscountRate>0.00</DiscountRate>
+        </LineItem>
+        <LineItem>
+          <ItemCode>null</ItemCode>
+          <Description>Travel to site address</Description>
+          <UnitAmount>70.00</UnitAmount>
+          <TaxType>OUTPUT2</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>70.00</LineAmount>
+          <Quantity>1.0000</Quantity>
+          <DiscountRate>0.00</DiscountRate>
+        </LineItem>
+      </LineItems>
+      <SubTotal>101.60</SubTotal>
+      <TotalTax>0.00</TotalTax>
+      <Total>101.60</Total>
+      <CurrencyCode>INR</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>00000000-0000-0000-0000-000000000000</InvoiceID>
+      <Reference>4429</Reference>
+      <TotalDiscount>0.00</TotalDiscount>
+</Invoice>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_Service_Date</fullName>
+    <active>true</active>
+    <description>If Accepted is ticked and Booked with Customer is ticked there must be an Acutal Service Date.</description>
+    <errorConditionFormula>AND(TEXT(Actual_Service_Date__c) = &quot;&quot;,
+TEXT(Accepted__c)= &quot;Yes&quot;,
+IF(ISPICKVAL( Booked_with_Customers__c ,&apos;Yes&apos;),1,0) = 1)</errorConditionFormula>
+    <errorDisplayField>X2nd_Technician__c</errorDisplayField>
+    <errorMessage>You must enter an Actual Service Date Booked with Customer is ticked and Accepted by Technician is Yes.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Technician_Availability_on_this_Date</fullName>
+    <availability>online</availability>
+    <description>https://ap2.salesforce.com/00O28000001PDNX?pv0={!HTMLENCODE(
+
+
+TEXT(DAY(Visits__c.Actual_Service_Date__c))&amp;&quot;/&quot;&amp;
+TEXT(MONTH(Visits__c.Actual_Service_Date__c)) &amp;&quot;/&quot;&amp;
+TEXT(YEAR(Visits__c.Actual_Service_Date__c))
+     
+)}</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>All Technician Availability on this Date</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>&apos;&apos;</url>
+</WebLink>

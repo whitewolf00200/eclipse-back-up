@@ -1,0 +1,203 @@
+<apex:page standardcontroller="Project_Sheet__c" showheader="false" sidebar="false" renderas="pdf" applyHtmlTag="false">
+<head>
+<style>
+body {
+background-color:#CCC;
+color:#333;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:21px;
+}
+
+h1,
+h2,
+hr {
+background-color:#00B050;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+}
+h1 {
+font-size:20px;
+line-height:20px;
+min-height:20px;
+padding:10px;
+text-align:center;
+}
+h2 {
+width:650px;
+padding:5px;
+font-size:14px;
+line-height:14px;
+}
+p {
+font-size:13px;
+line-height:21px;
+margin:0 0 7px;
+}
+p strong {
+font-weight:bold;
+}
+hr {
+height:25px;
+margin:0 0 5px;
+padding:0;
+}
+#logo {
+width:280px;
+height:100px;
+margin:10px auto;
+}
+
+
+table {
+width:660px;
+font-size:13px;
+border:0;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+border-spacing: 0;
+}
+td {
+padding:2px;
+text-align:left;
+border:1px solid #FFF;
+vertical-align:top;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+}
+th{
+background-color:#00B050 !important;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+line-height:21px;
+}
+th.tth{
+background-color:#00B050 !important;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:21px;
+font-weight:bold;
+}
+td.tt{
+background-color:#00B050;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+img{
+width:50px;
+}
+
+  </style>
+  </head>
+<p  style="text-align:center;background-color:#00B050;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:21px;"><br/>Project Visit Report<br/>
+</p>
+<div style="text-align: center;width:30;height:30;" id="logo">       
+<img style="width:250px;height:100px;" src="https://c.eu6.content.force.com/servlet/servlet.FileDownload?file=01558000000MUFm"/>
+ </div>
+<p style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:21px;">Registered Address: Eclipse Dental Care, 27 Branch Road, Batley, West Yorkshire WF17 5SB <br/>
+    </p>
+    <div style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">Tel: 01924 473396 / 01924 472183
+    Email: <a href="reception@eclipsedentalcare.co.uk">reception@eclipsedentalcare.co.uk</a>
+</div>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr>
+        <th class="tth"  width="40%" colspan = "4">Date &#38; Time On Site</th>
+        <th class="tth"  width="12%">Travel Time</th>
+        <th class="tth"  width="12%" >Out Of Hours</th>
+        <th class="tth" width="12%">Order No.</th>
+       <!-- <th class="tth" width="12%">Technician</th> -->
+        <th class="tth"  width="12%">Number</th>
+      </tr>
+</table>
+  <table  style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr>
+        <td width="10%">Arrive</td>
+        <td width="10%"><apex:outputfield value="{!Project_Sheet__c.Arrive__c}"/></td>
+        <td width="10%">Depart</td>
+        <td width="10%"><apex:outputfield value="{!Project_Sheet__c.Depart__c}"/></td>
+        <td width="12%">{!Project_Sheet__c.Travel_Time__c}</td>
+        <td width="12%">{!if(Project_Sheet__c.Out_of_Hours__c='Yes','Yes','No')}</td> 
+        <td width="12%">{!Project_Sheet__c.PO_Number_on_Certificate__c}</td>
+       <!-- <td width="12%"><apex:outputtext escape="false" value="{!Project_Sheet__c.Engineer_Code__c}"/></td> -->
+        <td width="12%">{!Project_Sheet__c.Name}</td>
+      </tr>
+
+  </table>
+ 
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="33%">Site Address:</th>
+       </tr>
+        <tr>
+        <td> <p style="text-align:left;"> <apex:outputtext escape="false" value="{!Project_Sheet__c.Site_Address__c}"/></p></td>
+        </tr>
+
+    </tbody>
+  </table>
+
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="100%"><label for="order">Visit Details / Comments:</label></th>
+       </tr>
+            <tr>
+        <td><apex:outputtext escape="false" value="{!Project_Sheet__c.Site_Visit_Details_Comments__c}"/></td>
+        </tr>
+        <td><apex:outputtext escape="false" value="{!Project_Sheet__c.Parts_Used_and_Quantity__c}"/></td>
+        <tr style="{!if(isnull(Project_Sheet__c.Comments_to_Sales__c),'display:none;','display:tablerow;')}" >
+        <td>Comments To Compliance Team: <apex:outputtext escape="false" value="{!Project_Sheet__c.Comments_to_Sales__c}"/></td>
+        </tr>
+    </tbody>
+  </table>
+ 
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="50%">System Type:</th>
+        <th width="50%">Revisit Required:</th>
+       </tr>
+            <tr>
+        <td><apex:outputtext escape="false" value="{!Project_Sheet__c.System_Type__c}"/></td>
+        <td><apex:outputtext escape="false" value="{!if(Project_Sheet__c.Revisit_Required__c,'Yes','No')}"/></td>
+        </tr>
+
+    </tbody>
+  </table>
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+           <tr>
+                <th style="font-family:Verdana, Arial, Helvetica, sans-serif;width:50%"></th>
+        <th style="font-family:Verdana, Arial, Helvetica, sans-serif;width:50%"></th>
+       </tr>
+  
+      </table>
+ <br/>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:300px">
+    <tbody>
+     <tr>
+        <td width="150px">Technician's signature</td><td width="150px">Customer's signature</td>
+              </tr>
+     <tr>
+        <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Project_Sheet__c.Technician_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/>
+        </span>
+        </td>
+     <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Project_Sheet__c.Customer_s_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/>
+        </span>
+        </td>
+         </tr>
+     <tr>
+         <td width="150px">
+        <apex:outputText value="{!Project_Sheet__c.Technician_s_Print__c}" escape="false"/>
+        </td>
+   <td width="150px">
+        <apex:outputText value="{!Project_Sheet__c.Customer_s_Name__c}" escape="false"/>
+        </td>
+          </tr>
+      </tbody>
+</table>
+</apex:page>

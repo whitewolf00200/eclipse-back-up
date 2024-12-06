@@ -1,0 +1,40 @@
+<apex:page standardController="Delivery_Note__c" renderas="pdf" applyHtmlTag="false" showHeader="false">
+<head>
+    <style type="text/css" media="print">
+     
+    
+    @page{
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom:6.8cm;
+   
+    @top-center {
+        content: element(header);
+    }
+    @bottom-left {
+        content: element(footer);
+    }
+}
+
+
+
+div.footer {
+  font-size:7pt;
+font-family:sans-serif ;
+    position: running(footer);
+         margin-left:-40px;
+    
+}
+
+
+
+.start{
+font-size:8pt;
+font-family:sans-serif ;
+}
+    </style> 
+</head>
+<c:Delivery_Note_Component delno="{!Delivery_Note__c}" />
+</apex:page>

@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction">
+    <ltng:require scripts="/dist/quaggajs.js" />
+    <ltng:require scripts="{!$Resource.jquery}" />
+    <aura:attribute name="codeOutput" type="String" />
+
+    <input type="file" accept="image/*;capture=camera" aura:id="file" />
+    <ui:button label="Scan" press="{!c.scan}"/>
+    <br />
+    Output : <ui:outputText value="{!v.codeOutput}" />
+
+</aura:component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Rescheduling_Check__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( TEXT(Visit_Rescheduling__c) &lt;&gt;&quot;&quot;, 
+
+IF ( TEXT(Site__r.Parent.Visit_Reschedule__c) &lt;&gt; &quot;&quot;, 
+IF ( TEXT(Visit_Rescheduling__c) &lt;&gt; TEXT(Site__r.Parent.Visit_Reschedule__c), &quot;PARENT : &quot;&amp;TEXT(Site__r.Parent.Visit_Reschedule__c), &quot;&quot;),&quot;&quot;)
+&amp;&quot; &quot;&amp;
+IF ( TEXT(Site__r.Visit_Reschedule__c) &lt;&gt; &quot;&quot;, 
+IF ( TEXT(Visit_Rescheduling__c) &lt;&gt; TEXT(Site__r.Visit_Reschedule__c) , &quot;SITE : &quot;&amp;TEXT(Site__r.Visit_Reschedule__c), &quot;&quot;),&quot;&quot;) 
+
+, &quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>If the Parent or Site are not blank and not the same as the Site Contract, then this shows their values.</inlineHelpText>
+    <label>Visit Rescheduling Check</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

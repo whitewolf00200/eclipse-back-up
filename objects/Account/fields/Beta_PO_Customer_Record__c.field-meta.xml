@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beta_PO_Customer_Record__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This is a lookup to the Purchase Order Object</description>
+    <inlineHelpText>This is a lookup to the Purchase Order Object.
+If mandatory, yet a P/O is not required, enter a dot (.).</inlineHelpText>
+    <label>Beta PO</label>
+    <referenceTo>PO__c</referenceTo>
+    <relationshipLabel>Accounts (Beta PO)</relationshipLabel>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

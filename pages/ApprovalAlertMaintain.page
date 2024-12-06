@@ -1,0 +1,7 @@
+<apex:page standardController="Service_Sheet_STD__c" extensions="ApprovalMaintain">
+    
+    <apex:outputPanel layout="block" style="overflow:auto;height:100px" >
+    <apex:pageMessages />
+    </apex:outputPanel>
+                    
+</apex:page>

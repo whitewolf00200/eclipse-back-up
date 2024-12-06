@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FA_Outputs_Reinstated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Outputs Reinstated</description>
+    <label>Outputs Reinstated</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

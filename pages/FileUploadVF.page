@@ -1,0 +1,16 @@
+<apex:page standardStylesheets="true" showHeader="false" standardController="Visits__c">
+<apex:includeLightning />    
+<div id="LwcId" />
+<script>
+        $Lightning.use("c:FileUploadApp", function() {
+        $Lightning.createComponent("c:fileUploadComp",
+        {
+             recordId: "{!Visits__c.Id}" 
+        },
+        "LwcId", 
+        function(cmp) {
+            console.log('Calling the LWC Component');
+        });
+    });
+</script>
+</apex:page>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sounder_Test_Message__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( FA_Sounder_Test_Completed__c , &quot;Sounder Testing was completed by Hentland Technician on &quot;&amp; TEXT(DAY(FA_Sounder_Test_Date__c))&amp;&quot;/&quot; &amp; TEXT(MONTH (FA_Sounder_Test_Date__c))&amp;&quot;/&quot; &amp; TEXT(YEAR(FA_Sounder_Test_Date__c))
+ , 
+IF ( Sounder_Test_Completed_By__c &lt;&gt; &quot;&quot;, &quot;Sounder Testing was completed by &quot;&amp;Sounder_Test_Completed_By__c&amp;&quot; on &quot;&amp; TEXT(DAY(FA_Sounder_Test_Date__c))&amp;&quot;/&quot; &amp; TEXT(MONTH (FA_Sounder_Test_Date__c))&amp;&quot;/&quot; &amp; TEXT(YEAR(FA_Sounder_Test_Date__c))
+ , &quot;&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sounder Test Message</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

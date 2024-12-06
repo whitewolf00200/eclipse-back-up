@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Third_Party_Company__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please keep this consistent so that you can create views of all third party companies and so that reporting will work. Check the technicians records to see if this third party has been mentioned before.</inlineHelpText>
+    <label>Third Party Company</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

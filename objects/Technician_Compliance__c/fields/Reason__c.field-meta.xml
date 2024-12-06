@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason__c</fullName>
+    <inlineHelpText>Try to catagorise the reason as much as possible. If Other is selected, enter full details into the Comments box.</inlineHelpText>
+    <label>Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Encouragement</fullName>
+                <default>false</default>
+                <label>Encouragement</label>
+            </value>
+            <value>
+                <fullName>Incorrect Invoicing</fullName>
+                <default>false</default>
+                <label>Incorrect Invoicing</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Patience</fullName>
+                <default>false</default>
+                <label>Patience</label>
+            </value>
+            <value>
+                <fullName>Positive Feedback</fullName>
+                <default>false</default>
+                <label>Positive Feedback</label>
+            </value>
+            <value>
+                <fullName>Recommendation</fullName>
+                <default>false</default>
+                <label>Recommendation</label>
+            </value>
+            <value>
+                <fullName>Technician Appearance / Attitiude</fullName>
+                <default>false</default>
+                <label>Technician Appearance / Attitiude</label>
+            </value>
+            <value>
+                <fullName>Technician Failed to Attend Site at Appointed Time</fullName>
+                <default>false</default>
+                <label>Technician Failed to Attend Site at Appointed Time</label>
+            </value>
+            <value>
+                <fullName>Visit not Booked</fullName>
+                <default>false</default>
+                <label>Visit not Booked</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

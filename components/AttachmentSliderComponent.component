@@ -1,0 +1,30 @@
+<apex:component controller="AttachmentSliderHandler"  selfClosing="true">
+    <apex:attribute name="RecordId" type="Id" description="Id of the record containing images in its attachments." assignTo="{!ParentRecordId}" required="true"/>
+  
+   
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.AttachmentSlider, 'jquery.flexslider-min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.AttachmentSlider, 'flexslider.css')}"/>
+    
+   
+    
+    <div id="slider" class="flexslider">
+        <ul class="slides">
+            <apex:repeat value="{!Attachments}" var="att"> 
+                <li><img src="/servlet/servlet.FileDownload?file={!att.Id}"/></li>
+            </apex:repeat>
+        </ul>
+    </div>
+    <script>
+        $j = jQuery.noConflict();
+        $j(function(){
+            $j('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: true,
+                animationLoop: true,
+                itemWidth: 400,
+                itemMargin: 5
+              });
+        });
+    </script>
+</apex:component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_in_Vehicle__c</fullName>
+    <label>Total in Vehicle</label>
+    <summaryFilterItems>
+        <field>Inventory_Transaction__c.Transaction_Type__c</field>
+        <operation>equals</operation>
+        <value>In Vehicle</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Inventory_Transaction__c.Inventory__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

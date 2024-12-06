@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Invoice_Email</fullName>
+        <description>Invoice Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>HQ_Invoice_Email_To__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>InvoiceEmailTo__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Invoice_Templates/Sage_To_Invoice</template>
+    </alerts>
+    <alerts>
+        <fullName>Invoice_Email_Copy_And_Sheets</fullName>
+        <description>Invoice and Service Sheet Pdf Copy</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Copy_Email_for_Invoice__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Invoice_Templates/Sage_Invoice_Note_Copy</template>
+    </alerts>
+    <alerts>
+        <fullName>Invoice_and_M_R_Sheet</fullName>
+        <description>Invoice and M&amp;R Sheet</description>
+        <protected>false</protected>
+        <recipients>
+            <field>HQ_Invoice_Email_To__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>InvoiceEmailTo__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Invoice_Templates/Sage_Invoice_Note</template>
+    </alerts>
+    <alerts>
+        <fullName>Invoice_and_Service_Sheet_Pdf</fullName>
+        <description>Invoice and Service Sheet Pdf</description>
+        <protected>false</protected>
+        <recipients>
+            <field>HQ_Invoice_Email_To__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>InvoiceEmailTo__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Invoice_Templates/Sage_Invoice_Note</template>
+    </alerts>
+    <alerts>
+        <fullName>Invoice_sheet_PDF_to_Different_email</fullName>
+        <description>Invoice sheet PDF to Different email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Invoice_To_Different_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>salesforcetestwork@gmail.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Invoice_Templates/Invoice_To_Different_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Sheets_Certificate_Copy</fullName>
+        <description>Sheets Certificate Copy</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_for_Copy_SS_RS_SW__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Invoice_Templates/Sheets_Certificate_Copy</template>
+    </alerts>
+    <alerts>
+        <fullName>Xero_Invoice_confirmation</fullName>
+        <ccEmails>ssankarganesh@merfantz.com</ccEmails>
+        <description>Xero Invoice confirmation</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Invoice_Templates/Sample_xero</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>AccountStatusFieldUpdate</fullName>
+        <field>Account_Status__c</field>
+        <literalValue>Live</literalValue>
+        <name>AccountStatusFieldUpdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>AccountId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Rejected</fullName>
+        <field>Approval_status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Approval Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_status_update</fullName>
+        <field>Approval_status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Approval status update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Copy_Certificate_Sent</fullName>
+        <field>Date_Copy_Sheet_Sent__c</field>
+        <formula>TODAY()</formula>
+        <name>Copy Certificate Sent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Date_Last_Payment_Update</fullName>
+        <field>Date_last_payment_received__c</field>
+        <formula>FullyPaidOnDate__c</formula>
+        <name>Date Last Payment Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>InvoiceEmailToFieldUpdate</fullName>
+        <field>InvoiceEmailTo__c</field>
+        <formula>Account.Invoice_Email_To__c</formula>
+        <name>InvoiceEmailToFieldUpdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Invoice_Email_Sent</fullName>
+        <field>Date_Copy_Invoice_Sent__c</field>
+        <formula>TODAY()</formula>
+        <name>Invoice Email Sent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_to_review</fullName>
+        <field>Approval_status__c</field>
+        <literalValue>Inreview</literalValue>
+        <name>Status to review</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Opp_Created_Date</fullName>
+        <field>Opportunity_Created_Date__c</field>
+        <formula>CreatedDate</formula>
+        <name>Update Opp Created Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Opportunity_Stage</fullName>
+        <field>StageName</field>
+        <literalValue>Warranty</literalValue>
+        <name>Update Opportunity Stage</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_VAT_Rate</fullName>
+        <field>VAT_Rate__c</field>
+        <formula>IF(NOT(ISBLANK(Account.VAT__c)),Account.VAT__c,Account.Parent.VAT__c)</formula>
+        <name>Update VAT Rate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>AccountStatusWorkflow</fullName>
+        <actions>
+            <name>AccountStatusFieldUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>IF($RecordType.Name = &quot;Invoice (To Invoice)&quot;,true,false)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Copy Certificate</fullName>
+        <actions>
+            <name>Copy_Certificate_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Email_for_Copy_SS_RS_SW__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Copy Invoice</fullName>
+        <actions>
+            <name>Invoice_Email_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Copy_Email_for_Invoice__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Invoice Email</fullName>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Approval_status__c , &apos;Approved&apos;),ModxInvoice__c!=true, Invoice_To_Different_Email__c ==null)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Invoice Email Copy</fullName>
+        <actions>
+            <name>Invoice_Email_Copy_And_Sheets</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Copy_Email_for_Invoice__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Invoice To Different Email</fullName>
+        <actions>
+            <name>Invoice_sheet_PDF_to_Different_email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Approval_status__c , &apos;Approved&apos;),ModxInvoice__c!=true, Invoice_To_Different_Email__c !=null)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>InvoiceEmailToWorkFlow</fullName>
+        <actions>
+            <name>InvoiceEmailToFieldUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>IF($RecordType.Name = &quot;Invoice (To Invoice)&quot;,true,false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity Stage Update</fullName>
+        <actions>
+            <name>Update_Opportunity_Stage</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Visit_Type__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Visit_Type__c</field>
+            <operation>equals</operation>
+            <value>Warranty</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sheets Certificate Copy</fullName>
+        <actions>
+            <name>Sheets_Certificate_Copy</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>Email_for_Copy_SS_RS_SW__c &lt;&gt;&quot;&quot;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Last Payment Date</fullName>
+        <actions>
+            <name>Date_Last_Payment_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( FullyPaidOnDate__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Opp Created Date</fullName>
+        <actions>
+            <name>Update_Opp_Created_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Opportunity_Created_Date__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update VAT Rate</fullName>
+        <actions>
+            <name>Update_VAT_Rate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>And(or(isnew(),ischanged(AccountId)),
+NOT(ISNULL(AccountId)
+)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Xero Confirmation</fullName>
+        <actions>
+            <name>Xero_Invoice_confirmation</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.Invoice_Sent_to_Xero__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

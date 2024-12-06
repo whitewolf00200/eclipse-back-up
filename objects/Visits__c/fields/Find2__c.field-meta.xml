@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Find2__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(
+&quot;https://ap2.salesforce.com/00O28000001PDNl?pv0=&quot;&amp;Search_Discipline__c&amp;&quot;&amp;pv1=&quot;&amp;  Search_Postcode__c , &quot;Technicians by Both Postcode &amp; Discipline&quot; ,&quot;_blank&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Find</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

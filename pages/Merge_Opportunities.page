@@ -1,0 +1,54 @@
+<apex:page controller="MergeOpportunity">
+  
+ <apex:form id="Frm">
+ <apex:pageMessages />
+  <apex:pageBlock title="Merge Invoices">
+     
+     <apex:pageBlockButtons >
+         <apex:commandButton value="Cancel" action="{!Cancel}"/>
+         <apex:commandButton value="Merge" action="{!MergeSave}" rendered="{!AND(PrimaryOppId!=null,PrimaryOppId.size>0)}"/>
+         <apex:commandButton value="Reset" action="{!Reset}" reRender="Frm"/>
+     </apex:pageBlockButtons>
+     
+     <apex:pageBlockSection id="theBlock" columns="1" title="Primary Opportunity" rendered="{!AND(PrimaryOppId!=null,PrimaryOppId.size>0)}">
+          <apex:pageBlockTable value="{!PrimaryOppId}" var="Oppprimary">
+          <apex:column headerValue="Opportunity Name">
+          <apex:outputText >{!Oppprimary.OppName}</apex:outputText>
+          </apex:column>
+          <apex:column headerValue="Sheet No.">
+          <apex:outputText >{!Oppprimary.SheetNo}</apex:outputText>
+          </apex:column>
+          <apex:column headerValue="Visit No.">
+          <apex:outputText >{!Oppprimary.VistNo}</apex:outputText>
+          </apex:column>
+          </apex:pageBlockTable>
+     </apex:pageBlockSection>
+     
+     <apex:pageBlockSection id="theBlock1" columns="1" title="Merged Opportunities">
+      <apex:pageBlockTable value="{!OppWrapList}" var="OppVar">
+          <apex:column headerValue="Primary Opportunity" rendered="{!OR(PrimaryOppId=null,PrimaryOppId.size=0)}">
+          <apex:inputCheckbox value="{!OppVar.Primary}">
+              <apex:actionSupport event="onchange" action="{!PrimaryOpp}" rerender="Frm">
+                 <apex:param name="OppId" value="{!OppVar.OppId}" assignTo="{!PrimaryOpp}"/>
+               </apex:actionSupport>
+          </apex:inputCheckbox>
+          </apex:column>
+          <apex:column headerValue="Select Opportunity" rendered="{!AND(PrimaryOppId!=null,PrimaryOppId.size>0)}">
+          <apex:inputCheckbox value="{!OppVar.SelectOpp}"/>
+          </apex:column>
+          <apex:column headerValue="Opportunity Name">
+          <apex:outputText >{!OppVar.OppName}</apex:outputText>
+          </apex:column>
+          <apex:column headerValue="Sheet No.">
+          <apex:outputText >{!OppVar.SheetNo}</apex:outputText>
+          </apex:column>
+          <apex:column headerValue="Visit No.">
+          <apex:outputText >{!OppVar.VistNo}</apex:outputText>
+          </apex:column>
+      </apex:pageBlockTable>
+      </apex:pageBlockSection> 
+  </apex:pageBlock>
+
+</apex:form> 
+  
+</apex:page>

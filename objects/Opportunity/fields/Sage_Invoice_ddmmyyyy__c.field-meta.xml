@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sage_Invoice_ddmmyyyy__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(Day(Sage_Invoice_Date__c )&lt;10,&apos;0&apos;&amp;text(Day(Sage_Invoice_Date__c )),text(Day(Sage_Invoice_Date__c )))&amp;&apos;-&apos;&amp;
+if(month(Sage_Invoice_Date__c )&lt;10,&apos;0&apos;&amp;text(month(Sage_Invoice_Date__c )),text(month(Sage_Invoice_Date__c )))&amp;&apos;-&apos;&amp;
+text(year(Sage_Invoice_Date__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sage Invoice ddmmyyyy</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

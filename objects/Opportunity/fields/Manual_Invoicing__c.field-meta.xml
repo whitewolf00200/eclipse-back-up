@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual_Invoicing__c</fullName>
+    <formula>IF ( OR (   Account.This_Site_has_Group_Invoicing__c ,  Account.Parent.This_Site_has_Group_Invoicing__c ), TRUE, FALSE )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is indicated by the account settings at site or customer level. It can be overridden by the field below. If this is ticked, it indicates that Salesforce will not send an invoice to the customer. This will be done from within Sage.</inlineHelpText>
+    <label>Manual/Sage/Spreadsheet Invoicing</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

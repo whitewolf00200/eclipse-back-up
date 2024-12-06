@@ -1,0 +1,55 @@
+<!-- =============================================
+*Page Name      : UploadPhotocapture
+*Description    : Developed Upload the Image and file in Installation Sheet.
+*Company        : Merfantz Technologies Pvt Ltd
+*Date           : 14th Mar, 2023
+*Version        : 1.0
+*Ticket No      : 107762
+============================================= -->
+<apex:page controller="CameraAccess2" >
+<style>
+.container {
+display: flex;
+align-items: center;
+}
+
+.output-panel {
+margin-right: 50px;
+font-weight:bold;
+font-size:18pt;
+margin-top: 5px;
+padding-bottom:50px;
+}
+
+.file{
+align-self: center;
+margin-right: 50px;
+}
+
+.upload-button {
+  padding-bottom: 50px;
+  margin-Bottom: 150px;
+ 
+}
+
+
+</style>
+    
+<apex:pageBlock >
+    <apex:pageBlockSection >
+      <apex:form style="margin-left:170px;">
+       <div style="margin-right: 50px; ">
+        <div class="output-panel">Installation Sheets Photo Upload</div>
+         <apex:inputFile value="{!fileBody}" filename="{!fileName}" contentType="{!contentType}" />
+          </div>
+           <div style ="margin-bottom: 50px;" >
+            <tr >
+              <td style="text-align:right;Padding-left: 50px;"><apex:commandButton value="Upload"  action="{!uploadFile}"  /></td>
+              <td style="text-align:left ;Padding-left: 10px;" ><apex:commandButton value="Cancel" action="{!cancel}" immediate="true"  /></td>
+            </tr>
+          </div>  
+        </apex:form>
+    </apex:pageBlockSection>
+</apex:pageBlock>
+   
+</apex:page>

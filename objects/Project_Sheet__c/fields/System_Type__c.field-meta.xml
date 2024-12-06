@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>System_Type__c</fullName>
+    <label>System Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Access Control</fullName>
+                <default>false</default>
+                <label>Access Control</label>
+            </value>
+            <value>
+                <fullName>CCTV</fullName>
+                <default>false</default>
+                <label>CCTV</label>
+            </value>
+            <value>
+                <fullName>Dry Riser</fullName>
+                <default>false</default>
+                <label>Dry Riser</label>
+            </value>
+            <value>
+                <fullName>Emergency Lightning</fullName>
+                <default>false</default>
+                <label>Emergency Lightning</label>
+            </value>
+            <value>
+                <fullName>Fire Alarm</fullName>
+                <default>false</default>
+                <label>Fire Alarm</label>
+            </value>
+            <value>
+                <fullName>Fire Door</fullName>
+                <default>false</default>
+                <label>Fire Door</label>
+            </value>
+            <value>
+                <fullName>Fire Extinguisher</fullName>
+                <default>false</default>
+                <label>Fire Extinguisher</label>
+            </value>
+            <value>
+                <fullName>Fire Suppression</fullName>
+                <default>false</default>
+                <label>Fire Suppression</label>
+            </value>
+            <value>
+                <fullName>Hydrant</fullName>
+                <default>false</default>
+                <label>Hydrant</label>
+            </value>
+            <value>
+                <fullName>Intruder Alarm</fullName>
+                <default>false</default>
+                <label>Intruder Alarm</label>
+            </value>
+            <value>
+                <fullName>Nurse Call</fullName>
+                <default>false</default>
+                <label>Nurse Call</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>PAT</fullName>
+                <default>false</default>
+                <label>PAT</label>
+            </value>
+            <value>
+                <fullName>Smoke Vent</fullName>
+                <default>false</default>
+                <label>Smoke Vent</label>
+            </value>
+            <value>
+                <fullName>Sprinkler</fullName>
+                <default>false</default>
+                <label>Sprinkler</label>
+            </value>
+            <value>
+                <fullName>Vesda</fullName>
+                <default>false</default>
+                <label>Vesda</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

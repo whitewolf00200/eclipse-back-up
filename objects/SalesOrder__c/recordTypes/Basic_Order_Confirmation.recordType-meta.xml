@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Basic_Order_Confirmation</fullName>
+    <active>true</active>
+    <label>Basic Order Confirmation</label>
+    <picklistValues>
+        <picklist>Despatch_Method__c</picklist>
+        <values>
+            <fullName>Delivery By Hand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engineer Installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TNT Courier</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Order_Type__c</picklist>
+        <values>
+            <fullName>Ordinary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Urgent</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Type__c</picklist>
+        <values>
+            <fullName>Air Compressor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Getinge Autoclave</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Getinge Washer Disinfector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mechanical X-Ray</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medisafe Washer disinfector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Report of Examination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suction Pump</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Treatment Centre</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

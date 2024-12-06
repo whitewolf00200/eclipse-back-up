@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Site_Contract</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Site Contract</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/a0K/e?retURL=%2F{!Account.Id}&amp;CF00N580000064y4z={!Account.Name}&amp;CF00N580000064y4z_lkid={!Account.Id}&amp;CF00N4E000000I2xs={!Account.Price_Book__c}&amp;CF00N4E000000I2xs_lkid={!Account.Price_BookId__c}&amp;CF00N5800000CRqYO_lkid={!Account.Site_Contact__c}&amp;00N5800000DGW9i={!Account.Booking_Confirmation_Email__c}&amp;CF00N4E000002x32R={!Account.Parent_Name__c}&amp;CF00N4E000002x32R_lkid={!Account.ParentId}</url>
+</WebLink>

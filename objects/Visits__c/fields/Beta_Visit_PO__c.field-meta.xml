@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beta_Visit_PO__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is populated by the Service/Reactive or Small Works PO on the Site Contract. This field can be over-written if a PO number needs to be updated at the Visit stage.
+If mandatory, yet a P/O is not required, enter a dot (.).</inlineHelpText>
+    <label>Beta Visit PO</label>
+    <length>50</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

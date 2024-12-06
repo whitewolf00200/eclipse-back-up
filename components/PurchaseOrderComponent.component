@@ -1,0 +1,241 @@
+<apex:component access="global" rendered="true" controller="UpdateSupplierProductCode">
+
+    <apex:attribute description="po" name="purchaseId"  type="Id" assignTo="{!poid}"/>
+    <apex:attribute description="po" name="po"  type="PurchaseOrder__c"/>
+    
+<body class="start">
+<table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>
+ 
+ <!--<p style="position:absolute;top:50px;right:130px;color:#038B99;font-size:16px;text-align:right;font-family:Verdana;">
+                                                                    
+               </P>                                                     
+               <p style="position:absolute;left:600px;">
+                     <img src="{!$Resource.EclipseDentalLogo}" width="82" height="86"  title="logo" align="right"/>                                                     
+               </p>-->
+               <br /> <br /> <br /><br /> <br />
+                <div class="footer"> 
+                <!-- <p style="border-top: 1px solid #038B99;" ><span style="color:#038B99;text-align:left"><b >Guaranteed solutions....</b> </span><br/> 
+                 {!$Label.Company_Name} | Westview Court |10-14 Kent Road | Dartford | Kent | DA1 2AJ |
+                 Tel: 01322 293333 | Email: info@eclipse-dental.com <br/> Vat No: GB 714315367 | Company Registration No.12402632 Registered at above address
+
+                 </p>  -->
+                     <table width="100%" height="100%" >
+    <tr> <td ><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>   
+               </div> 
+               <table width="100%"  border="" style="margin-top:-100px;">
+               <tr><td colspan="3" style="font-size:14pt;"><b>Purchase Order</b></td></tr>
+               <tr><td>&nbsp;</td></tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%" style=" padding-left: 5px;">Attention :{!po.Supplier_Contact__r.name}</td>
+                   <td width="30%" style=" padding-left: 5px;">Deliver To:</td>
+               </tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="20%" style=" padding-left: 5px;">{!po.Supplier__r.name}<br/><apex:outputtext value="{!po.Invoice_Address__c}" escape="false"/></td> 
+                   <td width="40%" valign="top" style=" padding-left: 5px;">
+                   <apex:outputtext rendered="{!po.Delivey__c!= null}" value="{!po.Delivey__c}" escape="false"/>
+                   <apex:outputtext rendered="{!AND(po.Delivey__c== null,po.POAddress__c!=null)}" value="{!po.POAddress__c}" escape="false"/> 
+                   <apex:outputtext rendered="{!AND(po.Delivey__c== null,po.POAddress__c==null,po.Account__c!=null,po.Account__r.Site_Invoice_Address__c!=null)}" value="{!po.Account__r.Site_Invoice_Address__c}" escape="false"/>
+                   <apex:outputtext rendered="{!OR(AND(po.Delivey__c== null,po.POAddress__c==null,po.Account__c!=null,po.Account__r.Site_Invoice_Address__c==null),AND(po.Delivey__c== null,po.POAddress__c==null,po.Account__c==null))}" value="{!po.Default_Address__c}" escape="false"/>
+                   
+                   </td>
+               </tr>
+               <tr><td>&nbsp;</td></tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="20%">
+                       <table>
+                           <tr>
+                               <td>Phone:</td>
+                               <td>{!po.Phone__c}</td>
+                           </tr>
+                           <!--<tr>
+                               <td><b>Fax:</b></td>
+                               <td>{!po.Fax__c}</td>
+                           </tr>-->
+                           <tr>
+                               <td>Email:</td>
+                               <td>{!po.Supplier_Email__c}</td>
+                           </tr>
+                           <tr>
+                               <td>Account No:</td>
+                               <td>{!po.Supplier__r.AccountNumber}</td>
+                           </tr>
+                           <!--<tr>
+                               <td><b>Supplier Code:</b></td>
+                               <td>{!po.Supplier_Code__c}</td>
+                           </tr>-->
+                       </table>
+                   </td>
+                   <td width="40%">
+                           <table border="">
+                           <tr>
+                               <td>Purchase Order No:</td>
+                               <td style="font-size:16px;">{!po.Name}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Order Date:</td>
+                               <td><!-- {!DAY(DATEVALUE(po.CreatedDate))} <apex:outputText value="/" rendered="{!po.CreatedDate!=null}" /> {!MONTH(DATEVALUE(po.CreatedDate))}<apex:outputText value="/" rendered="{!po.CreatedDate!=null}" />{!YEAR(DATEVALUE(po.CreatedDate))} -->
+                               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!po.CreatedDate}"/></apex:outputtext>
+                               </td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Buyer:</td>
+                               <td>{!po.Created_By__c}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Our Job Ref:</td>
+                               <td>
+                             <!--  <apex:outputText value="{!po.Opportunity__r.OpportunityNumber__c}" rendered="{!AND(po.Opportunity__c!=null,po.Opportunity__r.RecordType.Name='Sales')}"/>
+                               <apex:outputText value="{!po.Opportunity__r.Opportunity_Number__c}" rendered="{!AND(po.Opportunity__c!=null,po.Opportunity__r.RecordType.Name!='Sales')}"/> -->
+                               <apex:outputText value="{!po.Sales_Order2__r.Name}" rendered="{!po.Sales_Order2__c!=null}"/>
+                               </td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Date Required:</td>
+                               <td><!-- {!DAY(po.Required_Date__c)} <apex:outputText value="/" rendered="{!po.Required_Date__c!=null}" />{!MONTH(po.Required_Date__c)}<apex:outputText value="/" rendered="{!po.Required_Date__c!=null}" />{!YEAR(po.Required_Date__c)} -->
+                               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!po.Required_Date__c}"/></apex:outputtext>
+                               </td>
+                           </tr>
+                           </table>
+                   </td>
+                   </tr>
+               </table>
+               <br/><br/>
+                <table border="" cellspacing="0" cellpadding="0" width="100%">
+                    <tr style="background-color:#48164d;color:white;font-size:14px;">
+                     <td align="left" width ="15%"><b>Supplier Code</b></td>      
+                     
+                     <td align="left" width ="44%"><b>Part</b></td>
+                     <td align="center" width ="5%"><b>Qty</b></td>
+                     <td align="center" width ="7%"><b>Unit</b></td>
+                     <td align="right" width ="10%"><b>Unit Price</b></td>
+                     <td align="right" width ="13%"><b>Net Amount</b></td>  
+                    </tr>
+                </table>      
+                <table border="" width="100%">
+                    <apex:variable value="{!1}" var="rowNum"/>
+                    <apex:repeat value="{!po.Purchase_Order_Line_Items__r}" var="poline">
+                              <tr >
+                              
+                                  
+                                  
+                              <td align="left" width="16%"  valign="top"><apex:outputText value="{!poline.Product__r.Supplier_Product_Code__c}" /></td>
+                            
+                              <td align="left" width="48%" ><apex:outputText value="{!poline.Product__r.Name}"/><br/>
+                              <apex:outputText rendered="{!AND(poline.Show_Description__c,poline.Extended_Supplier_Description__c!=null)}" VAlue="{!poline.Extended_Supplier_Description__c}" style="white-space:pre-line;" escape="false" / >
+                              <apex:outputText rendered="{!AND(poline.Show_Description__c,poline.Extended_Supplier_Description__c==null,poline.Product__r.Extended_Supplier_Description__c!=null)}" VAlue="{!poline.Product__r.Extended_Supplier_Description__c}" style="white-space:pre-line;" escape="false" / >
+                              <apex:outputText rendered="{!AND(poline.Show_Description__c,poline.Extended_Supplier_Description__c==null,poline.Product__r.Extended_Supplier_Description__c==null,poline.Description__c!=null)}" VAlue="{!poline.Description__c}" style="white-space:pre-line;" escape="false" / >
+                              </td>
+                              <td align="center" width="4%"  valign="top"><apex:outputText value="{!FLOOR(poline.Quantity__c)}" /></td>
+                              <td align="center" width="9%"  valign="top"><apex:outputText value="{!poline.Product__r.Stock_Unit__c}" /></td>
+                              <td align="right" width="10%"  valign="top"><apex:outputText value="{!If(poline.CurrencyIsoCode=='GBP','{0,number,£##,##,##,##0.00}',If(poline.CurrencyIsoCode=='EUR','{0,number,€##,##,##,##0.00}',IF(poline.CurrencyIsoCode=='USD','{0,number,$##,##,##,##0.00}','{0,number,##,##,##,##0.00}')))}" ><apex:param value="{!poline.Price__c}"/></apex:outputText></td> 
+                            
+                            <!--  <td align="right" width="13%"  valign="top"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!poline.Total_Price__c}"/></apex:outputText></td> -->
+                            <td align="right" width="13%"  valign="top"><apex:outputText value="{!If(poline.CurrencyIsoCode=='GBP','{0,number,£##,##,##,##0.00}',If(poline.CurrencyIsoCode=='EUR','{0,number,€##,##,##,##0.00}',IF(poline.CurrencyIsoCode=='USD','{0,number,$##,##,##,##0.00}','{0,number,##,##,##,##0.00}')))}" ><apex:param value="{!poline.Total_Price__c}"/></apex:outputText></td>
+                              </tr>
+                              
+                    <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                    </apex:repeat> 
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td><td></td><td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td><td></td><td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td><td></td><td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td><td></td><td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td><td></td><td></td>
+                    </tr>
+                    <tr><td colspan="7" align="right">
+                    
+                    <table border="" width="100%">
+                    <tr>  <td width="85%">Total Price :</td> 
+                    <td align="right" >
+                     <apex:OutputText rendered="{!po.Total_Amount__c!=null}" style="float:right;" value="{0,number,###,###,###,###,##0.00}">
+   {!po.CurrencyIsoCode}&nbsp;<apex:param value="{!po.Total_Amount__c}"/>
+</apex:OutputText>
+                    <!--<apex:outputfield value="{!po.Total_Amount__c}"/>-->
+                    </td>
+                    </tr>
+                    <tr>  <td>Carriage :</td> 
+                    
+                    <td align="right" >
+                    <apex:OutputText rendered="{!po.Carriage__c!=null}" style="float:right;" value="{0,number,###,###,###,###,##0.00}">
+   {!po.CurrencyIsoCode}&nbsp;<apex:param value="{!po.Carriage__c}"/>
+</apex:OutputText>
+                    <!--<apex:outputfield value="{!po.Carriage__c}"/>-->
+                    </td>
+                    </tr>
+                    <tr>  <td>Sub Total :</td> 
+                    <td align="right" >
+                    <apex:OutputText rendered="{!po.Sub_Total__c!=null}" style="float:right;" value="{0,number,###,###,###,###,##0.00}">
+   {!po.CurrencyIsoCode}&nbsp;<apex:param value="{!po.Sub_Total__c}"/>
+</apex:OutputText>
+                    <!--<apex:outputfield value="{!po.Sub_Total__c}"/>-->
+                    </td>
+                    </tr>
+                    <tr>  <td>VAT Total :</td> 
+                    <td align="right">
+                    <apex:OutputText rendered="{!po.CurrencyIsoCode='GBP'}" style="float:right;" value="{0,number,###,###,###,###,##0.00}">
+   {!po.CurrencyIsoCode}&nbsp;<apex:param value="{!po.VAT_Total__c}"/>    
+</apex:OutputText>
+<apex:OutputText rendered="{!po.CurrencyIsoCode!='GBP'}" style="float:right;" value="{0,number,###,###,###,###,##0.00}">
+   {!po.CurrencyIsoCode}&nbsp;<apex:param value="{!0}"/>
+</apex:OutputText>
+                    <!--<apex:outputfield value="{!po.VAT_Total__c}"/>-->
+                    </td>
+                    </tr>
+                    <tr> <td>Order Total :</td> 
+                    
+                    <td width="20%" align="right">
+                    <apex:OutputText style="float:right;" value="{0,number,###,###,###,###,##0.00}">
+   {!po.CurrencyIsoCode}&nbsp;<apex:param value="{!po.Order_Total__c}"/>
+</apex:OutputText>
+                    <!--<apex:outputField value="{!po.Order_Total__c}"/>-->
+                    </td>
+                    </tr>
+                     </table></td></tr>
+                    
+                    </table>
+                    <br/>
+                    <table  border="">
+                        
+              <tr>
+              <td width="40%">
+              <table align="left" width="100%" border="">
+              <tr><td>Notes to Supplier:</td></tr>
+              <tr><td>{!po.Notes_to_Supplier__c}</td></tr>
+              <tr>
+              <td width="60%" align="left">Please send confirmation of receipt of order and availability of goods.<br/> Any discrepancies in the prices must be notified before delivery, as well as any carriage costs not shown on the order.<br/>Our standard Terms of Purchase apply. Copy available for download from<br/><a href="https://eclipse-dental.com/legal/terms-of-purchase/">https://eclipse-dental.com/legal/terms-of-purchase/</a></td>
+              </tr>
+              <tr>
+              <td> Please send any communications in relation to this Purchase Order to: {!po.Created_By__c} by email to<font style="color:blue"> purchasing@eclipse-dental.com</font></td>
+              </tr>
+              </table>
+              </td>
+             </tr>
+             </table>
+    </body>
+</apex:component>

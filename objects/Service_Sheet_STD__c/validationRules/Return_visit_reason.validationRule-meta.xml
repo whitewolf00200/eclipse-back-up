@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Return_visit_reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(TEXT(Re_Visit_Required__c) = &quot;Yes&quot;, Return_Visit_Reason__c = &quot;&quot;)</errorConditionFormula>
+    <errorDisplayField>Return_Visit_Reason__c</errorDisplayField>
+    <errorMessage>Mention reason for return visit</errorMessage>
+</ValidationRule>

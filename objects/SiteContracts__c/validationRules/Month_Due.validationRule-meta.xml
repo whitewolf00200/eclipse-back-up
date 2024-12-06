@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Month_Due</fullName>
+    <active>true</active>
+    <description>The Month Due field changes to required, if the value in the Visit Rescheduling field is set to On schedule</description>
+    <errorConditionFormula>AND(OR( ISPICKVAL(Visit_Rescheduling__c, &quot;On Schedule&quot;), CONTAINS(Visit_Rescheduling_Formula__c, &quot;On Schedule&quot;)), ISPICKVAL( Due__c,&apos;&apos; ))</errorConditionFormula>
+    <errorDisplayField>Due__c</errorDisplayField>
+    <errorMessage>Please Enter the month due</errorMessage>
+</ValidationRule>

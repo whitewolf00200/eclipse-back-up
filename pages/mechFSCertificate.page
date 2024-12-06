@@ -1,0 +1,316 @@
+<apex:page standardcontroller="Mechanical_Service_Sheet__c" showheader="false" sidebar="false" extensions="mechSFCertificateController"
+renderAs="pdf" applyHtmlTag="false">
+  <head>
+    <style>
+    body {
+    background-color:#CCC;
+    color:#333;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+    }
+
+    h1,
+    h2,
+    hr {
+    background-color:#00B050;
+    color:#FFF;
+    font-family:Verdana,Arial, Helvetica, sans-serif;
+    font-size:20px;
+    }
+    h1 {
+    font-size:20px;
+    line-height:20px;
+    min-height:20px;
+    padding:10px;
+    text-align:center;
+    }
+    h2 {
+    width:650px;
+    padding:5px;
+    font-size:14px;
+    line-height:14px;
+    }
+    p {
+    font-size:13px;
+    line-height:15px;
+    margin:0 0 7px;
+    }
+    p strong {
+    font-weight:bold;
+    }
+    hr {
+    height:25px;
+    margin:0 0 5px;
+    padding:0;
+    }
+    #logo {
+    width:280px;
+    height:100px;
+    margin:10px auto;
+    }
+
+
+    table {
+    width:660px;
+    font-size:13px;
+    border:0;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+    td {
+    padding:2px;
+    text-align:left;
+    border:1px solid #FFF;
+    vertical-align:top;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+
+    }
+    th{
+    background-color:#00B050 !important;
+    color:#FFF;
+    font-family:Verdana,Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:15px;
+    }
+    th.tth{
+    background-color:#00B050 !important;
+    color:#FFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:18px;
+    font-weight:bold;
+    }
+    tr{
+    page-break-inside:avoid;
+    }
+    td.tt{
+    background-color:#00B050;
+    color:#FFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    }
+    img{
+    width:200px;
+    }
+
+    </style>
+</head>
+<div id="container">
+    <h1 style="text-align:center;background-color:00B050;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:21px;"><br/>Fire Suppression System Mechanical Inspection Certificate<br/><br/></h1>
+    <div style="text-align: center;width:300;height:300;" id="logo">       
+        <img style="width:250px;height:100px;" src="https://c.eu6.content.force.com/servlet/servlet.FileDownload?file=01558000000MUFm"/>
+    </div>
+    <p style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:21px;">Registered Address: Eclipse Dental Care, 27 Branch Road, Batley, West Yorkshire WF17 5SB <br/>
+    </p>
+    <div style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">Tel: 0845 37 111 37 | Fax: 0845 37 111 38 |
+    Email: <a href="reception@eclipsedentalcare.co.uk">reception@eclipsedentalcare.co.uk</a>
+    </div>
+    <p id="nav"></p>
+    <div style="text-align:center;background-color:#CCC;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+            <tbody>
+                <tr>
+                    <th width="11%"><label for="date">Date</label></th>
+                    <th width="11%"><label for="order">Order No.</label></th>
+                    <th width="11%"><label for="order">Technician</label></th>
+                    <th width="11%"><label for="number">Number</label></th>
+                    
+                </tr>
+                <tr>
+                    <td>{!DAY(Mechanical_Service_Sheet__c.Date__c)}/{!MONTH(Mechanical_Service_Sheet__c.Date__c)}/{!YEAR(Mechanical_Service_Sheet__c.Date__c)}</td>
+                    <td>{!Mechanical_Service_Sheet__c.PO_Number_on_Certificate__c}</td>
+                     <td>{!Mechanical_Service_Sheet__c.Engineer_Code__c}</td>
+                    <td>{!Mechanical_Service_Sheet__c.Name}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tbody>
+                <tr>
+                    <th width="22%">
+                        <label for="service_address">Service At:</label>
+                    </th>
+                    
+              </tr>
+              <tr>
+                    <td rowspan="3"><apex:outputtext value="{!Mechanical_Service_Sheet__c.Service_At__c}" escape="false"/></td>
+                    
+              </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+         <tbody>
+            <tr><td><b>SYSTEM LOCATION</b></td><td><b>NO. OF CYLS</b></td><td><b>CAPACITY</b></td><td><b>AGENT FILL</b></td><td><b>TEST DATE</b></td></tr>
+            <apex:repeat value="{!SystemLocation}" var="sl">
+                <tr><td>{!sl.systemLocation}</td><td>{!sl.noOfLocations}</td><td>{!sl.capacity}</td><td>{!sl.agentFill}</td><td>{!sl.testDate}</td></tr>
+            </apex:repeat>
+         </tbody>
+        </table>
+        <br/>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>
+                <td><b>Functional Tests:</b></td>
+                <!--<td>{!Mechanical_Service_Sheet__c.Cylinders_Pass__c}</td> -->
+                <td><b>QTY</b></td>
+                <td><b>PASS</b></td>
+                <td><b>FAIL</b></td>
+                <td><b>COMMENTS</b></td>
+                <td><b>SPARE PARTS</b></td>
+                <td><b>QTY</b></td>
+            </tr>
+            <tr>
+            <td>Cylinders</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Cylinders_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Cylinders_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Cylinders_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Cylinders_Comments__c}</td>
+            <td>Main Body Pressure Seal</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Main_Body_Pressure_Seal__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Manual Release Point</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Manual_Release_Point_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Manual_Release_Point_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Manual_Release_Point_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Manual_Release_Point_Comments__c}</td>
+            <td>Valve Control Safety Pin</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Valve_Control_Safety_Pin__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Brackets</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Brackets_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Brackets_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Brackets_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Brackets_Comments__c}</td>
+            <td>Discharge Pressure Seal</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Discharge_Pressure_Seals__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Nozzles</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Nozzles_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Nozzles_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Nozzles_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Nozzles_Comments__c}</td>
+            <td>Pi Calibration</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.PI_Calibration__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Checkvalves</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Check_Values_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Check_Valves_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Check_Valves_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Check_Valves_Comments__c}</td>
+            <td>Decon Outlet Head</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Decon_Outlet_Head__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Link Lines</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Link_Lines_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Link_Lines_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Link_Lines_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Link_Lines_Comments__c}</td>
+            <td>Decon Fluid Lines</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Decon_Fluid_Lines__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Fusible Links</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Fusible_Links_qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Fusible_Links_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Fusible_Links_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Fusible_Links_Comments__c}</td>
+            <td>WSP Lubrication</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.W_S_P_Lubrication__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Switch</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Switch_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Switch_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Switch_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Switch_Comments__c}</td>
+           <td>Rubber Nozzle Caps</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Rubber_Nozzle_Caps__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Signage</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Signage_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Signage_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Signage_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Signage_Comments__c}</td>
+            <td>Stainless Steel Nozzle Caps</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Stainless_Steel_Nozzle_Caps__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Liquid Levels</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Liquid_Level_Qty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Liquid_Level_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Liquid_Level_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Liquid_Levels_Comments__c}</td>
+            <td>Fusible Links</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Fusible_Links__c)}</td>
+            </tr>
+            
+            <tr>
+            <td>Pressures</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Pressures_Oty__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Pressures_Pass__c)}</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Pressures_Fail__c)}</td>
+            <td>{!Mechanical_Service_Sheet__c.Pressures_Comments__c}</td>
+            <td>Suppression/Sprinkler Outlet Head</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Suppression_Sprinkler_Outlet_Head__c)}</td>
+            </tr>
+            
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Interlink Integrity</td>
+            <td>{!Floor(Mechanical_Service_Sheet__c.Interlink_Integrity_Qty__c)}</td>
+            </tr>
+        </table>
+        
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><b>COMMENTS TO COMPLIANCE TEAM</b></td></tr>
+            <tr><td style="height:45px;">{!Mechanical_Service_Sheet__c.Sales_Recommendations__c}</td></tr>
+        </table>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr><td><b>COMMENTS TO CUSTOMER</b></td></tr>
+            <tr><td style="height:60px;">{!Mechanical_Service_Sheet__c.Comments__c}</td></tr>
+        </table>
+        <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+            <tr>
+                <td style="width:175px">
+                    <b>TECHNICIAN SIGNATURE</b>
+                </td>
+                <td style="width:175px">
+                    <apex:outputText value="{!Mechanical_Service_Sheet__c.Engineer_s_Signature__c}" escape="false"/>
+                </td>
+                <td style="width:175px">
+                    <b>CUSTOMER SIGNATURE</b>
+                </td>
+                <td style="width:175px">
+                    <div style="width:10px;height:40px">
+                        <apex:outputText value="{!Mechanical_Service_Sheet__c.Customer_s_Signature__c}" escape="false"/>
+                    </div>
+                </td>
+            </tr>
+            <tr><td style="width:175px"><b>PRINT:</b></td><td style="width:175px"><div style="width:10px;height:40px"><apex:outputText value="{!Mechanical_Service_Sheet__c.Engineer_s_Print__c}" escape="false"></apex:outputText></div></td><td style="width:175px"><b>PRINT:</b></td><td style="width:175px"><div style="width:10px;height:40px"><apex:outputText value="{!Mechanical_Service_Sheet__c.Customer_s_Print__c}" escape="false"></apex:outputText></div></td></tr>
+        </table>
+    </div>
+</div>
+</apex:page>

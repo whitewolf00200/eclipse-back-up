@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>per_Month_Order__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(MONTH(DATEVALUE(CreatedDate)),
+   1, 1.00,
+   2, 2.00,
+   3, 3.00,
+   4, 4.00,
+   5, 5.00,
+   6, 6.00,
+   7, 7.00,
+   8, 8.00,
+   9, 9.00,
+   10, 10.00,
+   11, 11.00,
+   12, 12.00,
+   0.00
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>per Month Order</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

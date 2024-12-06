@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TechnicianCalendarMins__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(FLOOR((VALUE(MID(TEXT(Requested_Attendance_Time__c), 4, 5))+VALUE(MID(Time_Allowed_for_Visit__c, 4, 5)))/ 60))&amp;&apos;:&apos;&amp;IF(TEXT(MOD((VALUE(MID(TEXT(Requested_Attendance_Time__c), 4, 5))+VALUE(MID(Time_Allowed_for_Visit__c, 4, 5))),60))=&apos;0&apos;,&apos;00&apos;,TEXT(MOD((VALUE(MID(TEXT(Requested_Attendance_Time__c), 4, 5))+VALUE(MID(Time_Allowed_for_Visit__c, 4, 5))),60)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>TechnicianCalendarMins</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

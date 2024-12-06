@@ -1,0 +1,83 @@
+<apex:page standardController="Warehouse__c" extensions="PartsReplenishment">
+  <apex:form >
+      <script>
+        function AlertMsg(){  
+            
+           if(confirm("Selected Products Available with the Selected Supplier will insert and Unavailable Products will not insert in the created Purchase Order!")) {
+              return true;                
+            }else{
+                    return false;
+            }
+        }
+      </script>
+      <apex:actionstatus id="status">
+         <apex:facet name="start">                
+           <span class="waitingDescription">Please Wait...</span>
+         </apex:facet>
+      </apex:actionstatus>
+      <apex:pageblock id="OutofStock">
+          <apex:pageBlockSection >
+              <apex:pageblockSectionItem >
+                  <apex:outputText >Select Supplier</apex:outputText>
+                  <apex:inputfield id="sup" required="true"  value="{!spo.Supplier__c}">
+                      <apex:actionSupport event="onchange" status="status" reRender="OutofStock,sup,avail,Notavail" action="{!supChange}"/>
+                  </apex:inputField>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+          <apex:pageMessages id="error"/>
+          <apex:pageblockTable value="{!lineItemList}" var="item">
+              <apex:column >
+                 <apex:actionRegion > <apex:inputCheckbox value="{!item.Selected}"> 
+                      <apex:actionSupport status="status" event="onchange" reRender="OutofStock" action="{!ClickCheckBox}"><apex:param name="prd" value="{!item.poli.Product__c}"/> </apex:actionSupport>
+                  </apex:inputCheckbox> </apex:actionRegion>
+              </apex:column>
+              <apex:column headerValue="Product" value="{!item.poli.Product__c}"/>
+              <apex:column headerValue="Minimum Stock" value="{!item.MinStock}"/>
+              <apex:column headerValue="Maximum Stock" value="{!item.MaxStock}"/>
+              <apex:column headerValue="In Hand Quatity" value="{!item.InHand}"/>
+              <apex:column headerValue="Quantity">
+                  <apex:inputtext value="{!item.Quantity}">
+                      <apex:actionSupport status="status" event="onchange" reRender="OutofStock" action="{!qtyChange}"><apex:param name="prd" value="{!item.poli.Product__c}"/> </apex:actionSupport>
+                  </apex:inputText>
+              </apex:column>
+          </apex:pageblockTable>
+          <apex:pageBlockButtons >
+              <apex:commandButton value="Continue to Create PO" onclick="if(!AlertMsg()){return false;};" action="{!CreatePO}"/>
+              <apex:commandButton value="Cancel" action="{!Cancel}"/>
+          </apex:pageBlockButtons>
+      
+                
+      <apex:outputPanel id="avail" rendered="{!NOT(OR(ISNULL(availPrdList),availPrdList.size=0))}">
+           <br/>    
+           <center><h2 class="supplierProducts">Selected Products are available with the selected supplier</h2></center>
+          <apex:pageblockTable value="{!availPrdList}" var="avail">
+              <apex:column value="{!avail.Product__c}"/>
+              <apex:column value="{!avail.Price__c}"/>
+              <apex:column value="{!avail.Quantity__c}"/>
+          </apex:pageblockTable>
+      </apex:outputPanel>
+                
+      <apex:outputPanel id="Notavail" rendered="{!NOT(OR(ISNULL(NotavailPrdList),NotavailPrdList.size=0))}">
+           <center><h2 class="supplierError">Selected Products are NOT available with the selected supplier</h2></center>
+          <apex:pageblockTable value="{!NotavailPrdList}" var="avail">
+              <apex:column value="{!avail.Product__c}"/>
+              <apex:column value="{!avail.Quantity__c}"/>
+          </apex:pageblockTable>
+      </apex:outputPanel>
+      </apex:pageblock>
+      <apex:actionFunction name="NotSupply" action="{!ListPrdNotSupply}"/>
+      <style>
+      .supplierError{ color: red; font-size:30 strong;2}
+      .supplierProducts{color:blue}
+      .tableStyles{
+      background-color:white;
+            border-width: 1px;
+            border-style: solid;            
+            left: 2%;
+            align:center;
+            padding:5px;
+            top:100px;
+      }
+    </style>
+  </apex:form>
+</apex:page>

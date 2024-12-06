@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_PO</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Send PO</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)} 
+
+var PO = new sforce.SObject(&quot;PurchaseOrder__c&quot;); 
+PO.id = &apos;{!PurchaseOrder__c.Id}&apos;; /* Need Id field to update Case */ 
+PO.Stage__c = &apos;{!PurchaseOrder__c.Stage__c}&apos;; 
+PO.Send_an_Email__c=&apos;{!PurchaseOrder__c.Send_an_Email__c}&apos;; 
+
+if(PO.Send_an_Email__c== false){ 
+PO.Send_an_Email__c= true; /* Change status */ 
+alert(&quot;Email sent successfully.!!&quot;); 
+PO.Stage__c = &quot;Sent&quot;; 
+//location.reload(true); /* redisplay the detail page */ 
+
+var result = sforce.connection.update([PO]);
+window.parent.location.href=&quot;/{!PurchaseOrder__c.Id}&quot;;
+
+} 
+else if((PO.Send_an_Email__c== true) &amp;&amp; (PO.Stage__c == &quot;Sent&quot;)){ 
+alert(&apos;Email Already Sent.&apos;); 
+} 
+
+
+/* update method takes an array of Cases; init to 1 element - &apos;caseObj&apos; */ 
+//var result = sforce.connection.update([PO]);
+//window.parent.location.href=&quot;/{!PurchaseOrder__c.Id}&quot;;</url>
+</WebLink>

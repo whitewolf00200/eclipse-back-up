@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Copy_reactive_email</fullName>
+        <description>Copy reactive email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Copy_Sheet_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Reactive_Sheet/Reactive_Sheet_Certificate_To_Cutomer</template>
+    </alerts>
+    <alerts>
+        <fullName>Reactive_Sheet_Confo</fullName>
+        <description>Reactive Sheet Confo</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Confirmation_To__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Reactive_Sheet/Reactive_Sheet_Certificate_To_Cutomer</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Update_Customer_Details</fullName>
+        <description>Previous formula:
+IF(Site_Contract__r.Contact_Site_Contracts__r.LastName!=null,Site_Contract__r.Contact_Site_Contracts__r.LastName,IF(Site_Contract__r.Contact__c!=null,Site_Contract__r.Contact__c,IF(Site__r.Name!=null,Site__r.Name,Site__r.Parent.Name)))</description>
+        <field>Customer_Contact__c</field>
+        <formula>IF(Visit__r.Customer_Contact__r.FirstName!=NULL, Visit__r.Customer_Contact__r.FirstName &amp;&apos; &apos;&amp; Visit__r.Customer_Contact__r.LastName, Visit__r.Customer_Contact__r.LastName)</formula>
+        <name>Update Customer Details</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_location</fullName>
+        <field>Location__c</field>
+        <formula>Visit__r.Location__c</formula>
+        <name>Update location</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Copy Reactive Sheet</fullName>
+        <actions>
+            <name>Copy_reactive_email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Service_Sheet_STD__c.Copy_Sheet_Email__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Location update</fullName>
+        <actions>
+            <name>Update_location</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Service_Sheet_STD__c.Visit_no__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Reactive Sheet Conformation</fullName>
+        <actions>
+            <name>Reactive_Sheet_Confo</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(AND(PRIORVALUE(Fire_Extinguisher_Service_complete__c  ) &lt;&gt; true,Fire_Extinguisher_Service_complete__c ),AND(Fire_Extinguisher_Service_complete__c ,Resend__c,ischanged(Resend__c)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Customer Details</fullName>
+        <actions>
+            <name>Update_Customer_Details</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Service_Sheet_STD__c.Customer_Contact__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>This_Site_has_Group_Invoicing__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>If this box is ticked, then no invoice will be sent when the opportunity is saved. These will be manually invoiced - ie the salesforce process will stop with an approved invoice and we assume that the rest of the process is handled manually.</inlineHelpText>
+    <label>Manual Invoicing</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

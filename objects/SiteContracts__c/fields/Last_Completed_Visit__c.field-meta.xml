@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Completed_Visit__c</fullName>
+    <inlineHelpText>Calculated from Visits, the next visit date of any type that is completed.</inlineHelpText>
+    <label>Last Completed Visit</label>
+    <summarizedField>Visits__c.Actual_Service_Date__c</summarizedField>
+    <summaryFilterItems>
+        <field>Visits__c.Visit_Complete__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Visits__c.Site_Contract__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

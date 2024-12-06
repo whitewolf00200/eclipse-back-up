@@ -1,0 +1,86 @@
+<apex:page standardcontroller="Engineer_Checklist__c" showheader="false" sidebar="false" applyHtmlTag="false" renderAs="pdf">
+    <head>
+        <style type="text/CSS">
+            
+            body{
+            font-family:Arial Unicode MS;
+            }  
+            .vl {
+            border-right: 1px solid #038B99;
+            color:#038B99;
+            height: 75px;
+            position: fixed;
+            right: 25%;
+            
+            }
+            table,td,th {
+            border: 1px   solid #5A5A5A;
+            align:center;
+            padding:5px;
+            table-layout: auto;
+            }
+            
+            table{
+            width: 101%;
+            border-collapse: collapse;
+            }
+            .table1{
+            width:25%;
+            align:right;
+            }  
+            
+            td.a {
+            
+            border-width:0px; 
+            border-color:#000000; 
+            padding: 5px;
+            }
+            
+            td.b {
+            width:50%;
+            }  
+            
+            @page{
+            size:A4 portrait;
+            margin-left: 1.5cm;
+            margin-right: 1.5cm;
+            margin-top: 1cm;
+            
+            margin-bottom: 6.8cm;
+            @bottom-left{
+            
+            /* content: "Your footer Message";*/
+            font-family:Calibri(Body);
+            
+            font-weight:bold;
+            }
+            @top-center {
+            content: element(header);
+            }
+            @bottom-left {
+            content: element(footer);
+            }
+            }
+            
+            div.footer {
+            
+            position: running(footer);
+            
+            font-family:Calibri(Body) ;
+            margin-left:-63px;
+            }
+            
+            .pagenumber:before {
+            content: counter(page);
+            }
+            
+            .pagecount:after {
+            content: counter(pages);
+            }
+            
+        </style>
+    </head>
+    <body  class="start">
+        <c:Intra_Oralx_ray_Installation_Comp sp="{!Engineer_Checklist__c}"/>
+    </body>
+</apex:page>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priced__c</fullName>
+    <description>This field auto changes to PRICED when Dept App is Approved, Price List Correct, Other Product Qty is zero, Mgt App is &lt;&gt; to Rejected, Pricing Notes is blank, Opp name does not start with RS, amount &lt;&gt; to blank or zero.</description>
+    <inlineHelpText>This field semi-auto populates - see the Description on this field.
+NOT PRICED = either a spreadsheet customer, or one not to be invoiced through Salesforce currently, or to be priced by Accounts.
+PRICED = prices are correct.</inlineHelpText>
+    <label>Priced</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NO INVOICE</fullName>
+                <default>false</default>
+                <label>NO INVOICE</label>
+            </value>
+            <value>
+                <fullName>PRICED</fullName>
+                <default>false</default>
+                <label>PRICED</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

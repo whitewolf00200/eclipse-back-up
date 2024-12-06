@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Acknowledgement</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Send Acknowledgement</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)} 
+
+var ack = new sforce.SObject(&quot;PurchaseOrder__c&quot;); 
+ack.id = &apos;{!PurchaseOrder__c.Id}&apos;; /* Need Id field to update Case */ 
+ack.Stage__c = &apos;{!PurchaseOrder__c.Stage__c}&apos;; 
+ack.Send_Acknowledgement__c =&apos;{!PurchaseOrder__c.Send_Acknowledgement__c}&apos;; 
+
+if((ack.Stage__c == &quot;Parts Received&quot;) &amp;&amp; (ack.Send_Acknowledgement__c == false)){ 
+ack.Send_Acknowledgement__c= true; 
+alert(&apos;Acknowledgement sent.&apos;); 
+} 
+else if((ack.Send_Acknowledgement__c == true) &amp;&amp; (ack.Stage__c == &quot;Parts Received&quot;)){ 
+alert(&apos;Acknowledgement Already Sent.&apos;); 
+} 
+else{ 
+alert(&apos;First Update Inventory and send Acknowledgement.&apos;); 
+} 
+
+var result = sforce.connection.update([ack]); 
+
+//top.location.reload(true);</url>
+</WebLink>

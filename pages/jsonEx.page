@@ -1,0 +1,141 @@
+<apex:page >
+   
+    <html>
+    <script src="/soap/ajax/15.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/15.0/apex.js" type="text/javascript"></script>
+    
+    <link rel="stylesheet" href="{!URLFOR($Resource.reportresource, '/styles/jqx.base.css')}" type="text/css" />
+
+    <apex:includeScript value="{!URLFOR($Resource.reportresource, '/jquery-1.11.1.min.js')}"  />
+    <apex:includeScript value="{!URLFOR($Resource.reportresource, '/demos.js')}"  />
+    <apex:includeScript value="{!URLFOR($Resource.reportresource, '/jqxcore.js')}"  />
+     <apex:includeScript value="{!URLFOR($Resource.reportresource, '/jqxdata.js')}"  />
+     <apex:includeScript value="{!URLFOR($Resource.reportresource, '/jqxbuttons.js')}"  />
+     <apex:includeScript value="{!URLFOR($Resource.reportresource, '/jqxscrollbar.js')}"  />
+     <apex:includeScript value="{!URLFOR($Resource.reportresource, '/jqxtree.js')}"  />    
+    <apex:includeScript value="{!URLFOR($Resource.reportresource, '/jqxpanel.js')}"  /> 
+
+ 
+   <body>
+  <div id='content'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                
+                var data = [
+                { "id": "2",
+                    "parentid": "1",
+                    "text": "Hot Chocolate",
+                    "value": "$2.3"
+                }, {
+                    "id": "3",
+                    "parentid": "1",
+                    "text": "Peppermint Hot Chocolate",
+                    "value": "$2.3"
+                }, {
+                    "id": "4",
+                    "parentid": "1",
+                    "text": "Salted Caramel Hot Chocolate",
+                    "value": "$2.3",
+                    "name" : "venki1"
+                }, {
+                    "id": "5",
+                    "parentid": "1",
+                    "text": "White Hot Chocolate",
+                    "value": "$2.3",
+                    "name" : "venki"
+                }, {
+                    "text": "Chocolate Beverage",
+                    "id": "1",
+                    "parentid": "-1",
+                    "value": "$2.3"
+                }, {
+                    "id": "6",
+                    "text": "Espresso Beverage",
+                    "parentid": "-1",
+                    "value": "$2.3"
+                }, {
+                    "id": "7",
+                    "parentid": "6",
+                    "text": "Caffe Americano",
+                    "value": "$2.3"
+                    }, {
+                    "id": "8",
+                    "text": "Caffe Latte",
+                    "parentid": "6",
+                    "value": "$2.3"
+                }, {
+                    "id": "9",
+                    "text": "Caffe Mocha",
+                    "parentid": "6",
+                    "value": "$2.3"
+                    }, {
+                    "id": "10",
+                    "text": "Cappuccino",
+                    "parentid": "6",
+                    "value": "$2.3"
+                }, {
+                    "id": "11",
+                    "text": "Pumpkin Spice Latte",
+                    "parentid": "6",
+                    "value": "$2.3"
+                    }, {
+                    "id": "12",
+                    "text": "Frappuccino",
+                    "parentid": "-1"
+                }, {
+                    "id": "13",
+                    "text": "Caffe Vanilla Frappuccino",
+                    "parentid": "12",
+                    "value": "$2.3"
+                    }, {
+                    "id": "15",
+                    "text": "450 calories",
+                    "parentid": "13",
+                    "value": "$2.3"
+                }, {
+                    "id": "16",
+                    "text": "16g fat",
+                    "parentid": "13",
+                    "value": "$2.3"
+                    }, {
+                    "id": "17",
+                    "text": "13g protein",
+                    "parentid": "13",
+                    "value": "$2.3"
+                }, {
+                    "id": "14",
+                    "text": "Caffe Vanilla Frappuccino Light",
+                    "parentid": "12",
+                    "value": "$2.3"
+                    }]
+                // prepare the data
+                alert(data);
+                var source =
+                {
+                    datatype: "json",
+                    datafields: [
+                        { name: 'id' },
+                        { name: 'parentid' },
+                        { name: 'text' },
+                        { name: 'value' },
+                        { name: 'name'}
+                    ],
+                    id: 'id',
+                    localdata: data
+                };
+                // create data adapter.
+                var dataAdapter1 = new $.jqx.dataAdapter(source);
+                
+                dataAdapter1.dataBind();
+               
+                var records = dataAdapter1.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label'}]);
+                alert(records);
+                $('#jqxWidget').jqxTree({ source: records, width: '300px'});
+            });
+        </script>
+        <div id='jqxWidget'>
+        </div>
+    </div>
+    </body>
+    </html>
+</apex:page>

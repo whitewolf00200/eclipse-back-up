@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_This_Service_requires_visit_close</fullName>
+    <active>true</active>
+    <errorConditionFormula>and(datevalue(CreatedDate) &gt;=date(2013,10,10), Fire_Extinguisher_Service_complete__c, 
+TEXT(Close_Visit__c) = &quot;&quot; )</errorConditionFormula>
+    <errorDisplayField>Close_Visit__c</errorDisplayField>
+    <errorMessage>Please select whether you wish to have the submitted Mechanical Service sheet close the visit. If it doubt choose &quot;Yes&quot;</errorMessage>
+</ValidationRule>

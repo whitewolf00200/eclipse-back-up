@@ -1,0 +1,20 @@
+<apex:component controller="AcknowledgementComponentController" access="global">
+    <apex:attribute name="acknowledgementValue" description="List of Inventory Transaction" type="Id" required="required" assignTo="{!poNo}">
+     </apex:attribute>
+    <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%;float:left">
+        <tr>
+            
+      <!--      <td style="font-size:80%;height:20px"><b>Inventory</b></td>  --> 
+            <td style="font-size:13px;height:15px"><b>Product</b></td>
+            <td style="font-size:13px;height:15px"><b>Received Quantities</b></td>
+        </tr>
+        <apex:repeat value="{!prods}" var="prod">
+            <tr>
+             
+              <td style="font-size:13px;height:15px">{!prod}</td>   
+              <td style="font-size:13px;height:15px">{!prodCounts[prod]}</td>                                
+            </tr>
+        </apex:repeat>  
+    </table>
+        
+</apex:component>

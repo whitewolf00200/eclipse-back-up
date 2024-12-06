@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_contract__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>please can you link the location list to the Site Contract</description>
+    <label>Site Contract</label>
+    <referenceTo>SiteContracts__c</referenceTo>
+    <relationshipLabel>Location Lists</relationshipLabel>
+    <relationshipName>Location_Lists</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

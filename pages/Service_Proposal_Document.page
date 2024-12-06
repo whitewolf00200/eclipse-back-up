@@ -1,0 +1,259 @@
+<apex:page standardController="Quote" contentType="application/msword#Service Proposal.doc" cache="true" >
+  
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style type="text/css" media="print">
+ <!-- @page:first{
+    @top-left {
+    content: "{!Quote.Account.name} - page " counter(page)" of " counter(pages)" &nbsp;&nbsp;&nbsp;Proposal No. {!Quote.QuoteNumber}";
+    font-family:Arial Unicode MS;
+    }
+    }
+    @page{
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 3cm;
+     @top-left {
+        content: "{!Quote.Account.name} - continued - page " counter(page)" of " counter(pages)" &nbsp;&nbsp;&nbsp;Proposal No. {!Quote.QuoteNumber}";
+        font-family:Arial Unicode MS;
+    }
+    @top-center {
+        content: element(header);
+    }
+    @bottom-left {
+        content: element(footer);
+    }
+    
+}
+div.footer {
+    padding: 15px;
+    position: running(footer);
+}
+
+
+
+
+.pagenumber:before {
+    content: counter(page);
+}
+
+.pagecount:after {
+    content: counter(pages);
+}  
+-->
+@page Main {
+        size:8.5in 11.0in; 
+        margin:0.5in 0.5in 0.5in 0.5in;
+        mso-header:h1;
+        mso-header-margin:0.5in;
+        mso-footer:f1;
+        mso-footer-margin:0.5in;
+    }
+    div.Main{
+        page:Main;
+    }
+    
+    p.MyHead, li.MyHead, div.MyHead{
+                    margin:0in;
+                    margin-top:.0001pt;
+                    mso-pagination:widow-orphan;
+                    tab-stops:center 3.0in right 6.0in;
+                   
+                }
+    p.MyFoot, li.MyFoot, div.MyFoot{
+                    margin:0in;
+                    margin-bottom:.0001pt;
+                    mso-pagination:widow-orphan;
+                    tab-stops:center 3.0in right 6.0in;
+                    
+                    
+                    
+    }
+   div#hf{
+        margin:0in 0in 0in 10in; 
+          }  
+          
+         
+
+</style>
+</head> 
+<body style="font-family:Arial Unicode MS;">
+
+<div class="main">
+ 
+<table width="17%" align="right">
+    <tr>
+    <td style="vertical-align:bottom;"><img src="https://c.cs83.content.force.com/servlet/servlet.ImageServer?id=0154E000000DkJu&oid=00D4E0000008dLf&lastMod=1476271715000" width="70" height="65"  title="logo" align="right"/></td>
+    <td><img src="https://c.cs83.content.force.com/servlet/servlet.ImageServer?id=0157Z000001KINh&oid=00D4E0000008dLf&lastMod=1673941431000" width="82" height="86"  title="logo" align="right"/></td>
+    </tr>
+</table>   
+<br /> <br /> <br /> <br /> <br /> 
+               <table width="100%" style="font-size:16px;font-family:Arial Unicode MS;">
+               <tr><td colspan="3" style="font-size:20px;"><b>Proposal</b></td></tr>
+               <tr><td></td></tr>
+               <tr>
+                   <td width="5%"></td>
+                   <td width="50%">For the attention of :&nbsp;{!Quote.Contact.Salutation}&nbsp;{!Quote.Contact.Name}</td>
+                   <td width="30%"></td>
+               </tr>
+               <tr>
+                   <td width="5%"></td>
+                   <td width="50%" style="vertical-align:top;"><apex:outputtext value="{!Quote.Opportunity.Invoice_Address__c}" escape="false"/>
+                       <br/><br/><b>Delivery Address:</b><br/><apex:outputtext value="{!Quote.Opportunity.Site_Address__c}" escape="false"/>
+                   </td>
+                   <td width="45%">
+                       <table align="right">
+                           <tr>
+                               <td><b>Proposal No:</b></td>
+                               <td>{!Quote.QuoteNumber} - V{!Quote.Version_Number__c}</td>
+                           </tr>
+                           
+                           <tr>
+                               <td><b>Raised By:</b></td>
+                               <td>{!Quote.CreatedBy.Name}</td>
+                           </tr>
+                           <tr>
+                               <td><b>Date:</b></td>
+                               <td>{!DAY(DATEVALUE(Quote.CreatedDate))}/{!MONTH(DATEVALUE(Quote.CreatedDate))}/{!YEAR(DATEVALUE(Quote.CreatedDate))}</td>
+                           </tr>
+                           <tr>
+                               <td><b>Your Ref:</b></td>
+                               <td>{!Quote.Account.Parent_SAGE_ID__c}</td>
+                           </tr>
+                           <tr>
+                               <td><b>Phone:</b></td>
+                               <td>{!Quote.Phone}</td>
+                           </tr>
+                           <!--<tr>
+                               <td><b>Fax:</b></td>
+                               <td>{!Quote.Fax}</td>
+                           </tr>-->
+                           <tr>
+                               <td><b>Email:</b></td>
+                               <td>{!Quote.Email}</td>
+                           </tr>
+                           <tr>
+                               <td><b>Project:</b></td>
+                               <td>{!Quote.Project__r.Name}</td>
+                           </tr>
+                           <tr>
+                               <td><b>Account No:</b></td>
+                               <td>{!IF(Quote.Account.UPRN__c!=null,Quote.Account.UPRN__c,Quote.Account.parent.UPRN__c)}</td>
+                           </tr>
+                       </table>       
+                   </td>
+               </tr>
+               </table>
+               <h3 style="text-align:center;">{!Quote.Opportunity.Name}</h3>
+               <p>
+               Dear <b>{!Quote.Contact.Salutation}&nbsp;{!Quote.Contact.Name}</b>,
+               <br/>
+               Thank you for your recent enquiry and development discussions we have had in connection with the above proposed works.
+               We are pleased to enclose our proposal below.</p>
+               <apex:outputPanel >
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" >
+                    <tr style="background-color:#6A2774;color:white;font-size:18px;">       
+                     <!--<td align="center" width ="10%"><b>Item</b></td>-->
+                     <td align="left" width ="28%"><b>Product</b></td>
+                     <td align="center" width ="8%"><b>Qty</b></td>
+                     <td align="left" width ="25%"><b>Description</b></td>
+                     <td align="center" width ="7%"><b>Unit</b></td>
+                     <td align="right" width ="13%"><b>Price</b></td>
+                     <td align="right" width ="15%"><b>Line Price</b></td> 
+                    </tr>
+                </table>      
+                </apex:outputPanel>
+                <apex:outputPanel >
+                <table border="0" width="100%">
+                <apex:variable value="{!1}" var="rowNum"/>
+                    <apex:repeat value="{!Quote.QuoteLineItems}" var="line"> 
+                              <tr>
+                              <!--<td align="center" width="10%"><apex:outputText value="{!FLOOR(rowNum)}"/></td>-->
+                              <td align="left" width="28%"><apex:outputText value="{!line.Product2.Name}" /></td>
+                              <td align="center" width="8%"><apex:outputText value="{!FLOOR(line.Quantity)}" /></td>
+                          <!--    <td align="left" width="25%"><apex:outputText rendered="{!line.Show_Description__c}" value="{!line.Product2.Description}" /></td> -->
+                          <td align="left" width="25%" style="vertical-align:top;"><apex:outputtext value="{!IF(line.Extended_Sales_Description__c!=null, line.Extended_Sales_Description__c, line.Product2.Description)}"/> </td>
+                              <td align="center" width="7%">Each</td>
+                              <td align="right" width="13%"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.UnitPrice}"/></apex:outputText></td>
+                              <td align="right" width="15%"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.TotalPrice}"/></apex:outputText></td>
+                              </tr>
+                    <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                    </apex:repeat> 
+                    </table>
+                    <br/><br/>
+                    <table align="right" style="font-size:16px;">
+                       <tr>
+                           <td><b>Total Price :</b></td>
+                           <td></td>
+                           <td align="right"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Quote.TotalPrice}"/></apex:outputText></td>
+                       </tr>
+                       <tr>
+                           <td><b>VAT Total :</b></td>
+                           <td></td>
+                           <td align="right"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Quote.Vat_Total__c}"/></apex:outputText></td>
+                       </tr>
+                       <tr>
+                           <td><b>Quote Total :</b></td>
+                           <td></td>
+                           <td align="right"><b><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!Quote.Quote_Total__c}"/></apex:outputText></b></td>
+                       </tr>           
+                   </table>
+                   </apex:outputPanel>
+                   <br/><br/><br/><br/>
+              <p>Please note that this is not a fixed price quotation, but an estimate for the works listed. Any additional repair works, return visits, service parts or manufactures service kits required will be chargable at our standard hourly rate of £89.00 per hour.<br /><br />This estimate is valid for 30 days and our terms and conditions of sale and installation apply. Copies are available on request or for download from: <a href="http://www.eclipse-dental.com/legal/terms-of-sale.pdf">http://www.eclipse-dental.com/legal/terms-of-sale.pdf</a><br /><br />All prices exclude VAT.  E. &amp; O. E.</p>
+              <br/><br/>
+               <p style="font-size:14px;"><h3>The Eclipse Service Promise </h3><b>We guarantee the following service commitments: </b><br/><b>1. Customer Care Focus:</b> Dedication to the highest quality of Customer Service delivered with friendly and individual enthusiasm. <br /><br/><b>2. Quality Guarantee:</b> We are committed to excellence in design, integrity in execution and the highest quality of products. <br /><br/><b>3. After Sales Service:</b>Our technical expertise will ensure good service from your equipment for years after the project has been completed. Our service engineers are available on call for rapid response and to ensure the minimum of down-time and the low long-term cost of ownership.</p>
+               
+               <p><h3><b>Payment Terms:</b></h3><apex:outputField value="{!Quote.Payment_Terms__c}"/><!-- PAYMENT DUE ON PRESENTATION OF INVOICE<br /><br />  Please make BACCS payments to: Sort Code 12-20-26,  Account No. 01866640<br />--><br /> 
+               We trust this estimate meets with your approval and look forward to hearing from you.<br /><br />
+               Assuring you of our most careful attention in this matter.<br /><br />
+               Yours sincerely<br />
+               {!Quote.Opportunity.Owner.Name}<br />
+               Sales and Design Consultant <br />
+               Tel: 01322 293333</p>
+               
+               <p><h3><b>Confirmation To Proceed -Proposal No. {!Quote.QuoteNumber}</b></h3>
+               To proceed with above quotation, please complete below and return a copy to:<br /><br />
+               <b>Eclipse Dental Engineering</b><br />
+               Westview Court<br />10-14 Kent Road<br />
+               Dartford<br />Kent  DA1 2AJ<br /><br />
+               Tel 01322 293333 Email <a href="info@eclipse-dental.com">info@eclipse-dental.com</a><br /><br />
+               Sign  ................................................<br /><br />
+               Print  ................................................<br /><br />
+               Date  ...............................................<br /><br />
+            <!--   Item Nos .............................................<br /><br /> -->
+               <h3><b>Thank you for working with Eclipse Dental!</b></h3>
+               </p>
+               
+          <div id="hf">
+        
+               <div style="mso-element:header" id="h1" class="MyHead">
+              <table>
+              <td>{!Quote.Account.name} - Page <span style='mso-field-code:" PAGE "'></span> of <span style='mso-field-code:" NUMPAGES "'></span> &nbsp;&nbsp;&nbsp;&nbsp;Proposal No. {!Quote.QuoteNumber}</td>
+              
+              </table> 
+             
+               </div>
+                <tr> <td ><img src="{!$Resource.footernew}" /></td></tr>
+               <!-- <div>
+                <table width="100%" height="100%" >
+                <tr> <td ><img src="{!$Resource.footernew}"  /></td></tr>
+                </table>
+                </div>-->
+
+               <div style="mso-element:footer;border-top: 1px solid #038B99;" class="MyFoot" id="f1">
+                 <table>
+                 <td>
+                  <b style="color:#6A2774;">Guaranteed solutions....</b><br/> 
+                 Eclipse Dental Engineering| Westview Court |10-14 Kent Road | Dartford | Kent | DA1 2AJ<br/>
+                 Tel: 01322 293333 | Email: info@eclipse-dental.com | Vat No: GB 714315367
+                 </td>
+                 </table>
+              </div>
+       </div>      
+              </div>
+</body>
+
+</apex:page>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DISPENSERS_Room1__c</fullName>
+    <inlineHelpText>-Centre Feed or C-Fold towels 
+-Gloves 
+-Aprons 
+-Soaps 
+-Integral to wall unit or independent?</inlineHelpText>
+    <label>Room1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

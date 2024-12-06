@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyTeamsActivities</fullName>
+    <columns>TASK.WHO_NAME</columns>
+    <columns>TASK.TYPE</columns>
+    <columns>TASK.DUE_DATE</columns>
+    <columns>TASK.WHAT_NAME</columns>
+    <columns>TASK.SUBJECT</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>TASK.PRIORITY</columns>
+    <columns>TASK.STATUS</columns>
+    <columns>ACTIVITY_SUBTYPE</columns>
+    <columns>Started__c</columns>
+    <columns>Task_Value__c</columns>
+    <columns>Origin__c</columns>
+    <columns>Actioned__c</columns>
+    <columns>Actions__c</columns>
+    <columns>ACTIVITY.TASK</columns>
+    <filterScope>Team</filterScope>
+    <label>My Team&apos;s Activities</label>
+</ListView>

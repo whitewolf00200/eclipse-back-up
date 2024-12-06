@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STANDING_WASTE_DRAIN_Room2__c</fullName>
+    <inlineHelpText>Not required as standard</inlineHelpText>
+    <label>Room2</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prefilled_Certification_Email_To_Locked</fullName>
+    <active>true</active>
+    <description>if the field has been pre-filled from the site or parent, that it is then locked</description>
+    <errorConditionFormula>AND(NOT(ISNULL(Email_Confirmation_to__c)),
+ISCHANGED(Email_Confirmation_to__c),
+NOT(ISBLANK(PRIORVALUE(Email_Confirmation_to__c))), $Profile.Name !=&apos;System Administrator&apos;)</errorConditionFormula>
+    <errorDisplayField>Email_Confirmation_to__c</errorDisplayField>
+    <errorMessage>Pre-filled Email Id should not be changed</errorMessage>
+</ValidationRule>

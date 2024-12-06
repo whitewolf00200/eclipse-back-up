@@ -1,0 +1,122 @@
+<apex:component access="global" allowDML="true">
+<apex:attribute description="sp" name="sp" type="Engineer_Checklist__c"/>
+ <!--<apex:attribute name="Serviceid" type="Id" description="Attribute on the component."/>-->
+  
+                 
+                  <div class="footer" >
+             <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>    
+              </div>
+<div class="footer" >
+                               
+               
+             <table width="100%" height="100%" >
+    <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>     </div>
+
+                     
+               <table  class="tableim" style="width:100%;border-collapse:0px;margin-top:-60px">
+   <tr>
+  
+ <!--   <td colspan="2" width="100%;" class="a"> <img src="{!$Resource.FitOutEquipment1}" width="120" height="100"  title="logo" align="right"/></td>
+    <td class="a" ><img src="{!$Resource.EclipseDentalLogo1}" width="130" height="120"  title="logo" align="right"/></td>
+       -->
+       <td class="a"><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td class="a" width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td>
+     </tr>   
+    
+                  <div Style="font-size:16px;margin-top:-15px"> &nbsp; Customer Address:
+                      <tr>
+                                   <td   style="border: 100px white;padding-left:8px;"><apex:outputtext value="{!sp.Service_At__c}" escape="false"/></td>
+
+                                      </tr>
+               </div>    
+                            
+           
+                      
+                      <p style="text-align:center;font-size:22px;margin-top:-25px"> <u>OPG Installation Certificate </u></p>
+                      
+                  
+                      <table style="align:center">
+                      <tr>
+                      <td class="b"> Equipment Make:</td><td>{!sp.Make__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Equipment Model:</td><td>{!sp.Model__c}</td>
+                      </tr>
+                      <tr>
+                      <td>Serial No:</td><td>{!sp.Serial_No__c}</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Date of installation:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_of_installation__c}" />
+</apex:outputText>
+</td>
+                      </tr>
+                      
+                      <tr>
+                      <td> Date service due:</td><td><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!sp.Date_service_due__c}" /></apex:outputText></td>
+                      </tr>
+                       <tr>
+                      <td> Shielding sufficient: </td><td>{!sp.Shielding_sufficient__c}</td>
+                      </tr>
+                      
+                        <tr><td>Test image completed:  </td>
+                     <td>{!sp.Test_image_completed__c}</td></tr>
+                   
+                      
+                     <tr><td>Levels correct: </td>
+                     <td>{!sp.Levels_correct__c}</td></tr>
+                     <tr><td>Height stop correct:</td>
+                     <td>{!sp.Height_stop_correct__c}</td></tr>
+                     
+                     
+                                          <tr><td>Test pack carried out:</td>
+                     <td>{!sp.Test_pack__c}</td></tr>
+                     
+                     
+                     <tr><td>Equipment labelled: </td>
+                     <td>{!sp.Equipment_labelled__c}</td></tr>
+                     
+                     
+                       <tr><td>Equipment Isolator nearby: 
+
+ </td>
+                     <td>{!sp.Equipment_Isolator_nearby__c}</td></tr>
+                   
+                     <tr><td>Earth Continuity:
+
+ </td>
+                     <td>{!sp.Earth_Continuity__c}</td></tr>
+
+                     <tr><td class="b">Notes: </td>
+                     <td>{!sp.Note__c}</td></tr>
+                   
+                    <tr><td>Installed by: </td>
+                     <td>{!sp.Engineer__r.name}</td></tr>
+                   
+                   
+                <!--    <div class="footer"> 
+                    <br/><br/>
+                 
+                    <br/>
+                 <p style="border-top: 2px solid #038B99;" ><span style="color:#038B99;text-align:left; font-size:25px"><b >Guaranteed solutions....</b> </span>
+                 <p style=" solid #038B99; text-align:right;"> 
+                 <div class="vl"> <span><p style="text-align:right; color:#038B99"> Vat No: GB 714315367&nbsp; &nbsp; &nbsp;<br/> Company Registration &nbsp; &nbsp; &nbsp; 
+                 <br/>No.12402632 &nbsp; &nbsp; &nbsp;<br/> 
+                 Registered at above address &nbsp; &nbsp; &nbsp; 
+                 </p>  </span> 
+                 </div></p></p>
+               
+                <p style="text-align:right; color:#038B99"> {!$Label.Company_Name}<br/>Westview Court 10-14<br/> Kent Road <br/> Dartford  Kent  DA1 2AJ <br/>
+                 Tel: 01322 293333 <br/> Email: info@eclipse-dental.com   </p> 
+               </div> -->
+                     
+                      </table>
+                 </table> 
+      
+                       
+           
+            </apex:component>

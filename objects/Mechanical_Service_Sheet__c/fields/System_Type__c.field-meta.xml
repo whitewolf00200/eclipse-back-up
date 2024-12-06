@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>System_Type__c</fullName>
+    <label>System Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dry Riser</fullName>
+                <default>false</default>
+                <label>Dry Riser</label>
+            </value>
+            <value>
+                <fullName>Fire Suppression</fullName>
+                <default>false</default>
+                <label>Fire Suppression</label>
+            </value>
+            <value>
+                <fullName>Hydrant</fullName>
+                <default>false</default>
+                <label>Hydrant</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Sprinkler</fullName>
+                <default>false</default>
+                <label>Sprinkler</label>
+            </value>
+            <value>
+                <fullName>Wet Riser</fullName>
+                <default>false</default>
+                <label>Wet Riser</label>
+            </value>
+            <value>
+                <fullName>Dry Riser, Wet Riser</fullName>
+                <default>false</default>
+                <label>Dry Riser, Wet Riser</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

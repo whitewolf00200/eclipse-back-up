@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Annual Service Requirement - Done Before</fullName>
+        <default>true</default>
+        <label>Annual Service Requirement - Done Before</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Annual Service Requirement - Never Done</fullName>
+        <default>false</default>
+        <label>Annual Service Requirement - Never Done</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Declined Annual Service</fullName>
+        <default>false</default>
+        <label>Declined Annual Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>On Contract</fullName>
+        <default>false</default>
+        <label>On Contract with Eclipse</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Removed/Replaced</fullName>
+        <default>false</default>
+        <label>Removed/Replaced</label>
+    </standardValue>
+</StandardValueSet>

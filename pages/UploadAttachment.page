@@ -1,0 +1,12 @@
+<apex:page standardController="Visits__c" extensions="UploadAttachmentController" showHeader="true" standardStylesheets="true">
+    <apex:form enctype="multipart/form-data">
+        <apex:pageMessages />
+
+        <!-- File Input -->
+        <apex:outputLabel value="Choose File:" for="fileInput" />
+        <apex:inputFile id="fileInput" value="{!fileContent}" filename="{!fileName}" />
+
+        <!-- Upload Button -->
+        <apex:commandButton value="Upload File" action="{!uploadFile}" />
+    </apex:form>
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Breakglass_Callpoint</fullName>
+    <active>false</active>
+    <description>If Breakglass Callpoint Qty filled in, the corresponding drop down must have a relevant value.</description>
+    <errorConditionFormula>AND ( TEXT (   Outlet_has_sufficient_air_water_pressure__c )&lt;&gt;&quot;&quot;,
+
+ TEXT ( FA_Breakglass_Callpoint__c )= &quot;&quot;)</errorConditionFormula>
+    <errorMessage>You have filled in a Quantity for Breakglass Callpoint Spare Parts, please fill in the corresponding drop-down field.</errorMessage>
+</ValidationRule>

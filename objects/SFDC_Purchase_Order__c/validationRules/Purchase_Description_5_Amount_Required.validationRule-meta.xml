@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Description_5_Amount_Required</fullName>
+    <active>true</active>
+    <description>Purchase Description - 5 is filled the corresponding Amount - 5 is required.</description>
+    <errorConditionFormula>AND(!ISBLANK(Purchase_Description_5__c),
+ISBLANK(Amount_5__c))</errorConditionFormula>
+    <errorDisplayField>Amount_5__c</errorDisplayField>
+    <errorMessage>Please Enter Amount of Purchase Description 5</errorMessage>
+</ValidationRule>

@@ -1,0 +1,273 @@
+<apex:component access="global" rendered="true" controller="ServiceController">
+  <apex:attribute description="tc" name="tc" type="Engineer_Checklist__c"/>
+   <apex:attribute name="Serviceid" type="Id"  assignTo="{!sheetid}" description="Attribute on the component."/>
+<body class="start">
+ 
+<div style="width: 100% ;">
+    
+         <div class="footer">
+        <table>
+  <tr> <td class="a"><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+         </table></div>
+    
+   <!-- <table width="22%" style="position:absolute;right:15px;">
+    <tr><td rowsapn="2"></td></tr>
+    <tr><td style="vertical-align:bottom;background-color:#CCC;"><img src="{!$Resource.FESS}" width="70" height="65"  title="logo" align="right"/></td>
+    <td><img src="{!$Resource.EclipseDentalLogo}" width="82" height="86"  title="logo" align="right"/></td></tr>
+    </table> -->
+      <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right" /></td></tr>
+    </table> 
+    
+    <p style="font-size:25px;position:absolute;left:230px;text-align:center;margin-top:-50px;"><b>Treatment Centre<br/>Certificate Of Service</b></p>
+    <br/><br/><br/>
+    <table width="40%" style="background-color:white;position:absolute;left:20px;">
+      <tr>
+      <td  width="50%" HEIGHT="80" style="border: 1px solid;vertical-align:top;"><apex:outputtext value="{!tc.Service_At__c}" escape="false"/></td>
+      </tr>
+    </table>
+     <table width="40%" style="border: 1px solid;vertical-align:top;background-color:white;position:absolute;right:20px;">
+      <tr width="50%">
+      <td width="25%" style="vertical-align:text-top;">Date:</td>
+      <td width="25%" style="vertical-align:text-top;"><!-- {!DAY(tc.Date__c)}/{!MONTH(tc.Date__c)}/{!YEAR(tc.Date__c)} -->
+      <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!tc.Date__c}"/></apex:outputtext>
+      </td>
+      </tr>
+      <tr width="50%">
+      <td width="25%" style="vertical-align:sup;">Account Ref :</td>
+      <td width="25%" style="vertical-align:sup;">{!if(tc.Site__r.AccountNumber!=null,tc.Site__r.AccountNumber,tc.Site__r.parent.AccountNumber)}</td>
+      </tr>
+      <tr  width="50%">
+      <td width="25%" style="vertical-align:sup;">Certificate No.</td>
+      <td width="25%" style="vertical-align:sup;">{!tc.Name}</td>
+      </tr>
+      <tr>
+      <td width="25%" style="vertical-align:top;">Service Type:</td>
+      <td width="25%" style="vertical-align:top;">{!tc.Service_Sheet_Type__c}</td>
+      </tr>
+     </table>
+     <div style="width: 100%;"><br/><br/><br/><br/><br/><br/><br/></div>
+     <div style="background-color:#6A2774;width: 100% ;"><br/></div>
+  </div>
+  <div>
+  <br/>
+               <table Width="100%" style="text-align:left;border-collapse:collapse;" border="">
+                  <tr>
+                      <td width="30" style="border-Top:1px solid;border-left:1px solid;">Dental Chair Manufacturer:</td>
+                      <td width="15" style="border-Top:1px solid;border-right:1px solid;border-bottom:solid 1pt;padding:0px 30px;">{!tc.Make__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Delivery System Manufacturer:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px">{!tc.Delivery_System_Manufacture__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30" style="border-left:1px solid;">Dental Chair Model:</td>
+                      <td width="15" style="border-right:1px solid;border-bottom:solid 1pt;padding:0px 30px;">{!tc.Model__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Delivery System Model:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Delivery_System_Model__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30" style="border-left:1px solid;">Dental Chair Serial No:</td>
+                      <td width="15" style="border-right:1px solid;border-bottom:solid 1pt;padding:0px 30px;">{!tc.Serial_No__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Delivery System Serial No:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Delivery_System_Serial_No__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30" style="solid;border-left:1px solid;">Date Of Manufacture:</td>
+                      <td width="15" style="border-right:1px solid;border-bottom:solid 1pt;padding:0px 30px;"><!-- {!DAY(tc.Date_Of_Manufacture__c)}/{!MONTH(tc.Date_Of_Manufacture__c)}/{!YEAR(tc.Date_Of_Manufacture__c)} -->
+                      <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!tc.Date_Of_Manufacture__c}"/></apex:outputtext>
+                      </td>
+                      <td width="10"></td>
+                      <td width="30">Delivery System Type:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Delivery_System_Type__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30" style="solid;border-left:1px solid;">Surgery Name</td>
+                      <td width="15" style="border-right:1px solid;border-bottom:solid 1pt;padding:0px 30px;">{!tc.surgery_name__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Date of Manufacture (Delivery Unit)</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;"><apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!tc.Date_of_Manufacture_Delivery_Unit__c}"/></apex:outputtext></td>
+                  </tr>
+                  <tr>
+                  
+                  <td style="border-bottom:1px solid;border-left:1px solid;"></td>
+                  <td style="border-bottom:1px solid;border-right:1px solid;"></td>
+                  <td></td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  
+                  </tr>
+                  <tr>
+                      <td width="30">Movement Functions:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Movement_Functions__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Test All Unit Functions</td>
+                      <td width="15"></td>
+                  </tr>
+                  <tr>
+                      <td width="30">Squeaks and rubs:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Squeaks_rubs__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Set Pressure Outlet 1:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Set_Pressure_Outlet1__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">General Condition:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.General_Condition__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Set Pressure Outlet 2:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Set_Pressure_Outlet2__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Cup filler:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Cup_Filler__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Set Pressure Outlet 3:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Set_Pressure_Outlet3__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Rinse:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Rinse__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Set Pressure Outlet 3:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Set_Pressure_Outlet4__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Water leaks:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Water_Leaks__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Condition Of hoses:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Condition_Of_Hoses__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="20">Electrical Condition:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Electrical_Condition__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Fibre Optics:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Fibre_Optics__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Suction hoses and tips:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Suction_hoses_Tips__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Exhaust filter / collector:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Exhaust_Filter_Collector__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Suction filters:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Suction_Filters__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Foot pedal Functions:</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Foot_Pedal_Functions__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Suction Measurement (l/min) :</td>
+                      <td width="20" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Suction_Measurement_inch_HG__c}</td>
+                      <td width="10"></td>
+                      <td width="30%">Unit Mounts:</td>
+                      <td width="20" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Unit_Mounts__c}</td>
+                  </tr>
+                  <tr>
+                      <td width="30">Mains water regulator pressure</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Mains_water_regulator_pressure__c}</td>
+                  </tr>
+                 
+                 
+                   <tr>
+                      <td width="30">Spittoon Valve Float</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Spittoon_Valve_Float__c}</td>
+                      <td width="10"></td>
+                      <td width="30">Air supply regulator pressure</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Air_supply_regulator_pressure__c}</td>
+                  </tr> 
+                  
+                   <tr>
+                      <td width="30">Spittoon Valve Filter</td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Spittoon_Valve_Filter__c}</td>
+                      <td width="10"></td>
+                      <td width="30"></td>
+                      <td width="15"></td>
+                  </tr> 
+                  <tr>
+                      <td width="30">Place Valve </td>
+                      <td width="15" style="border-bottom:solid 1pt;padding:0px 30px;">{!tc.Place_Valve__c}</td>
+                      <td width="10"></td>
+                      <td width="30"></td>
+                      <td width="15"></td>
+                  </tr> 
+               </table>
+               <br/>
+          <div >
+                <table width="100%" border="">
+                    <tr>
+                        <td>  <b>Notes for next service:</b> </td> 
+                    </tr>
+                    <tr>
+                         <td style="white-space:pre-line;" valign="top"  height="200"> {!tc.Notes_for_next_service__c} </td>
+                    </tr>
+            </table>
+       </div>
+      <br/><br/>
+          <div style="width:100% ;page-break-inside:avoid;">
+         
+         <br/>
+          <table Width="100%"  border="0">
+              <tr>
+                  <td width="5%"> </td>
+                  <td width="35%" >Technician Signature:</td>
+                  <td width="10%"></td>
+                  <td width="45%" >Notes / Recommendations:</td>
+                  <td width="5%"> </td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td  height="50" style = "border: 1px solid black;background-color:white;">
+                      <!--  <b><apex:outputText value="{!substitute(tc.Engineer_s_Signature__c,"alt=","height=\"50px\" Alt=")}" escape="false"/></b> -->
+                      <apex:outputPanel rendered="{!Sign}">
+                         <img alt="no img" src="{!TechSign}" style="height:70px;max-width:100%;"/>
+                          </apex:outputPanel>
+                  </td>
+                   <td></td>
+                     <td rowspan="3" style="border: 1px solid black;vertical-align:text-top;background-color:white;">{!tc.Note__c}</td>                
+                    <td></td> 
+              </tr> 
+              <tr>
+              <td></td>
+                  <td width="30%" >Print:</td>
+                  <td></td>
+                 <td></td>
+                                     
+              </tr>
+              <tr>
+              <td></td>
+                  <td  height="40" style = "border: 1px solid black;background-color:white;">
+                  <apex:outputText value="{!tc.Engineer__r.Name}" escape="false"/>
+                  </td>
+                  <td></td>
+                   <td></td>                 
+              </tr> 
+              <tr>
+              <td></td>
+              <td></td><td></td><td></td><td></td>
+              </tr>
+              <!-- <tr>
+               <td></td>
+                  <td  style="color:#038B99;vertical-align:text-bottom;">Guaranteed solutions....</td>
+                  <td></td>
+                   <td style="color:#038B99;text-align:right;">Westview Court 10-14 Kent Road<br/>
+                         Dartford Kent DA1 2AJ<br/>
+                         Tel: 01322 293333<br />
+                         service@eclipse-dental.com<br />  
+                         www.eclipse-dental.com 
+                   </td>
+                   <td></td>
+                 </tr> -->
+            </table> 
+          
+       </div>
+   </div>
+   
+    </body>
+</apex:component>

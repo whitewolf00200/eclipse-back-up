@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="File Upload" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <lightning-input
+                type="file"
+                accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf, .jpg, .jpeg, .mp4, .avi, .mov"
+                label="Attachment"
+                multiple
+                onchange={openfileUpload}>
+            </lightning-input>
+        </div>
+        <div style="margin-left:3%">
+            <template if:true={filesData}>
+                <div style="margin-bottom:2%">
+                    <template for:each={filesData} for:item="file">
+                        <p key={file.filename}>{file.filename}</p> <!-- Displays file names -->
+                    </template>
+                </div>
+                <lightning-button
+                    variant="destructive"
+                    label="Cancel"
+                    title="Cancel"
+                    onclick={handleCancel}
+                    class="slds-m-top_small">
+                </lightning-button>
+            </template>
+            <lightning-button
+                variant="brand"
+                label="Submit"
+                title="Submit"
+                onclick={handleClick}
+                class="slds-m-left_x-small">
+            </lightning-button>
+
+            <!-- Loading spinner when files are being uploaded -->
+            <template if:true={isUploading}>
+                <lightning-spinner alternative-text="Uploading" size="medium" class="slds-m-top_medium"></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>

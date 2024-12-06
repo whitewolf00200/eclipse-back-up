@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Diary__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(
+&quot;https://ap2.salesforce.com/00O28000001PDQg?pv0=&quot;&amp;   Engineer2__r.Name &amp;&quot;&amp;pv1=&quot;&amp;Engineer2__r.Name&amp;&quot;&amp;pv2=&quot;&amp; 
+IF ( TEXT(Actual_Service_Date__c) &lt;&gt; &quot;&quot;, 
+TEXT(MONTH(Actual_Service_Date__c))&amp;&quot;/&quot;&amp;TEXT(DAY(Actual_Service_Date__c))&amp;&quot;/&quot;&amp;TEXT(YEAR(Actual_Service_Date__c)), &quot;&quot; 
+) , &quot;First Technician&quot; ,&quot;_blank&quot;)
+&amp;BR()&amp;
+
+HYPERLINK(
+&quot;https://ap2.salesforce.com/00O28000001PDQg?pv0=&quot;&amp;   X2nd_Technician__r.Name &amp;&quot;&amp;pv1=&quot;&amp;X2nd_Technician__r.Name&amp;&quot;&amp;pv2=&quot;&amp; 
+IF ( TEXT(Actual_Service_Date__c) &lt;&gt; &quot;&quot;, 
+TEXT(MONTH(Actual_Service_Date__c))&amp;&quot;/&quot;&amp;TEXT(DAY(Actual_Service_Date__c))&amp;&quot;/&quot;&amp;TEXT(YEAR(Actual_Service_Date__c)), &quot;&quot; 
+) , &quot;Second Technician&quot; ,&quot;_blank&quot;)
+&amp;BR()&amp;
+
+
+HYPERLINK(
+&quot;https://ap2.salesforce.com/00O28000001PDQh?pv0=&quot;&amp;   Engineer2__r.Name  &amp;&quot;&amp;pv1=&quot;&amp;X2nd_Technician__r.Name&amp;&quot;&amp;pv2=&quot;&amp; 
+IF ( TEXT(Actual_Service_Date__c) &lt;&gt; &quot;&quot;, 
+TEXT(MONTH(Actual_Service_Date__c))&amp;&quot;/&quot;&amp;TEXT(DAY(Actual_Service_Date__c))&amp;&quot;/&quot;&amp;TEXT(YEAR(Actual_Service_Date__c)), &quot;&quot; 
+) , &quot;Both&quot; ,&quot;_blank&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Search using these links to see what the chosen Technicians are doing on the day</inlineHelpText>
+    <label>On the Day</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alternative_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( OR(Alt_Delivery_Street__c &lt;&gt; &quot;&quot;,Alt_Delivery_City__c &lt;&gt; &quot;&quot;,Alt_Delivery_State__c &lt;&gt; &quot;&quot;, Alt_Delivery_PostCode__c &lt;&gt; &quot;&quot;,Alt_Delivery_Country__c &lt;&gt;&quot;&quot;),
+IF(Account.Name  &lt;&gt; &quot;&quot;, Account.Name&amp; BR() ,&quot;&quot;)&amp; 
+IF ( Alt_Delivery_Street__c &lt;&gt; &quot;&quot;, Alt_Delivery_Street__c&amp;BR(),&quot;&quot;)&amp; 
+IF ( Alt_Delivery_City__c &lt;&gt; &quot;&quot;, Alt_Delivery_City__c&amp;BR(), &quot;&quot;) &amp; 
+IF ( Alt_Delivery_State__c &lt;&gt; &quot;&quot;, Alt_Delivery_State__c&amp;BR(), &quot;&quot;) &amp; 
+IF ( Alt_Delivery_PostCode__c &lt;&gt; &quot;&quot;, Alt_Delivery_PostCode__c&amp; BR(), &quot;&quot;) &amp; 
+IF(Alt_Delivery_Country__c &lt;&gt;&quot;&quot;,Alt_Delivery_Country__c ,&quot;&quot; ), BR())</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Alternative Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

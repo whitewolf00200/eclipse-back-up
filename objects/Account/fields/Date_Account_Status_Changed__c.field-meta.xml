@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Account_Status_Changed__c</fullName>
+    <inlineHelpText>This is the date the account status changes. It is tracked at the bottom of the account. This is set by Workflow, so you cannot change it.</inlineHelpText>
+    <label>Date Account Status Changed</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

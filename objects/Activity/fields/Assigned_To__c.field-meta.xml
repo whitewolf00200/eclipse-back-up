@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_To__c</fullName>
+    <label>Assigned To</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>John Boyt</fullName>
+                <default>false</default>
+                <label>John Boyt</label>
+            </value>
+            <value>
+                <fullName>Michael Pitorac</fullName>
+                <default>false</default>
+                <label>Michael Pitorac</label>
+            </value>
+            <value>
+                <fullName>Ray Watts</fullName>
+                <default>false</default>
+                <label>Ray Watts</label>
+            </value>
+            <value>
+                <fullName>Tim Boyt</fullName>
+                <default>false</default>
+                <label>Tim Boyt</label>
+            </value>
+            <value>
+                <fullName>Visits_Pending_Kent</fullName>
+                <default>false</default>
+                <label>Visits Pending-Kent</label>
+            </value>
+            <value>
+                <fullName>Ralph_Boyt</fullName>
+                <default>false</default>
+                <label>Ralph Boyt</label>
+            </value>
+            <value>
+                <fullName>Vists_Pending-Inside M25</fullName>
+                <default>false</default>
+                <label>Vists_Pending-Inside M25</label>
+            </value>
+            <value>
+                <fullName>Chester_M_Boyt</fullName>
+                <default>false</default>
+                <label>Chester M Boyt</label>
+            </value>
+            <value>
+                <fullName>Chaz Sidhu</fullName>
+                <default>true</default>
+                <label>Chaz Sidhu</label>
+            </value>
+            <value>
+                <fullName>Sarah Boyt</fullName>
+                <default>false</default>
+                <label>Sarah Boyt</label>
+            </value>
+            <value>
+                <fullName>Lorna Welch</fullName>
+                <default>false</default>
+                <label>Lorna Welch</label>
+            </value>
+            <value>
+                <fullName>Not Assigned</fullName>
+                <default>false</default>
+                <label>Not Assigned</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

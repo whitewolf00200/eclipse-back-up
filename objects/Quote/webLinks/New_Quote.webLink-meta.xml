@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Quote</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Quotes1</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>https://cs83.salesforce.com/setup/ui/recordtypeselect.jsp?ent=Quote&amp;retURL={!Opportunity.Id}&amp;save_new_url=%2F0Q0%2Fe%3FretURL%3D%252F{!Opportunity.Id}%26oppid%3D{!Opportunity.Id}&amp;00N4E000002IePA={!Opportunity.Despatch_Method__c}&amp;00N4E000000l9eT={!Opportunity.Payment_Terms__c}</url>
+</WebLink>

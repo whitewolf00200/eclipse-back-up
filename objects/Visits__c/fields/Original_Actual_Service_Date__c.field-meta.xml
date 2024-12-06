@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Actual_Service_Date__c</fullName>
+    <inlineHelpText>This captures the value of the actual service date when it is first set. After that this will not change. Booking status warns if this is more than 60 days before the actual service date. ( NOTE the original capture was on 21/10/2013 )</inlineHelpText>
+    <label>Scheduled Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

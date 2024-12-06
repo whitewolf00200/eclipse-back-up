@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Find_VAT_OLI_Amount</fullName>
+        <field>VAT__c</field>
+        <formula>IF(
+DATEVALUE(Opportunity.CreatedDate) &gt;= Date(2020,05,29),
+Vat_Rate__c*TotalPrice,
+Opportunity.VAT_Rate__c*TotalPrice
+
+)</formula>
+        <name>Find VAT OLI Amount</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OLI_Product_Description</fullName>
+        <field>Description</field>
+        <formula>Product2.Description</formula>
+        <name>OLI Product Description</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ProductCostPricefieldUpdate</fullName>
+        <field>Product_Cost_Price__c</field>
+        <formula>Product2.Supplier_Cost_Price__c</formula>
+        <name>ProductCostPricefieldUpdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Cost_Price</fullName>
+        <field>Cost_Price__c</field>
+        <formula>IF( ISBLANK(Cost_Price__c ) ,UnitPrice - Margin__c ,Cost_Price__c  )</formula>
+        <name>Update Cost Price</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Discount</fullName>
+        <field>Discount__c</field>
+        <formula>IF( ISBLANK(Discount ) || Discount  = 0 , UnitPrice , UnitPrice   - (UnitPrice  *  Discount) )</formula>
+        <name>Update Discount</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sales_Price</fullName>
+        <field>UnitPrice</field>
+        <formula>60</formula>
+        <name>Update Sales Price</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_show_desc</fullName>
+        <field>Show_Description__c</field>
+        <literalValue>1</literalValue>
+        <name>Update show desc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Cost Price Update</fullName>
+        <actions>
+            <name>Update_Cost_Price</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>true</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Discount Update</fullName>
+        <actions>
+            <name>Update_Discount</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Product Description Update</fullName>
+        <actions>
+            <name>OLI_Product_Description</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>OpportunityLineItem.Description</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>ProductCostPriceUpdate</fullName>
+        <actions>
+            <name>ProductCostPricefieldUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Product2.Supplier_Cost_Price__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Show Desc Update</fullName>
+        <actions>
+            <name>Update_show_desc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Show_Description__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Unit Price</fullName>
+        <actions>
+            <name>Update_Sales_Price</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>For Bupa Sites the Unit Price will be 60 as the hourly rate set as 60.</description>
+        <formula>AND(OR(Opportunity.AccountId == $Label.Bupa_Account_Id , Opportunity.Account.Parent.Id == $Label.Bupa_Account_Id ), UnitPrice &lt;&gt;60)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>VAT Calculation for OLI</fullName>
+        <actions>
+            <name>Find_VAT_OLI_Amount</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>OpportunityLineItem.TotalPrice</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

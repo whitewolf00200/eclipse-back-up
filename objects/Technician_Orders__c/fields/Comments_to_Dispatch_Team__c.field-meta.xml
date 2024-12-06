@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments_to_Dispatch_Team__c</fullName>
+    <inlineHelpText>Please enter any overall order comments here. If the comment is specific to a product, enter this in the Product Description field.</inlineHelpText>
+    <label>Comments to Dispatch Team</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

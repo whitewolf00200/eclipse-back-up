@@ -1,0 +1,53 @@
+<apex:component >
+<apex:attribute name="Acc" type="Account" required="true" description="Account object"/> 
+  <head>  
+  <style type="text/css" media="print">
+  @page{    
+        size:A4 portrait;
+        margin-left: 2cm;
+        margin-right: 2.5cm;
+        margin-top: 3cm;
+        margin-bottom: 3cm;
+  }
+</style>
+</head>
+<body style="font-family:Arial Unicode MS;font-size:13px;">
+<apex:outputText value="{0, date, dd MMMM  yyyy}">
+      <apex:param value="{!now()}" /> 
+</apex:outputText>
+<br/><br/>
+<!-- <b>{!relatedTo.Site_Contact__r.Salutation} {!relatedTo.Site_Contact__r.name}</b><br/>-->
+{!Acc.name}<br/>
+{!Acc.Alternate_Name__c}<br/>
+{!Acc.BillingStreet}<br/>
+{!Acc.BillingCity}<br/>
+{!Acc.BillingCountry}<br/>
+{!Acc.BillingPostalCode}
+<br/><br/>
+Customer No. {!Acc.UPRN__c}                                                                      
+<br/>
+<!--Dear {!relatedTo.Site_Contact__r.Salutation} {!relatedTo.Site_Contact__r.name}-->
+<br/>
+<h4 style="text-align:center;">Re: Dental Surgery Design, Fitout and Service</h4>
+<br/>
+
+<p>Perhaps one day you will be thinking about another new project…
+<br/><br/>
+Well designed surgeries don’t just happen. They are the outcome of a unique person – the dentist - working with a highly qualified design team that listens to the dentists needs and makes sound recommendations based on long experience - and can then create the new surgery, project managing from start to finish…carefully, and to schedule. 
+<br/><br/>
+A modern well designed surgery is a great pleasure to practice in and tells your patients that you are moving forward, that you care about them, and that dentistry really does matter. It also saves you time, enabling more patients to be treated in a day. So your investment will truly pay you dividends.
+<br/><br/>
+Neither do surgeries look after themselves. Do you need regular servicing and repairs carried out by reputable engineers; people who you can call on and you know will be there when you need them? EclipseCare and EclipseCall could be just the services that your practice needs. Maybe today.
+<br/><br/>
+I would greatly value the opportunity of discussing how <b>Eclipse Dental</b> can work with you and the benefits - short and long term - this will bring you, and would assure you of our complete dedication, attention to detail and care at all times.
+<br/><br/>
+Yours sincerely
+<p style="font-family:Freestyle Script;font-size:20px;"><b>{!Acc.Owner.name}</b></p>
+<br/>
+{!Acc.Owner.name}<br/>
+<b>Acc Manager</b> 
+</p>
+
+</body>
+
+</apex:component>

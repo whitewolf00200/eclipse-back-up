@@ -1,0 +1,80 @@
+<apex:page controller="SupplierController" showHeader="false">
+    <apex:form id="supplierFrom">
+    <script type="text/javascript">
+        function AlertPO(checkbox,selectedSupId){
+            if(checkbox.checked == true){
+                SelectedItem(selectedSupId);           
+              // var selCkIndex=document.getElementById('{!$Component.supplierList.table.looped}');
+              // var poId='{!POSupplier}';                        
+          }
+        }
+        function AlertMsg(){
+            
+            if (confirm("Products Available with the Selected Supplier are updated and Unavailable Products are deleted from Purchase Order!")) {
+                return true;                
+            }else{
+                return false;
+            }
+        }
+         
+    </script>
+    <apex:actionFunction name="SelectedItem" action="{!selectedSupplier}" rerender="POproductListItem,supplierList" status="myStatus">
+        <apex:param name="contextItem" value="" assignTo="{!selSupplier}"/>
+    </apex:actionFunction>
+    <apex:outputPanel id="out">
+    <apex:outputText value=" "/>
+    <apex:actionStatus startText="Requesting..." id="myStatus">
+        <apex:facet name="stop"><center></center></apex:facet>
+    </apex:actionStatus>
+    </apex:outputPanel>    
+        
+        <apex:pageBlock id="supplierList" title="Supplier And Cost">
+            <apex:pageBlockTable styleClass="tableStyles" value="{!wrapSupplierList}" var="ws" id="table">
+                <apex:column >
+                <apex:inputCheckbox id="looped" value="{!ws.selected}" onclick="AlertPO(this,'{!ws.spl.Supplier__c}')"/>
+                </apex:column>
+                <apex:column value="{!ws.spl.Product__c}"/>
+                <apex:column value="{!ws.spl.Supplier__c}"/>
+                <apex:column value="{!ws.spl.Cost__c}"/>
+            </apex:pageBlockTable>
+            <br/>       
+            
+           <apex:outputPanel rendered="{!NOT(OR(ISNULL(SupplierPOProductList),SupplierPOProductList.size=0))}">
+           <br/>    
+           <center><h2 class="supplierProducts"> Products available with the selected supplier</h2></center>
+           <apex:pageBlockTable styleClass="tableStyles" rendered="{!NOT(OR(ISNULL(SupplierPOProductList),SupplierPOProductList.size=0))}" value="{!SupplierPOProductList}" var="sprdlist">
+               <apex:column value="{!sprdlist.SupProducts.Product__c}"/>
+               <apex:column headerValue="Existing Cost" value="{!sprdlist.PoProducts.Price__c}"/>
+               <apex:column headerValue="Selected Supplier Cost" value="{!sprdlist.SupProducts.Cost__c}"/>
+           </apex:pageBlockTable>  
+           </apex:outputPanel>
+           <br/>
+           <apex:outputPanel rendered="{!NOT(OR(ISNULL(POproductList),POproductList.size=0))}">
+           <center><h2 class="supplierError">  Products NOT available with the selected supplier</h2></center>
+            <apex:pageBlockTable styleClass="tableStyles" id="POproductListItem"  title=" Products available NOT with the selected supplier" value="{!POproductList}" var="product">                                        
+                    <apex:column value="{!product.Product__c}"/>
+                    <apex:column value="{!product.Price__c}"/>
+                </apex:pageBlockTable>                                 
+           </apex:outputPanel>     
+                  
+            <apex:pageBlockButtons >
+            <apex:commandButton value="Continue" onclick="if(!confirm('Products Available with the Selected Supplier are updated and Unavailable Products are deleted from Purchase Order!')){return false;};" action="{!continueProductDelete}"/>
+                <apex:commandButton value="Cancel" onclick="window.top.close();"/>
+            </apex:pageBlockButtons>            
+        </apex:pageBlock>
+                                
+     <style>
+      .supplierError{ color: red; font-size:30 strong;2}
+      .supplierProducts{color:blue}
+      .tableStyles{
+      background-color:white;
+            border-width: 1px;
+            border-style: solid;            
+            left: 2%;
+            align:center;
+            padding:5px;
+            top:100px;
+      }
+    </style>        
+  </apex:form>
+</apex:page>

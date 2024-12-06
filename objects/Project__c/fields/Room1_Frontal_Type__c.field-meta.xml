@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Room1_Frontal_Type__c</fullName>
+    <label>Frontal Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Vinyl Wrap</fullName>
+                <default>false</default>
+                <label>Vinyl Wrap</label>
+            </value>
+            <value>
+                <fullName>Acrylic Faced</fullName>
+                <default>false</default>
+                <label>Acrylic Faced</label>
+            </value>
+            <value>
+                <fullName>Solid Acrylic</fullName>
+                <default>false</default>
+                <label>Solid Acrylic</label>
+            </value>
+            <value>
+                <fullName>Laminate</fullName>
+                <default>false</default>
+                <label>Laminate</label>
+            </value>
+            <value>
+                <fullName>Corian</fullName>
+                <default>false</default>
+                <label>Corian</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

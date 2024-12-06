@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Credit_Note</fullName>
+        <description>Credit Note</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Credit_Email_To__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Credit_Notes/Credit_Note</template>
+    </alerts>
+    <rules>
+        <fullName>Credit Note email</fullName>
+        <actions>
+            <name>Credit_Note</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(AND(ISPICKVAL(Approval_Status__c , &apos;Approved&apos;), ISCHANGED( Credit_Email_To__c)),AND(ISPICKVAL(Approval_Status__c , &apos;Approved&apos;), ISNEW()),AND(ISCHANGED( Approval_Status__c ),ISPICKVAL(Approval_Status__c , &apos;Approved&apos;)) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

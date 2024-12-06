@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_Required_to_Book</fullName>
+    <active>false</active>
+    <description>25/02/14: WB edited to add in Current_Purchase_Order_No__c field.
+13/05/14~changed Beta_Visit_PO__c to Purchase_Order__c and removed   Beta__c = &quot;&quot;, from under Purchase_Order__c  = &quot;&quot;,.</description>
+    <errorConditionFormula>AND ( 
+OR ( TEXT ( Site_Contract__r.Site__r.Purchase_Order_Required__c ) = &quot;Yes&quot;, 
+  TEXT( Site_Contract__r.Purchase_Order_Required__c)  = &quot;Yes&quot;, 
+ TEXT( Site_Contract__r.Site__r.Parent.Purchase_Order_Required__c ) = &quot;Yes&quot; ),
+ Purchase_Order__c  = &quot;&quot;,
+ NOT ( Cancelled__c ),
+ ISPICKVAL( Booked_with_Customers__c ,&apos;Yes&apos;))</errorConditionFormula>
+    <errorDisplayField>Purchase_Order__c</errorDisplayField>
+    <errorMessage>You cannot book this with the customer unless you have a Purchase Order - the purchase order is required either for this Site Contract, Site or for the Customer/Parent of the Site.</errorMessage>
+</ValidationRule>

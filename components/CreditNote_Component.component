@@ -1,0 +1,122 @@
+<apex:component access="global" rendered="true">
+      <apex:attribute description="credit" name="credit" type="Credit_Notes__c"/>
+      <body class="Start">
+      
+       <table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>   
+               <br /> <br /> <br /> <br /> <br /> 
+               <div class="footer"> 
+                <!-- <p style="border-top: 1px solid #038B99;" ><span style="color:#038B99;text-align:left"><b >Guaranteed solutions....</b> </span><br/> 
+                 {!$Label.Company_Name} | Westview Court |10-14 Kent Road | Dartford | Kent | DA1 2AJ |
+                 Tel: 01322 293333 | Email: info@eclipse-dental.com<br/>
+                 Vat No: GB 714315367 | Company Registration No.12402632 Registered at above address
+                 </p>   -->
+                   <table width="100%" height="100%" >
+    <tr> <td ><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table> 
+               </div> 
+        <div class="first">
+         <table width="100%" >
+               <tr><td colspan="3" style="font-size:20px;margin-top:-4px;"><b>Credit Note</b></td></tr>
+               <tr><td>&nbsp;</td></tr>
+               
+               <tr>
+                   
+                   <td width="50%" style="vertical-align:top;"><b>Invoice To:</b><br/><apex:outputtext value="{!credit.Opportunity__r.Invoice_Address__c}" escape="false"/>
+                       <br/><br/><b>Site Address:</b><br/><apex:outputtext value="{!credit.Opportunity__r.Site_Address__c}" escape="false"/>
+                   </td>
+                   <td width="50%">
+                       <table align="left" style="vertical-align:top;" border="" width="100%">
+                           <tr>
+                               <td width="35%"><b>Credit Note Number:</b></td>
+                               <td width="65%" style="font-size:16px;">{!credit.Name}</td>
+                           </tr>
+                           
+                           <tr >
+                               <td><b>Account Ref:</b></td>
+                              <td> {!credit.Account_Ref__c} </td> 
+                           </tr>
+                           
+                           <tr>
+                               <td><b>Credit Note Date:</b></td>
+                               <td>  <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!credit.Sage_Invoice_Date__c}"/></apex:outputtext> </td>
+                           </tr>
+                           
+                           <tr >
+                               <td><b>Invoice Reference No</b></td>
+                              <td> {!credit.Invoice_Reference_No__c} </td> 
+                           </tr>
+                           
+                        
+                       </table>       
+                   </td>
+               </tr>
+               </table>
+                 
+               <br/><br/>
+                <apex:outputPanel >
+               <table border="0"  width="100%" >
+                    <tr style="background-color:#48164d;color:white;font-size:16px;">       
+                    
+                     <td align="left" width ="60%"><b>Product</b></td>
+                     <td align="center" width ="8%"><b>Qty</b></td>
+                     <td align="right" width ="15%"><b>Price</b></td>
+                     <td align="right" width ="17%"><b>Total Price</b></td>  
+                    </tr>
+                </table>     
+                 </apex:outputPanel>
+                  <apex:outputPanel >
+                <table border="" width="100%" >
+                    
+                    <apex:repeat value="{!credit.Credit_Note_Line_Items__r}" var="line">
+                              <tr>
+                              
+                              <td align="left" width="60%" style="vertical-align:top;">
+                              <apex:outputText value="{!If(line.SalesDescription__c!=null,line.SalesDescription__c,line.Product_credit__r.Name)}" style="white-space:pre-line;" escape="false"/ ><br/>
+                              <apex:outputText rendered="{!AND(line.Show_Description__c,line.Extended_Sales_Description__c!=null)}" VAlue="{!line.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false" / >
+                              </td>
+                              <td align="center" width="8%" style="vertical-align:top;"><apex:outputText value="{!line.Quantity__c}" /></td>
+                              <td align="right" width="15%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.Sales_Price__c}"/></apex:outputText></td>
+                              <td align="right" width="17%" style="vertical-align:top;"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!line.Total_price__c}"/></apex:outputText></td>
+                              </tr>
+                   
+                    </apex:repeat> 
+                    <tr>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                         
+                      </tr>
+                      <tr>
+                          
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                      </tr>
+                                          
+                       <tr>
+                           <td></td>
+                           
+                           <td align="right" colspan="3">Total Price :<apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!credit.Amount__c}"/></apex:outputText></td>
+                       </tr>
+                       <tr>
+                           <td></td>
+                          
+                           <td align="right" colspan="3">VAT Total :<apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!credit.VAT__c}"/></apex:outputText></td>
+                           
+                       </tr>
+                       <tr>
+                           <td></td>
+                          
+                           <td align="right" colspan="3">Credit Note Total :<apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!credit.Credit_Note_Total__c}"/></apex:outputText></td>
+                       </tr>           
+                   </table>     
+                    </apex:outputPanel>
+                    </div>
+                  
+      </body>
+    </apex:component>

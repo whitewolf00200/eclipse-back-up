@@ -1,0 +1,247 @@
+<apex:component access="global" rendered="true">
+  <apex:attribute description="so" name="so"  type="SalesOrder__c"/>
+
+<body class="start">
+<table >
+    <tr><td ><img src="{!$Resource.EclipseDentalLogonew1}" width="265" height="40"  title="logo" align="left" style="padding-bottom:80px;"/></td>
+    <td width="70%" align="left"><img src="{!$Resource.EclipseDentalLogonew}" width="28%" height="28%"  title="logo" align="right"/></td></tr>
+</table>   
+               <br /> <br />
+            <div class="footer">
+                
+        
+               <!--  <p style="border-top: 1px solid #038B99;" ><span style="color:#038B99;text-align:left"><b >Guaranteed solutions....</b> </span><br/> 
+                 {!$Label.Company_Name} | Westview Court |10-14 Kent Road | Dartford | Kent | DA1 2AJ |
+                 Tel: 01322 293333 | Email: info@eclipse-dental.com<br/>
+                 Vat No: GB 714315367 | Company Registration No.12402632 Registered at above address
+</p>   
+
+   
+
+ -->
+    <table width="100%" height="100%" >
+    <tr> <td ><img src="{!$Resource.footernew}" class="footerimg" width="800px" height="100%" /></td></tr>
+</table>    
+       </div>  
+    <!--<table style="margin-top:-70px;margin-bottom:20px;">
+        <tr> <td  colspan="3" style="font-size:14pt;Padding-left:180px;"><b>{!so.Sales_Order_Type__c}</b></td></tr>
+</table>-->
+    <div class="text">
+    
+    
+               <table width="100%" class="text1" style="margin-top:-60px;">
+               <tr><td colspan="3" style="font-size:12pt;"><b>Order Confirmation</b></td></tr>
+               
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%">For the attention of :&nbsp;{!so.Contact__r.Name}</td>
+                   <td width="30%">&nbsp;</td>
+               </tr>
+               <tr>
+                   <td width="5%">&nbsp;</td>
+                   <td width="50%" style="vertical-align:top;"><apex:outputtext value="{!IF(so.Delivery_Address_new__c!='',so.Delivery_Address_new__c,so.Invoice_Address__c)}" escape="false"/>
+                       <br/><br/>Delivery Address:<br/><apex:outputtext value="{!so.Delivery_Address__c}" escape="false"/>
+                   </td>
+                   <td width="45%">
+                       <table align="right">
+                           <tr>
+                               <td>Order No:</td>
+                               <td style="font-size:16px;">{!so.Name}</td>
+                           </tr>
+                           <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Raised By:</td>
+                               <td>{!so.Raised_By__c}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Date:</td>
+                               <td><!-- {!DAY(DATEVALUE(so.CreatedDate))}/{!MONTH(DATEVALUE(so.CreatedDate))}/{!YEAR(DATEVALUE(so.CreatedDate))} -->
+                               <apex:outputText value=" {0,date,dd/MM/yyyy }"> <apex:param value="{!so.CreatedDate}"/></apex:outputtext>
+                               </td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Your Ref:</td>
+                               <td>{!so.Customer_Order_Number__c}</td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Phone:</td>
+                               <td><apex:outputField value="{!so.Contact__r.Phone}" /></td>
+                           </tr>
+                            <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Email:</td>
+                               <td>{!so.Contact__r.Email}</td>
+                           </tr>
+                           <tr>
+                           <td></td>
+                           <td></td>
+                           </tr>
+                           <tr>
+                               <td>Account Ref:</td>
+                               <td>{!so.Account__r.Name}</td>
+                           </tr>
+                       </table>       
+                   </td>
+               </tr>
+               </table>
+               <br /> 
+               
+                <p style="font-size:12pt;" align="center"><b><apex:outputText value="Re:" rendered="{!so.Quote__c!=null}" />  {!so.Quote__r.Name}</b></p>
+               
+               Dear {!so.Contact__r.Salutation}&nbsp;{!so.Contact__r.Name},<br /><br/>
+              
+               We acknowledge your valued order for the above project and are proceeding on the following basis.<br /><br />
+               <apex:outputPanel >
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" >
+                    <tr style="background-color:#48164d;color:white;font-size:18px;">       
+                     <!--<td align="center" width ="10%"><b>Item</b></td>-->
+                     <td width="6"><b>Item</b></td>
+                     <td align="left" width ="48%"><b>Product</b></td>
+                     <td align="center" width ="8%"><b>Qty</b></td>
+                     <td align="center" width ="8%"><b>Unit</b></td>
+                     <td align="right" width ="15%"><b>Price</b></td>
+                     <td align="right" width ="15%"><b>Total Price</b></td>  
+                    </tr>
+                </table>      
+                </apex:outputPanel>
+                <apex:outputPanel >
+                <table border="" width="100%">
+                <apex:variable var="count" value="{!1}"   />    
+                    <apex:repeat value="{!so.Sales_Order_Line_Item__r}" var="soline">
+                              <tr>
+                             <td  width="6%" valign="top"> {!count}</td>
+                              <td align="left" width="48%"> <apex:outputText value="{!If(soline.Sales_Description__c!=null,soline.Sales_Description__c,soline.Product__r.Name)}"/><br/>
+                              <apex:outputText rendered="{!AND(soline.Show_Description__c,soline.Extended_Sales_Description__c!=null)}" VAlue="{!soline.Extended_Sales_Description__c}" style="white-space:pre-line;" escape="false" / > 
+                              </td>
+                              <td align="center" width="8%" valign="top"><apex:outputText value="{!FLOOR(soline.Quantity__c)}" /></td>
+                              <td align="center" width="8%" valign="top"><apex:outputText value="{!soline.Product__r.Stock_Unit__c}" /></td>
+                              <td align="right" width="15%" valign="top"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!soline.Price__c}"/></apex:outputText></td>
+                              <td align="right" width="15%" valign="top"><apex:outputText value="{0,number,£##,##,##,##0.00}"><apex:param value="{!soline.Total_Price__c}"/></apex:outputText></td>
+                              </tr>
+                    <apex:variable var="count" value="{!count+1}"   />
+                    </apex:repeat> 
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    </tr>
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    </tr> 
+                    <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    </tr>
+                    <tr><td colspan="6"><table border="" width="100%">
+                    <tr> 
+                    
+                    <td align="right" width="90%">Total Price :</td>
+                    <td align="right"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!so.Total_Price__c}"/></apex:outputText></td>
+                    </tr>
+                    
+                    <tr> 
+                    
+                    <td align="right">VAT Total :</td>
+                    <td align="right">&nbsp;&nbsp;<apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!so.Vat_Total__c}"/></apex:outputText></td>
+                    </tr>
+                    
+                    <tr> 
+                    
+                    <td align="right">Order Total :</td>
+                    <td align="right"><apex:outputText value="{0,number,£##,##,##0.00}"><apex:param value="{!so.Order_Total__c}"/></apex:outputText></td>
+                    </tr>
+                    </table></td></tr>
+                    </table>
+                    <br/>
+                   
+                   </apex:outputPanel>
+                   
+              <br /><br /><br />
+              Payment Terms:  {!so.Opportunity__r.Payment_Terms__c} <br /><br />
+Please make payments to: {!$Label.Company_Name} | Sort Code 30-91-91 | Account No. 45605968 | Lloyds Bank Plc stating your Account No. as a
+reference. Please note we do not accept cheques.<br /><br />
+              Please check we have interpreted your requirements correctly and advise by return any amendments that may be required.<br /><br />
+              Any changes to the above information could affect both the cost and delivery date. Our standard terms and conditions of sale and installation apply. E. &amp; O. E.<br /><br />
+              If you require any further information or assistance regarding our products or services please do not hesitate in contacting the under signed..<br /><br />
+            <!--  Yours sincerely<br /><br />Chester M Boyt<br /><br />Sales and Design Consultant<br />Tel: 01322 293333 -->
+        
+            <table Width="50%" style="page-break-inside:avoid;">
+              <tr><td style="text-decoration: underline;font-size:12pt;"><b>Eclipse Contact:</b></td></tr>
+              <tr>
+                  <td >Signed:</td>
+              </tr>
+              <tr>
+                  <td height="50" style = "border: 1px solid black;"><apex:outputText value="{!substitute(so.Engineer_s_Signature__c,"alt=","width=\"200px\" Alt=")}" escape="false"/></td>
+              </tr>
+              <tr>
+                  <td>Print:</td>
+              </tr>
+              <tr>
+                  <td height="50" style = "border: 1px solid black;"><apex:outputText value="{!so.Engineer_s_Print__c}" escape="false"/></td>
+              </tr>
+              <tr>
+                  <td>Position:</td>
+                 
+               </tr>
+               <tr>
+               <td height="20" style = "border: 1px solid black;"><apex:outputText value="{!so.Technician_Position__c}" escape="false"/></td>
+               </tr>
+               <tr>
+                  <td>Date: </td>
+              </tr> 
+              <tr>
+              <td height="20" style = "border: 1px solid black;"><apex:outputField value="{!so.Technician_Signed_Date__c}"/></td>
+              </tr>
+            </table>
+            <br/>
+            <table Width="50%" style="page-break-inside:avoid;">
+              <tr><td style="text-decoration: underline;font-size:12pt;"><b>Customer Contact:</b></td></tr>
+              <tr>
+                  <td >Signed:</td>
+              </tr>
+              <tr>
+                  <td height="50" style = "border: 1px solid black;"><apex:outputText value="{!substitute(so.Customer_s_Signature__c,"alt=","width=\"200px\" Alt=")}" escape="false"/></td>
+              </tr>
+              <tr>
+                  <td>Print:</td>
+              </tr>
+              <tr>
+                  <td height="50" style = "border: 1px solid black;"><apex:outputText value="{!so.Customer_s_Print__c}" escape="false"/></td>
+              </tr>
+              <tr>
+                  <td> Position:</td>
+               </tr>
+               <tr>
+               <td height="20" style = "border: 1px solid black;"> <apex:outputText value="{!so.Position__c}" escape="false"/> </td>
+               </tr>
+               <tr>
+                  <td>Date:</td>
+              </tr> 
+              <tr>
+              <td height="20" style = "border: 1px solid black;"><apex:outputField value="{!so.Customer_Signed_Date__c}"/></td>
+              </tr>
+            </table>  </div>
+    </body>
+</apex:component>

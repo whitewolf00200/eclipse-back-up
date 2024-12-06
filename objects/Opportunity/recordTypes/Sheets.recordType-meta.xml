@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sheets</fullName>
+    <active>true</active>
+    <businessProcess>Sales Process</businessProcess>
+    <description>Opportunities created through Service Sheets- Reactive Sheets</description>
+    <label>Invoice (Sheets)</label>
+    <picklistValues>
+        <picklist>Accounts_Approved_Rejected__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Approval_status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inreview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Statu__c</picklist>
+        <values>
+            <fullName>A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cash Sale Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drop In Visit Suggested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ENT Department within</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Despatch_Method__c</picklist>
+        <values>
+            <fullName>Delivery By Hand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engineer Installation</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Post</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TNT Courier</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Job_Scale__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Active</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google AdWords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchased List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loss_Reason__c</picklist>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget %2F Lost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Decision %2F Non-Responsive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Management_Approved_Rejected__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Manually_Sage_Invoiced__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>On_Budget__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Terms__c</picklist>
+        <values>
+            <fullName>20%25 Deposit with order%2C balance due on installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30 days from End of Month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30 days from Invoice Date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 deposit with order%2C balance due on day of installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 deposit with order%2C balance due on last day of installation%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 deposit with order%2C balance due within 30 days of Invoice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 with order%2C 60%25 7 days before installation and 10%25 balance on completion of installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 with order%2C 60%25 on first day of installation and 10%25 balance on completion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30%25 with order%2C weekly progress payments for the duration of the project%2C 10%25 balance due at project hand over</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%25 with order%2C 50%25 on delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%25 with order%2C 50%25 on installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60 days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Debit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %E2%80%93 see special terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PAYMENT DUE ON PRESENTATION OF INVOICE</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>PAYMENT RECEIVED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment On Installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proforma</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standing Order Monthly Payment</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priced__c</picklist>
+        <values>
+            <fullName>NO INVOICE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PRICED</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Primary_Supplier__c</picklist>
+        <values>
+            <fullName>Acteon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ancar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belmont</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heka</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Planmecca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vatech</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Relationship__c</picklist>
+        <values>
+            <fullName>Average</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strong</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sales_Type__c</picklist>
+        <values>
+            <fullName>Non-Sale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Small Equipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spares</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sales_contact__c</picklist>
+        <values>
+            <fullName>Chester Boyt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>John Boyt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ralph Boyt</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Approved_Rejected__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Types__c</picklist>
+        <values>
+            <fullName>Air Compressor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Getinge Autoclave</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Getinge Washer Disinfector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mechanical X-Ray</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medisafe Washer disinfector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Report of Examination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suction Pump</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Treatment Centre</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price_Book_Indicator__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>In this field, either place the name of an existing price book from 2012, or the ID of a new one beyond that.</inlineHelpText>
+    <label>Price Book Indicator</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

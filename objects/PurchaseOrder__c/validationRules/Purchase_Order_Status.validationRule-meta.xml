@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_Status</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT( ISPICKVAL( Supplier__r.NewStatus__c , &apos;QC-APPROVED&apos;) )</errorConditionFormula>
+    <errorDisplayField>Supplier__c</errorDisplayField>
+    <errorMessage>Warning, this supplier is not QC-Approved</errorMessage>
+</ValidationRule>

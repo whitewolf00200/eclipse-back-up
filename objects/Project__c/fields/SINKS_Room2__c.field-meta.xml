@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SINKS_Room2__c</fullName>
+    <inlineHelpText>Corian Integral – Rectangular Nurse’s and Round Dentist’s / Double Bowl 850 LDU Sink. W/O overflow. Complete with back-to wall wastes.</inlineHelpText>
+    <label>Room2</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

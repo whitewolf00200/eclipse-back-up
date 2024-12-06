@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Number_of_Extinguishers__c</fullName>
+    <externalId>false</externalId>
+    <formula>FE1_2_x_1_2m_Fire_Blanket__c +  FE1_2_x_1_8m_Fire_Blanket__c + FE1_x_1_Fire_Blanket__c + FE1KG_Dry_Powder__c  +FE2KG_Dry_powder__c  +FE6KG_Dry_Powder__c  +FE4KG_Dry_Powder__c  +FE9KG_Dry_Powder__c + FE6L_Water_Qty__c + FE9L_Water_Qty__c  +FE2L_AFFF__c + X3L_AFFF__c + FE6L_AFFF__c+  FE9L_AFFF__c + FEX3L_Water_Mist__c + FE6L_Water_Mist__c + FE9L_Water_Mist__c  +FE2KG_CO2__c + FE5KG_CO2__c + FEHose_Reel_19mm__c + FE3L_Wet_Chemical__c + FE6L_Wet_Chemical__c + FEAL_Unit__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Number of Extinguishers</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

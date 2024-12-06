@@ -1,0 +1,52 @@
+<apex:page standardController="Mechanical_Service_Sheet__c" extensions="MechServSheetInlineSecController" sidebar="false">
+    <!-- RECORD TYPES : FIRE SUPRESSION & SPRINKLER-->
+  <!--  <apex:includeScript value="{!URLFOR($Resource.jQuery1,'/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery1,'/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery1,'/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css')}"/>-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"/>
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+   
+    <apex:form id="frm1">
+     <script>
+                       var $j = jQuery.noConflict();
+                        $j(function() {
+                            $j( "input[id$=datepicker]" ).datepicker({ dateFormat: 'dd-mm-yy' }).val();
+                        });
+                    </script>  
+        <apex:pageBlock rendered="{!isEdit}" id="pgBlok3">
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!SystemLocation}" var="sl">
+                    <apex:column headerValue="System Location"><apex:inputText value="{!sl.systemLocation}"></apex:inputText></apex:column>
+                    <apex:column headerValue="No. of Cyls"><apex:inputText value="{!sl.noOfLocations}"></apex:inputText></apex:column>
+                    <apex:column headerValue="Capacity"><apex:inputText value="{!sl.capacity}"></apex:inputText></apex:column>
+                    <apex:column headerValue="Agent Fill"><apex:inputText value="{!sl.agentFill}"></apex:inputText></apex:column>
+                    <apex:column headerValue="Test Date"><apex:inputText value="{!sl.testDate}" id="datepicker"></apex:inputText></apex:column>
+                    <apex:column >
+                   <apex:commandLink action="{!remove}" value="Remove Row" reRender="pgBlok3">
+                   <apex:param name="removeRow" value="{!sl.systemLocation}" />
+                   </apex:commandLink>
+                   </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Add System Locations" action="{!addSystemLocations}" reRender="frm1"/>
+                <apex:commandButton value="Save System Locations" action="{!saveSystemLocations}"  oncomplete="window.top.location='/{!Mechanical_Service_Sheet__c.id}'" reRender="frm1"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageBlock rendered="{!isSaved}">
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!SystemLocation}" var="sl">
+                    <apex:column headerValue="System Location"><apex:outputText value="{!sl.systemLocation}"></apex:outputText></apex:column>
+                    <apex:column headerValue="No. of Cyls"><apex:outputText value="{!sl.noOfLocations}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Capacity"><apex:outputText value="{!sl.capacity}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Agent Fill"><apex:outputText value="{!sl.agentFill}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Test Date"><apex:outputText value="{!sl.testDate}"></apex:outputText></apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Edit System Locations" action="{!editSystemLocations}" reRender="frm1"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form> 
+</apex:page>

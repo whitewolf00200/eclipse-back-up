@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Special_Technician_Instructions__c</fullName>
+    <externalId>false</externalId>
+    <formula>Site__r.Parent_Special_Engineer_Instructions__c &amp; BR ()&amp; 
+Site__r.Additional_Instructions__c &amp; BR ()&amp; 
+ Site__r.Special_Engineer_Instructions__c &amp; BR () &amp;
+Site__r.Site_Additional_Instructions__c &amp; BR () &amp;
+Site_Specific_Comments__c &amp; BR ()  &amp;
+ Site_Contract_Additional_Instructions__c &amp; BR () &amp;
+Sales_Contract__r.Special_Technician_Instructions__c &amp; BR ()&amp; 
+Sales_Contract__r.Sales_Contract_Additional_Instructions__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>These instructions flow from the Customer/Site</inlineHelpText>
+    <label>Special Technician Instructions</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

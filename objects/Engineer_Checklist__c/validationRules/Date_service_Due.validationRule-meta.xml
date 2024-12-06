@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_service_Due</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISPICKVAL( Visit__r.Visit_Type__c , &quot;Installation&quot;) &amp;&amp; ISPICKVAL( Visit__r.Service_Type__c , &quot;Treatment Centre&quot;)</errorConditionFormula>
+    <errorDisplayField>Date_Service_Due2__c</errorDisplayField>
+    <errorMessage>&quot; &quot;</errorMessage>
+</ValidationRule>

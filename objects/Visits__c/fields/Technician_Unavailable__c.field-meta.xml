@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technician_Unavailable__c</fullName>
+    <description>This field is created for Report - [SFD000252 - Technician Unavailable Report]</description>
+    <formula>OR (AND(Actual_Service_Date__c &gt;=  X2nd_Technician__r.Start_Date__c , Actual_Service_Date__c  &lt;=  X2nd_Technician__r.End_Date__c ),AND( Actual_Service_Date__c &gt;= Engineer2__r.Start_Date__c , Actual_Service_Date__c &lt;= Engineer2__r.End_Date__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Technician Unavailable Check</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Treatment_Centre__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(TEXT(Visit_Type__c) = &quot;Service&quot;,TEXT( Service_Type__c ) = &quot;Treatment Centre&quot;),HYPERLINK(&quot;/a0A/e?CF00N580000064xWJ=&quot;&amp; Name&amp;&quot;&amp;CF00N580000064xWJ_lkid=&quot;&amp;Id&amp;&quot;&amp;retURL=%2F&quot;&amp;Id&amp;&quot;&amp;RecordType=0124E0000000BLH&amp;ent=01I58000000NqwK&amp;CF00N580000064xWH=&quot;&amp; Site__r.Name &amp;&quot;&amp;CF00N580000064xWH_lkid=&quot;&amp;Site__r.Id&amp;&quot;&amp;CF00N580000064xeI=&quot;&amp;Engineer2__r.Name&amp;&quot;&amp;CF00N28000001aGZp_lkid=&quot;&amp;Engineer2__r.Id&amp;&quot;&amp;00N580000064xeD=&quot;&amp; Site__r.Visit_Confirmation_Email_to__c&amp;&quot;&amp;CF00N580000064xiC=&quot;&amp;Site_Contract__r.Name&amp;&quot;&amp;CF00N580000064xiC_lkid=&quot;&amp; Site_Contract__r.Id&amp;&quot;&amp;00N4E000000rqWQ=&quot;&amp; Make__c&amp;&quot;&amp;00N4E000000rqWV=&quot;&amp; Model__c&amp;&quot;&amp;00N4E000000rqWk=&quot;&amp; Serial_Number__c,IMAGE(&quot;/servlet/servlet.FileDownload?file=0154E000000DMdC&quot;, &quot;Service&quot;)),IF(AND(TEXT(Visit_Type__c) = &quot;Installation&quot;,TEXT( Service_Type__c ) = &quot;Treatment Centre&quot;),HYPERLINK(&quot;/a0A/e?CF00N580000064xWJ=&quot;&amp; Name&amp;&quot;&amp;CF00N580000064xWJ_lkid=&quot;&amp;Id&amp;&quot;&amp;retURL=%2F&quot;&amp;Id&amp;&quot;&amp;RecordType=0127Z000001EqYT&amp;ent=01I58000000NqwK&amp;CF00N580000064xWH=&quot;&amp; Site__r.Name &amp;&quot;&amp;CF00N580000064xWH_lkid=&quot;&amp;Site__r.Id&amp;&quot;&amp;CF00N580000064xeI=&quot;&amp;Engineer2__r.Name&amp;&quot;&amp;CF00N28000001aGZp_lkid=&quot;&amp;Engineer2__r.Id&amp;&quot;&amp;00N580000064xeD=&quot;&amp; Site__r.Visit_Confirmation_Email_to__c&amp;&quot;&amp;CF00N580000064xiC=&quot;&amp;Site_Contract__r.Name&amp;&quot;&amp;CF00N580000064xiC_lkid=&quot;&amp; Site_Contract__r.Id&amp;&quot;&amp;00N7Z000006mYKJ=&quot;&amp; TEXT(DAY(Actual_Service_Date__c))+ &quot;/&quot; +TEXT(MONTH(Actual_Service_Date__c))+ &quot;/&quot; +TEXT(YEAR(Actual_Service_Date__c)),IMAGE(&quot;/servlet/servlet.FileDownload?file=0157Z000000wz9J&quot;,&quot;Installation&quot;)),&quot;&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>--</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

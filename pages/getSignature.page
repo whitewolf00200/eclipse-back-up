@@ -1,0 +1,12 @@
+<!-- =============================================
+*Page Name      : getSignature
+*Description    :  
+*Company        : Merfantz Technology Pvt Ltd
+*Date           : 25 March 2016
+*Version        : 1.0
+============================================= -->
+<apex:page showHeader="false" sidebar="false" controller="SignatureComponentController" lightningStylesheets="true">  
+   <apex:pagemessages ></apex:pagemessages>
+      <c:Signature parentId="{!JSENCODE($CurrentPage.parameters.Id)}" isCustomer="{!JSENCODE($CurrentPage.parameters.customer)}"/>  
+    
+</apex:page>

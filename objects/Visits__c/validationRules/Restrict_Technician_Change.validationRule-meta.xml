@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Technician_Change</fullName>
+    <active>true</active>
+    <description>If Booked With Customer is set to &apos;Booked Via Schedule&apos;  Technician  field Can not Change except system.admin.</description>
+    <errorConditionFormula>AND(NOT($User.Id=&apos;00528000000N4eY&apos;),
+   IF(ISPICKVAL( Booked_with_Customers__c ,&apos;Booked Via Schedule&apos;),1,0) = 1, 
+   ISCHANGED(Engineer2__c) 
+)</errorConditionFormula>
+    <errorDisplayField>Engineer2__c</errorDisplayField>
+    <errorMessage>If Booked With Customer is set to &apos;Booked Via Schedule&apos;  the Technician cannot Change except system.admin</errorMessage>
+</ValidationRule>

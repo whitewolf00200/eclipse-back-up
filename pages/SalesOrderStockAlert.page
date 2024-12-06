@@ -1,0 +1,21 @@
+<apex:page standardController="Order" extensions="SalesOrderStockAlert" action="{!StockAlertOrd}">
+  <apex:form >
+      <apex:outputText rendered="{!OR(ISNULL(PrdList),PrdList.size=0)}">No Record found</apex:outputText>
+      <apex:pageBlock rendered="{!NOT(OR(ISNULL(PrdList),PrdList.size=0))}">
+          <apex:pageblockTable value="{!PrdList}" var="prd">
+              <apex:column styleClass="dataRow" value="{!prd.inv.Warehouse__r.Name}"/>
+              <apex:column styleClass="dataRow" value="{!prd.inv.Product__r.Name}"/>
+              <apex:column headerValue="Added Quantity" value="{!prd.addedQty}"/>
+              <apex:column headerValue="Available Quantity" value="{!prd.inv.In_Hand_Quantity__c}"/>              
+          </apex:pageblockTable>
+      </apex:pageBlock>
+  </apex:form>
+  <style>
+   .dataRow {
+       background-color:#FF9F9F;
+    }
+    .dataRow:hover {
+       background-color:#FF9F9F;
+    };
+  </style>
+</apex:page>

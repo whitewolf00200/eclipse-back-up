@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_Comments__c</fullName>
+    <description>Purchase Order Comments</description>
+    <inlineHelpText>Attach the physical document that had the P/O number on, and/or scan in and attach any hard copy P/Os to the Purchase Order you have created. If the P/O was given to you verbally, state this in the Purchase Order Comments.</inlineHelpText>
+    <label>Purchase Order Comments</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

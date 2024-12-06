@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments_from_Dispatch__c</fullName>
+    <inlineHelpText>Enter in comments like the supplier name the goods have been sent direct from etc. Or if order is cancelled, change the status to Dispatched and enter comments here to confirm why and who cancelled.</inlineHelpText>
+    <label>Comments from Dispatch</label>
+    <length>32768</length>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

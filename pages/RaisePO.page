@@ -1,0 +1,63 @@
+<apex:page standardController="Order" extensions="RaisePO" action="{!CreatePO}" sidebar="false" showHeader="false">
+  <apex:form >
+  <apex:pageBlock id="oppPrd" title="Opportunity Product" >
+  <apex:pageblockSection >
+     <apex:facet name="header">
+         <apex:outputText value="Purchase Order Details"/>
+     </apex:facet>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Choose Supplier</apex:outputLabel><apex:inputField value="{!addSPO.Supplier__c}" ><apex:actionSupport event="onchange" action="{!CreatePO}" reRender="oppPrd"/></apex:inputField>
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Choose Warehouse</apex:outputLabel><apex:inputField value="{!addSPO.Shipping_Warehouse__c}"><apex:actionSupport event="onchange" action="{!CreatePO}" reRender="oppPrd"/></apex:inputField>
+      </apex:pageBlockSectionItem>
+  </apex:pageblockSection>
+  
+  <apex:pageblockSection >
+      <apex:facet name="header">
+         <apex:outputText value="Adderss Details"/>
+     </apex:facet>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Contact Name</apex:outputLabel><apex:inputField value="{!addSPO.Contact_Name__c}" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Contact Number</apex:outputLabel><apex:inputField value="{!addSPO.Contact_Number__c}" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Shipping Name</apex:outputLabel><apex:inputField value="{!addSPO.Shipping_Name__c}" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >State</apex:outputLabel><apex:inputField value="{!addSPO.State__c}" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Address</apex:outputLabel><apex:inputField value="{!addSPO.Address__c}" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >Pincode</apex:outputLabel><apex:inputField value="{!addSPO.Pincode__c}" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputLabel >City</apex:outputLabel><apex:inputField value="{!addSPO.City__c}" />
+      </apex:pageBlockSectionItem>
+  </apex:pageblockSection>
+  <apex:pageblockSection columns="1">
+      <apex:facet name="header">
+         <apex:outputText value="Product Details"/>
+     </apex:facet>
+  <apex:outputPanel rendered="{!NOT(OR(ISNULL(addLI),addLI.size=0))}">
+     <apex:pageBlockTable id="prdView" value="{!addLI}" var="aPrd">
+         <apex:column headerValue="Products" value="{!aPrd.Product__c}"/>
+         <apex:column headerValue="Quantity">
+             <apex:inputtext value="{!aPrd.Quantity__c}"/>
+         </apex:column>
+         <apex:column headerValue="Cost">
+             <apex:inputtext value="{!aPrd.Price__c}"/>
+         </apex:column>
+     </apex:pageBlockTable>   
+     </apex:outputPanel>
+    </apex:pageblockSection> 
+     <apex:pageBlockButtons >
+         <apex:commandButton action="{!AddPOLI}" value="Save"/>
+     </apex:pageBlockButtons>    
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

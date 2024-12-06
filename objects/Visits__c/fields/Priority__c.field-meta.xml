@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority__c</fullName>
+    <inlineHelpText>RED, AMBER &amp; GREEN to be used by Sales only.
+RED = Contacted in 12 working hours.
+AMBER = Contacted in 3-4 working days.
+GREEN = Contacted in 7 working days.</inlineHelpText>
+    <label>Priority</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>3 Hour</fullName>
+                <default>false</default>
+                <label>3 Hour</label>
+            </value>
+            <value>
+                <fullName>8 Hour</fullName>
+                <default>false</default>
+                <label>8 Hour</label>
+            </value>
+            <value>
+                <fullName>24 Hour</fullName>
+                <default>false</default>
+                <label>24 Hour</label>
+            </value>
+            <value>
+                <fullName>3 Day</fullName>
+                <default>false</default>
+                <label>3 Day</label>
+            </value>
+            <value>
+                <fullName>5 Day</fullName>
+                <default>false</default>
+                <label>5 Day</label>
+            </value>
+            <value>
+                <fullName>10 Day</fullName>
+                <default>false</default>
+                <label>10 Day</label>
+            </value>
+            <value>
+                <fullName>Date Specific</fullName>
+                <default>false</default>
+                <label>Date Specific</label>
+            </value>
+            <value>
+                <fullName>RED</fullName>
+                <default>false</default>
+                <label>RED</label>
+            </value>
+            <value>
+                <fullName>AMBER</fullName>
+                <default>false</default>
+                <label>AMBER</label>
+            </value>
+            <value>
+                <fullName>GREEN</fullName>
+                <default>false</default>
+                <label>GREEN</label>
+            </value>
+            <value>
+                <fullName>2 Hour</fullName>
+                <default>false</default>
+                <label>2 Hour</label>
+            </value>
+            <value>
+                <fullName>1 Hour</fullName>
+                <default>false</default>
+                <label>1 Hour</label>
+            </value>
+            <value>
+                <fullName>Diamond Emergency</fullName>
+                <default>false</default>
+                <label>Diamond Emergency</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

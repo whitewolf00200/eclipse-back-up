@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Credit_Note</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Credit Note</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/a0x/e?&amp;CF00N4E000000qIno={!Opportunity.Account}&amp;CF00N4E000000qIno_lkid={!Opportunity.AccountId}&amp;retURL=%2F{!Opportunity.Id}&amp;CF00N4E000000qIwC={!Opportunity.Name}&amp;CF00N4E000000qIwC_lkid={!Opportunity.Id}</url>
+</WebLink>

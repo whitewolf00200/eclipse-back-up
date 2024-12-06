@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Complete_Check</fullName>
+    <active>true</active>
+    <description>Visit Completed could not checked unless End Date is Past 
+If Customer/Site name is Holidays, Messages &amp; Training.</description>
+    <errorConditionFormula>AND( 
+ OR( BEGINS( Site__r.Name ,&apos;Holidays&apos;), 
+    BEGINS( Site__r.Name,&apos;Training&apos;), 
+    BEGINS( Site__r.Name,&apos;Messages&apos;)), 
+ End_Date__c &gt; TODAY(), 
+ Visit_Complete__c =true)</errorConditionFormula>
+    <errorDisplayField>Visit_Complete__c</errorDisplayField>
+    <errorMessage>To Visit Complete, If Customer/Site Names are Holidays, Training &amp; Messages and End Date should be past date</errorMessage>
+</ValidationRule>

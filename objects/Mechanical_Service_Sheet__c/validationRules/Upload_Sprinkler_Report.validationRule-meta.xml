@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upload_Sprinkler_Report</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+ISPICKVAL( System_Type__c , &apos;Sprinkler&apos;), UploadReportsWasUsed__c = FALSE, Fire_Extinguisher_Service_complete__c = TRUE 
+)</errorConditionFormula>
+    <errorMessage>Please upload a Sprinkler Report or state a reason if there are no report. See the Upload report button</errorMessage>
+</ValidationRule>

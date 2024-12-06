@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MSS_Liquid_Quantity_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK( Liquid_Level_Qty__c )), 
+OR(ISBLANK( Liquid_Level_Pass__c )), ISBLANK( Liquid_Level_Fail__c ))</errorConditionFormula>
+    <errorMessage>Please enter Pass or Fail for Liquid Level Quantity</errorMessage>
+</ValidationRule>

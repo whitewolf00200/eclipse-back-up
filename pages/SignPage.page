@@ -1,0 +1,5 @@
+<apex:page showHeader="false" sidebar="false" controller="SignatureComponentController" lightningStylesheets="true">  
+   <apex:pagemessages ></apex:pagemessages>
+      <c:Signature parentId="{!JSENCODE($CurrentPage.parameters.Id)}" isCustomer="{!JSENCODE($CurrentPage.parameters.customer)}"/>  
+    
+</apex:page>

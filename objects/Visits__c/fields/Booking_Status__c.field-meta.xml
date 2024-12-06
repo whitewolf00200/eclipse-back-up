@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( Is_in_a_shopping_centre__c &lt;&gt; &quot;&quot;, IF ( Is_in_a_shopping_centre__c &lt;&gt; &quot;No&quot;, IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;,20,20)&amp; &quot;This is in a shopping centre : &quot;&amp;Is_in_a_shopping_centre__c&amp;BR(),&quot;&quot;),&quot;&quot;)&amp;
+
+IF (  Site_Contract__r.Specific_Day__c  &lt;&gt; &quot;&quot;, IF ( Site_Contract__r.Specific_Day__c  &lt;&gt; &quot;No&quot;, IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;,20,20)&amp; &quot;Specific Date/Time: &quot;&amp;Site_Contract__r.Specific_Day__c &amp;BR(),&quot;&quot;),&quot;&quot;)&amp;
+
+IF (  Site__r.Site_Induction__c  &lt;&gt; &quot;&quot;, IF ( Site__r.Site_Induction__c  &lt;&gt; &quot;No&quot;, IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;,20,20)&amp; &quot;Permit Required : &quot;&amp;Site__r.Site_Induction__c &amp;BR(),&quot;&quot;),&quot;&quot;)&amp;
+  
+IF(  TEXT(Site_Contract__r.Site__r.UK_Related__c) = &quot;Yes&quot;,IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 15) &amp;&quot; OFFSHORE SITE &quot;&amp;IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 15), &quot;&quot;)&amp;
+
+IF(   AND(TEXT(Original_Actual_Service_Date__c) &lt;&gt; &quot;&quot;,  TEXT(Actual_Service_Date__c) &lt;&gt; &quot;&quot;, Actual_Service_Date__c - Original_Actual_Service_Date__c &gt; 60), IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 15)&amp;&quot; NOTE Original Service Date is &quot;&amp;TEXT(Actual_Service_Date__c - Original_Actual_Service_Date__c)&amp;&quot; days in the past&quot; , &quot;&quot;)&amp;
+
+IF (  OR ( 
+        TEXT(Site_Contract__r.AM_Status__c) = &quot;Dormant&quot;,
+        TEXT(Site_Contract__r.AM_Status__c) = &quot;Hold&quot; ),
+&quot;***** WARNING THIS ACCOUNT IS &quot;&amp;TEXT(Site_Contract__r.AM_Status__c)&amp;&quot; ******   &quot; &amp;IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 200), &quot;&quot; 
+   )
+
+&amp;
+
+IF(
+AND (TEXT (Accepted__c) = &quot;Yes&quot;,  IF( ISPICKVAL(Booked_with_Customers__c, &apos;Yes&apos;),1,0) = 1), IMAGE( &quot;/img/samples/color_green.gif&quot;, &quot;green&quot;, 15, 200),
+
+
+IF(AND( Actual_Service_Date__c &lt; TODAY() + 2,   IF(ISPICKVAL(Booked_with_Customers__c, &apos;Yes&apos;),1,0) = 0),IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 200),
+
+IF(AND( Actual_Service_Date__c &lt; TODAY() + 3,  IF(ISPICKVAL(Booked_with_Customers__c, &apos;Yes&apos;),1,0) = 0),IMAGE( &quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, 150),
+
+IF(AND( Actual_Service_Date__c &lt; TODAY() + 4,  IF(ISPICKVAL(Booked_with_Customers__c, &apos;Yes&apos;),1,0) = 0),IMAGE( &quot;/img/samples/color_yellow.gif&quot;, &quot;yellow&quot;, 15, 200),
+
+IF
+(AND (Actual_Service_Date__c &lt; TODAY()+ 5,   IF(ISPICKVAL(Booked_with_Customers__c, &apos;Yes&apos;),1,0)= 0),IMAGE( &quot;/img/samples/color_yellow.gif&quot;, &quot;yellow&quot;, 15, 150),
+
+
+
+
+ &quot;&quot;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Accepted is Yes and Booked with Customer is true- Green
+Actual Service Date is a day away and BWC is false - Long Red  
+Actual Service Date is 2 days  away and BWC is false - Short Red
+Actual Service Date is 3 days away and BWC is false - Long Yellow</inlineHelpText>
+    <label>Booking Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

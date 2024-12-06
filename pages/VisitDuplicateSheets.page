@@ -1,0 +1,32 @@
+<apex:page StandardController="Visits__c" extensions="VisitDuplicateSheetHandler">
+  
+     <apex:form id="visitForm">
+<script>
+             window.load = openSubmitVisitPage();
+             function openSubmitVisitPage(){
+                  var ObjType="{!ObjType}";
+                                        
+                         if (ObjType == 'Air Compressor Service and Test Report'){
+                            window.open("/a0A/e?CF00N580000064xWJ={!Visits__c.Name}&CF00N580000064xWJ_lkid={!Visits__c.Id}&retURL={!Visits__c.Id}&RecordType={!allrecordtypeMap['Air Compressor Service and Test Report']}&CF00N580000064xWH={!Visits__c.Site__r.Name}&CF00N580000064xWH_lkid={!Visits__c.Site__r.Id}&CF00N580000064xeI={!Visits__c.Engineer2__r.Name}&CF00N580000064xeI_lkid={!Visits__c.Engineer2__r.Id}&CF00N580000064xiC={!Visits__c.Site_Contract__r.Name}&CF00N580000064xiC_LKID={!Visits__c.Site_Contract__r.Id}","_top"); 
+                          }else if(ObjType == 'Getinge Autoclave'){
+                            window.open("/a0A/e?CF00N580000064xWJ={!Visits__c.Name}&CF00N580000064xWJ_lkid={!Visits__c.Id}&retURL={!Visits__c.Id}&RecordType={!allrecordtypeMap['Air Compressor Service and Test Report']}&CF00N580000064xWH={!Visits__c.Site__r.Name}&CF00N580000064xWH_lkid={!Visits__c.Site__r.Id}&CF00N580000064xeI={!Visits__c.Engineer2__r.Name}&CF00N580000064xeI_lkid={!Visits__c.Engineer2__r.Id}&CF00N580000064xiC={!Visits__c.Site_Contract__r.Name}&CF00N580000064xiC_LKID={!Visits__c.Site_Contract__r.Id}","_top"); 
+                          }else if(ObjType == 'Getinge Washer Disinfector'){
+                            window.open("/a0A/e?CF00N580000064xWJ={!Visits__c.Name}&CF00N580000064xWJ_lkid={!Visits__c.Id}&retURL={!Visits__c.Id}&RecordType={!allrecordtypeMap['Air Compressor Service and Test Report']}&CF00N580000064xWH={!Visits__c.Site__r.Name}&CF00N580000064xWH_lkid={!Visits__c.Site__r.Id}&CF00N580000064xeI={!Visits__c.Engineer2__r.Name}&CF00N580000064xeI_lkid={!Visits__c.Engineer2__r.Id}&CF00N580000064xiC={!Visits__c.Site_Contract__r.Name}&CF00N580000064xiC_LKID={!Visits__c.Site_Contract__r.Id}","_top"); 
+                          }else if(ObjType == 'Mechanical X-Ray Report'){
+                            window.open("/a0A/e?CF00N580000064xWJ={!Visits__c.Name}&CF00N580000064xWJ_lkid={!Visits__c.Id}&retURL={!Visits__c.Id}&RecordType={!allrecordtypeMap['Air Compressor Service and Test Report']}&CF00N580000064xWH={!Visits__c.Site__r.Name}&CF00N580000064xWH_lkid={!Visits__c.Site__r.Id}&CF00N580000064xeI={!Visits__c.Engineer2__r.Name}&CF00N580000064xeI_lkid={!Visits__c.Engineer2__r.Id}&CF00N580000064xiC={!Visits__c.Site_Contract__r.Name}&CF00N580000064xiC_LKID={!Visits__c.Site_Contract__r.Id}","_top"); 
+                          }else if(ObjType == 'Medisafe Washer disinfector service'){
+                            window.open("/a0A/e?CF00N580000064xWJ={!Visits__c.Name}&CF00N580000064xWJ_lkid={!Visits__c.Id}&retURL={!Visits__c.Id}&RecordType={!allrecordtypeMap['Air Compressor Service and Test Report']}&CF00N580000064xWH={!Visits__c.Site__r.Name}&CF00N580000064xWH_lkid={!Visits__c.Site__r.Id}&CF00N580000064xeI={!Visits__c.Engineer2__r.Name}&CF00N580000064xeI_lkid={!Visits__c.Engineer2__r.Id}&CF00N580000064xiC={!Visits__c.Site_Contract__r.Name}&CF00N580000064xiC_LKID={!Visits__c.Site_Contract__r.Id}","_top"); 
+                          }else if(ObjType == 'Report of Examination'){
+                            window.open("/a0A/e?CF00N580000064xWJ={!Visits__c.Name}&CF00N580000064xWJ_lkid={!Visits__c.Id}&retURL={!Visits__c.Id}&RecordType={!allrecordtypeMap['Air Compressor Service and Test Report']}&CF00N580000064xWH={!Visits__c.Site__r.Name}&CF00N580000064xWH_lkid={!Visits__c.Site__r.Id}&CF00N580000064xeI={!Visits__c.Engineer2__r.Name}&CF00N580000064xeI_lkid={!Visits__c.Engineer2__r.Id}&CF00N580000064xiC={!Visits__c.Site_Contract__r.Name}&CF00N580000064xiC_LKID={!Visits__c.Site_Contract__r.Id}","_top"); 
+                          }else if(ObjType == 'Suction Pump Service'){
+                           window.open("/a0A/e?CF00N580000064xWJ={!Visits__c.Name}&CF00N580000064xWJ_lkid={!Visits__c.Id}&retURL={!Visits__c.Id}&RecordType={!allrecordtypeMap['Air Compressor Service and Test Report']}&CF00N580000064xWH={!Visits__c.Site__r.Name}&CF00N580000064xWH_lkid={!Visits__c.Site__r.Id}&CF00N580000064xeI={!Visits__c.Engineer2__r.Name}&CF00N580000064xeI_lkid={!Visits__c.Engineer2__r.Id}&CF00N580000064xiC={!Visits__c.Site_Contract__r.Name}&CF00N580000064xiC_LKID={!Visits__c.Site_Contract__r.Id}","_top"); 
+                          }else if(ObjType == 'Treatment Centre Certificate Of Service'){
+                           window.open("/a0A/e?CF00N580000064xWJ={!Visits__c.Name}&CF00N580000064xWJ_lkid={!Visits__c.Id}&retURL={!Visits__c.Id}&RecordType={!allrecordtypeMap['Air Compressor Service and Test Report']}&CF00N580000064xWH={!Visits__c.Site__r.Name}&CF00N580000064xWH_lkid={!Visits__c.Site__r.Id}&CF00N580000064xeI={!Visits__c.Engineer2__r.Name}&CF00N580000064xeI_lkid={!Visits__c.Engineer2__r.Id}&CF00N580000064xiC={!Visits__c.Site_Contract__r.Name}&CF00N580000064xiC_LKID={!Visits__c.Site_Contract__r.Id}","_top"); 
+                          }else {
+                           window.open("/{!Visits__c.Id}","_top");
+                          }
+      </script>
+
+    </apex:form>
+
+</apex:page>

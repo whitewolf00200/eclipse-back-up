@@ -1,0 +1,317 @@
+<apex:page standardcontroller="Service_Sheet_STD__c" showheader="false" sidebar="false" renderas="pdf" applyHtmlTag="false" >
+<head>
+<style>
+body {
+background-color:#CCC;
+color:#333;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:21px;
+}
+
+h1,
+h2,
+hr {
+background-color:#48164D;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+}
+h1 {
+font-size:20px;
+line-height:20px;
+min-height:20px;
+padding:10px;
+text-align:center;
+}
+h2 {
+width:650px;
+padding:5px;
+font-size:14px;
+line-height:14px;
+}
+p {
+font-size:13px;
+line-height:21px;
+margin:0 0 7px;
+}
+p strong {
+font-weight:bold;
+}
+hr {
+height:25px;
+margin:0 0 5px;
+padding:0;
+}
+#logo {
+width:280px;
+height:100px;
+margin:10px auto;
+}
+
+
+table {
+width:660px;
+font-size:13px;
+border:0;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+border-spacing: 0;
+}
+td {
+padding:2px;
+text-align:left;
+border:1px solid #FFF;
+vertical-align:top;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+}
+th{
+background-color:#48164D !important;
+color:#FFF;
+font-family:Verdana,Arial, Helvetica, sans-serif;
+font-size:20px;
+line-height:21px;
+}
+th.tth{
+background-color:#48164D !important;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:21px;
+font-weight:bold;
+}
+td.tt{
+background-color:#48164D;
+color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+img{
+width:50px;
+}
+
+  </style>
+  </head>
+<p  style="text-align:center;background-color:#48164D;color:#FFF;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:20px;line-height:21px;"><br/>{!Service_Sheet_STD__c.Maintenance_Type__c} Report<br/><br/>
+</p>
+<div style="text-align: center;width:30;height:30;" id="logo">       
+<!--<img style="width:250px;height:100px;" src="https://c.eu6.content.force.com/servlet/servlet.FileDownload?file=01558000000MUFm"/>-->
+    <img src="{!$Resource.EclipseDentalLogonew}" width="250px" height="250px"   />    </div><br/><br/><br/><br/><br/><br/><br/><br/>
+<p style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:21px;">Registered Address: Eclipse Dental Care, 27 Branch Road, Batley, West Yorkshire WF17 5SB <br/>
+</p>
+<div style="text-align:center;color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:13px;line-height:17px;">Tel: 01924 473396 / 01924 472183
+Email: <a href="reception@eclipsedentalcare.co.uk">reception@eclipsedentalcare.co.uk</a>
+</div>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr>
+        <!-- <th class="tth"  width="40%" colspan = "4">Date &#38; Time On Site</th>
+        <th class="tth"  width="12%">Travel Time</th> -->
+        <th class="tth"  width="12%" >Date</th>
+        <th class="tth"  width="12%" >Out Of Hours</th>
+        
+       <!-- <th class="tth" width="12%">Technician</th> -->
+        <th class="tth"  width="12%">Number</th>
+      </tr>
+</table>
+  <table  style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%">
+      <tr>
+       <!-- <td width="10%">Arrive</td>
+        <td width="10%"><apex:outputfield value="{!Service_Sheet_STD__c.Arrive__c}"/></td>
+        <td width="10%">Depart</td>
+        <td width="10%"><apex:outputfield value="{!Service_Sheet_STD__c.Depart__c}"/></td>
+        <td width="12%">{!Service_Sheet_STD__c.Travel_Time__c}</td> -->
+        <td width="12%">{!Service_Sheet_STD__c.Created_ddmmyyy__c }</td> 
+        <td width="12%">{!if(Service_Sheet_STD__c.Out_of_Hours__c='Yes','Yes','No')}</td> 
+       
+       <!-- <td width="12%"><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Engineer_Code__c}"/></td> -->
+      
+        <td width="12%">{!Service_Sheet_STD__c.PreviewSheetNo__c}</td>
+       
+      </tr>
+
+  </table>
+ 
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="33%">Site Address:</th>
+       </tr>
+        <tr>
+        <td> <p style="text-align:left;"> <apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Site_Address__c}"/></p></td>
+        </tr>
+
+    </tbody>
+  </table>
+
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="100%"><label for="order">Visit Details / Comments:</label></th>
+       </tr>
+            <tr>
+        <td><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Site_Visit_Details_Comments__c}"/></td>
+        </tr>
+        <td><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Parts_Used_and_Quantity__c}"/></td>
+        <tr>
+        <!--<tr style="{!if(isnull(Service_Sheet_STD__c.Comments_to_Sales__c),'display:none;','display:tablerow;')}" > -->
+        <td><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Comments_to_Sales__c}"/></td>
+        </tr>
+    </tbody>
+  </table>
+ 
+ <table  > <!-- style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" -->
+            <tr>
+                <td width="80%"><b>PARTS USED</b></td>
+                <td width="20%"><b>QUANTITY</b></td>
+            </tr>
+             <apex:outputPanel rendered="{!Service_Sheet_STD__c.Nursecall_Call_Point_Reset_Pad__c!=NULL}">
+            <tr>
+            <td width="80%">Nursecall Call Point / Reset Pad</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Nursecall_Call_Point_Reset_Pad__c)}</td>
+            </tr>
+            </apex:outputPanel>
+            
+             <apex:outputPanel rendered="{!Service_Sheet_STD__c.Nursecall_Monitoring_Station__c!=NULL}">
+            <tr>
+            <td  width="80%">Nursecall Monitoring Station</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Nursecall_Monitoring_Station__c)}</td>
+            </tr>
+            </apex:outputPanel>
+            
+             <apex:outputPanel rendered="{!Service_Sheet_STD__c.Portable_Appliance_Testing_Quantity__c!=NULL}">
+            <tr>
+            <td width="80%">Portable Appliance Testing Quantity</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Portable_Appliance_Testing_Quantity__c)}</td>
+            </tr>
+            </apex:outputPanel>
+            
+             <apex:outputPanel rendered="{!Service_Sheet_STD__c.Lead_Replacement__c!=NULL}">
+            <tr>
+            <td width="80%">Lead Replacement</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Lead_Replacement__c)}</td>
+            </tr>
+            </apex:outputPanel>
+            
+             <apex:outputPanel rendered="{!Service_Sheet_STD__c.Plug_Connection_Replacement__c!=NULL}">
+            <tr>
+            <td  width="80%">Plug Connection Replacement</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Plug_Connection_Replacement__c)}</td>
+            </tr>
+            </apex:outputPanel>
+            
+             <apex:outputPanel rendered="{!Service_Sheet_STD__c.Microwave_Leakage_Detection__c!=NULL}">
+            <tr>
+            <td width="80%">Microwave Leakage Detection</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Microwave_Leakage_Detection__c)}</td>
+            </tr>
+            </apex:outputPanel>
+            
+             <apex:outputPanel rendered="{!Service_Sheet_STD__c.Kettle_Replacement__c!=NULL}">
+            <tr>
+            <td width="80%">Kettle Replacement</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Kettle_Replacement__c)}</td>
+            </tr>
+            </apex:outputPanel>
+            
+             <apex:outputPanel rendered="{!Service_Sheet_STD__c.Toaster_Replacement__c!=NULL}">
+            <tr>
+            <td width="80%">Toaster Replacement</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Toaster_Replacement__c)}</td>
+            </tr>
+            </apex:outputPanel>
+            
+            <apex:outputPanel rendered="{!Service_Sheet_STD__c.Lubrication_Grease__c!=NULL}">
+            <tr>
+            <td width="80%">Lubrication / Grease</td>
+            <td width="20%">{!Floor(Service_Sheet_STD__c.Lubrication_Grease__c)}</td>
+            </tr>
+            </apex:outputPanel>
+         </table>
+         <apex:outputPanel rendered="{!Service_Sheet_STD__c.Other_Quantity__c!=NULL}">
+        <table>
+            <tr>
+            <td>Other Parts</td>
+            <td><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Other_Parts__c}"/></td>
+            <td>Other Quantity</td>
+            <td>{!Floor(Service_Sheet_STD__c.Other_Quantity__c)}</td>
+            </tr>
+            
+     </table>
+      </apex:outputPanel>
+      <apex:outputPanel rendered="{!Service_Sheet_STD__c.Comments__c!=NULL}">
+        <table>
+            <tr>
+            <td>Technician's Comments to customer</td>
+            <td>{!Service_Sheet_STD__c.Comments__c}</td>
+            </tr>
+            
+     </table>
+      </apex:outputPanel>
+       <apex:outputPanel rendered="{!Service_Sheet_STD__c.Service_Recommendations__c!=NULL}">
+        <table>
+            <tr>
+            <td>Comments To Compliance Team:</td>
+            <td>{!Service_Sheet_STD__c.Service_Recommendations__c}</td>
+            </tr>
+            
+     </table>
+      </apex:outputPanel>
+      
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+    <tbody>
+        <tr>
+        <th width="50%">Maintenance Type:</th>
+        <th width="50%">Revisit Required:</th>
+       </tr>
+            <tr>
+        <td><apex:outputtext escape="false" value="{!Service_Sheet_STD__c.Maintenance_Type__c}"/></td>
+        <td><apex:outputtext escape="false" value="{!if(Service_Sheet_STD__c.Revisit_Required__c,'Yes','No')}"/></td>
+        </tr>
+
+    </tbody>
+  </table>
+ <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:100%" >
+           <tr>
+                <th style="font-family:Verdana, Arial, Helvetica, sans-serif;width:50%"></th>
+        <th style="font-family:Verdana, Arial, Helvetica, sans-serif;width:50%"></th>
+       </tr>
+  
+      </table>
+ <br/>
+  <table style="font-family:Verdana, Arial, Helvetica, sans-serif;width:300px">
+    <tbody>
+     <tr>
+            <td width="150px">Technician's signature</td>
+        <td width="150px">Customer's signature</td>
+        <td width="150px">Customer's FeedBack</td>
+              </tr>
+     <tr>
+        <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Service_Sheet_STD__c.Technician_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/>
+        </span>
+        </td>
+     <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Service_Sheet_STD__c.Customer_s_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/> 
+        </span>
+        </td>
+        
+        <td width="150px"><span style="width:100px;height:100px;">
+        <apex:outputtext value="{!substitute(Service_Sheet_STD__c.CustomerRating__c,"alt=","width=\"30px\" Alt=")}" escape="false"/> 
+        </span>
+        </td>
+        
+         </tr>
+     <tr>
+         <td width="150px">
+        <apex:outputText value="{!Service_Sheet_STD__c.Technician_s_Print__c}" escape="false"/>
+        </td>
+   <td width="150px">
+        <apex:outputText value="{!Service_Sheet_STD__c.Customer_s_Name__c}" escape="false"/>
+        </td>
+        <td width="150px">
+        <apex:outputText value="{!Service_Sheet_STD__c.Feedback_Comments__c}" escape="false"/>
+        </td>
+          </tr>
+      </tbody>
+</table>
+</apex:page>

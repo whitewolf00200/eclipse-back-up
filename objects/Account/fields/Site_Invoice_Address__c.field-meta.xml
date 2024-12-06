@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Invoice_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( OR ( ShippingStreet &lt;&gt; &quot;&quot;, ShippingCity&lt;&gt; &quot;&quot;, ShippingState&lt;&gt; &quot;&quot;, ShippingPostalCode&lt;&gt; &quot;&quot;,  ShippingCountry&lt;&gt; &quot;&quot; ),
+          If (  Site_Invoice_Name__c &lt;&gt; &quot;&quot;, Site_Invoice_Name__c, Name) &amp;BR()&amp;
+          IF ( ShippingStreet &lt;&gt; &quot;&quot; , ShippingStreet &amp;BR(), &quot;&quot; )&amp;
+          IF ( ShippingCity &lt;&gt; &quot;&quot; , ShippingCity &amp;BR(), &quot;&quot; )&amp;
+          IF ( ShippingState &lt;&gt; &quot;&quot; , ShippingState &amp;BR(), &quot;&quot; )&amp;
+          IF ( ShippingPostalCode&lt;&gt; &quot;&quot; , ShippingPostalCode &amp;BR(), &quot;&quot; )&amp;
+          IF ( ShippingCountry&lt;&gt; &quot;&quot; , ShippingCountry &amp;&quot; &quot;, &quot;&quot; ),
+
+IF ( OR ( Parent.ShippingStreet &lt;&gt; &quot;&quot;, Parent.ShippingCity&lt;&gt; &quot;&quot;, Parent.ShippingState&lt;&gt; &quot;&quot;, Parent.ShippingPostalCode&lt;&gt; &quot;&quot;,  Parent.ShippingCountry&lt;&gt; &quot;&quot; ),
+           If (  Site_Invoice_Name__c &lt;&gt; &quot;&quot;, Site_Invoice_Name__c,Parent.Name) &amp;BR()&amp;
+          IF ( Parent.ShippingStreet &lt;&gt; &quot;&quot; , Parent.ShippingStreet &amp;BR(), &quot;&quot; )&amp;
+          IF ( Parent.ShippingCity &lt;&gt; &quot;&quot; , Parent.ShippingCity &amp;BR(), &quot;&quot; )&amp;
+          IF ( Parent.ShippingState &lt;&gt; &quot;&quot; , Parent.ShippingState &amp;BR(), &quot;&quot; )&amp;
+          IF ( Parent.ShippingPostalCode&lt;&gt; &quot;&quot; , Parent.ShippingPostalCode &amp;BR(), &quot;&quot; )&amp;
+          IF ( Parent.ShippingCountry&lt;&gt; &quot;&quot; , Parent.ShippingCountry &amp;&quot; &quot;, &quot;&quot; ),
+
+IF ( OR ( BillingStreet &lt;&gt; &quot;&quot;, BillingCity&lt;&gt; &quot;&quot;, BillingState&lt;&gt; &quot;&quot;, BillingPostalCode&lt;&gt; &quot;&quot;,  BillingCountry&lt;&gt; &quot;&quot; ),
+           If (  Site_Invoice_Name__c &lt;&gt; &quot;&quot;, Site_Invoice_Name__c, Name) &amp;BR()&amp;
+          IF ( BillingStreet &lt;&gt; &quot;&quot; , BillingStreet &amp;BR(), &quot;&quot; )&amp;
+          IF ( BillingCity &lt;&gt; &quot;&quot; , BillingCity &amp;BR(), &quot;&quot; )&amp;
+          IF ( BillingState &lt;&gt; &quot;&quot; , BillingState &amp;BR(), &quot;&quot; )&amp;
+          IF ( BillingPostalCode &lt;&gt; &quot;&quot; , BillingPostalCode &amp;BR(), &quot;&quot; )&amp;
+          IF ( BillingCountry &lt;&gt; &quot;&quot; , BillingCountry &amp;&quot; &quot;, &quot;&quot; ),
+
+
+
+IF ( OR ( Parent.BillingStreet &lt;&gt; &quot;&quot;, Parent.BillingCity&lt;&gt; &quot;&quot;, Parent.BillingState&lt;&gt; &quot;&quot;, Parent.BillingPostalCode&lt;&gt; &quot;&quot;,  Parent.BillingCountry&lt;&gt; &quot;&quot; ),
+           If (  Site_Invoice_Name__c &lt;&gt; &quot;&quot;, Site_Invoice_Name__c,Parent.Name) &amp;BR()&amp;
+          IF ( Parent.BillingStreet &lt;&gt; &quot;&quot; , Parent.BillingStreet &amp;BR(), &quot;&quot; )&amp;
+          IF ( Parent.BillingCity &lt;&gt; &quot;&quot; , Parent.BillingCity &amp;BR(), &quot;&quot; )&amp;
+          IF ( Parent.BillingState &lt;&gt; &quot;&quot; , Parent.BillingState &amp;BR(), &quot;&quot; )&amp;
+          IF ( Parent.BillingPostalCode&lt;&gt; &quot;&quot; , Parent.BillingPostalCode &amp;BR(), &quot;&quot; )&amp;
+          IF ( Parent.BillingCountry&lt;&gt; &quot;&quot; , Parent.BillingCountry &amp;&quot; &quot;, &quot;&quot; ),
+
+
+
+
+
+
+   &quot;No Information in any of the Site ( Billing or Shipping ) or Parent Addresses.&quot;))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This Field Is to work out the Address Logic on a Site. Checks its a site, then if there is a parent. If there is an address in Billing for a Site, and the parent address is different, we have a problem.</inlineHelpText>
+    <label>Invoice Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

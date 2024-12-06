@@ -1,0 +1,109 @@
+<apex:page standardcontroller="Engineer_Checklist__c" showheader="false" sidebar="false" applyHtmlTag="false" renderAs="pdf">
+    <head>
+        <style type="text/CSS">
+        body{
+            font-family:Arial Unicode MS;
+            font-size:14px;
+            }                  
+                              
+        .vl {
+  border-right: 1px solid #038B99;
+  color:#038B99;
+  height: 75px;
+  position: fixed;
+   right: 25%;
+   
+}
+            table,td,th {
+              border: 1px   solid #5A5A5A;
+            align:center;
+            padding:5px;  
+            table-layout: auto; 
+           
+            }
+            .text{
+                     
+            }
+            
+            tr{
+            page-break-inside: avoid;
+            }
+          
+            
+           
+            table{
+            width: 101%;
+            border-collapse: collapse;
+            }
+        .table1{
+        width:25%;
+        align:right;
+        }    
+         
+         td.a {
+            
+            border-width:0px; 
+            border-color:#000000; 
+            padding: 0px;
+}
+
+          td.b {
+             width:50%;
+             font-size:12pt;
+         }
+             @page{
+             
+               @page :first {
+    
+    margin-top: -0.5cm;
+
+   @top-center {
+     
+             content :element(header);
+            } 
+            
+            @bottom-center {
+             content :element(footer);
+            } 
+}
+
+              
+    size:A4 portrait;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 6.8cm;
+    @bottom-left{
+   
+  
+        font-family:Calibri(Body);
+        font-size:15pt;
+        font-weight:bold;
+    }
+   
+    @bottom-left {
+        content: element(footer);
+    }
+}
+
+div.footer {
+   
+    position: running(footer);
+    font-size:7pt;
+font-family:Calibri(Body);
+ margin-left:-43px;
+          
+}
+
+
+.start{
+font-size:10pt;
+font-family:Calibri(Body);
+}
+                 </style>
+    </head>
+    <body  class="start">
+       <c:CompressorInstComp sp="{!Engineer_Checklist__c}"/>             
+                         </body>    
+     
+ </apex:page>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FE_Total__c</fullName>
+    <externalId>false</externalId>
+    <formula>X6L_Water__c+X9L_Water__c+X3L_Water_Mist__c+X6L_Water_Mist__c+X9L_Water_Mist__c+X2L_AFFF__c+X3L_AFFF__c+X6L_AFFF__c+X9L_AFFF__c+X2KG_CO2__c+X5KG_CO2__c+X1KG_DRY_POWDER__c+X2KG_DRY_POWDER__c+X4KG_DRY_POWDER__c+X6KG_DRY_POWDER__c+X9KG_DRY_POWDER__c+X3L_WET_CHEMICAL__c+X6L_WET_CHEMICAL__c+X1_x_1m_Fire_Blanket__c+X1_2_x_1_2m_Fire_Blanket__c+X1_2_x_1_8m_Fire_Blanket__c+Hose_Reel_19mm__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>FE Total</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

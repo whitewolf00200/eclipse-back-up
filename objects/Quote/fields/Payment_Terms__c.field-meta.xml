@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Terms__c</fullName>
+    <defaultValue>IF($RecordType.Name=&apos;Long Project Proposal&apos;, &quot;30% deposit payment due with order&quot;  &amp;  BR()  &amp; &quot;Weekly progress payments for the duration of the project&quot; &amp;  BR()  &amp; &quot;10% balance due on project hand over&quot; &amp;  BR()  &amp; &quot;Please make BACCS payments to: Sort Code 12-20-26,  Account No.01866640&quot;,IF($RecordType.Name=&apos;Short Project Proposal&apos;,&quot;30% deposit payment due with order&quot; &amp; BR() &amp;
+&quot;Weekly progress payments for the duration of the project&quot; &amp; BR() &amp; &quot;10% balance due on project hand over&quot; &amp; BR() &amp;
+&quot;Please make BACCS payments to: Sort Code 12-20-26, Account No. 01866640&quot;,&quot;PAYMENT DUE ON PRESENTATION OF INVOICE&quot; &amp;  BR()  &amp; &quot;Please make BACCS payments to: Sort Code 12-20-26,  Account No. 01866640&quot;))</defaultValue>
+    <label>Special Terms</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

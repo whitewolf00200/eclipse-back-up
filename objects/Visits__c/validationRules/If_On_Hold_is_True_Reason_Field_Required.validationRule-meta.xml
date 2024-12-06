@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>If_On_Hold_is_True_Reason_Field_Required</fullName>
+    <active>true</active>
+    <description>If the On Hold field is True or Checked the Reason Field will be Required.</description>
+    <errorConditionFormula>AND(On_Hold__c  = True, ISBLANK(Reason__c) )</errorConditionFormula>
+    <errorDisplayField>Reason__c</errorDisplayField>
+    <errorMessage>Please Give us a Reason</errorMessage>
+</ValidationRule>

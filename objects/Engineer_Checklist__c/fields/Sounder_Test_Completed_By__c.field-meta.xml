@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sounder_Test_Completed_By__c</fullName>
+    <description>Sounder Test Completed By</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If the CUSTOMER completed the sounder test, fill in their name here.</inlineHelpText>
+    <label>Sounder Test Completed By?</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

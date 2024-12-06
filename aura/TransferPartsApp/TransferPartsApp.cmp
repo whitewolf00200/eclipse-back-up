@@ -1,0 +1,8 @@
+<aura:component implements="lightning:hasPageReference,force:hasRecordId,force:hasSObjectName,lightning:isUrlAddressable" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="c__ProdSupCode" type="String" />
+    <aura:attribute name="c__SrcInvId" type="String" />
+    <aura:attribute name="c__SrcWHId" type="String" />
+    <!--{!v.c__QRCode}
+    {!v.pageReference}-->
+</aura:component>

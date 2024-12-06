@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minimum_Stock_Reached__c</fullName>
+    <formula>And(In_Hand_Quantity__c &lt;= Product__r.Min_Stock__c,Not(ISNULL(Product__r.Min_Stock__c)),Not(ISNULL(Product__r.Maximum_stock_level__c)))</formula>
+    <label>Minimum Stock Reached</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

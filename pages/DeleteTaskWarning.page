@@ -1,0 +1,8 @@
+<apex:page >
+  <script>
+     if (confirm('are you sure you want to delete?')) {
+     
+     }
+  </script>
+  
+</apex:page>

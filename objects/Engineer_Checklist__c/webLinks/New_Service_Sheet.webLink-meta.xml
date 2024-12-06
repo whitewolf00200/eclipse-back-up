@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Service_Sheet</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Service Sheet</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/setup/ui/recordtypeselect.jsp?ent=01I58000000NqwK&amp;CF00N580000064xWJ={!Visits__c.Name}&amp;CF00N580000064xWJ_lkid={!Visits__c.Id}&amp;save_new_url=a0A/e&amp;retURL={!Visits__c.Id}&amp;CF00N580000064xiC={!Visits__c.Site_Contract__c}&amp;CF00N580000064xWH={!Visits__c.Site__c}&amp;CF00N580000064xeI={!Visits__c.Engineer2__c}&amp;00N580000064xeD={!Visits__c.Customer_Conf_Email__c}&amp;&amp;00N4E000000HpyY={!Visits__c.Type__c}</url>
+</WebLink>

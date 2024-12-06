@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EL_Tube__c</fullName>
+    <label>EL Tube</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>4 Watt Tube rep</fullName>
+                <default>false</default>
+                <label>4 Watt Tube rep</label>
+            </value>
+            <value>
+                <fullName>6 Watt Tube rep.</fullName>
+                <default>false</default>
+                <label>6 Watt Tube rep.</label>
+            </value>
+            <value>
+                <fullName>8 Watt Tube rep.</fullName>
+                <default>false</default>
+                <label>8 Watt Tube rep.</label>
+            </value>
+            <value>
+                <fullName>2D Lamp/Biax</fullName>
+                <default>false</default>
+                <label>2D Lamp/Biax</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

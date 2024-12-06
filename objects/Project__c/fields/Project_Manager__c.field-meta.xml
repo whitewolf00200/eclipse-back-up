@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Manager__c</fullName>
+    <label>Project Manager</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Chester Boyt</fullName>
+                <default>false</default>
+                <label>Chester Boyt</label>
+            </value>
+            <value>
+                <fullName>John Boyt</fullName>
+                <default>false</default>
+                <label>John Boyt</label>
+            </value>
+            <value>
+                <fullName>Ralph Boyt</fullName>
+                <default>false</default>
+                <label>Ralph Boyt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

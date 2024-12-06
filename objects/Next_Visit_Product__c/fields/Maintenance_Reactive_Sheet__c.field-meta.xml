@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maintenance_Reactive_Sheet__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Maintenance &amp; Reactive Sheet</label>
+    <referenceTo>Service_Sheet_STD__c</referenceTo>
+    <relationshipLabel>Requested for Next Visit Products</relationshipLabel>
+    <relationshipName>Requested_for_Next_Visit_Products</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
